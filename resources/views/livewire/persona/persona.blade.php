@@ -5,7 +5,7 @@
         <thead>
             <tr>
               <th class="px-4 py-2" scope="col">DNI</th>
-              <th class="px-4 py-2" scope="col">Nombres</th>
+              <th class="px-4 py-2" scope="col">Nombre</th>
               <th class="px-4 py-2" scope="col">Apellidos</th>
               <th class="px-4 py-2" scope="col">Fecha de Nacimiento</th>
               <th>Acciones</th>
