@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('alans', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('apellidos');
             $table->string('dni');
-            $table->string('sexo');
             $table->string('fecha_nacimiento');
             $table->timestamps();
         });
