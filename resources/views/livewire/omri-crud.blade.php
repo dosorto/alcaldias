@@ -80,7 +80,7 @@
         <input type="date" wire:model="fecha_nacimiento" placeholder="Fecha de nacimiento">
         <button type="submit">{{ $updateMode ? 'Actualizar' : 'Guardar' }}</button>
         @if($updateMode)
-            <button wire:click="updateMode = false" type="button" class="cancel">Cancelar</button>
+            
         @endif
     </form>
     <h1>Personas Agregadas</h1>
