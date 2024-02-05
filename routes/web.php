@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Personas;
+use App\Livewire\David;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/personas',Personas::class);
+    Route::get('/personas',David::class);
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');

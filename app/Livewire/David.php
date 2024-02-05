@@ -3,15 +3,15 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Persona;
+use App\Models\Isaac;
 
-class Personas extends Component
+class David extends Component
 {
     public $personas,  $nombre, $apellido, $id_persona;
     public $modal =false;
     public function render()
     {
-        $this->personas =Persona::all();
+        $this->personas =Isaac::all();
         return view('livewire.personas')->layout('layouts.app');
     }
 
@@ -35,7 +35,7 @@ class Personas extends Component
     }
     public function editar($id)
     {
-        $persona = Persona::findOrFail($id);
+        $persona = Isaac::findOrFail($id);
         $this->id_persona = $id;
         $this->nombre = $persona->nombre;
         $this->apellido = $persona->apellido;
@@ -44,13 +44,13 @@ class Personas extends Component
 
     public function borrar($id)
     {
-        Persona::find($id)->delete();
+        Isaac::find($id)->delete();
         session()->flash('message', 'Registro eliminado correctamente');
     }
 
     public function guardar()
     {
-        Persona::updateOrCreate(['id'=>$this->id_persona],
+        Isaac::updateOrCreate(['id'=>$this->id_persona],
             [
                 'nombre' => $this->nombre,
                 'apellido' => $this->apellido
