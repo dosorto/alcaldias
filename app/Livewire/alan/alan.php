@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Livewire\Persona;
+namespace App\Livewire\alan;
 
 use App\Models\Alan;
 use Livewire\Component;
-use App\Models\Personas;
 
 class Persona extends Component
 {
@@ -16,7 +15,7 @@ class Persona extends Component
     public function render()
     {
         $this->personas = Alan::all();
-        return view('livewire.persona.persona');
+        return view('livewire.alan.persona');
     }
 
     public function crear()
@@ -80,7 +79,7 @@ class Persona extends Component
 
     public function retornar()
     {
-        return view('livewire.persona.persona');
+        return view('livewire.alan.persona');
 
     }
 

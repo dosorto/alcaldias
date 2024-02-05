@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Alan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/personas', function () {
     return view('welcome');
-});
+});*/
+Route::get('/persona', Alan::class);
