@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\Persona\Persona;
+use App\Livewire\Alan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::middleware([ 'auth:sanctum',  'verified', ])->group(function () {
-    // Route::get('/personas', Persona::class);
+    // Route::get('/personas', Alan::class);
     Route::get('/dashboard', function () {
      return view('dashboard');})->name('dashboard');
      Route::get('/crear-persona', function () {
