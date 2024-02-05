@@ -51,7 +51,6 @@
     font-weight: bold;
     }
 
-    /* Estilo para el contenedor del formulario */
     form {
     max-width:1250px;
     margin: 20px auto;
@@ -63,14 +62,12 @@
     
     }
 
-    /* Estilo para las etiquetas de los campos */
     label {
     display: block;
     margin-bottom: 2px;
     font-weight: bold;
     }
 
-    /* Estilo para los campos de entrada de texto */
     input{
     width: 1090px;
     padding: 8px;
@@ -80,7 +77,6 @@
     border-radius: 4px;
     }
 
-    /* Estilo para el botón de enviar */
     input[type="submit"] {
     background-color: #4caf50;
     color: #fff;
@@ -90,7 +86,6 @@
     cursor: pointer;
     }
 
-    /* Cambiar el estilo del botón cuando se pasa el ratón sobre él */
     input[type="submit"]:hover {
     background-color: #45a049;
     }
@@ -99,7 +94,7 @@
     <form wire:submit.prevent="{{ $updateMode ? 'update' : 'store' }}"> 
         <ul>
             <li>    
-                <label for="name">Nombre:</label>
+                <label for="name">Nombre Completo:</label>
                 <br>
                 <input type="text" wire:model="nombre_completo"> 
             </li>
@@ -144,7 +139,7 @@
                 <th>DNI</th> 
                 <th>Sexo</th> 
                 <th>Fecha de Nacimiento</th> 
-                <th>Acciones</th> 
+                <th>Opciones</th> 
             </tr> 
         </thead> 
         <tbody> 
@@ -155,7 +150,7 @@
                     <td>{{ $persona->sexo }}</td> 
                     <td>{{ $persona->fecha_nacimiento }}</td> 
                     <td> 
-                        <button wire:click="edit({{ $persona->id }})" type="button" class="edit">Editar</button> 
+                        <button wire:click="edit({{ $persona->id }})" type="button" class="edit">Actualizar</button> 
                         <button wire:click="destroy({{ $persona->id }})" type="button">Eliminar</button> 
                     </td> 
                 </tr> 
