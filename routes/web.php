@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Brandons\BrandonForm;
 use Illuminate\Support\Facades\Route;
 
 /*
