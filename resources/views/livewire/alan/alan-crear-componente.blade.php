@@ -35,7 +35,7 @@
             <input type="date" class="form-control" id="fecha_nacimiento" wire:model="fecha_nacimiento" required/>
           </div>
 
-          <button wire:click="guardar()"  type="submit" class="btn btn-success">Guardad</button>
+          <button wire:click="guardar()"  type="submit" class="btn btn-success">Guardar</button>
           <button wire:click="volver()" type="button" class="btn btn-secundary"> Cancelar</button>
 
         </form>
