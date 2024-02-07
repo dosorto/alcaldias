@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Alexs;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +16,3 @@ use App\Livewire\Alexs;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
