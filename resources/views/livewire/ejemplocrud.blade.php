@@ -1,6 +1,6 @@
 <div> 
-    <h1>REGISTRO DE PERSONAS</h1>
-
+    <h1>CRUD Nataly</h1>
+    <h2>REGISTRO DE PERSONAS</h2>
     <style>
     *{
         font-size: 18px;
@@ -10,6 +10,12 @@
     h1 {
         text-align: center;
         font-size: 22px;
+        margin: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 18px;
         margin: 20px;
     }
 
@@ -59,7 +65,6 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: white;
-    
     }
 
     label {
@@ -70,6 +75,7 @@
 
     input{
     width: 1090px;
+    float: center;
     padding: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -91,46 +97,23 @@
     }
     </style>
 
-    <form wire:submit.prevent="{{ $updateMode ? 'update' : 'store' }}"> 
-        <ul>
-            <li>    
-                <label for="name">Nombre Completo:</label>
-                <br>
-                <input type="text" wire:model="nombre_completo"> 
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <label for="name">DNI:</label>
-                <br>
-                <input type="text" wire:model="dni"> 
-            </li>
-        </ul>
-        <ul>
-            <li>            
-                <label for="name">Sexo:</label>
-                <br>
-                <input type="text" wire:model="sexo"> 
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <label for="name">Fecha de nacimiento:</label>
-                <br>
-                <input type="date" wire:model="fecha_nacimiento"> 
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <button type="submit">{{ $updateMode ? 'Actualizar' : 'Guardar' }}</button> 
-                    @if($updateMode) 
-                        <button wire:click="updateMode = false" type="button">Cancelar</button> 
-                    @endif 
-            </li>
-        </ul>
-    </form> 
+    <form wire:submit.prevent="{{ $updateMode ? 'update' : 'store' }}">
+        <label>Ingrese su nombre completo:</label>
+        <input type="text" wire:model="nombre_completo">
+        <label>Ingrese su DNI:</label>
+        <input type="text" wire:model="dni">
+        <label>Ingrese su sexo:</label>
+        <input type="text" wire:model="sexo">
+        <label>Ingrese su fecha de nacimiento:</label>
+        <input type="date" wire:model="fecha_nacimiento">
+        <br>
+        <button type="submit">{{ $updateMode ? 'Actualizar' : 'Guardar' }}</button>
+        @if($updateMode)
+            
+        @endif
+    </form>
     
-    <h1>DATOS ALMACENADOS</h1>
+    <h2>DATOS ALMACENADOS</h2>
 
     <table> 
         <thead> 
