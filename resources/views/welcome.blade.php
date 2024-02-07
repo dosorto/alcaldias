@@ -20,9 +20,6 @@
         @livewireScripts
         </div>
         
-        <livewire:omri-crud />
-        @livewireScripts
-
         <div class="mt-3">
             <h3 align="center">Alex Crud</h3>
             @livewire('alex-componente')
