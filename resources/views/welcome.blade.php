@@ -34,7 +34,11 @@
         @livewire('alan-componente')
         </div>
 
-
+        <div class="mt-3">
+            <h3>CRUD Nataly</h3>
+        <livewire:Ejemplocrud /> 
+        @livewireScripts 
+        </div>
 
 
 
@@ -42,5 +46,3 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>
 <html>
-
-
