@@ -103,8 +103,12 @@ body {
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
           </form>
 
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="bi bi-person-circle"></i>
+            </a>
 
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -115,6 +119,10 @@ body {
                 @csrf
             </form>
           </div>
+
+          </li>
+
+
 
       </ul>
     </div>
