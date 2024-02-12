@@ -9,7 +9,7 @@
 <style>
 /* Estilos para el cuerpo de la página */
 body {
-  background-color: #40E0D0;/* Azul turquesa */
+  background-color: #c7c7c7;/* Azul turquesa */
 }
 
 /* Estilos para el menú desplegable en pantallas pequeñas */
@@ -24,7 +24,7 @@ body {
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="min-height: 40px;"> <!-- Modificar la altura mínima -->
   <div class="container">
-    <a class="navbar-brand ml-auto" href="#">Alcaldia Municipal</a>
+    <a class="navbar-brand ml-auto" href="#">A.M  <i class="bi bi-bank"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,9 +40,9 @@ body {
               Alcaldia Municipal
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Mision y Visión</a>
-              <a class="dropdown-item" href="#">Ley De Municipalidad</a>
-              <a class="dropdown-item" href="#">Documentos De Interes</a>
+              <a class="dropdown-item" href="#">Mision y Visión  <i class="bi bi-graph-up"></i></a>
+              <a class="dropdown-item" href="#">Ley De Municipalidad  </a>
+              <a class="dropdown-item" href="#">Documentos De Interes  <i class="bi bi-file-text"></i></a>
             </div>
           </li>
 
@@ -53,9 +53,9 @@ body {
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">Bienes Inmuebles</a>
-            <a class="dropdown-item" href="#">Cambio de RTN</a>
-            <a class="dropdown-item" href="#">Matrimonio Civil</a>
-            <a class="dropdown-item" href="#">Solvencia Municipal</a>
+            <a class="dropdown-item" href="#">Cambio de RTN  <i class="bi bi-copy"></i></a>
+            <a class="dropdown-item" href="#">Matrimonio Civil  <i class="bi bi-postcard-heart"></i></a>
+            <a class="dropdown-item" href="#">Solvencia Municipal  <i class="bi bi-wallet"></i></a>
           </div>
         </li>
 
@@ -65,10 +65,10 @@ body {
             Gerencia Catastro
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Limites y Colindancias</a>
-            <a class="dropdown-item" href="#">INA</a>
-            <a class="dropdown-item" href="#">Declaracion Descuento Tercera Edad</a>
-            <a class="dropdown-item" href="#">Ubicacion De Clave Catastral</a>
+            <a class="dropdown-item" href="#">Limites y Colindancias  <i class="bi bi-compass"></i></a>
+            <a class="dropdown-item" href="#">INA  <i class="bi bi-brightness-high-fill"></i></a>
+            <a class="dropdown-item" href="#">Descuento Tercera Edad  <i class="bi bi-cash-coin"></i></a>
+            <a class="dropdown-item" href="#">Ubicacion De Clave Catastral  </a>
           </div>
         </li>
 
@@ -78,9 +78,8 @@ body {
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#">Comunicados</a>
-              <a class="dropdown-item" href="#">Notas De Prensa</a>
-              <a class="dropdown-item" href="#">Calendario-Cabildos Abiertos</a>
-              <a class="dropdown-item" href="#">Ubicacion De Clave Catastral</a>
+              <a class="dropdown-item" href="#">Notas De Prensa  <i class="bi bi-newspaper"></i></a>
+              <a class="dropdown-item" href="#">Calendario-Cabildos Abiertos  <i class="bi bi-calendar3"></i></a>
             </div>
           </li>
 
@@ -90,9 +89,9 @@ body {
             </a>
 
             <div class="dropdown-menu" aria-labelledby="contactDropdown">
-              <a class="dropdown-item" href="#"> Facebook <i class="bi bi-facebook"></i></a>
-              <a class="dropdown-item" href="#"> Whatsapp <i class="bi bi-whatsapp"></i> </a>
-              <a class="dropdown-item" href="#"> Ubicacion<i class="bi bi-geo-alt"></i></a>
+              <a class="dropdown-item" href="#" style="width: 40px;">Facebook  <i class="bi bi-facebook"></i></a>
+              <a class="dropdown-item" href="#" style="width: 40px;">WhatsApp  <i class="bi bi-whatsapp"></i> </a>
+              <a class="dropdown-item" href="#" style="width: 40px;">Ubicacion <i class="bi bi-geo-alt"></i></a>
             </div>
 
           </li>
@@ -100,10 +99,22 @@ body {
           <!-- Modificar el formulario de búsqueda -->
 
           <form class="form-inline my-2 my-lg-0 ml-auto" style="max-width: 250px;"> <!-- Ajustar el tamaño del formulario -->
-            <input class="form-control mr-sm-2" type="search" placeholder="Escriba" aria-label="Search" style="width: 115px;"> <!-- Ajustar el tamaño del campo de búsqueda -->
+            <input class="form-control mr-sm-2" type="search" placeholder="Escriba..." aria-label="Search" style="width: 170px;"> <!-- Ajustar el tamaño del campo de búsqueda -->
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
           </form>
 
+
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </div>
       </ul>
     </div>
   </div>
