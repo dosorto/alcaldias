@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 <<<<<<< HEAD
-Route::get('/home',[HomeController::class,'inicio'])->name('home');
+Route::get('/home',[HomeController::class,'index'])->name('home');
 =======
 Auth::routes();
 
