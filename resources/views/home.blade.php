@@ -9,7 +9,7 @@
 <style>
 /* Estilos para el cuerpo de la página */
 body {
-  background-color: #c7c7c7;/* Azul turquesa */
+  background-color: #eee;/* Azul turquesa */
 }
 
 /* Estilos para el menú desplegable en pantallas pequeñas */
@@ -24,7 +24,11 @@ body {
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="min-height: 40px;"> <!-- Modificar la altura mínima -->
   <div class="container">
-    <a class="navbar-brand ml-auto" href="#">A.M  <i class="bi bi-bank"></i></a>
+    <a class="navbar-brand ml-auto" href="#">
+                    <img src="https://img.freepik.com/vector-gratis/ilustracion-concepto-ayuntamiento_114360-15155.jpg"
+                    style="width: 60px;" alt="logo">
+                    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
