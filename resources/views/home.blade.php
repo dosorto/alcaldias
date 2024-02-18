@@ -47,6 +47,7 @@ body {
               <a class="dropdown-item" href="#">Mision y Visión  <i class="bi bi-graph-up"></i></a>
               <a class="dropdown-item" href="#">Ley De Municipalidad  </a>
               <a class="dropdown-item" href="#">Documentos De Interes  <i class="bi bi-file-text"></i></a>
+              <a class="dropdown-item" href="{{ route('admin.users.index') }}">Administrar Usuarios  <i class="bi bi-file-text"></i></a>
             </div>
           </li>
 
