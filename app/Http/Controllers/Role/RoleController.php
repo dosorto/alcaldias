@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Roles;
 
 
 class RoleController extends Controller
@@ -29,30 +28,40 @@ class RoleController extends Controller
      */
     public function roleList()
     {
-        // $roles = Role::all();
-        // if($roles->count() > 5)
-        // {
-        //     $roles = Role::simplePaginate(5);
-        //     $permissions = Permission::simplePaginate(5);
-        //     return view('role.list')->with(['roles' => $roles, 'permissions' => $permissions]);
-        // }
-        $roles = Role::simplePaginate(5);
+        $roles = Role::all();
+        if($roles->count() > 5)
+        {
+            $roles = Role::simplePaginate(5);
+            $permissions = Permission::simplePaginate(5);
+            return view('role.list')->with(['roles' => $roles, 'permissions' => $permissions]);
+        }
+        $roles = Role::all();
         $permissions = Permission::simplePaginate(5);
         return view('role.list')->with(['roles' => $roles, 'permissions' => $permissions]);
         
     }
     
+    public function createRole()
+    {
+        $permissions = Permission::all();
+        return view('role.create', compact('permissions'));
+    }
+
     public function roleCreate(Request $request)
     {
         $request->validate([
             'name'=> 'required|unique:roles|max:255|min:4',
             'description'=> 'required|max:255|min:4',
+            'permission'=> 'required|array',
+            'permission'=> 'exists:permission,id'
         ]);
 
         $role = new Role();
         $role->name = $request->name;
         $role->description = $request->description;
         $role->save();
+
+        $role->permissions()->attach($request->permissions);
 
         return redirect()->route('roleList')->with('success', 'Role creado');
     }
@@ -67,32 +76,23 @@ class RoleController extends Controller
 
     public function roleUpdate(Role $role)
     {
-        return view('role.update', compact('role'));
+        $permissions = Permission::all();
+        return view('role.update', compact('role', 'permissions'));
     }
 
     public function updateRole(Request $request, Role $role)
     {
         $request->validate([
-            'name'=> 'required|unique:roles|max:255|min:4',
+            'name'=> 'required|max:255|min:4',
             'description'=> 'required|max:255|min:4',
+            'permission'=> 'required|array',
+            'permission'=> 'exists:permission,id'
         ]);
 
         $role->update($request->all());
+        $role->permissions()->sync($request->permissions);
+
 
         return redirect()->route('roleList')->with('success', 'Rol actualizado');
     }
-
-    // public function rolePermission(Role $role)
-    // {
-    //     $permissions = Permission::simplePaginate(7);
-    //     return view('role.aggPermission', compact('role', 'permissions'));
-    // }
-
-    // public function rolePermissionAgg(Request $request, Role $role)
-    // {
-    //     $role->permissions()->sync($request->permissions);
-    //     return redirect()->route('roleList')->with('success', 'Permisos Asignados');
-    // }
-
-
 }
