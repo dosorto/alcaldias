@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<div>
+    <!-- Waste no more time arguing what a good man should be, be one. - Marcus Aurelius -->
+</div><!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -63,6 +65,16 @@ body {
           </div>
         </li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Administración
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Gestión de usuarios <i class="bi bi-person-fill-gear"></i></a>
+            <a class="dropdown-item" href="role-list">Gestión de roles <i class="bi bi-list-check"></i></a>
+          </div>
+        </li>
+
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,7 +87,7 @@ body {
             <a class="dropdown-item" href="#">Ubicacion De Clave Catastral  </a>
           </div>
         </li>
-
+{{--
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Noticias
@@ -85,7 +97,7 @@ body {
               <a class="dropdown-item" href="#">Notas De Prensa  <i class="bi bi-newspaper"></i></a>
               <a class="dropdown-item" href="#">Calendario-Cabildos Abiertos  <i class="bi bi-calendar3"></i></a>
             </div>
-          </li>
+          </li> --}}
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,9 +115,9 @@ body {
           <!-- Modificar el formulario de búsqueda -->
 
           <form class="form-inline my-2 my-lg-0 ml-auto" style="max-width: 250px;"> <!-- Ajustar el tamaño del formulario -->
-            <input class="form-control mr-sm-2" type="search" placeholder="Escriba..." aria-label="Search" style="width: 150px;"> <!-- Ajustar el tamaño del campo de búsqueda -->
+            <input class="form-control mr-sm-2" type="search" placeholder="Escriba..." aria-label="Search" style="width: 170px;"> <!-- Ajustar el tamaño del campo de búsqueda -->
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
-          </form>
+          </form> --}}
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
