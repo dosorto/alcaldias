@@ -115,9 +115,9 @@ body {
           <!-- Modificar el formulario de búsqueda -->
 
           <form class="form-inline my-2 my-lg-0 ml-auto" style="max-width: 250px;"> <!-- Ajustar el tamaño del formulario -->
-            <input class="form-control mr-sm-2" type="search" placeholder="Escriba..." aria-label="Search" style="width: 170px;"> <!-- Ajustar el tamaño del campo de búsqueda -->
+            <input class="form-control mr-sm-2" type="search" placeholder="Escriba..." aria-label="Search" style="width: 110px;"> <!-- Ajustar el tamaño del campo de búsqueda -->
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
-          </form> --}}
+          </form>
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
