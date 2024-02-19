@@ -7,11 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-<<<<<<< HEAD
-use App\Notifications\ResetPassword;
-=======
+use app\Notifications\ResetPassword;
 use Spatie\Permission\Traits\HasRoles;
->>>>>>> main
 
 class User extends Authenticatable
 {
