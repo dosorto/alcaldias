@@ -1,120 +1,136 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <title>Registro</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, Verdana;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
+        header{
+            background-color: #41474E;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            height: 50px;
+        }
 
-        <link rel="stylesheet" href="{{ asset('assets/estilos.css')}}">
-    </head>
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    <body>
-    <section class="h-100 gradient-form" style="background-color: #eee;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-xl-10">
-        <div class="card rounded-3 text-black">
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="card-body p-md-5 mx-md-4">
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
 
-                <div class="text-center">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                    style="width: 185px;" alt="logo">
-                  <h4 class="mt-1 mb-5 pb-1">Bienvenido</h4>
+        .card-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 480px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #555;
+        }
+
+        .btn-primary {
+            background-color: #2D3744;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Registro de Usuario</h2>
+    </header>
+
+    <main>
+        <div class="card">
+            <div class="card-header">Crear una cuenta</div>
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                    @enderror
                 </div>
 
-                <form action="{{route('register')}}" method="post">
-                    @csrf
-                  <p>Ingrese sus datos</p>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                    @enderror
+                </div>
 
-                  <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example11">Nombre</label>
-                    <input type="text" name="name" id="form2Example11" class="form-control"
-                      placeholder="Ingrese su nombre" />
-                   
-                  </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                    @enderror
+                </div>
 
-                  <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example11">Usuario</label>
-                    <input type="text" name="usuario" id="form2Example11" class="form-control"
-                      placeholder="Ingrese nombre de usuario" />
-                    
-                  </div>
+                <div class="form-group">
+                    <label for="password-confirm">Confirmar Contraseña</label>
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                </div>
 
-                  <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example11">Correo</label>
-                    <input type="email" name="email" id="form2Example11" class="form-control"
-                      placeholder="Ingrese un correo" />
-                    
-                  </div>
-
-                  <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example22">Contraseña</label>
-                    <input type="password" name="password" id="form2Example22" class="form-control" 
-                    placeholder="Ingrese su contraseña"/>
-                    
-                  </div>
-
-                    <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example22">Confirmar Contraseña</label>
-                    <input type="password" name="password_confirmation" id="form2Example22" class="form-control" 
-                    placeholder="Repita la contraseña"/>
-                    
-                    </div>
-
-                  <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Registrar</button>
-                    
-                  </div>
-
-                  <div class="d-flex align-items-center justify-content-center pb-4">
-                    
-                    <a href="{{route('login')}}" class="btn btn-outline-danger">Regresar</a>
-                  </div>
-
-                </form>
-
-              </div>
-            </div>
-            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">Alcaldía Municipal</h4>
-                <p class="small mb-0">Nuestra misión es establecer una administración Municipal 
-                    eficiente y efectiva, así como una línea de trabajo orientada a construir el 
-                    desarrollo sostenible de nuestro municipio, involucrando la participación 
-                    activa de la ciudadanía como parte esencial en el progreso del municipio.</p>
-              </div>
-            </div>
-          </div>
+                <button type="submit" class="btn-primary">Registrar</button>
+            </form>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+    </main>
+</body>
 </html>
