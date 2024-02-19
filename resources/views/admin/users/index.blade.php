@@ -83,41 +83,107 @@
 </head>
 <body>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Listado de Usuarios</h2>
-                <a type="button" class="btn btn-primary" style="margin: 20px; margin-left: 120px;" >Agregar nuevo usuario</a>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Rol</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td> --- </td>
-                                <td>
-                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
-                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                                        <a type="button" class="btn btn-success">Asignar Rol</a>
-                                    </form>
-                                </td>
-                            </tr>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Listado de Usuarios</h2>
+        <a type="button" href="/"class="btn btn-primary" style="margin: 20px; margin-left: 120px;">Volver Inicio</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                    <th>Asignar Roles</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($users as $user)
+                <tr>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>
+                        @if($user->roles->isNotEmpty())
+                        {{ $user->getRoleNames()->implode(', ') }}
+                        @else
+                        Sin rol asignado
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
+                        <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success assign-role-btn" data-user-id="{{ $user->id }}">Asignar Rol</button>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <!-- Modal -->
+        <div id="assignRoleModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Asignar Rol</h3>
+                <form id="assignRoleForm" method="POST" action="{{ route('assign.role') }}">
+                    @csrf
+                    <label for="role">Selecciona un rol:</label>
+                    <select name="role" id="role">
+                        @foreach($roles as $role)
+                        <option value="{{ $role->name }}">{{ $role->name }}</option>
                         @endforeach
-                    </tbody>
-                </table>
+                    </select>
+                    <input type="hidden" name="user_id" id="user_id">
+                    <button type="submit" class="btn btn-primary">Asignar</button>
+                </form>
             </div>
         </div>
+        <script>
+            // Obtener el modal
+            var modal = document.getElementById("assignRoleModal");
+
+            // Obtener el botón que abre el modal
+            var btns = document.querySelectorAll(".assign-role-btn");
+
+            // Obtener el elemento <span> que cierra el modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // Cuando el usuario hace clic en el botón, abrir el modal
+            btns.forEach(function(button) {
+                button.onclick = function() {
+                    var userId = button.getAttribute("data-user-id");
+                    document.getElementById("user_id").value = userId;
+                    modal.style.display = "block";
+                }
+            });
+
+            // Cuando el usuario hace clic en <span> (x), cerrar el modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Cuando el usuario hace clic en cualquier parte fuera del modal, cerrarlo
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            // Envío del formulario
+            var form = document.getElementById("assignRoleForm");
+            form.onsubmit = function() {
+                // Aquí podrías agregar alguna validación adicional si es necesario
+                return true;
+            };
+        </script>
+    </div>
+</div>
+
 </body>
 </html>

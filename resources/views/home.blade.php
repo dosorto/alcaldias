@@ -71,7 +71,7 @@ body {
             Administración
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Gestión de usuarios <i class="bi bi-person-fill-gear"></i></a>
+            <a class="dropdown-item" href="{{ route('admin.users.index') }}">Gestión de usuarios <i class="bi bi-person-fill-gear"></i></a>
             <a class="dropdown-item" href="role-list">Gestión de roles <i class="bi bi-list-check"></i></a>
           </div>
         </li>

@@ -60,5 +60,8 @@ Route::controller(PermissionController::class)->group(function () {
     Route::put('/permissions/{permission}', 'updatePermission')->name('permissionUpdate');
 });
 
+Route::post('/assign-role', [AdminUserController::class, 'assignRole'])->name('assign.role');
+
+
 
 

@@ -170,8 +170,9 @@
                     <button type="submit" class="btn-primary">Iniciar Sesión</button> 
 
                     <div class="form-check"> 
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> 
-                        <label class="form-check-label" for="remember">Recordar nombre de usuario</label> 
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <label class="form-check-label" for="remember">Recordar nombre de usuario</label><br> 
+                        <a type="btn btn-primary" href="{{ route('register') }}">  Registrarse</a>
                     </div> 
             
                     

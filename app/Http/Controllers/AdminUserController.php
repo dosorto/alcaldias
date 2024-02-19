@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class AdminUserController extends Controller
 {
     public function index()
     {
         $users = User::all();
-        return view('admin.users.index', compact('users'));
+        $roles = Role::all();
+        return view('admin.users.index', compact('users','roles'));
     }
 
     public function edit($id)
@@ -32,5 +34,31 @@ class AdminUserController extends Controller
         $user->delete();
         return redirect()->route('admin.users.index');
     }
+
+    /*public function assignRole(Request $request)
+    {
+        $user = User::find($request->user_id);
+        $user->assignRole($request->role);
+        return redirect()->back()->with('success', 'Rol asignado correctamente');
+    }*/
+
+    public function assignRole(Request $request)
+    {
+        $user = User::find($request->user_id);
+
+        // Verificar si el usuario existe
+        if (!$user) {
+            return redirect()->back()->with('error', 'El usuario no existe');
+        }
+
+        // Asignar el rol al usuario
+        $user->assignRole($request->role);
+
+        return redirect()->back()->with('success', 'Rol asignado correctamente');
+    }
+
+
+
+
 }
 
