@@ -49,6 +49,7 @@ body {
               <a class="dropdown-item" href="#">Mision y Visión  <i class="bi bi-graph-up"></i></a>
               <a class="dropdown-item" href="#">Ley De Municipalidad  </a>
               <a class="dropdown-item" href="#">Documentos De Interes  <i class="bi bi-file-text"></i></a>
+              <a class="dropdown-item" href="{{ route('admin.users.index') }}">Administrar Usuarios  <i class="bi bi-file-text"></i></a>
             </div>
           </li>
 
@@ -70,7 +71,7 @@ body {
             Administración
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Gestión de usuarios <i class="bi bi-person-fill-gear"></i></a>
+            <a class="dropdown-item" href="{{ route('admin.users.index') }}">Gestión de usuarios <i class="bi bi-person-fill-gear"></i></a>
             <a class="dropdown-item" href="role-list">Gestión de roles <i class="bi bi-list-check"></i></a>
           </div>
         </li>

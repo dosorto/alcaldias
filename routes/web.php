@@ -6,6 +6,8 @@ use App\Http\Controllers\Role\PermissionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminUserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,12 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/users', [App\Http\Controllers\AdminUserController::class, 'index'])->name('admin.users.index');
+    Route::get('/users/{id}/edit', [App\Http\Controllers\AdminUserController::class, 'edit'])->name('admin.users.edit');
+    Route::put('/users/{id}', [App\Http\Controllers\AdminUserController::class, 'update'])->name('admin.users.update');
+    Route::delete('/users/{id}', [App\Http\Controllers\AdminUserController::class, 'destroy'])->name('admin.users.destroy');
+});
 // Rutas para role
 Route::controller(RoleController::class)->group(function () {
 
@@ -51,6 +59,9 @@ Route::controller(PermissionController::class)->group(function () {
     Route::get('/permission-update/{permission}', 'permissionUpdate')->name('permissionsUpdate');
     Route::put('/permissions/{permission}', 'updatePermission')->name('permissionUpdate');
 });
+
+Route::post('/assign-role', [AdminUserController::class, 'assignRole'])->name('assign.role');
+
 
 
 
