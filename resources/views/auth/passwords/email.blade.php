@@ -83,7 +83,7 @@
 <body>
     <main>
         <div class="card">
-            <h1>Reestablecer contraseña</h1>
+            <h1>Restablecer contraseña</h1>
             <p>A contuación debe proporcionar una dirección de correo electronico, mediante el cual recibirá un correo para continuar con el proceso de restablecimiento de contraseña</p>
 
             <div class="card-body">
