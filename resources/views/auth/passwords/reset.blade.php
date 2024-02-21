@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restablecer Contraseña</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, Verdana;
@@ -23,7 +25,7 @@
         .card {
             margin-top: 0px;
             width: 500px;
-            height: 500px;
+            height: 550px;
             border: 1px solid #ddd;
             border-radius: 8px;
             background-color: white;
@@ -60,7 +62,6 @@
         }
 
         .btn-primary {
-            background-color: #2D3744;
             color: #fff;
             padding: 10px 15px;
             border: none;
@@ -73,7 +74,7 @@
 
     <main>
         <div class="card">
-            <h1>Reestablecer contraseña</h1>
+            <h1>Restablecer contraseña</h1>
             <p>Ingrese su nueva contraseña</p>
 
             <div class="card-body">
