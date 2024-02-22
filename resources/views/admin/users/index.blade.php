@@ -60,8 +60,10 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+</div>
 
-        {{-- Alerta de eliminar Role --}}
+    {{-- Alerta de eliminar Role --}}
         
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
@@ -109,6 +111,8 @@
                 </form>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             // Obtener el modal
             var modal = document.getElementById("assignRoleModal");
@@ -147,8 +151,5 @@
                 return true;
             };
         </script>
-    </div>
-</div>
-
 </body>
 </html>
