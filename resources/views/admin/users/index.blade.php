@@ -1,4 +1,3 @@
-@include('home')
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,10 +9,28 @@
         *{
             text-align: center;
         }
+        
+        /* Estilos para el modal */
+        #assignRoleModal {
+            display: none; /* Ocultar el modal por defecto */
+            position: fixed; /* Posición fija para mantenerlo en el centro */
+            z-index: 1000; /* Asegurarse de que está por encima de otros elementos */
+            left: 50%; /* Posicionarlo a la mitad del ancho de la pantalla */
+            top: 50%; /* Posicionarlo a la mitad del alto de la pantalla */
+            transform: translate(-50%, -50%); /* Centrar completamente el modal */
+            background-color: white; /* Color de fondo */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 5px; /* Bordes redondeados */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+        }
+
+        .modal-content {
+            text-align: left; /* Alinear el contenido del modal a la izquierda */
+        }
     </style>
+    @include('home')
 </head>
 <body>
-
 <div class="row">
     <div class="col-md-12">
         <h2 style="margin-top: 30px;">Listado de Usuarios</h2>
@@ -62,6 +79,35 @@
         </table>
     </div>
 </div>
+
+
+
+{{-- Alerta de eliminar Role --}}
+<script>
+    $('.form-delete').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+            title: "¿Estas seguro?",
+            text: "¡Se eliminará el registro definitivamente!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "¡Sí, eliminar!",
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit();
+                Swal.fire({
+                    title: "¡Eliminado!",
+                    text: "El registro se eliminó con éxito.",
+                    icon: "success"
+                });
+            }
+        });
+    });
+</script>
+
 
 <!-- Modal -->
 <div id="assignRoleModal" class="modal">
@@ -122,32 +168,6 @@
         // Aquí podrías agregar alguna validación adicional si es necesario
         return true;
     };
-</script>
-
-{{-- Alerta de eliminar Role --}}
-<script>
-    $('.form-delete').submit(function(e){
-        e.preventDefault();
-        Swal.fire({
-            title: "¿Estas seguro?",
-            text: "¡Se eliminará el registro definitivamente!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "¡Sí, eliminar!",
-            cancelButtonText: "Cancelar"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                this.submit();
-                Swal.fire({
-                    title: "¡Eliminado!",
-                    text: "El registro se eliminó con éxito.",
-                    icon: "success"
-                });
-            }
-        });
-    });
 </script>
 
 </body>
