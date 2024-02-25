@@ -9,24 +9,6 @@
         *{
             text-align: center;
         }
-        
-        /* Estilos para el modal */
-        #assignRoleModal {
-            display: none; /* Ocultar el modal por defecto */
-            position: fixed; /* Posición fija para mantenerlo en el centro */
-            z-index: 1000; /* Asegurarse de que está por encima de otros elementos */
-            left: 50%; /* Posicionarlo a la mitad del ancho de la pantalla */
-            top: 50%; /* Posicionarlo a la mitad del alto de la pantalla */
-            transform: translate(-50%, -50%); /* Centrar completamente el modal */
-            background-color: white; /* Color de fondo */
-            padding: 20px; /* Espaciado interno */
-            border-radius: 5px; /* Bordes redondeados */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
-        }
-
-        .modal-content {
-            text-align: left; /* Alinear el contenido del modal a la izquierda */
-        }
     </style>
     @include('home')
 </head>
@@ -42,8 +24,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Rol</th>
                     <th scope="col">Acciones</th>
-                    <th scope="col">Asignar Rol</th>
-                    <th scope="col">Restablecer contraseña</th>
+                    <th scope="col">Asignar Roles</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,10 +49,16 @@
                         </form>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-success assign-role-btn" data-user-id="{{ $user->id }}">Asignar</button>
-                    </td>
-                    <td>
-                        <a type="button" class="btn btn-success" href="{{ route('password.request') }}">Restablecer</a>
+                        <form action="{{ route('assign.role') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+                            <select name="role">
+                                @foreach($roles as $role)
+                                <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-success">Asignar</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -79,10 +66,8 @@
         </table>
     </div>
 </div>
-
-
-
 {{-- Alerta de eliminar Role --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $('.form-delete').submit(function(e){
         e.preventDefault();
@@ -107,68 +92,6 @@
         });
     });
 </script>
-
-
-<!-- Modal -->
-<div id="assignRoleModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>Asignar Rol</h3>
-        <form id="assignRoleForm" method="POST" action="{{ route('assign.role') }}">
-            @csrf
-            <label for="role">Selecciona un rol:</label>
-            <select name="role" id="role">
-                @foreach($roles as $role)
-                <option value="{{ $role->name }}">{{ $role->name }}</option>
-                @endforeach
-            </select>
-            <input type="hidden" name="user_id" id="user_id">
-            <button type="submit" class="btn btn-primary">Asignar</button>
-        </form>
-    </div>
-</div>
-
-<!-- Script -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    // Obtener el modal
-    var modal = document.getElementById("assignRoleModal");
-
-    // Obtener el botón que abre el modal
-    var btns = document.querySelectorAll(".assign-role-btn");
-
-    // Obtener el elemento <span> que cierra el modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // Cuando el usuario hace clic en el botón, abrir el modal
-    btns.forEach(function(button) {
-        button.onclick = function() {
-            var userId = button.getAttribute("data-user-id");
-            document.getElementById("user_id").value = userId;
-            modal.style.display = "block";
-        }
-    });
-
-    // Cuando el usuario hace clic en <span> (x), cerrar el modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // Cuando el usuario hace clic en cualquier parte fuera del modal, cerrarlo
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    // Envío del formulario
-    var form = document.getElementById("assignRoleForm");
-    form.onsubmit = function() {
-        // Aquí podrías agregar alguna validación adicional si es necesario
-        return true;
-    };
-</script>
-
 </body>
 </html>
+
