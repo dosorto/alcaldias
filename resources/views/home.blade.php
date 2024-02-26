@@ -21,9 +21,6 @@ body {
   }
 }
 </style>
-</head>
-<body>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="min-height: 40px;"> <!-- Modificar la altura mínima -->
   <div class="container">
     <a class="navbar-brand ml-auto" href="#">
@@ -37,7 +34,7 @@ body {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio <i class="bi bi-house-door-fill"></i></a>
+          <a class="nav-link" href="/">Inicio <i class="bi bi-house-door-fill"></i></a>
 
 
         </li>
@@ -49,7 +46,6 @@ body {
               <a class="dropdown-item" href="#">Mision y Visión  <i class="bi bi-graph-up"></i></a>
               <a class="dropdown-item" href="#">Ley De Municipalidad  </a>
               <a class="dropdown-item" href="#">Documentos De Interes  <i class="bi bi-file-text"></i></a>
-              <a class="dropdown-item" href="{{ route('admin.users.index') }}">Administrar Usuarios  <i class="bi bi-file-text"></i></a>
             </div>
           </li>
 
@@ -150,5 +146,7 @@ body {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+</head>
+<body>
 </body>
 </html>
