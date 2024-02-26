@@ -19,6 +19,12 @@ class RoleController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // $this->middleware('can:Acceso total')->only(['roleList','createRole', 'destroy', 'roleUpdate']);
+        $this->middleware('can:Listar roles')->only('roleList');
+        $this->middleware('can:Crear rol')->only('createRole');
+        $this->middleware('can:Editar rol')->only('roleUpdate');
+        $this->middleware('can:Eliminar role')->only('destroy');
+
     }
 
      /**
@@ -36,8 +42,7 @@ class RoleController extends Controller
             return view('role.list')->with(['roles' => $roles, 'permissions' => $permissions]);
         }
         $roles = Role::all();
-        $permissions = Permission::simplePaginate(5);
-        return view('role.list')->with(['roles' => $roles, 'permissions' => $permissions]);
+        return view('role.list')->with(['roles' => $roles]);
         
     }
     
@@ -95,4 +100,5 @@ class RoleController extends Controller
 
         return redirect()->route('roleList')->with('success', 'Rol actualizado');
     }
+
 }

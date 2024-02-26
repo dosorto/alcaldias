@@ -48,17 +48,19 @@ Route::controller(RoleController::class)->group(function () {
     Route::delete('/roles/{id}', 'destroy')->name('roleDelete');
     Route::get('/role-update/{role}', 'roleUpdate')->name('rolesUpdate');
     Route::put('/roles/{role}', 'updateRole')->name('roleUpdate');
+
+
 });
 
 //Rutas para permission
-Route::controller(PermissionController::class)->group(function () {
+// Route::controller(PermissionController::class)->group(function () {
 
-    Route::get('/permission-create', 'createPermission')->name('createPermission');
-    Route::post('/permissions', 'permissionCreate')->name('permissionCreate');
-    Route::delete('/permissions/{id}', 'destroy')->name('permissionDelete');
-    Route::get('/permission-update/{permission}', 'permissionUpdate')->name('permissionsUpdate');
-    Route::put('/permissions/{permission}', 'updatePermission')->name('permissionUpdate');
-});
+//     Route::get('/permission-create', 'createPermission')->name('createPermission');
+//     Route::post('/permissions', 'permissionCreate')->name('permissionCreate');
+//     Route::delete('/permissions/{id}', 'destroy')->name('permissionDelete');
+//     Route::get('/permission-update/{permission}', 'permissionUpdate')->name('permissionsUpdate');
+//     Route::put('/permissions/{permission}', 'updatePermission')->name('permissionUpdate');
+// });
 
 Route::post('/assign-role', [AdminUserController::class, 'assignRole'])->name('assign.role');
 

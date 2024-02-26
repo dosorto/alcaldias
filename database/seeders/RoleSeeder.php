@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Models\User;
 
 class RoleSeeder extends Seeder
 {
@@ -17,9 +18,12 @@ class RoleSeeder extends Seeder
         $role1 = Role::create(['name' => 'Administrador', 'description' => 'Rol para el super administrador']);
         $role2 = Role::create(['name' => 'Contador', 'description' => 'Rol para el usuario contador']);
         $role3 = Role::create(['name' => 'Secretarial', 'description' => 'Rol para el usuario secretarial']);
+        $role4 = Role::create(['name' => 'Usuario', 'description' => 'Rol para el usuario']);
+        
+       
 
         //Permisos para visualizar
-        Permission::create(['name' => 'home', 'description' => 'Permiso para poder visualizar el inicio'])->syncRoles([$role1, $role2, $role3]);
+        Permission::create(['name' => 'home', 'description' => 'Permiso para poder visualizar el inicio'])->syncRoles([$role1, $role2, $role3, $role4]);
 
         //Permisos para el apartado de rol
         Permission::create(['name' => 'Listar roles', 'description' => 'Permiso para ver la lista de roles'])->assignRole($role1);
@@ -27,11 +31,15 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'Editar rol', 'description' => 'Permiso para editar un rol'])->assignRole($role1);
         Permission::create(['name' => 'Eliminar Role', 'description' => 'Permiso para ver eliminar un rol'])->assignRole($role1);
 
-        //Permisos para el apartado de permisos
-        Permission::create(['name' => 'Listar Permisos', 'description' => 'Permiso para ver la lista de permisos'])->assignRole($role1);
-        Permission::create(['name' => 'Crear permiso', 'description' => 'Permiso para crear un permisos'])->assignRole($role1);
-        Permission::create(['name' => 'Editar permiso', 'description' => 'Permiso para editar un permiso'])->assignRole($role1);
-        Permission::create(['name' => 'Eliminar permiso', 'description' => 'Permiso para eliminar un permiso'])->assignRole($role1);
+        // //Permisos para el apartado de permisos
+        // Permission::create(['name' => 'Listar Permisos', 'description' => 'Permiso para ver la lista de permisos'])->assignRole($role1);
+        // Permission::create(['name' => 'Crear permiso', 'description' => 'Permiso para crear un permisos'])->assignRole($role1);
+        // Permission::create(['name' => 'Editar permiso', 'description' => 'Permiso para editar un permiso'])->assignRole($role1);
+        // Permission::create(['name' => 'Eliminar permiso', 'description' => 'Permiso para eliminar un permiso'])->assignRole($role1);
+
+
+        // // Permiso para acceso total
+        // Permission::create(['name' => 'Acceso total', 'description' => 'Permiso para acceder a todos los apartados'])->assignRole($role1);
 
     }
 }

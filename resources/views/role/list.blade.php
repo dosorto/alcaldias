@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Roles</title>
     <link rel="stylesheet" href="{{ asset('assets/css/role.css')}}">
 </head>
 <body>
     <div class="mt-2" style="margin-left: 25px">
-        <h3>Roles y Permisos</h3>
+        <h3>Roles</h3>
         <hr>
         <div class="parent">
         <div class="contenedor-1">
@@ -34,6 +34,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Rol</th>
                     <th scope="col">Descripción</th>
+                    <th scope="col">Accesos</th>
                     <th scope="col">Acción</th>
                   </tr>
                 </thead>
@@ -43,6 +44,11 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $role->name }}</td>
                         <td>{{ $role->description }}</td>
+                        <td>
+                            @foreach ($role->permissions as $permission)
+                                {{ $permission->name }},
+                            @endforeach
+                        </td>
                         <td>
                             <div>
                                 <form action="{{ route('rolesUpdate', $role) }}" class="d-inline" method="GET">
@@ -65,53 +71,6 @@
               @endif
 
               {{-- {{ $roles->links() }} --}}
-        </div>
-        <div class="contenedor-2">
-            <div class="row">
-                <div class="col-10"> 
-                    <h4>Lista de Permisos</h4>
-                </div>
-                <div class="col-2">
-                    <form class="d-inline" method="GET" action="{{ route('createPermission') }}"> 
-                        <button type="submit" class="btn btn-primary">
-                        Nuevo
-                    </button>
-                </div>
-            </div>
-            <table class="table table-hover mt-1">
-                <thead>
-                  <tr class="table-secondary">
-                    <th scope="col">#</th>
-                    <th scope="col">Permiso</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Acción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                
-                    @foreach ($permissions as $permission)
-                    <tr>
-                        <th scope="row">{{ $loop->iteration}}</th>
-                        <td>{{ $permission->name }}</td>
-                        <td>{{ $permission->description }}</td>
-                        <td>
-                            <div>
-                                <form action="{{ route('permissionsUpdate', $permission) }}" class="d-inline" method="GET">
-                                    <button type="submit" class="btn btn-info"><i class="bi bi-pen-fill"></i></button>
-
-                                </form>
-                                <form method="POST" action="{{ route('permissionDelete', $permission) }}" class="d-inline form-delete">
-                                   @method('DELETE')
-                                   @csrf
-                                    <button type="submit" class="btn btn-danger" ><i class="bi bi-trash2-fill"></i></button>
-                                </form>
-                            </div>
-                        </td>
-                      </tr>
-                    @endforeach
-                </tbody>
-              </table>
-              {{ $permissions->links() }}
         </div>
         </div>
         </div>

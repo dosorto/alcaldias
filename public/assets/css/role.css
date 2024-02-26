@@ -1,14 +1,11 @@
 .parent {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
 
 .contenedor-1{
     padding: 10px;
-    border-right: 1px solid gray;
 }
 
 .contenedor-2{
