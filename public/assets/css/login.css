@@ -1,0 +1,120 @@
+body { 
+    font-family: Arial, Verdana; 
+    background-image: url('https://th.bing.com/th/id/R.25d8f6dae96fefd8fde1ab37e94028da?rik=R3XVJyVIE8tyiA&riu=http%3a%2f%2fweetab.webcindario.com%2ffondo-azul.jpg&ehk=sEr1d72FKPPv1WRGiqvNCwLAUDcHWuEqZ1eMy6lFUrY%3d&risl=&pid=ImgRaw&r=0'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px); 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+} 
+ 
+.card { 
+    background-color: white;
+    width:500px;
+    height: 100%;
+    float: right;
+    text-align: left;
+    color: black;
+} 
+
+.info h1{
+    text-align: center;
+    margin: 30px;
+    margin-top: 100px;
+}
+
+ .info p{
+    margin: 40px;
+    font-size: 18px; 
+}
+
+.info { 
+    background-color: rgba(45, 55, 68, 0.8);
+    width:900px;
+    height: 600px;
+    float: left;
+    text-align: justify;
+    color: white;
+    margin-left: 100px;
+} 
+
+.card-header { 
+    margin: 30px;
+    font-size: 24px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    color: #2D3744;
+} 
+
+.form-group { 
+    margin-bottom: 20px; 
+} 
+
+.form-group label { 
+    margin-left: 30px;
+    display: block; 
+    font-size: 18px; 
+    margin-bottom: 5px; 
+} 
+
+.form-group input { 
+    margin-left: 30px;
+    width: 400px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+} 
+
+.form-group input:focus { 
+    outline: none; 
+    border-color: #2D3744; 
+} 
+
+.btn-primary { 
+    margin-left: 180px;
+    background-color: #33383E; 
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    width: 150px; 
+    display: block; 
+    font-size: 18px; 
+    transition: background-color 0.3s; 
+} 
+
+.btn-primary:hover { 
+    background-color: #659DE7; 
+} 
+
+.text-center { 
+    text-align: right; 
+    margin: 30px; 
+    color: #364964;
+} 
+
+.form-check { 
+    text-align: right; 
+    margin: 30px; 
+    color: #364964;
+} 
+
+img {
+    width: 100px;
+    height: 90px;
+    margin-top: 110px;
+    margin-left: 200px;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 480px) { 
+    .card { 
+        padding: 10px; 
+    } 
+} 

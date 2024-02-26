@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restablecer Contraseña</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, Verdana;
@@ -61,7 +63,6 @@
         }
 
         .btn-primary {
-            background-color: #2D3744;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -82,7 +83,7 @@
 <body>
     <main>
         <div class="card">
-            <h1>Reestablecer contraseña</h1>
+            <h1>Restablecer contraseña</h1>
             <p>A contuación debe proporcionar una dirección de correo electronico, mediante el cual recibirá un correo para continuar con el proceso de restablecimiento de contraseña</p>
 
             <div class="card-body">
