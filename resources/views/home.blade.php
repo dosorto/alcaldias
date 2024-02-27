@@ -61,7 +61,7 @@ body {
             <a class="dropdown-item" href="#">Solvencia Municipal  <i class="bi bi-wallet"></i></a>
           </div>
         </li>
-
+      @role('Administrador')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Administración
@@ -71,8 +71,7 @@ body {
             <a class="dropdown-item" href="role-list">Gestión de roles <i class="bi bi-list-check"></i></a>
           </div>
         </li>
-
-
+@endrole
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Gerencia Catastro
@@ -119,7 +118,7 @@ body {
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="bi bi-person-circle"></i>
-            </a>
+              {{ Auth::user()->name }}</a>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('logout') }}"
