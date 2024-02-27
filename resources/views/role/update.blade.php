@@ -1,4 +1,6 @@
-@include('home')
+@extends('layouts.app')
+@Section('update')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,4 +70,6 @@
     </script>
 </body>
 </html>
+
+@endsection
 

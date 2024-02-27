@@ -1,4 +1,5 @@
-@include('home')
+@extends('layouts.app')
+@Section('edit')
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,3 +35,4 @@
 
 </body>
 </html>
+@endsection

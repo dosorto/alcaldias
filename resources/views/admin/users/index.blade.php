@@ -10,7 +10,8 @@
             text-align: center;
         }
     </style>
-    @include('home')
+   @extends('layouts.app')
+   @Section('index')
 </head>
 <body>
 <div class="row">
@@ -95,3 +96,4 @@
 </body>
 </html>
 
+@endsection
