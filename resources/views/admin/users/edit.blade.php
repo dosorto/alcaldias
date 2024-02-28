@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@Section('edit')
+@Section('content')
 <!DOCTYPE html>
 <html lang="es">
 <head>

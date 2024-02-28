@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Usuarios</title>
     <link rel="stylesheet" href="{{ asset('assets/css/role.css') }}">
-    <style>
-        *{
-            text-align: center;
-        }
-    </style>
-   @extends('layouts.app')
-   @Section('index')
+ 
+    @extends('layouts.app')
+    @section ('content')
 </head>
 <body>
 <div class="row">
@@ -41,8 +37,10 @@
                         Sin rol asignado
                         @endif
                     </td>
-                    <td>
-                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary"><i class="bi bi-pen-fill"></i></a>
+                    <td>                        
+                            <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary"><i class="bi bi-pen-fill"></i></a>
+                            <button type="button" class="btn btn-danger delete-user-btn" data-user-id="{{ $user->id }}"><i class="bi bi-trash2-fill"></i></button>
+                        </td>
                         <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" class="d-inline form-delete" style="display:inline">
                             @csrf
                             @method('DELETE')
@@ -95,5 +93,4 @@
 </script>
 </body>
 </html>
-
 @endsection
