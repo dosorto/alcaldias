@@ -64,6 +64,10 @@ Route::controller(RoleController::class)->group(function () {
 
 Route::post('/assign-role', [AdminUserController::class, 'assignRole'])->name('assign.role');
 
+Route::get('/pais', function () {
+    return view('pais');
+})->name('pais');
+
 
 
 

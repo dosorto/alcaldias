@@ -13,6 +13,12 @@ class PaisesSeeder extends Seeder
      */
     public function run(): void
     {
-        Paise::factory()->count(50000)->create();
+        $pais = [
+            [
+                'codigo' => '+504',
+                'nombre' => 'Honduras',
+                'ISOCode' => 'HND',
+            ]
+        ];
     }
 }
