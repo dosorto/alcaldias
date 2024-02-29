@@ -108,6 +108,17 @@ body {
 
           </li>
 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Regiones
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="contactDropdown">
+              <a class="dropdown-item" href="#" style="width: 40px;">Pais  <i class="bi bi-map-fill"></i></a>
+            </div>
+
+          </li>
+
           <!-- Modificar el formulario de búsqueda -->
 
           {{-- <form class="form-inline my-2 my-lg-0 ml-auto" style="max-width: 250px;"> <!-- Ajustar el tamaño del formulario -->
