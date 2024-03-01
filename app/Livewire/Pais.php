@@ -82,8 +82,8 @@ class Pais extends Component
             'iso_code' => 'required',
         ]);
 
-        $pais = Paise::find($this->persona_id);
-        $pais->update([
+        $paises = Paise::find($this->persona_id);
+        $paises->update([
             'codigo' => $this->codigo,
             'nombre' => $this->nombre,
             'iso_code' =>$this->iso_code
@@ -95,10 +95,10 @@ class Pais extends Component
         $this->resetInputFields();
     }
 
-    public function remove($p)
+    public function remove($pa)
     {
         $this->deleteModal = true;
-        $this->pais = $p;
+        $this->paises = $pa;
         $this->dispatch(('delete-modal'));
 
     }

@@ -1,31 +1,31 @@
 <!-- Insert Modal -->
-<div wire:ignore.self class="modal fade" id="personaModal" tabindex="-1" aria-labelledby="personaModalLabel"
+<div wire:ignore.self class="modal fade" id="paisModal" tabindex="-1" aria-labelledby="paisModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="personaModalLabel">Crear Pais</h5>
+                <h5 class="modal-title" id="paisModalLabel">Crear País</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                     wire:click="closeModal"></button>
             </div>
             <form wire:submit.prevent="store()">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label>Codigo</label>
-                        <input type="text" wire:model="nombre" class="form-control">
+                        <label>Código</label>
+                        <input type="text" wire:model="codigo" class="form-control">
                         @error('codigo') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label>Nombre</label>
-                        <input type="text" wire:model="apellido" class="form-control">
+                        <input type="text" wire:model="nombre" class="form-control">
                         @error('nombre') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label>ISO Code</label>
-                        <input type="text" wire:model="apellido" class="form-control">
-                        @error('ISOCode') <span class="text-danger">{{ $message }}</span> @enderror
+                        <input type="text" wire:model="iso_code" class="form-control">
+                        @error('iso_code') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
                 </div>
