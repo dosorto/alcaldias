@@ -11,5 +11,5 @@ class Paise extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['codigo','nombre','iso_code'];
+    protected $fillable = ['codigo','nombre','iso_code','created_by'];
 }

@@ -14,19 +14,21 @@ class PaisesSeeder extends Seeder
             [
                 'codigo' => '+504',
                 'nombre' => 'Honduras',
-                'ISOCode' => 'HND',
+                'iso_code' => 'HND',
+                'created_by'=> 1,
             ],
             [
                 'codigo' => '+505',
                 'nombre' => 'Nicaragua',
-                'ISOCode' => 'NI',
+                'iso_code' => 'NI',
+                'created_by'=> 1,
             ],
 
         ];
 
         // Inserta los países en la base de datos
         foreach ($paises as $pais) {
-            Paise::create($pais);
+            Paise::forceCreate($pais);
         }
     }
 }

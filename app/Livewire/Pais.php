@@ -16,7 +16,7 @@ class Pais extends Component
     public $updateModal = false;
     public $deleteModal = false;
     public $createModal = false;
-    public $pais;
+    public $paises;
     public $confirmingItemDeletion = false;
     public function confirmItemDeletion( $id)
     {
@@ -25,9 +25,9 @@ class Pais extends Component
 
     public function render()
     {
-        $pais  = Paise::where('nombre', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
+        $paises  = Paise::where('nombre', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
         //$pais  = Pais::all();
-        return view('livewire.pais.pais', ['pais' => $pais]);
+        return view('livewire.pais.pais', ['pais' => $paises]);
     }
 
     private function resetInputFields(){
@@ -55,11 +55,11 @@ class Pais extends Component
 
     public function edit($id)
     {
-        $pais = Paise::findOrFail($id);
+        $paises = Paise::findOrFail($id);
         $this->id_pais = $id;
-        $this->codigo = $pais->codigo;
-        $this->nombre = $pais->nombre;
-        $this->iso_code=$pais->iso_code;
+        $this->codigo = $paises->codigo;
+        $this->nombre = $paises->nombre;
+        $this->iso_code=$paises->iso_code;
         $this->dispatch("open-edit");
     }
 
