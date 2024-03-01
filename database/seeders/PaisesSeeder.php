@@ -8,17 +8,25 @@ use Illuminate\Database\Seeder;
 
 class PaisesSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        $pais = [
+        $paises = [
             [
                 'codigo' => '+504',
                 'nombre' => 'Honduras',
                 'ISOCode' => 'HND',
-            ]
+            ],
+            [
+                'codigo' => '+505',
+                'nombre' => 'Nicaragua',
+                'ISOCode' => 'NI',
+            ],
+
         ];
+
+        // Inserta los países en la base de datos
+        foreach ($paises as $pais) {
+            Paise::create($pais);
+        }
     }
 }
