@@ -18,6 +18,8 @@ class Pais extends Component
     public $createModal = false;
     public $paises;
     public $confirmingItemDeletion = false;
+
+
     public function confirmItemDeletion( $id)
     {
         $this->confirmingItemDeletion = $id;
@@ -38,23 +40,25 @@ class Pais extends Component
 
     public function store()
     {
-        $validatedDate = $this->validate([
-
-            'codigo' => 'required',
-            'nombre' => 'required',
-            'iso_code' => 'required',
+        $validatedData = $this->validate([
+        'codigo' => 'required',
+        'nombre' => 'required',
+        'iso_code' => 'required',
         ]);
 
-        Paise::create($validatedDate);
+        // Agregar el campo 'created_by' antes de crear el registro
+        $validatedData['created_by'] = auth()->id(); // Suponiendo que estás utilizando la autenticación de Laravel
 
-        session()->flash('message', 'Pais Created Successfully.');
+        // Crear el registro en la base de datos
+        Paise::create($validatedData);
+        $this->createModal=false;
 
-        $this->resetInputFields();
-        $this->dispatch('close-modal');
+        // Resto del código
     }
 
+
     public function edit($id)
-    {
+    {   $this->updateModal=true;
         $paises = Paise::findOrFail($id);
         $this->id_pais = $id;
         $this->codigo = $paises->codigo;
@@ -65,6 +69,9 @@ class Pais extends Component
 
     public function closeModal()
     {
+        $this->deleteModal = false;
+        $this->createModal = false;
+        $this->updateModal = false;
         $this->resetInputFields();
     }
 
@@ -82,7 +89,7 @@ class Pais extends Component
             'iso_code' => 'required',
         ]);
 
-        $paises = Paise::find($this->persona_id);
+        $paises = Paise::find($this->id_pais);
         $paises->update([
             'codigo' => $this->codigo,
             'nombre' => $this->nombre,
@@ -95,17 +102,25 @@ class Pais extends Component
         $this->resetInputFields();
     }
 
-    public function remove($pa)
+    public function remove($id)
     {
         $this->deleteModal = true;
-        $this->paises = $pa;
-        $this->dispatch(('delete-modal'));
+        $this->confirmingItemDeletion = $id;
 
     }
 
-    public function delete($id)
+    public function delete()
     {
-        Paise::find($id)->delete();
-        session()->flash('message', 'Registro eliminado.!');
+        $paises = Paise::find($this->confirmingItemDeletion);
+        $paises->delete();
+        session()->flash('message', 'Registro eliminado exitosamente.');
+        $this->deleteModal = false;
+    }
+
+
+
+    public function nuevoModal()
+    {
+        $this->createModal=true;
     }
 }
