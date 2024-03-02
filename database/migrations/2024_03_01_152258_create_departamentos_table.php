@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('departamentos', function (Blueprint $table) {
             $table->id();
+            $table->string('codigo');
+            $table->string('name');
+            $table->unsignedBigInteger('pais_id');
+            $table->integer("created_by");
+            $table->integer("deleted_by")->nullable();
+            $table->integer("updated_by")->nullable();
             $table->timestamps();
+            $table->softdeletes();
+            $table->foreign('pais_id')->references('id')->on('paises');
         });
     }
 
