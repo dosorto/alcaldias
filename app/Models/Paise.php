@@ -12,4 +12,9 @@ class Paise extends BaseModel
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['codigo','nombre','iso_code','created_by'];
+
+    public function departamento()
+    {
+        return $this->hasMany(Departamento::class, 'pais_id');
+    }
 }
