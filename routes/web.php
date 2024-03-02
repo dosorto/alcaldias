@@ -1,5 +1,5 @@
 <?php
-
+use App\Livewire\ImportarExcel;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\Role\PermissionController;
@@ -80,6 +80,10 @@ Route::get('/municipios', function () {
     return View::make('municipios');
 });
 
+
+Route::get('importar-excel', function () {
+    return View::make('livewire.importar-excel');
+})->name('importar-excel');
 
 
 
