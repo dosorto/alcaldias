@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             PaisesSeeder::class,
-            DepartamentoSeeder::class
-            
+            DepartamentoSeeder::class,
+            MunicipioSeeder::class
         ]);
 
         $role = Role::find(1);

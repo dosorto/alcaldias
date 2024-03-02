@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
+use Illuminate\Support\Facades\View;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,9 +71,16 @@ Route::get('/pais', function () {
     return view('pais');
 })->name('pais');
 
+
 Route::get('/departamentos', function () {
     return View::make('departamentos');
 });
+
+Route::get('/municipios', function () {
+    return View::make('municipios');
+});
+
+
 
 
 

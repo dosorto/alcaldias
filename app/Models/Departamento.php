@@ -16,4 +16,9 @@ class Departamento extends BaseModel
     {
         return $this->belongsTo(Paise::class, 'pais_id');
     }
+
+    public function municipio()
+    {
+        return $this->hasMany(Municipio::class, 'departamento_id');
+    }
 }
