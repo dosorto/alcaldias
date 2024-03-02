@@ -68,6 +68,7 @@ Route::get('/pais', function () {
     return view('pais');
 })->name('pais');
 
-
-
-
+Route::get('/aldeas', function()
+{
+   return View::make('aldeas');
+});
