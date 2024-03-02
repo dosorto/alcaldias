@@ -124,8 +124,27 @@
     </tbody>
 </table>
 @if ($roles instanceof \Illuminate\Pagination\Paginator)
-    {{ $roles->links() }}
+    <div class="flex justify-between items-center">
+        <div>
+            {{-- Previous Page Link --}}
+            @if ($roles->onFirstPage())
+                <span class="px-2 py-1 text-gray-500"><< Anterior</span>
+            @else
+                <a href="{{ $roles->previousPageUrl() }}" class="px-2 py-1 text-blue-600 dark:text-white"><< Anterior</a>
+            @endif
+        </div>
+
+        <div>
+            {{-- Next Page Link --}}
+            @if ($roles->hasMorePages())
+                <a href="{{ $roles->nextPageUrl() }}" class="px-2 py-1 text-blue-600 dark:text-white">Siguiente >></a>
+            @else
+                <span class="px-2 py-1 text-gray-500">Siguiente >></span>
+            @endif
+        </div>
+    </div>
 @endif
+
 
 
 
