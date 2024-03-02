@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +38,8 @@ Route::group(['middleware' => ['auth']], function () {
 // Rutas para role
 Route::controller(RoleController::class)->group(function () {
 
+
+    //Route::get('/role-list', 'roleList')->name('Lista');
     Route::get('/role-list','roleList')->name('roleList');
     // Route::get('/role-create', function(){
     //     return view('role.create');
