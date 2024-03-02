@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
+use Illuminate\Support\Facades\View;
 
 
 /*
@@ -39,6 +40,8 @@ Route::group(['middleware' => ['auth']], function () {
 // Rutas para role
 Route::controller(RoleController::class)->group(function () {
 
+
+    //Route::get('/role-list', 'roleList')->name('Lista');
     Route::get('/role-list','roleList')->name('roleList');
     // Route::get('/role-create', function(){
     //     return view('role.create');
@@ -68,10 +71,16 @@ Route::get('/pais', function () {
     return view('pais');
 })->name('pais');
 
-Route::get('/municipio', function()
-{
-   return view('Municipio');
-}) ->name('municipio');
+
+Route::get('/departamentos', function () {
+    return View::make('departamentos');
+});
+
+Route::get('/municipios', function () {
+    return View::make('municipios');
+});
+
+
 
 
 
