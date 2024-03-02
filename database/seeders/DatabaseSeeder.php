@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(1)->create();
 
         $this->call([
-            RoleSeeder::class
+            RoleSeeder::class,
+            PaisesSeeder::class,
+            DepartamentoSeeder::class,
+            MunicipioSeeder::class
         ]);
 
         $role = Role::find(1);

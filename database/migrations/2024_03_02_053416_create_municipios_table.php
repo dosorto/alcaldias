@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('aldeas', function (Blueprint $table) {
+        Schema::create('municipios', function (Blueprint $table) {
             $table->id();
-            $table->string("codigo");
-            $table->string("nombre");
-            $table->string("direccion");
-            $table->double("latitud")->nullable();
-            $table->double("longitud")->nullable();
-            $table->integer("id_municipio");
+            $table->string('codigo');
+            $table->string('name');
+            $table->unsignedBigInteger('departamento_id');
+            $table->foreign('departamento_id')->references('id')->on('departamentos');
             $table->integer("created_by");
             $table->integer("deleted_by")->nullable();
             $table->integer("updated_by")->nullable();
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('aldeas');
+        Schema::dropIfExists('municipios');
     }
 };
