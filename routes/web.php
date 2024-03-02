@@ -68,6 +68,11 @@ Route::get('/pais', function () {
     return view('pais');
 })->name('pais');
 
+Route::get('/municipio', function()
+{
+   return view('Municipio');
+}) ->name('municipio');
+
 
 
 
