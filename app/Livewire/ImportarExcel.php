@@ -17,11 +17,10 @@ class ImportarExcel extends Component
         Excel::import(new Paise(), $this->archivo->getRealPath());
 
         session()->flash('message', 'Datos importados correctamente.');
-
     }
 
     public function render()
     {
-        return view('pais');
+        return view('livewire.importar-excel');
     }
 }

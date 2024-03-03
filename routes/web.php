@@ -1,5 +1,5 @@
 <?php
-use App\Livewire\ImportarExcel;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\Role\PermissionController;
@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
-use Illuminate\Support\Facades\View;
 
 
 /*
@@ -40,8 +39,6 @@ Route::group(['middleware' => ['auth']], function () {
 // Rutas para role
 Route::controller(RoleController::class)->group(function () {
 
-
-    //Route::get('/role-list', 'roleList')->name('Lista');
     Route::get('/role-list','roleList')->name('roleList');
     // Route::get('/role-create', function(){
     //     return view('role.create');
@@ -72,20 +69,5 @@ Route::get('/pais', function () {
 })->name('pais');
 
 
-Route::get('/departamentos', function () {
-    return View::make('departamentos');
-});
-
-Route::get('/municipios', function () {
-    return View::make('municipios');
-});
 
 
-Route::get('importar-excel', function () {
-    return View::make('livewire.importar-excel');
-})->name('importar-excel');
-
-Route::get('/aldeas', function()
-{
-   return View::make('aldeas');
-});
