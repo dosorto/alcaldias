@@ -21,4 +21,9 @@ class Departamento extends BaseModel
     {
         return $this->hasMany(Municipio::class, 'departamento_id');
     }
+
+    public function aldea(): HasManyThrough
+    {
+        return $this->through('municipios')->has('aldeas');
+    }
 }

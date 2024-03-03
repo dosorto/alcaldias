@@ -15,4 +15,9 @@ class Municipio extends BaseModel
     {
         return $this->belongsTo(Departamento::class, 'departamento_id');
     }
-}
+
+    public function aldeas()
+    {
+        return $this->hasMany(Aldea::class, 'municipio_id');
+    }
+} 
