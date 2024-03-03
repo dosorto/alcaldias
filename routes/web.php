@@ -85,7 +85,10 @@ Route::get('importar-excel', function () {
     return View::make('livewire.importar-excel');
 })->name('importar-excel');
 
-
+Route::get('/aldeas', function()
+{
+   return View::make('aldeas');
+});
 
 
 
