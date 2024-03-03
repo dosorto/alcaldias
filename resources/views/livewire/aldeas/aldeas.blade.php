@@ -70,6 +70,9 @@
                     Municipio
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Departamento
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Opciones
                 </th>
             </tr>
@@ -84,6 +87,7 @@
                     <td class="px-6 py-4">{{ $a->latitud }}</td>
                     <td class="px-6 py-4">{{ $a->longitud }}</td>
                     <td class="px-6 py-4">{{ $a->municipios->name }}</td>
+                    <td class="px-6 py-4">{{ $a->municipios->departamentos->name }}</td>
                     <td class="px-6 py-4">
                         <button wire:click="edit({{ $a->id }})" type="button" class="text-white bg-[#FF9119] hover:bg-[#FF9119]/80  font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <svg class="w-6 h-6  dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

@@ -17,19 +17,11 @@
                 </button>
             </div>
             <div class="p-4 md:p-4">
-                <form class="space-y-4" wire:submit.prevent="store()">
-                    <div class="mb-3">
-                        <label for="departamento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Departamento</label>
-                        <select id="departamento" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">Seleccione el departamento</option>
-                            <option>1</option>
-                            <option>2</option>
-                        </select>
-                    </div>
+                <form class="space-y-4" wire:submit.prevent="update()">
                     <div class="mb-3">
                         <label for="municipio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Municipio</label>
-                        <select wire:model="municipio_id" id="municipio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">Seleccione el municipio</option>
+                        <select wire:model="municipio_id" name="municipio_id" id="municipio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected>Seleccione el municipio</option>
                             @foreach ($municipios as $muni)
                             <option value="{{ $muni->id }}">{{ $muni->name }}</option>
                             @endforeach
@@ -37,23 +29,28 @@
                     </div>
                     <div>
                         <label for="codigo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Codigo</label>
-                        <input type="text" name="codigo" id="codigo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese el codigo de aldea" required="">
+                        <input type="text" wire:model="codigo" name="codigo" id="codigo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese el codigo de aldea" required="">
+                        @error('codigo') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div>
                         <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese el nombre de aldea" required="">
+                        <input type="text" wire:model="nombre" name="nombre" id="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese el nombre de aldea" required="">
+                        @error('nombre') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div>
                         <label for="direccion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dirección</label>
-                        <input type="text" name="direccion" id="direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese la direccion de la aldea" required="">
+                        <input type="text" wire:model="direccion" name="direccion" id="direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese la direccion de la aldea" required="">
+                        @error('direccion') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div>
                         <label for="latitud" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitud</label>
-                        <input type="text" name="latitud" id="latitud" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese cordenadas latitud">
+                        <input type="text" wire:model="latitud" name="latitud" id="latitud" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese cordenadas latitud">
+                        @error('latitud') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div>
                         <label for="longitud" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longitud</label>
-                        <input type="text" name="longitud" id="longitud" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese cordenadas longitud">
+                        <input type="text" wire:model="longitud" name="longitud" id="longitud" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese cordenadas longitud">
+                        @error('logitud') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     
                     <div class="content-center justify-center place-content-center">
@@ -64,5 +61,5 @@
                         {{-- <button wire:click="closeModal">Cerrar Modal</button> --}}
                     </div>
                 </form>
-            </div>
+            </div> 
     </div>

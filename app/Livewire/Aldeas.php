@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Aldea;
 use App\Models\Municipio;
+use App\Models\Departamento;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -16,6 +17,7 @@ class Aldeas extends Component
     public $deleteModal = false;
     public $createModal = false;
     public $aldea;
+    public $departamento_id;
     public $confirmingItemDeletion;
     
     public function confirmItemDeletion( $id) 
@@ -25,9 +27,11 @@ class Aldeas extends Component
 
     public function render()
     {
+        $valorSeleccionado = $this->departamento_id;
+        $departamentos = Departamento::all();
         $municipios = Municipio::all();
         $aldeas  = Aldea::where('nombre', 'like', '%'.$this->search.'%')->paginate(10);
-        return view('livewire.aldeas.aldeas', ['municipios' => $municipios, 'aldeas' => $aldeas]);
+        return view('livewire.aldeas.aldeas', ['municipios' => $municipios, 'departamentos' => $departamentos, 'aldeas' => $aldeas]);
     }
 
     private function resetInputFields(){
@@ -74,7 +78,7 @@ class Aldeas extends Component
         $this->direccion = $aldea->direccion;
         $this->latitud = $aldea->latitud;
         $this->longitud = $aldea->longitud;
-        $this->id_municipio = $aldea->municipio_id;
+        $this->municipio_id = $aldea->municipio_id;
         $this->dispatch("open-edit");
     }
 
@@ -115,7 +119,7 @@ class Aldeas extends Component
             'direccion' => $this->direccion,
             'latitud' => $this->latitud,
             'longitud' => $this->longitud,
-            'id_municipio' => $this->id_municipio,
+            'municipio_id' => $this->municipio_id,
         ]);
   
         $this->updateModal = false;
