@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <livewire:user-component />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Usuarios</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/role.css') }}">
- 
-    @extends('layouts.app')
-    @section ('content')
-</head>
-<body>
+
     <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
         <h2 class="text-3xl font-extrabold dark:text-white">Listado de UsuariosPersonas</h2>
         <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
@@ -118,33 +106,3 @@
 </div>
 {{-- Alerta de eliminar Role --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    $('.form-delete').submit(function(e){
-        e.preventDefault();
-        Swal.fire({
-            title: "¿Estas seguro?",
-            text: "¡Se eliminará el registro definitivamente!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "¡Sí, eliminar!",
-            cancelButtonText: "Cancelar"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                this.submit();
-                Swal.fire({
-                    title: "¡Eliminado!",
-                    text: "El registro se eliminó con éxito.",
-                    icon: "success"
-                });
-            }
-        });
-    });
-</script>
-</body>
-</html>
-@endsection
-
-
-

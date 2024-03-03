@@ -76,6 +76,7 @@ Route::get('/departamentos', function () {
     return View::make('departamentos');
 });
 
+
 Route::get('/municipios', function () {
     return View::make('municipios');
 });

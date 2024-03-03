@@ -10,9 +10,8 @@ class AdminUserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        $roles = Role::all();
-        return view('admin.users.index', compact('users','roles'));
+        
+        return view('admin.users.index');
     }
 
     public function edit($id)
