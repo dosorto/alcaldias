@@ -32,7 +32,7 @@ class Pais extends Component
         return view('livewire.pais.pais', ['pais' => $paises]);
     }
 
-    public function resetInputFields(){
+    private function resetInputFields(){
         $this->codigo = '';
         $this->nombre = '';
         $this->iso_code = '';
