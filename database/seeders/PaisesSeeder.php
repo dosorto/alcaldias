@@ -23,6 +23,24 @@ class PaisesSeeder extends Seeder
                 'iso_code' => 'NI',
                 'created_by'=> 1,
             ],
+            [
+                'codigo' => '+503',
+                'nombre' => 'El Salvador',
+                'iso_code' => 'SLV',
+                'created_by'=> 1,
+            ],
+            [
+                'codigo' => '+502',
+                'nombre' => 'Guatemala',
+                'iso_code' => 'GTM',
+                'created_by'=> 1,
+            ],
+            [
+                'codigo' => '+506',
+                'nombre' => 'Costa Rica',
+                'iso_code' => 'CRI',
+                'created_by'=> 1,
+            ],
 
         ];
 
