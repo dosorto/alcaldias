@@ -50,16 +50,15 @@ class Usuarios extends Component
         'password' => 'required',
         ]);
 
-        // Agregar el campo 'created_by' antes de crear el registro
-        $validatedData['created_by'] = auth()->id(); // Suponiendo que estás utilizando la autenticación de Laravel
+        $validatedData['created_by'] = auth()->id(); 
 
-        // Crear el registro en la base de datos
+        
         User::create($validatedData);
         session()->flash('message', 'Se ha creado exitosamente');
         $this->createModal=false;
         $this->resetInputFields();
 
-        // Resto del código
+        
     }
 
     public function openModalCreate()
