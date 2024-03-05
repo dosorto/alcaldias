@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Aldea extends BaseModel
 {
+    //esta es una prueba
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['codigo', 'nombre', 'direccion', 'latitud', 'longitud','municipio_id'];
