@@ -20,10 +20,10 @@ class RoleController extends Controller
     {
         $this->middleware('auth');
         // $this->middleware('can:Acceso total')->only(['roleList','createRole', 'destroy', 'roleUpdate']);
-        $this->middleware('can:Listar roles')->only('roleList');
-        $this->middleware('can:Crear rol')->only('createRole');
-        $this->middleware('can:Editar rol')->only('roleUpdate');
-        $this->middleware('can:Eliminar role')->only('destroy');
+        //$this->middleware('can:Listar roles')->only('roleList');
+        //$this->middleware('can:Crear rol')->only('createRole');
+        //this->middleware('can:Editar rol')->only('roleUpdate');
+        //$this->middleware('can:Eliminar role')->only('destroy');
 
     }
 
