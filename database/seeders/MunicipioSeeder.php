@@ -22,7 +22,7 @@ class MunicipioSeeder extends Seeder
             ],
             [
                 'codigo' => '02',
-                'name' => 'Pespire',
+                'name' => 'Namasigue',
                 'departamento_id' => 1,
                 'created_by'=> 1,
             ],
