@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\View;
 */
 
 Auth::routes();
-
+Route::get('/prueba', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
