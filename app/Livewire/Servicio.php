@@ -10,6 +10,6 @@ class Servicio extends Component
 {
     public function render()
     {
-        return view('livewire.servicio');
+        return view('livewire.servicio.servicio');
     }
 }
