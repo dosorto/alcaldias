@@ -25,6 +25,16 @@ use Illuminate\Support\Facades\View;
     return view('welcome');
 });
 */
+Route::get('/tipos', function()
+{
+   return View::make('tipos');
+});
+
+Route::get('/niveles', function()
+{
+   return View::make('niveles');
+});
+
 
 Auth::routes();
 Route::get('/prueba2', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
