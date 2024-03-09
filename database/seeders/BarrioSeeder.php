@@ -15,11 +15,38 @@ class BarrioSeeder extends Seeder
         $barrios =[
             [
                 
-                'nombre' => 'Choluteca',
+                'nombre' => 'Los mangos',
                 'direccion' => 'ND',
                 'latitud'=> 1,
                 'longitud'=> 1,
-                'aldea_id'=> 3,
+                'aldea_id'=> 1,
+                'created_by' => 1,
+            ],  
+            [
+                
+                'nombre' => 'El suyapa',
+                'direccion' => 'ND',
+                'latitud'=> 1,
+                'longitud'=> 1,
+                'aldea_id'=> 1,
+                'created_by' => 1,
+            ],  
+            [
+                
+                'nombre' => 'Iztoca',
+                'direccion' => 'ND',
+                'latitud'=> 1,
+                'longitud'=> 1,
+                'aldea_id'=> 2,
+                'created_by' => 1,
+            ],  
+            [
+                
+                'nombre' => 'El estadio',
+                'direccion' => 'ND',
+                'latitud'=> 1,
+                'longitud'=> 1,
+                'aldea_id'=> 1,
                 'created_by' => 1,
             ],  
 

@@ -19,26 +19,27 @@
         <div class="p-4 md:p-4">
             <form class="space-y-4" wire:submit.prevent="update()">
                 <div class="mb-3">
-                    <label for="municipio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pais</label>
-                    <select wire:model="pais_id" name="pais_id" id="pais" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    <label for="pais" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pais</label>
+                    <select wire:model="pais_id" wire:change="updateDepartamentos" name="pais_id" id="pais" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                         <option selected>Seleccione el País</option>
-                        @foreach ($paise as $pais)
-                        <option value="{{ $pais->id }}">{{ $pais->name }}</option>
+                        @foreach ($pais as $pa)
+                        <option value="{{ $pa->id }}">{{ $pa->nombre }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="municipio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dapartamento</label>
-                    <select wire:model="departamento_id" name="departamento_id" id="departamento" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option selected>Seleccione el departamento</option>
+                    <label for="departamento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Departamento</label>
+                    <select wire:model="departamento_id" wire:change="updateMunicipios" name="departamento_id" id="departamento" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                        <option value="">Seleccione el Departamento</option>
                         @foreach ($departamentos as $depa)
                         <option value="{{ $depa->id }}">{{ $depa->name }}</option>
                         @endforeach
                     </select>
                 </div>
+                
                 <div class="mb-3">
                     <label for="municipio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Municipio</label>
-                    <select wire:model="municipio_id" name="municipio_id" id="municipio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    <select wire:model="municipio_id" wire:change="updateAldeas" name="municipio_id" id="municipio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                         <option selected>Seleccione el municipio</option>
                         @foreach ($municipios as $muni)
                         <option value="{{ $muni->id }}">{{ $muni->name }}</option>
@@ -46,11 +47,11 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="municipio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Aldea</label>
+                    <label for="aldea" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Aldea</label>
                     <select wire:model="aldea_id" name="aldea_id" id="aldea" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                         <option selected>Seleccione la aldea</option>
                         @foreach ($aldeas as $alde)
-                        <option value="{{ $alde->id }}">{{ $alde->name }}</option>
+                        <option value="{{$alde->id }}">{{ $alde->nombre }}</option>
                         @endforeach
                     </select>
                 </div>

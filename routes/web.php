@@ -27,7 +27,8 @@ use Illuminate\Support\Facades\View;
 */
 
 Auth::routes();
-
+Route::get('/prueba2', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/prueba', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -91,7 +92,14 @@ Route::get('/aldeas', function()
    return View::make('aldeas');
 });
 
-Route::get('/barrios', function()
-{
+Route::get('/tipo-documento', function () {
+    return View::make('tipo-documento');
+});
+
+Route::get('/profesion-oficio', function () {
+    return View::make('profesion-oficio');
+});
+
+Route::get('/barrios', function() {
    return View::make('barrios');
 });

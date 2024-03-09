@@ -15,7 +15,7 @@ class Barrios extends Component
 {
     use WithPagination;
     public bool $deleteAldeaModal = false;
-    public  $nombre, $direccion, $latitud, $longitud, $aldea_id, $barrio_id, $search;
+    public  $nombre, $direccion, $latitud, $longitud,  $barrio_id, $search;
     public $updateModal = false;
     public $deleteModal = false;
     public $createModal = false;
@@ -24,6 +24,15 @@ class Barrios extends Component
     public $departamento_id;
     public $confirmingItemDeletion;
     public $pais_id;
+
+    public $departamentos = [];
+
+    public $municipios = [];
+
+    public $aldeas = [];
+    public $aldea_id;
+
+    public $aldeaID;
     
     public function confirmItemDeletion( $id) 
     {
@@ -32,12 +41,13 @@ class Barrios extends Component
 
     public function render()
     {
-        $valorSeleccionado = $this->departamento_id;
+        $valorSeleccionado = $this->pais_id;
         $pais=Paise::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
         $aldeas = Aldea::all();
         $barrios  = Barrio::where('nombre', 'like', '%'.$this->search.'%')->paginate(10);
+        
         return view('livewire.barrios.barrios', ['pais'=>$pais, 'municipios' => $municipios, 'departamentos' => $departamentos, 'aldeas' => $aldeas, 'barrios'=>$barrios]);
     }
 
@@ -76,18 +86,45 @@ class Barrios extends Component
     }
 
     public function editBarrio($id)
-    {
-        $this->updateModal = true;
-        $barrio = Barrio::findOrFail($id);
-        $this->barrio_id = $id;
-        
-        $this->nombre = $barrio->nombre;
-        $this->direccion = $barrio->direccion;
-        $this->latitud = $barrio->latitud;
-        $this->longitud = $barrio->longitud;
-        $this->aldea_id = $barrio->aldea_id;
-        $this->dispatch("open-edit");
+{
+    $this->updateModal = true;
+    $barrio = Barrio::findOrFail($id);
+    $this->barrio_id = $id;
+    $this->nombre = $barrio->nombre;
+    $this->direccion = $barrio->direccion;
+    $this->latitud = $barrio->latitud;
+    $this->longitud = $barrio->longitud;
+    $this->aldea_id = $barrio->aldea_id;
+    $this->dispatch("open-edit");
+}
+
+    public function updateDepartamentos()
+{
+    if (!empty($this->pais_id)) {
+        $this->departamentos = Departamento::where('pais_id', $this->pais_id)->get();
+    } else {
+        $this->departamentos = [];
     }
+}
+
+public function updateMunicipios()
+{
+    if (!empty($this->departamento_id)) {
+        $this->municipios = Municipio::where('departamento_id', $this->departamento_id)->get();
+    } else {
+        $this->municipios = [];
+    }
+}
+
+public function updateAldeas()
+{
+    if (!empty($this->municipio_id)) {
+        $this->aldeas = Aldea::where('municipio_id', $this->municipio_id)->get();
+    } else {
+        $this->aldeas = [];
+    }
+}
+    
 
     public function closeModal()
     {
@@ -111,22 +148,22 @@ class Barrios extends Component
     public function update()
     {
         $validatedDate = $this->validate([
-            'codigo' => 'required',
+           
             'nombre' => 'required',
             'direccion' => 'required',
             'latitud' => 'required',
             'longitud' => 'required',
-            'municipio_id' => 'required',
+            'aldea_id' => 'required',
         ]);
   
-        $aldeas = Barrio::find($this->aldea_id);
-        $aldeas->update([
-            'codigo' => $this->codigo,
+        $barrios = Barrio::find($this->barrio_id);
+        $barrios->update([
+            
             'nombre' => $this->nombre,
             'direccion' => $this->direccion,
             'latitud' => $this->latitud,
             'longitud' => $this->longitud,
-            'municipio_id' => $this->municipio_id,
+            'municipio_id' => $this->aldea_id,
         ]);
   
         $this->updateModal = false;
@@ -143,8 +180,8 @@ class Barrios extends Component
 
     public function delete()
     {
-        $aldea = Aldea::find($this->confirmingItemDeletion);
-        $aldea->delete();
+        $barrio = Barrio::find($this->confirmingItemDeletion);
+        $barrio->delete();
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
     }

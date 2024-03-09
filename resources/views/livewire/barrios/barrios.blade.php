@@ -143,7 +143,7 @@
     </div>
 
     @if ($deleteModal)
-        @include('livewire.aldeas.delete')
+        @include('livewire.barrios.delete')
     @endif
 
     @if ($createModal)
