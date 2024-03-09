@@ -13,7 +13,22 @@ return new class extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
             $table->id();
+            $table->string("nombre_servicio");
+
+            $table->unsignedBigInteger('tipo_servicio_id');
+            $table->foreign('tipo_servicio_id')->references('id')->on('tipos');
+            $table->unsignedBigInteger('nivel_servivio_id');
+            $table->foreign('nivel_servivio_id')->references('id')->on('nivels');
+
+            $table->string("clave_presupuestaria");
+            $table->float("importes");
+            $table->date("fecha_creacion");
+            $table->boolean("status");
+            $table->integer("created_by");
+            $table->integer("deleted_by")->nullable();
+            $table->integer("updated_by")->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

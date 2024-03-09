@@ -113,3 +113,7 @@ Route::get('/profesion-oficio', function () {
 Route::get('/barrios', function() {
    return View::make('barrios');
 });
+
+Route::get('/servicio', function () {
+    return view('servicio');
+})->name('servicio');
