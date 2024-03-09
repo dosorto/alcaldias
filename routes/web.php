@@ -91,3 +91,7 @@ Route::get('/aldeas', function()
 {
    return View::make('aldeas');
 });
+
+Route::get('/tipo-documento', function () {
+    return View::make('tipo-documento');
+});
