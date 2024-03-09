@@ -109,3 +109,7 @@ Route::get('/tipo-documento', function () {
 Route::get('/profesion-oficio', function () {
     return View::make('profesion-oficio');
 });
+
+Route::get('/barrios', function() {
+   return View::make('barrios');
+});
