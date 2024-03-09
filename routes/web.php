@@ -95,3 +95,7 @@ Route::get('/aldeas', function()
 Route::get('/tipo-documento', function () {
     return View::make('tipo-documento');
 });
+
+Route::get('/profesion-oficio', function () {
+    return View::make('profesion-oficio');
+});
