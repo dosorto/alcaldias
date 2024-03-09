@@ -90,7 +90,3 @@ Route::get('/aldeas', function()
 {
    return View::make('aldeas');
 });
-
-Route::get('/servicio', function () {
-    return view('servicio');
-})->name('servicio');

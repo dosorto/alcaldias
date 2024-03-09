@@ -115,8 +115,8 @@
                 </tr>
             </thead>
             <tbody>
-                @if($pais !== null)
-                    @forelse ($pais as $pa)
+                @if($servicio !== null)
+                    @forelse ($servicio as $ser)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="px-6 py-4">{{ $ser->id }}</td>
                             <td class="px-6 py-4">{{ $ser->nombre_servicio }}</td>
@@ -154,8 +154,8 @@
             </tbody>
         </table>
         <br>
-        @if($pais !== null)
-            {{ $pais->links() }}
+        @if($servicio !== null)
+            {{ $servicio->links() }}
         @endif
 
 
