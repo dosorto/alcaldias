@@ -25,9 +25,20 @@ use Illuminate\Support\Facades\View;
     return view('welcome');
 });
 */
+Route::get('/tipos', function()
+{
+   return View::make('tipos');
+});
+
+Route::get('/niveles', function()
+{
+   return View::make('niveles');
+});
+
 
 Auth::routes();
-
+Route::get('/prueba2', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/prueba', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -90,3 +101,18 @@ Route::get('/aldeas', function()
 {
    return View::make('aldeas');
 });
+<<<<<<< HEAD
+=======
+
+Route::get('/tipo-documento', function () {
+    return View::make('tipo-documento');
+});
+
+Route::get('/profesion-oficio', function () {
+    return View::make('profesion-oficio');
+});
+
+Route::get('/barrios', function() {
+   return View::make('barrios');
+});
+>>>>>>> 88ec0eb348a001f617cd1aabae5ee7d401373ac6

@@ -17,4 +17,14 @@ class Paise extends BaseModel
     {
         return $this->hasMany(Departamento::class, 'pais_id');
     }
+
+    public function departamentos()
+    {
+        return $this->hasMany(Departamento::class);
+    }
+
+    public function barrios()
+    {
+        return $this->hasManyThrough(Barrio::class, Aldea::class, 'municipio_id', 'aldea_id');
+    }
 }

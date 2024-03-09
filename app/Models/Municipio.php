@@ -20,4 +20,9 @@ class Municipio extends BaseModel
     {
         return $this->hasMany(Aldea::class, 'municipio_id');
     }
+
+    public function barrios(): HasManyThrough
+    {
+        return $this->through('aldeas')->has('barrios');
+    }
 } 
