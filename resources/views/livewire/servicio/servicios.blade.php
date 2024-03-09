@@ -22,7 +22,7 @@
                     <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                     </svg>
-                    <a href="/pais" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Pais</a>
+                    <a href="/servicios" class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">servicios</a>
                 </div>
             </li>
 
@@ -39,7 +39,7 @@
 
 
     <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
-        <h2 class="text-3xl font-extrabold dark:text-white">Paises</h2>
+        <h2 class="text-3xl font-extrabold dark:text-white">Servicios</h2>
         <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
 
         <div class="flex items-center justify-between md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
@@ -115,13 +115,13 @@
                 </tr>
             </thead>
             <tbody>
-                @if($servicio !== null)
-                    @forelse ($servicio as $ser)
+                @if($servicios !== null)
+                    @forelse ($servicios as $ser)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="px-6 py-4">{{ $ser->id }}</td>
                             <td class="px-6 py-4">{{ $ser->nombre_servicio }}</td>
-                            <td class="px-6 py-4">{{ $ser->tiposervicio->nombre }}</td>
-                            <td class="px-6 py-4">{{ $ser->tiponivel->nombre }}</td>
+                            <td class="px-6 py-4">{{ $ser->tipos->nombre }}</td>
+                            <td class="px-6 py-4">{{ $ser->nivels->nombre }}</td>
                             <td class="px-6 py-4">{{ $ser->clave_presupuestaria }}</td>
                             <td class="px-6 py-4">{{ $ser->importes }}</td>
                             <td class="px-6 py-4">{{ $ser->fecha_creacion }}</td>
@@ -154,7 +154,7 @@
             </tbody>
         </table>
         <br>
-        @if($servicio !== null)
+        @if($servicios !== null)
             {{ $servicio->links() }}
         @endif
 

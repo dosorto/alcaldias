@@ -27,8 +27,8 @@ class Servicios extends Component
 
     public function render()
     {
-        $servicios  = Servicio::where('nombre', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
-        return view('livewire.servicio.servicio', ['servicios' => $servicios]);
+        $servicios  = Servicio::where('nombre_servicio', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
+        return view('livewire.servicio.servicios', ['servicios' => $servicios]);
     }
 
     private function resetInputFields(){
