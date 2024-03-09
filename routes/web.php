@@ -90,3 +90,7 @@ Route::get('/aldeas', function()
 {
    return View::make('aldeas');
 });
+
+Route::get('/profesion-oficio', function () {
+    return View::make('profesion-oficio');
+});
