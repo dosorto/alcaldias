@@ -7,24 +7,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations, prueba de fork
+     * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('aldeas', function (Blueprint $table) {
+        Schema::create('profesion_oficios', function (Blueprint $table) {
             $table->id();
-            $table->string("codigo");
-            $table->string("nombre");
-            $table->string("direccion");
-            $table->double("latitud");
-            $table->double("longitud");
-            $table->unsignedBigInteger('municipio_id');
-            $table->foreign('municipio_id')->references('id')->on('municipios');
+            $table->string('nombre');
             $table->integer("created_by");
             $table->integer("deleted_by")->nullable();
             $table->integer("updated_by")->nullable();
             $table->timestamps();
-            $table->softDeletes();
+            $table->softdeletes();
         });
     }
 
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('aldeas');
+        Schema::dropIfExists('profesion_oficios');
     }
 };
