@@ -26,4 +26,13 @@ class Departamento extends BaseModel
     {
         return $this->through('municipios')->has('aldeas');
     }
+
+    public function barrios(): HasManyThrough
+{
+    return $this->through('municipios', Aldea::class)->has('barrios');
+}
+
+
+
+    
 }

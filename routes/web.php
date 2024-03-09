@@ -90,3 +90,8 @@ Route::get('/aldeas', function()
 {
    return View::make('aldeas');
 });
+
+Route::get('/barrios', function()
+{
+   return View::make('barrios');
+});
