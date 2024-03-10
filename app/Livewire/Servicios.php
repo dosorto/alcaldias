@@ -29,8 +29,10 @@ class Servicios extends Component
 
     public function render()
     {
+        $tipo=Tipo::all();
+        $nivel=Nivel::all();
         $servicios = Servicio::where('nombre_servicio', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
-        return view('livewire.servicio.servicios', ['servicios' => $servicios]);
+        return view('livewire.servicio.servicios', ['servicios' => $servicios,'tipos'=>$tipo, 'nivels'=>$nivel]);
     }
 
     private function resetInputFields(){
@@ -106,11 +108,11 @@ class Servicios extends Component
             'status' => 'required',
         ]);
 
-        $servicios = Servicio::find($this->id_pais);
+        $servicios = Servicio::find($this->id_servicio);
         $servicios->update([
             'nombre_servicio' => $this->nombre_servicio,
             'tipo_servicio_id' => $this->tipo_servicio_id,
-            'nivel_servicio_id' => $this->nivel_servivio_id,
+            'nivel_servicio_id' => $this->nivel_servicio_id,
             'clave_presupuestaria' => $this->clave_presupuestaria,
             'importes' => $this->importes,
             'fecha_creacion' => $this->fecha_creacion,
@@ -119,7 +121,7 @@ class Servicios extends Component
 
         $this->updateModal = false;
 
-        session()->flash('message', 'Pais Updated Successfully.');
+        session()->flash('message', 'Servicio Updated Successfully.');
         $this->resetInputFields();
     }
 

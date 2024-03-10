@@ -9,7 +9,7 @@ class Servicio extends BaseModel
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['clave_presupuestaria','nombre_servicio','importes','fecha_creacion','status','tipo_servicio_id','nivel_servivio_id'];
+    protected $fillable = ['tipo_servicio_id','nivel_servivio_id','clave_presupuestaria','nombre_servicio','importes','fecha_creacion','status'];
 
     public function tiposervicio()
     {

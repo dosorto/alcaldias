@@ -19,7 +19,7 @@
                 <form class="space-y-4" wire:submit.prevent="store()">
                     <div>
                         <label for="nombre_servicio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
-                        <input type="text" wire:model="codigo" name="nombre_servicio " id="nombre_servicio " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Nombre del servicio" required />
+                        <input type="text" wire:model="nombre_servicio" name="nombre_servicio " id="nombre_servicio " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Nombre del servicio" required />
                         @error('nombre_servicio ') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
@@ -49,7 +49,7 @@
 
                     <div>
                         <label for="importes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Importes</label>
-                        <input type="text" wire:model="importes" name="iso_code" id="importes" placeholder="importes $" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                        <input type="text" wire:model="importes" name="importes" id="importes" placeholder="importes $" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
                     </div>
 
                     <div>
