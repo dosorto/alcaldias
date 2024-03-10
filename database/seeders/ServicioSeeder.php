@@ -15,14 +15,24 @@ class ServicioSeeder extends Seeder
     {
         $servicios=[
             [
-                'nombre_servicio'=>'',
-                'tipo_servivio_id'=>'',
-                'nivel_servivio_id'=>'',
-                'clave_presupuestaria'=>'',
-                'importes'=>'',
-                'fecha_creacion'=>'',
-                'status'=>'',
-                'created_by'=>'',
+                'nombre_servicio'=>'Declaracion de impuestos',
+                'tipo_servivio_id'=>1,
+                'nivel_servivio_id'=>2,
+                'clave_presupuestaria'=>'CP1',
+                'importes'=>900.00,
+                'fecha_creacion'=>'2023-10-10',
+                'status'=>'1',
+                'created_by'=>1,
+            ],
+            [
+                'nombre_servicio'=>'Carta de compra-venta',
+                'tipo_servivio_id'=>2,
+                'nivel_servivio_id'=>3,
+                'clave_presupuestaria'=>'CP2',
+                'importes'=>1000.00,
+                'fecha_creacion'=>'2023-10-10',
+                'status'=>'1',
+                'created_by'=>1,
             ],
 
 
