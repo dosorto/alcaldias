@@ -17,8 +17,8 @@ return new class extends Migration
 
             $table->unsignedBigInteger('tipo_servicio_id');
             $table->foreign('tipo_servicio_id')->references('id')->on('tipos');
-            $table->unsignedBigInteger('nivel_servivio_id');
-            $table->foreign('nivel_servivio_id')->references('id')->on('nivels');
+            $table->unsignedBigInteger('nivel_servicio_id');
+            $table->foreign('nivel_servicio_id')->references('id')->on('nivels');
 
             $table->string("clave_presupuestaria");
             $table->float("importes");

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Servicio extends BaseModel
 {
     use HasFactory;
-    protected $fillable = ['clave_presupuestaria','nombre_servicio','importes','fecha_creacion','status'];
+    use SoftDeletes;
+    protected $fillable = ['clave_presupuestaria','nombre_servicio','importes','fecha_creacion','status','tipo_servicio_id','nivel_servivio_id'];
 
     public function tiposervicio()
     {

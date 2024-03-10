@@ -12,7 +12,7 @@ class Servicios extends Component
 {
     use WithPagination;
     public bool $deletePaisModal = false;
-    public $id_servicio,$nombre_servicio, $tipo_servicio_id,$nivel_servivio_id,$clave_presupuestaria,$importes,$fecha_creacion,$status, $search;
+    public $id_servicio,$nombre_servicio, $tipo_servicio_id,$nivel_servicio_id,$clave_presupuestaria,$importes,$fecha_creacion,$status, $search;
     public $updateModal = false;
     public $deleteModal = false;
     public $createModal = false;
@@ -34,7 +34,7 @@ class Servicios extends Component
     private function resetInputFields(){
         $this->nombre_servicio = '';
         $this-> tipo_servicio_id= '';
-        $this->nivel_servivio_id= '';
+        $this->nivel_servicio_id= '';
         $this->clave_presupuestaria= '';
         $this->importes= '';
         $this->fecha_creacion= '';
@@ -70,7 +70,7 @@ class Servicios extends Component
         $this->id_servicio = $id;
         $this->nombre_servicio = $servicios->nombre_servicio;
         $this->tipo_servicio_id = $servicios->tipo_servicio_id;
-        $this->nivel_servivio_id=$servicios->nivel_servicio_id;
+        $this->nivel_servicio_id=$servicios->nivel_servicio_id;
         $this->clave_presupuestaria = $servicios->clave_presupuestaria;
         $this->importes = $servicios->importes;
         $this->fecha_creacion = $servicios->fecha_creacion;

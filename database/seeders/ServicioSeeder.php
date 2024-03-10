@@ -16,7 +16,7 @@ class ServicioSeeder extends Seeder
         $servicios=[
             [
                 'nombre_servicio'=>'Declaracion de impuestos',
-                'tipo_servicio_id'=>1,
+                'tipo_servivio_id'=>1,
                 'nivel_servicio_id'=>2,
                 'clave_presupuestaria'=>'CP1',
                 'importes'=>900.00,
@@ -38,8 +38,8 @@ class ServicioSeeder extends Seeder
 
         ];
 
-        foreach ($servicios as $servicio) {
-            Servicio::forceCreate($servicio);
+        foreach ($servicios as $ser) {
+            Servicio::forceCreate($ser);
         }
     }
 
