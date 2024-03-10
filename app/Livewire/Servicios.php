@@ -2,9 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\Nivel;
 use Livewire\Component;
 use App\Models\Servicio;
-
+use App\Models\Tipo;
 use Livewire\WithPagination;
 use function Psy\debug;
 
@@ -17,6 +18,7 @@ class Servicios extends Component
     public $deleteModal = false;
     public $createModal = false;
     public $servicios;
+    public $tipo;
     public $confirmingItemDeletion = false;
 
     public function confirmItemDeletion( $id)
@@ -27,8 +29,10 @@ class Servicios extends Component
 
     public function render()
     {
+        $tipo = Tipo::all();
+        $nivel = Nivel::all();
         $servicios  = Servicio::where('nombre_servicio', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
-        return view('livewire.servicio.servicios', ['servicios' => $servicios]);
+        return view('livewire.servicio.servicios', ['tipos' => $tipo, 'nivels' => $nivel,'servicios' => $servicios]);
     }
 
     private function resetInputFields(){
@@ -104,8 +108,8 @@ class Servicios extends Component
             'status' => 'required',
         ]);
 
-        $paises = Servicio::find($this->id_pais);
-        $paises->update([
+        $servicios = Servicio::find($this->id_pais);
+        $servicios->update([
             'nombre_servicio' => $this->nombre_servicio,
             'tipo_servicio_id' => $this->tipo_servicio_id,
             'nivel_servicio_id' => $this->nivel_servivio_id,
@@ -130,8 +134,8 @@ class Servicios extends Component
 
     public function delete()
     {
-        $paises = Servicio::find($this->confirmingItemDeletion);
-        $paises->delete();
+        $servicios = Servicio::find($this->confirmingItemDeletion);
+        $servicios->delete();
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
     }

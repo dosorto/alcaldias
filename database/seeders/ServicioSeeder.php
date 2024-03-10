@@ -19,7 +19,7 @@ class ServicioSeeder extends Seeder
                 'tipo_servivio_id'=>1,
                 'nivel_servicio_id'=>2,
                 'clave_presupuestaria'=>'CP1',
-                'importes'=>900.00,
+                'importes'=>900,
                 'fecha_creacion'=>'2023-10-10',
                 'status'=>'1',
                 'created_by'=>1,
