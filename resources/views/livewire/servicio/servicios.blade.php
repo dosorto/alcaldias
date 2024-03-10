@@ -118,14 +118,14 @@
                 @if($servicios !== null)
                     @forelse ($servicios as $ser)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td class="px-6 py-4">{{ $ser->id }}</td>
-                            <td class="px-6 py-4">{{ $ser->nombre_servicio }}</td>
-                            <td class="px-6 py-4">{{ $ser->tipos->nombre }}</td>
-                            <td class="px-6 py-4">{{ $ser->nivels->nombre }}</td>
-                            <td class="px-6 py-4">{{ $ser->clave_presupuestaria }}</td>
-                            <td class="px-6 py-4">{{ $ser->importes }}</td>
-                            <td class="px-6 py-4">{{ $ser->fecha_creacion }}</td>
-                            <td class="px-6 py-4">{{ $ser->status }}</td>
+                            <td class="px-6 py-4">{{ $servicio->id }}</td>
+                            <td class="px-6 py-4">{{ $servicio->nombre_servicio }}</td>
+                            <td class="px-6 py-4">{{ $servicio->tipos->nombre }}</td>
+                            <td class="px-6 py-4">{{ $servicio->nivels->nombre }}</td>
+                            <td class="px-6 py-4">{{ $servicio->clave_presupuestaria }}</td>
+                            <td class="px-6 py-4">{{ $servicio->importes }}</td>
+                            <td class="px-6 py-4">{{ $servicio->fecha_creacion }}</td>
+                            <td class="px-6 py-4">{{ $servicio->status }}</td>
                             <td class="px-6 py-4">
                                 <button type="button" wire:click="edit({{$ser->id}})" class="text-white bg-[#FF9119] hover:bg-[#FF9119]/80  font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-bs-toggle="modal" data-bs-target="#updatePaisModal">
                                     <svg class="w-6 h-6  dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
