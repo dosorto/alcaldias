@@ -49,6 +49,84 @@ class BarrioSeeder extends Seeder
                 'aldea_id'=> 1,
                 'created_by' => 1,
             ],  
+            [
+                
+                'nombre' => 'El Transito',
+                'direccion' => 'ND',
+                'latitud'=> 11,
+                'longitud'=> 11,
+                'aldea_id'=>7 ,
+                'created_by' => 1,
+            ],  
+            [
+                
+                'nombre' => 'El centro',
+                'direccion' => 'ND',
+                'latitud'=> 11,
+                'longitud'=> 12,
+                'aldea_id'=>7 ,
+                'created_by' => 1,
+            ],  
+
+            [
+                
+                'nombre' => 'La paz',
+                'direccion' => 'ND',
+                'latitud'=> 11,
+                'longitud'=> 12,
+                'aldea_id'=>7 ,
+                'created_by' => 1,
+            ],  
+            [
+                
+                'nombre' => 'Barreal Centro',
+                'direccion' => 'ND',
+                'latitud'=> 8,
+                'longitud'=> 8,
+                'aldea_id'=>10 ,
+                'created_by' => 1,
+            ],  
+            [
+                
+                'nombre' => 'Barreal Limones',
+                'direccion' => 'ND',
+                'latitud'=> 8,
+                'longitud'=> 9,
+                'aldea_id'=>10 ,
+                'created_by' => 1,
+            ],  
+
+            [
+                
+                'nombre' => 'Las posas',
+                'direccion' => 'ND',
+                'latitud'=> 8,
+                'longitud'=> 9,
+                'aldea_id'=>10 ,
+                'created_by' => 1,
+            ], 
+
+            [
+                
+                'nombre' => 'Morai',
+                'direccion' => 'ND',
+                'latitud'=> 8,
+                'longitud'=> 9,
+                'aldea_id'=>11 ,
+                'created_by' => 1,
+            ], 
+            [
+                
+                'nombre' => 'Santa Anita',
+                'direccion' => 'ND',
+                'latitud'=> 9,
+                'longitud'=> 9,
+                'aldea_id'=>11 ,
+                'created_by' => 1,
+            ], 
+
+
+
 
         ];
         foreach ($barrios as $barrio) {
