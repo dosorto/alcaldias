@@ -30,18 +30,27 @@
                         @error('nombre_servicio ') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
-                    <div>
-                        <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo</label>
-                        <input type="text" wire:model="nombre" name="nombre" id="nombre" placeholder="Nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                    <div class="mb-3">
+                        <label for="tipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo de Servicio</label>
+                        <select  wire:model.live="tipo_servivio_id" name="tipo_servivio_id" id="tipo_servivio_id" placeholder="tipo de servicio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected="">Seleccione un tipo</option>
+                            @foreach (App\Models\Tipo::all() as $tipo)
+                            <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nivel" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nivel de Servicio</label>
+                        <select  wire:model.live="nivel_servivio_id" name="nivel_servivio_id" id="nivel_servivio_id" placeholder="Nivel de servicio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected="">Seleccione un nivel</option>
+                            @foreach (App\Models\Nivel::all() as $nivel)
+                            <option value="{{ $nivel->id }}">{{ $nivel->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div>
-                        <label for="iso_code" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nivel</label>
-                        <input type="text" wire:model="iso_code" name="iso_code" id="iso_code" placeholder="ISO Code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
-                    </div>
-
-                    <div>
-                        <label for="clave_presupuestaria" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clave >Presupuestaria</label>
+                        <label for="clave_presupuestaria" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clave Presupuestaria</label>
                         <input type="text" wire:model="clave_presupuestaria" name="clave_presupuestaria" id="clave_presupuestaria" placeholder="Clave presupuestaria" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
                     </div>
 
