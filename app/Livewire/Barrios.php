@@ -25,7 +25,9 @@ class Barrios extends Component
     public $confirmingItemDeletion;
     public $pais_id;
 
+
     public $departamentos = [];
+    
 
     public $municipios = [];
 
@@ -34,6 +36,7 @@ class Barrios extends Component
 
     public $aldeaID;
     
+    
     public function confirmItemDeletion( $id) 
     {
         $this->confirmingItemDeletion = $id;
@@ -41,14 +44,14 @@ class Barrios extends Component
 
     public function render()
     {
-        $valorSeleccionado = $this->pais_id;
+       # $valorSeleccionado = $this->barrio_id;
         $pais=Paise::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
         $aldeas = Aldea::all();
         $barrios  = Barrio::where('nombre', 'like', '%'.$this->search.'%')->paginate(10);
         
-        return view('livewire.barrios.barrios', ['pais'=>$pais, 'municipios' => $municipios, 'departamentos' => $departamentos, 'aldeas' => $aldeas, 'barrios'=>$barrios]);
+        return view('livewire.barrios.barrios', ['pais'=>$pais,  'departamentos' => $departamentos,'municipios' => $municipios, 'aldeas' => $aldeas, 'barrios'=>$barrios]);
     }
 
     private function resetInputFields(){
@@ -83,21 +86,36 @@ class Barrios extends Component
         $this->resetInputFields();
         $this->closeModal();
          $this->dispatch('close-modal');
+       
+     
     }
 
     public function editBarrio($id)
 {
     $this->updateModal = true;
+    
+    // Obtener el barrio con su aldea asociada
     $barrio = Barrio::findOrFail($id);
+    
+    // Establecer los valores del barrio y su aldea asociada
     $this->barrio_id = $id;
     $this->nombre = $barrio->nombre;
     $this->direccion = $barrio->direccion;
     $this->latitud = $barrio->latitud;
     $this->longitud = $barrio->longitud;
-    $this->aldea_id = $barrio->aldea_id;
-    $this->dispatch("open-edit");
-}
+    
 
+    $this->aldea_id = $barrio->aldea->id;
+    
+    // Asignar los valores de los modelos relacionados
+    $this->pais_id = $barrio->aldea->municipios->departamentos->paises->id;
+    $this->departamento_id = $barrio->aldea->municipios->departamentos->id;
+    $this->municipio_id = $barrio->aldea->municipios->id;
+    $this->updateDepartamentos();
+    $this->updateMunicipios();
+    $this->updateAldeas();
+
+}
     public function updateDepartamentos()
 {
     if (!empty($this->pais_id)) {
@@ -163,7 +181,7 @@ public function updateAldeas()
             'direccion' => $this->direccion,
             'latitud' => $this->latitud,
             'longitud' => $this->longitud,
-            'municipio_id' => $this->aldea_id,
+            'aldea_id' => $this->aldea_id,
         ]);
   
         $this->updateModal = false;
