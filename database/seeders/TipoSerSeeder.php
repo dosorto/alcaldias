@@ -25,7 +25,7 @@ class TipoSerSeeder extends Seeder
             ],
             [
                 'nombre' => 'Administrativo',
-                'fechacts' => '09-03-2024',
+                'fechacts' => '2024-09-03',
                 'status' => '1',
                 'created_by'=> 1,
             ],

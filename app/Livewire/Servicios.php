@@ -29,10 +29,10 @@ class Servicios extends Component
 
     public function render()
     {
-        $tipo=Tipo::all();
-        $nivel=Nivel::all();
-        $servicios = Servicio::where('nombre_servicio', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
-        return view('livewire.servicio.servicios', ['servicios' => $servicios,'tipos'=>$tipo, 'nivels'=>$nivel]);
+        $tipos=Tipo::all();
+        $nivels=Nivel::all();
+        $servi = Servicio::where('nombre_servicio', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->with('tipos', 'nivels')->paginate(5);
+        return view('livewire.servicio.servicios', ['servicio' => $servi,'tipos'=>$tipos, 'nivels'=>$nivels]);
     }
 
     private function resetInputFields(){
@@ -70,15 +70,15 @@ class Servicios extends Component
 
     public function edit($id)
     {   $this->updateModal=true;
-        $servicios = Servicio::findOrFail($id);
+        $servicio = Servicio::findOrFail($id);
         $this->id_servicio = $id;
-        $this->nombre_servicio = $servicios->nombre_servicio;
-        $this->tipo_servicio_id = $servicios->tipo_servicio_id;
-        $this->nivel_servicio_id=$servicios->nivel_servicio_id;
-        $this->clave_presupuestaria = $servicios->clave_presupuestaria;
-        $this->importes = $servicios->importes;
-        $this->fecha_creacion = $servicios->fecha_creacion;
-        $this->status = $servicios->status;
+        $this->nombre_servicio = $servicio->nombre_servicio;
+        $this->tipo_servicio_id = $servicio->tipo_servicio_id;
+        $this->nivel_servicio_id=$servicio->nivel_servicio_id;
+        $this->clave_presupuestaria = $servicio->clave_presupuestaria;
+        $this->importes = $servicio->importes;
+        $this->fecha_creacion = $servicio->fecha_creacion;
+        $this->status = $servicio->status;
         $this->dispatch("open-edit");
     }
 

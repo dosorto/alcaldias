@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->string("clave_presupuestaria");
             $table->float("importes");
-            $table->date("fecha_creacion");
+            $table->string("fecha_creacion");
             $table->boolean("status");
             $table->integer("created_by");
             $table->integer("deleted_by")->nullable();

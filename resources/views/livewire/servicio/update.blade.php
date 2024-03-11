@@ -26,26 +26,26 @@
                     <div class="p-4 md:p-4">
                 <form class="space-y-4" wire:submit.prevent="store()">
                     <div>
-                        <label for="nombre_servicio " class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
-                        <input type="text" wire:model="codigo" name="nombre_servicio " id="nombre_servicio " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Nombre del servicio" required />
+                        <label for="nombre_servicio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
+                        <input type="text" wire:model="nombre_servicio" name="nombre_servicio " id="nombre_servicio " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Nombre del servicio" required />
                         @error('nombre_servicio ') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="tipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo de Servicio</label>
-                        <select  wire:model.live="tipo_servivio_id" name="tipo_servivio_id" id="tipo" placeholder="tipo de servicio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">Seleccione un tipo</option>
-                            @foreach (App\Models\Tipo::all() as $tipo)
-                            <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>
+                        <select  wire:model="tipo_servicio_id" name="tipo_servicio_id" id="tipo_servicio_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected>Seleccione un tipo</option>
+                            @foreach ($tipos as $tipo)
+                            <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="nivel" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nivel de Servicio</label>
-                        <select  wire:model.live="nivel_servicio_id" name="nivel_servicio_id" id="nivel" placeholder="Nivel de servicio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">Seleccione un nivel</option>
-                            @foreach (App\Models\Nivel::all() as $nivel)
-                            <option value="{{ $nivel->id }}">{{ $nivel->name }}</option>
+                        <select  wire:model="nivel_servicio_id" name="nivel_servicio_id" id="nivel_servicio_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected>Seleccione un nivel</option>
+                            @foreach ($nivels as $nivel)
+                            <option value="{{ $nivel->id }}">{{ $nivel->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -57,12 +57,12 @@
 
                     <div>
                         <label for="importes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Importes</label>
-                        <input type="text" wire:model="importes" name="iso_code" id="importes" placeholder="importes $" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                        <input type="text" wire:model="importes" name="importes" id="importes" placeholder="importes $" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
                     </div>
 
                     <div>
                         <label for="fecha_creacion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha Creacion</label>
-                        <input type="date" wire:model="fecha_creacion" name="fecha_creacion" id="fecha_creacion" placeholder="Fecha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                        <input type="text" wire:model="fecha_creacion" name="fecha_creacion" id="fecha_creacion" placeholder="Fecha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
                     </div>
 
                     <div>

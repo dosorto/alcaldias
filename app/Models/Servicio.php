@@ -9,17 +9,17 @@ class Servicio extends BaseModel
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['tipo_servicio_id','nivel_servivio_id','clave_presupuestaria','nombre_servicio','importes','fecha_creacion','status'];
+    protected $fillable = ['tipo_servicio_id','nivel_servicio_id','clave_presupuestaria','nombre_servicio','importes','fecha_creacion','status'];
 
-    public function tiposervicio()
+    public function tipos()
     {
         return $this->belongsTo(Tipo::class, 'tipo_servicio_id');
     }
 
 
-    public function nivelservicio()
+    public function nivels()
     {
-        return $this->belongsTo(Nivel::class, 'nivel_servivio_id');
+        return $this->belongsTo(Nivel::class, 'nivel_servicio_id');
     }
 
 }
