@@ -26,7 +26,6 @@ class PaisesSeeder extends Seeder
 
         ];
 
-        // Inserta los países en la base de datos
         foreach ($paises as $pais) {
             Paise::forceCreate($pais);
         }
