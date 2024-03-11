@@ -36,6 +36,7 @@ class Barrios extends Component
 
     public $aldeaID;
     
+    
     public function confirmItemDeletion( $id) 
     {
         $this->confirmingItemDeletion = $id;
@@ -43,14 +44,14 @@ class Barrios extends Component
 
     public function render()
     {
-        $valorSeleccionado = $this->departamento_id;
+       # $valorSeleccionado = $this->barrio_id;
         $pais=Paise::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
         $aldeas = Aldea::all();
         $barrios  = Barrio::where('nombre', 'like', '%'.$this->search.'%')->paginate(10);
         
-        return view('livewire.barrios.barrios', ['pais'=>$pais, 'municipios' => $municipios, 'departamentos' => $departamentos, 'aldeas' => $aldeas, 'barrios'=>$barrios]);
+        return view('livewire.barrios.barrios', ['pais'=>$pais,  'departamentos' => $departamentos,'municipios' => $municipios, 'aldeas' => $aldeas, 'barrios'=>$barrios]);
     }
 
     private function resetInputFields(){
@@ -85,6 +86,8 @@ class Barrios extends Component
         $this->resetInputFields();
         $this->closeModal();
          $this->dispatch('close-modal');
+       
+     
     }
 
     public function editBarrio($id)
