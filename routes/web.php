@@ -25,6 +25,16 @@ use Illuminate\Support\Facades\View;
     return view('welcome');
 });
 */
+Route::get('/tipos', function()
+{
+   return View::make('tipos');
+});
+
+Route::get('/niveles', function()
+{
+   return View::make('niveles');
+});
+
 
 Auth::routes();
 Route::get('/prueba2', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -95,3 +105,15 @@ Route::get('/aldeas', function()
 Route::get('/tipo-documento', function () {
     return View::make('tipo-documento');
 });
+
+Route::get('/profesion-oficio', function () {
+    return View::make('profesion-oficio');
+});
+
+Route::get('/barrios', function() {
+   return View::make('barrios');
+});
+
+Route::get('/servicio', function () {
+    return view('servicio');
+})->name('servicio');
