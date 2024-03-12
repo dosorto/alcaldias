@@ -2396,7 +2396,7 @@
                     }
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "src/helpers.php"
@@ -2454,7 +2454,7 @@
             },
             "time": "2014-07-10T09:06:07+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Maatwebsite\\Excel\\": "src/"
@@ -3401,7 +3401,7 @@
             },
             "time": "2015-05-01T07:00:55+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "PHPExcel": "Classes/"
@@ -6033,7 +6033,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "src/helpers.php"
