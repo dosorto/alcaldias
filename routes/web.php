@@ -117,3 +117,7 @@ Route::get('/barrios', function() {
 Route::get('/servicio', function () {
     return view('servicio');
 })->name('servicio');
+
+Route::get('/contribuyente', function () {
+    return View::make('contribuyente');
+});

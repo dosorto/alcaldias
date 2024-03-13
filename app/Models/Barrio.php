@@ -15,4 +15,9 @@ class Barrio extends BaseModel
     {
         return $this->belongsTo(Aldea::class, 'aldea_id');
     }
+
+    public function Contribuyente()
+    {
+        return $this->hasMany(Contribuyente::class);
+    }
 }

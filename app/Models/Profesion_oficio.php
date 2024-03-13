@@ -12,4 +12,10 @@ class Profesion_oficio extends BaseModel
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['nombre'];
+
+    public function Contribuyente()
+    {
+        return $this->hasMany(Contribuyente::class);
+    }
 }
+
