@@ -34,7 +34,11 @@ class DatabaseSeeder extends Seeder
             TipoDocumentoSeeder::class,
             ProfesionSeeder::class,
             NivelSerSeeder::class,
-            TipoSerSeeder::class
+            TipoSerSeeder::class,
+            BarrioSeeder::class,
+            ContribuyenteSeeder::class,
+            ServicioSeeder::class
+            
         ]);
 
         User::factory()->count(50)->create();
