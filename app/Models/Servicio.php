@@ -22,4 +22,9 @@ class Servicio extends BaseModel
         return $this->belongsTo(Nivel::class, 'nivel_servicio_id');
     }
 
+    public function servicios()
+    {
+        return $this->hasMany(suscripcion::class, 'servicio_id');
+    }
+
 }
