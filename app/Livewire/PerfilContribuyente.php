@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Livewire;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\suscripcion;
 use App\Models\Contribuyente;
@@ -28,6 +29,7 @@ class PerfilContribuyente extends Component
 
     public $servicioId;
     public $historialPagos;
+    public $selectedYear;
 
 
     public function confirmItemDeletion( $id) 
@@ -38,16 +40,44 @@ class PerfilContribuyente extends Component
     public function render()
     {
         $contribuyentes = Contribuyente::where(function($query) {
-                                        $query->where('primer_nombre', 'like', '%'.$this->search.'%')
-                                        ->orWhere('segundo_nombre', 'like', '%'.$this->search.'%')
-                                        ->orWhere('primer_apellido', 'like', '%'.$this->search.'%')
-                                        ->orWhere('segundo_apellido', 'like', '%'.$this->search.'%')
-                                        ->orWhere('identidad', 'like', '%'.$this->search.'%');
-                                        })->paginate(5);
+                                $query->where('primer_nombre', 'like', '%'.$this->search.'%')
+                                    ->orWhere('segundo_nombre', 'like', '%'.$this->search.'%')
+                                    ->orWhere('primer_apellido', 'like', '%'.$this->search.'%')
+                                    ->orWhere('segundo_apellido', 'like', '%'.$this->search.'%')
+                                    ->orWhere('identidad', 'like', '%'.$this->search.'%');
+                                })->paginate(5);
+    
         $servicios = Servicio::all();
-        $suscripciones = suscripcion::all();
-        return view('livewire.perfil-contribuyentes.list-contribuyentes', ['contribuyentes' => $contribuyentes, 'servicios' => $servicios, 'suscripciones' => $suscripciones]);
+    
+        $suscripcionesQuery = Suscripcion::query();
+    
+        if ($this->selectedYear) {
+            $suscripcionesQuery->whereYear('fecha_suscripcion', $this->selectedYear);
+        }
+    
+        $suscripciones = $suscripcionesQuery->get();
+    
+        $availableYears = Suscripcion::selectRaw('YEAR(fecha_suscripcion) as year')
+            ->distinct()
+            ->orderBy('year', 'desc')
+            ->pluck('year');
+    
+        return view('livewire.perfil-contribuyentes.list-contribuyentes', [
+            'contribuyentes' => $contribuyentes, 
+            'servicios' => $servicios, 
+            'suscripciones' => $suscripciones,
+            'availableYears' => $availableYears
+        ]);
     }
+    
+    public function updateSuscripciones()
+{
+    // Actualizar los datos de suscripción según el año seleccionado
+    $this->render(); // Esto volverá a renderizar el componente y actualizará los datos
+}
+
+    
+
 
     public function openModalCreate($id)
     {
@@ -62,26 +92,21 @@ class PerfilContribuyente extends Component
         $this->contribuyenteId = $contribuyente->id;
 }
 public function closeModal()
-    {
-        $this->deleteModal = false;
-        $this->createModal = false;
-        $this->updateModal = false;
-    }
-
-    public $selectedYear;
-
-public function updatedSelectedYear($value)
 {
+    
+    $this->selectedYear = null;
+
    
-    $this->loadHistorialPagos();
+    $this->deleteModal = false;
+    $this->createModal = false;
+    $this->updateModal = false;
+
+    
+    $this->render();
 }
 
-public function loadHistorialPagos()
-{
-    $this->historialPagos = Suscripcion::whereYear('fecha_suscripcion', $this->selectedYear)
-        ->where('contribuyente_id', $this->contribuyenteId)
-        ->get();
-}
+
+
 public $availableYears;
 
 public function mount()
