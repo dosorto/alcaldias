@@ -16,30 +16,48 @@
             </div>
 
             <!--Body-->
-            <div class="my-5">
-                <!-- Contenido del perfil del contribuyente -->
-                <div class="bg-white shadow-md rounded-lg p-6 mb-6 flex flex-wrap">
-                    <div class="w-full md:w-1/2 lg:w-1/3 flex">
-                        <p class="text-gray-600 font-semibold w-1/3">Nombre: </p>
-                        <p class="text-gray-900 w-2/3">{{ $nombrecompleto }}</p>
-                    </div>
-                    <div class="w-full md:w-1/2 lg:w-1/3 flex">
-                        <p class="text-gray-600 font-semibold w-1/3">Identidad:</p>
-                        <p class="text-gray-900 w-2/3">{{ $identidad }}</p>
-                    </div>
-                    <div class="w-full md:w-1/2 lg:w-1/3 flex">
-                        <p class="text-gray-600 font-semibold w-1/3">Sexo:</p>
-                        <p class="text-gray-900 w-2/3">@if($sexo == 0) Femenino @elseif($sexo == 1) Masculino @else N/D @endif</p>
-                    </div>
-                    <div class="w-full md:w-1/2 lg:w-1/3 flex">
-                        <p class="text-gray-600 font-semibold w-1/3">Telefono:</p>
-                        <p class="text-gray-900 w-2/3">{{ $telefono }}</p>
-                    </div>
-                    <div class="w-full md:w-1/2 lg:w-1/3 flex">
-                        <p class="text-gray-600 font-semibold w-1/3">Correo electrónico:</p>
-                        <p class="text-gray-900 w-2/3">{{ $email }}</p>
-                    </div>
+            <div class="bg-white border-b-2 border-gray-400 p-6 mb-6 flex flex-wrap">
+                <div class="w-full md:w-1/2 lg:w-1/3 ">
+                    <label for="codigo" class="block mr-2  font-medium text-gray-900 dark:text-white">
+                        Nombre:</label>
+                    <label for="codigo" class="block mr-2 ml-6 font-medium text-gray-900 dark:text-white">
+                        {{ $nombrecompleto }}</label>
                 </div>
+                <div class="w-full md:w-1/2 lg:w-1/3 ">
+                    <label for="codigo" class="block mr-2  font-medium text-gray-900 dark:text-white">
+                        Identidad:</label>
+                    <label for="codigo" class="block mr-2 ml-6 font-medium text-gray-900 dark:text-white">
+                        {{ $identidad }}</label>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/3 ">
+                    <label for="codigo" class="block mr-2  font-medium text-gray-900 dark:text-white">
+                        Sexo:</label>
+                    <label for="codigo" class="block mr-2 ml-6 font-medium text-gray-900 dark:text-white">
+                        @if ($sexo == 0)
+                            Femenino
+                        @elseif($sexo == 1)
+                            Masculino
+                        @else
+                            N/D
+                        @endif
+                    </label>
+                </div>
+            </div>
+            <div class="bg-white pl-6 flex flex-wrap">
+                <div class="w-full md:w-1/2 lg:w-1/3 ">
+                    <label for="codigo" class="block mr-2  font-medium text-gray-900 dark:text-white">
+                        Telefono:</label>
+                    <label for="codigo" class="block mr-2 ml-6 font-medium text-gray-900 dark:text-white">
+                        {{ $telefono }}</label>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/3 ">
+                    <label for="codigo" class="block mr-2 font-medium text-gray-900 dark:text-white">
+                        Correo electrónico:</label>
+                    <label for="codigo" class="block mr-2 ml-6 font-medium text-gray-900 dark:text-white">
+                        {{ $email }}</label>
+                </div>
+            </div>
+                
                 <!-- Contenido del historial de pagos -->
                 <div class="bg-white shadow-md rounded-lg p-6">
                     <h2 class="text-3xl font-extrabold mb-4">Historial de Pagos</h2>
