@@ -21,4 +21,8 @@ class suscripcion extends BaseModel
     {
         return $this->belongsTo(Contribuyente::class, 'contribuyente_id');
     }
+    public function suscripcions()
+    {
+        return $this->hasMany(PerfilContribuyente::class, 'suscriptions_id');
+    }
 }

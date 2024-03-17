@@ -27,6 +27,7 @@ class PerfilContribuyente extends Component
     public $email;
 
     public $servicioId;
+    public $historialPagos;
 
 
     public function confirmItemDeletion( $id) 
@@ -66,4 +67,32 @@ public function closeModal()
         $this->createModal = false;
         $this->updateModal = false;
     }
+
+    public $selectedYear;
+
+public function updatedSelectedYear($value)
+{
+   
+    $this->loadHistorialPagos();
+}
+
+public function loadHistorialPagos()
+{
+    $this->historialPagos = Suscripcion::whereYear('fecha_suscripcion', $this->selectedYear)
+        ->where('contribuyente_id', $this->contribuyenteId)
+        ->get();
+}
+public $availableYears;
+
+public function mount()
+{
+    $this->availableYears = Suscripcion::selectRaw('YEAR(fecha_suscripcion) as year')
+        ->distinct()
+        ->orderBy('year', 'desc')
+        ->pluck('year');
+        $this->availableYears->push(2023);
+    $this->availableYears->push(2022);
+    $this->availableYears->push(2021);
+}
+
 }
