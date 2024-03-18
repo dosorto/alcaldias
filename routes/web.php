@@ -125,3 +125,7 @@ Route::get('/contribuyente', function () {
 Route::get('/suscripciones', function () {
     return View::make('suscripciones');
 });
+
+Route::get('/pago-servicio', function () {
+    return View::make('pago-servicio');
+});
