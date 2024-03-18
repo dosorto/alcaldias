@@ -47,7 +47,7 @@ class Contribuyentes extends Component
     }
     public function render()
     {
-        $contribuyentes = Contribuyente::where('primer_nombre','like','%'. $this->search.'%')->paginate(1);
+        $contribuyentes = Contribuyente::where('primer_nombre','like','%'. $this->search.'%')->paginate(5);
         return view('livewire.contribuyente.contribuyente',compact('contribuyentes'));
     }
 
@@ -81,11 +81,12 @@ class Contribuyentes extends Component
         $contribuyente->tipo_documento_id = $this->tipo_documento_id;
         $contribuyente->barrio_id = $this->barrio_id;
         $contribuyente->profecion_id = $this->profecion_id;
+        $contribuyente->created_by = auth()->id();
     
         $contribuyente->save();
     
         session()->flash('message', 'Registro creado exitosamente');
-        $this->resetInputFields();
+        
         $this->createModal = false;
     }
 }
