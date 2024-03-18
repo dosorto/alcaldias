@@ -43,4 +43,9 @@ class Contribuyente extends Model
     {
         return $this->belongsTo(Profesion_oficio::class, 'profecion_id');
     }
+
+    public function contribuyentes()
+    {
+        return $this->hasMany(suscripcion::class, 'contribuyente_id');
+    }
 }

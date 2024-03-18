@@ -44,7 +44,7 @@ class Barrios extends Component
 
     public function render()
     {
-       # $valorSeleccionado = $this->barrio_id;
+       //$valorSeleccionado = $this->barrio_id;
         $pais=Paise::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();

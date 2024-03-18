@@ -81,7 +81,7 @@
                                 <td class="px-6 py-4">{{ $contribuyente->identidad }}</td>
                                 <td class="px-6 py-4">{{ $contribuyente->primer_nombre }}</td>
                                 <td class="px-6 py-4">{{ $contribuyente->primer_apellido }}</td>
-                                <td class="px-6 py-4">{{ $contribuyente->tipo_documento_id-> }}</td>
+                                <td class="px-6 py-4">{{ $contribuyente->tipo_documento_id }}</td>
                                 <td class="px-6 py-4">
                                     <button type="button" wire:click="edit({{ $contribuyente->id }})"
                                         class="text-white bg-[#FF9119] hover:bg-[#FF9119]/80  font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -104,6 +104,16 @@
                                                 d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
                                         </svg>
                                     </button>
+                                    <button wire:click="view({{ $contribuyente->id }})" type="button"
+                                        class="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                        data-bs-toggle="modal" data-bs-target="#delete-modal">
+                                        <svg class="w-6 h-6  dark:text-white" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="m14.3 4.8 2.9 2.9M7 7H4a1 1 0 0 0-1 1v10c0 .6.4 1 1 1h11c.6 0 1-.4 1-1v-4.5m2.4-10a2 2 0 0 1 0 3l-6.8 6.8L8 14l.7-3.6 6.9-6.8a2 2 0 0 1 2.8 0Z" />
+                                        </svg>
+                                    </button>
 
                                 </td>
 
@@ -119,6 +129,17 @@
     @if ($createModal)
         @include('livewire.contribuyente.create')
     @endif
+
+    @if ($updateModal)
+        @include('livewire.contribuyente.update')
+    @endif
+
+    @if ($deleteModal)
+        @include('livewire.contribuyente.delete')
+    @endif
+
+    @if ($viewmodal)
+        @include('livewire.contribuyente.view')
+    @endif
+    
 </div>
-
-
