@@ -81,7 +81,7 @@
                                 <td class="px-6 py-4">{{ $contribuyente->identidad }}</td>
                                 <td class="px-6 py-4">{{ $contribuyente->primer_nombre }}</td>
                                 <td class="px-6 py-4">{{ $contribuyente->primer_apellido }}</td>
-                                <td class="px-6 py-4">{{ $contribuyente->tipo_documento_id }}</td>
+                                <td class="px-6 py-4">{{ $contribuyente->tipo_documento_id-> }}</td>
                                 <td class="px-6 py-4">
                                     <button type="button" wire:click="edit({{ $contribuyente->id }})"
                                         class="text-white bg-[#FF9119] hover:bg-[#FF9119]/80  font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
