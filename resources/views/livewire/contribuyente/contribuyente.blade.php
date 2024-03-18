@@ -118,7 +118,5 @@
     </div>
     @if ($createModal)
         @include('livewire.contribuyente.create')
-    @endif
+    @endif
 </div>
-
-
