@@ -43,28 +43,31 @@ class PerfilContribuyente extends Component
     public function render()
     {
         $contribuyentes = Contribuyente::where(function($query) {
-                                $query->where('primer_nombre', 'like', '%'.$this->search.'%')
-                                    ->orWhere('segundo_nombre', 'like', '%'.$this->search.'%')
-                                    ->orWhere('primer_apellido', 'like', '%'.$this->search.'%')
-                                    ->orWhere('segundo_apellido', 'like', '%'.$this->search.'%')
-                                    ->orWhere('identidad', 'like', '%'.$this->search.'%');
-                                })->paginate(5);
-    
+                                    $query->where('primer_nombre', 'like', '%'.$this->search.'%')
+                                        ->orWhere('segundo_nombre', 'like', '%'.$this->search.'%')
+                                        ->orWhere('primer_apellido', 'like', '%'.$this->search.'%')
+                                        ->orWhere('segundo_apellido', 'like', '%'.$this->search.'%')
+                                        ->orWhere('identidad', 'like', '%'.$this->search.'%');
+                                    })->paginate(5);
+        
         $servicios = Servicio::all();
+        
+        // Obtener las suscripciones del contribuyente actual
+        $suscripcionesQuery = Suscripcion::where('contribuyente_id', $this->contribuyenteId);
     
-        $suscripcionesQuery = Suscripcion::query();
-    
+        // Aplicar filtro por año si está seleccionado
         if ($this->selectedYear) {
             $suscripcionesQuery->whereYear('fecha_suscripcion', $this->selectedYear);
         }
     
+        // Paginar las suscripciones del contribuyente actual
         $suscripciones = $suscripcionesQuery->paginate(3);
     
         $availableYears = Suscripcion::selectRaw('YEAR(fecha_suscripcion) as year')
             ->distinct()
             ->orderBy('year', 'desc')
             ->pluck('year');
-    
+        
         return view('livewire.perfil-contribuyentes.list-contribuyentes', [
             'contribuyentes' => $contribuyentes, 
             'servicios' => $servicios, 
@@ -75,8 +78,8 @@ class PerfilContribuyente extends Component
     
     public function updateSuscripciones()
 {
-    // Actualizar los datos de suscripción según el año seleccionado
-    $this->render(); // Esto volverá a renderizar el componente y actualizará los datos
+ 
+    $this->render(); 
 }
 
     
@@ -99,7 +102,7 @@ public function closeModal()
 {
     
     $this->selectedYear = null;
-
+    $this->resetPage();
    
     $this->deleteModal = false;
     $this->createModal = false;
