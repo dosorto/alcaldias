@@ -8,6 +8,7 @@ use App\Models\Contribuyente;
 use App\Models\Servicio;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Models\Profesion_oficio;
 
 class PerfilContribuyente extends Component
 { 
@@ -26,6 +27,8 @@ class PerfilContribuyente extends Component
     public $sexo;
     public $telefono;
     public $email;
+
+    public $profesion;
 
     public $servicioId;
     public $historialPagos;
@@ -55,7 +58,7 @@ class PerfilContribuyente extends Component
             $suscripcionesQuery->whereYear('fecha_suscripcion', $this->selectedYear);
         }
     
-        $suscripciones = $suscripcionesQuery->get();
+        $suscripciones = $suscripcionesQuery->paginate(3);
     
         $availableYears = Suscripcion::selectRaw('YEAR(fecha_suscripcion) as year')
             ->distinct()
@@ -90,6 +93,7 @@ class PerfilContribuyente extends Component
         $this->telefono = $contribuyente->telefono;
         $this->email = $contribuyente->email;
         $this->contribuyenteId = $contribuyente->id;
+        
 }
 public function closeModal()
 {

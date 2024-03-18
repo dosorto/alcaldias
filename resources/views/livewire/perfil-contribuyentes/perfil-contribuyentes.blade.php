@@ -63,9 +63,8 @@
     <h2 class="text-3xl font-extrabold mb-4">Historial de Pagos</h2>
     <hr class="my-2 border-gray-200">
     <!-- Tabla de Historial de Pagos -->
-    <div class="flex justify-end mb-4">
-        <label for="year" class="mr-2">Filtrar por año:</label>
-        <div class="flex justify-end mb-4">
+    <div class="flex mb-4">
+        <div class="flex mb-4">
             <label for="year" class="mr-2">Filtrar por año:</label>
             <select wire:model="selectedYear" wire:change="updateSuscripciones" id="year" class="px-3 py-1 border rounded">
                 <option value="">Todos</option>
@@ -76,7 +75,7 @@
         </div>
     </div>
     <div class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-gray-200">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="bg-gray-50">
                 <tr>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
@@ -100,5 +99,7 @@
             @endforelse
             </tbody>
         </table>
+        <br>
+        {{ $suscripciones->links()  }}
     </div>
 </div>
