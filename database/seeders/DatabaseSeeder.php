@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Periodo;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -37,8 +38,10 @@ class DatabaseSeeder extends Seeder
             TipoSerSeeder::class,
             BarrioSeeder::class,
             ContribuyenteSeeder::class,
-            ServicioSeeder::class
-            
+            ServicioSeeder::class,
+            AnioSeeder::class,
+            PeriodoSeeder::class,
+
         ]);
 
         User::factory()->count(50)->create();

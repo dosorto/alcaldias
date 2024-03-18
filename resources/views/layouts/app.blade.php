@@ -328,7 +328,19 @@
                         </a>
                 </li>
                 <li>
-                    <a href="/perfil"
+
+                    <a href="/pago-servicio"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <span class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1z"/>
+                          </svg>
+                    <span> Pago de Servicios</span>
+
+                    </span>
+                    </a>
+            </li>
+            <a href="/perfil"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         <span class="flex items-center">
                             <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none"

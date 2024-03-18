@@ -86,7 +86,7 @@ class Contribuyentes extends Component
         $contribuyente->save();
     
         session()->flash('message', 'Registro creado exitosamente');
-        
+        $this->resetInputFields();
         $this->createModal = false;
     }
 }

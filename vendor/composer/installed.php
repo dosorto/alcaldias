@@ -3,7 +3,10 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
+
         'reference' => '3ed483dd9548f9c8c288749938cb7ff88210a3a7',
+
+        'reference' => 'ff97318eac95d7940c94d3a14a1b75eaba79e953',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -370,6 +373,15 @@
                 0 => '*',
             ),
         ),
+        'kwn/number-to-words' => array(
+            'pretty_version' => '2.9.1',
+            'version' => '2.9.1.0',
+            'reference' => '0b29195ab64994a5abd24115730aa590c598d468',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kwn/number-to-words',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'laravel/framework' => array(
             'pretty_version' => 'v10.48.3',
             'version' => '10.48.3.0',
@@ -383,6 +395,7 @@
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '3ed483dd9548f9c8c288749938cb7ff88210a3a7',
+            'reference' => 'ff97318eac95d7940c94d3a14a1b75eaba79e953',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -793,8 +806,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
