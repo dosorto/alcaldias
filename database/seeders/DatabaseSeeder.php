@@ -37,7 +37,9 @@ class DatabaseSeeder extends Seeder
             TipoSerSeeder::class,
             BarrioSeeder::class,
             ContribuyenteSeeder::class,
-            ServicioSeeder::class
+            ServicioSeeder::class,
+            ServicioSeeder::class,
+            ContribuyenteSeeder::class
             
         ]);
 
