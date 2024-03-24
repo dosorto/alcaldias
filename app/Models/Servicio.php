@@ -28,7 +28,9 @@ class Servicio extends BaseModel
         return $this->hasMany(suscripcion::class, 'servicio_id');
     }
 
-    public function pagosServicios(): BelongsToMany
+    
+
+    public function pagosServicios()
     {
         return $this->belongsToMany(PagoServicios::class, 'pago_servicio_has_servicios', 'servicio_id', 'pago_servicio_id');
     }
