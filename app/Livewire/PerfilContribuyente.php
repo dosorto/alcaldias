@@ -9,6 +9,7 @@ use App\Models\Servicio;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Profesion_oficio;
+use App\Models\suscripcion;
 
 class PerfilContribuyente extends Component
 { 
@@ -37,6 +38,8 @@ class PerfilContribuyente extends Component
 
     public $availableYears;
 
+   // public $suscripciones;
+
     public function confirmItemDeletion($id) 
     {
         $this->confirmingItemDeletion = $id;
@@ -53,6 +56,10 @@ class PerfilContribuyente extends Component
         })->paginate(5);
         
         $servicios = Servicio::all();
+
+
+        $suscripciones = Suscripcion::with('servicios')->get();
+
         
         // Obtener las suscripciones del contribuyente actual
         $pagosQuery = PagoServicios::where('contribuyente_id', $this->contribuyenteId);
@@ -80,6 +87,7 @@ class PerfilContribuyente extends Component
             'contribuyentes' => $contribuyentes, 
             'servicios' => $servicios, 
             'pagoServicios' => $pagoServicios,
+            'suscripciones'=>$suscripciones,
             'availableYears' => $availableYears
         ]);
     }

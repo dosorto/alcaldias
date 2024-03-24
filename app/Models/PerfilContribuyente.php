@@ -25,5 +25,6 @@ class PerfilContribuyente extends BaseModel
     {
         return $this->belongsToMany(Servicio::class, 'pago_servicio_has_servicios', 'perfil_contribuyente_id', 'servicio_id');
     }
+  
 
 }

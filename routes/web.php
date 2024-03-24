@@ -130,6 +130,10 @@ Route::get('/suscripciones', function () {
 Route::get('/perfil', function () {
     return View::make('perfil-contribuyente');
 });
+Route::get('/factura', function () {
+    return View::make('factura');
+});
+
 
 Route::get('/pago-servicio', function () {
     return View::make('pago-servicio');
