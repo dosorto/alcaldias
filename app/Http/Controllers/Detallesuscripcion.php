@@ -33,6 +33,16 @@ class Detallesuscripcion extends Controller
             'servicioId' => 'required|exists:servicios,id',
         ]);
 
+         // Verificar si el servicio ya está suscrito por el contribuyente
+        $suscripcionExistente = Suscripcion::where('contribuyente_id', $request->contribuyenteId)
+                                                ->where('servicio_id', $request->servicioId)
+                                                ->exists();
+
+            // Si el servicio ya está suscrito, retornar con un mensaje de error
+        if ($suscripcionExistente) {
+        return redirect()->back()->with('error', 'Este servicio ya está suscrito por el contribuyente.');
+        }
+
         // Crear una nueva suscripción
         suscripcion::create([
             'contribuyente_id' => $request->contribuyenteId,
