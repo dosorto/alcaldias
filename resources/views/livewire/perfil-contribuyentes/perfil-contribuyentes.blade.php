@@ -45,8 +45,8 @@
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha de Pago</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Servicio</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Importe Individual</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado del Pago</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total del Recibo</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado del Pago</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Imprimir</th>
                 </tr>
             </thead>
@@ -54,30 +54,35 @@
                 <!-- Iteración para los pagos de servicios -->
                 @forelse ($pagoServicios as $sus)
                     @foreach ($sus->servicios as $index => $servicio)
-                        <tr>
-                            @if ($index === 0)
-                                <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">{{ $sus->num_recibo }}</td>
-                                <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">{{ $sus->fecha_pago }}</td>
+                    <tr>
+                        @if ($index === 0)
+                            <!-- Aquí se verifica si es la primera fila de un recibo de pago -->
+                            <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">{{ $sus->num_recibo }}</td>
+                            <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">{{ $sus->fecha_pago }}</td>
+                        @endif
+                        <!-- Aquí se itera sobre cada servicio asociado al recibo de pago -->
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $servicio->nombre_servicio }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $servicio->importes }}</td>
+                       
+                        @if ($index === 0)
+                            <!-- Aquí se verifica si es la primera fila de un recibo de pago -->
+                            <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">{{ $sus->importe_total }}</td>
+                            <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">
+                                <!-- Aquí se determina si el recibo está pagado o pendiente -->
+                                @if ($sus->num_recibo !== null)
+                                Pagado
+                            @else
+                                Pendiente
                             @endif
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $servicio->nombre_servicio }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $servicio->importes }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                @if ($servicio->num_pago !== null)
-                                    Pagado
-                                @else
-                                    Pendiente
-                                @endif
+                        </td>
+                            <!-- Botón de imprimir -->
+                            <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">
+                                <button onclick="window.print()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Imprimir
+                                </button>
                             </td>
-                            @if ($index === 0)
-                                <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">{{ $sus->importe_total }}</td>
-                                <!-- Botón de imprimir -->
-                                <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">
-                                    <button onclick="window.print()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                        Imprimir
-                                    </button>
-                                </td>
-                            @endif
-                        </tr>
+                        @endif
+                    </tr>
                     @endforeach
                 @empty
                     <tr>
@@ -85,21 +90,29 @@
                     </tr>
                 @endforelse
                 <!-- Iteración para las suscripciones -->
-                @forelse ($suscripciones as $suscripcion)
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">null</td>
-                        <td class="px-6 py-4 whitespace-nowrap">null</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $suscripcion->servicios->nombre_servicio }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $suscripcion->servicios->importes }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">Pendiente</td>
-                        <td class="px-6 py-4 whitespace-nowrap">null</td>
-                        <td class="px-6 py-4 whitespace-nowrap">null</td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="7">No se encontraron registros de suscripciones</td>
-                    </tr>
-                @endforelse
+                <!-- Iteración para las suscripciones -->
+@forelse ($suscripciones as $suscripcion)
+@if ($suscripcion->num_pago !== null)
+    <tr>
+        <td class="px-6 py-4 whitespace-nowrap">{{ $suscripcion->num_recibo }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">{{ $suscripcion->fecha_pago }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">{{ $suscripcion->servicio->nombre_servicio }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">{{ $suscripcion->servicio->importes }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">Pagado</td>
+        <td class="px-6 py-4 whitespace-nowrap">{{ $suscripcion->importe_total }}</td>
+        <!-- Botón de imprimir -->
+        <td class="px-6 py-4 whitespace-nowrap">
+            <button onclick="window.print()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Imprimir
+            </button>
+        </td>
+    </tr>
+@endif
+@empty
+<tr>
+    <td colspan="7">No se encontraron registros de suscripciones</td>
+</tr>
+@endforelse
             </tbody>
         </table>
     </div>
