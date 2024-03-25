@@ -74,11 +74,7 @@
                     <td class="px-6 py-4">{{ $con->primer_apellido }}</td>
                     <td class="px-6 py-4">{{ $con->segundo_apellido }}</td>
                     <td class="px-6 py-4">
-                        <button  wire:click="openModalCreate({{ $con->id }})" type="button" class="text-white hover:bg-gray-500  font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.75 4H19M7.75 4a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 4h2.25m13.5 6H19m-2.25 0a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 10h11.25m-4.5 6H19M7.75 16a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 16h2.25"/>
-                        </svg>
-                        </button>   
+                    <a href="{{ route('contribuyente.show', $con->id) }}" class="boton">Seleccionar</a>      
                     </td>
                 </tr>
             @empty

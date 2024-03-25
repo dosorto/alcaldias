@@ -1,5 +1,6 @@
 <?php
 use App\Livewire\ImportarExcel;
+use App\Http\Controllers\Detallesuscripcion;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\Role\PermissionController;
@@ -134,4 +135,9 @@ Route::get('/perfil', function () {
 Route::get('/pago-servicio', function () {
     return View::make('pago-servicio');
 });
+
+Route::get('/detallesuscripcion/{id}', [\App\Http\Controllers\Detallesuscripcion::class, 'show'])->name('contribuyente.show');
+Route::post('/detallesuscripcion/agregar-servicio', [Detallesuscripcion::class, 'agregarServicio'])->name('contribuyente.agregar-servicio');
+Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion::class, 'eliminarServicio'])->name('suscripcion.eliminar');
+
 
