@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('segundo_apellido');
             $table->boolean('sexo');
             $table->double('impuesto_personal')->nullable();
-            $table->string('direccion');
+            $table->string('direccion')->nullable();
             $table->string('apartado_postal')->nullable();
-            $table->integer('telefono');
+            $table->string('telefono');
             $table->date('fecha_nacimiento');
             $table->string('email');
             $table->unsignedBigInteger('tipo_documento_id');
