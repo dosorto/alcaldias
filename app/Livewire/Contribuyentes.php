@@ -10,6 +10,7 @@ use App\Models\Tipo_documento;
 use App\Models\Municipio;
 use App\Models\Paise;
 use App\Models\Barrio;
+use App\Models\Aldea;
 use App\Models\Profesion_oficio;
 
 class Contribuyentes extends Component
@@ -18,35 +19,31 @@ class Contribuyentes extends Component
 
     public $primer_nombre,$segundo_nombre,$primer_apellido,$segundo_apellido,$identidad,$tipo_documento_id,$sexo,
     $impuesto_personal,$direccion,$profecion_id,$telefono,$barrio_id,$fecha_nacimiento,$apartado_postal,$email;
-
     public $search;
     public $createModal = false;
-
     public $updateModal = false;
-
     public $deleteModal = false;
-
     public $viewmodal = false;
-
     public $tipo_documentos;
-
     public $SelectPais = NULL;
     public $departamentos;
     public $paises;
     public $barrios;
-
-    public $pais_id;
+    public $aldeas;
+    public $municipios;
     public $profeciones;
     public $id;
     public $confirmingItemDeletion;
+    public $pais_id;
+    public $departamento_id;
+    public $municipio_id;
+    public $aldea_id;
 
 
 
     public function mount(){
         $this->tipo_documentos = Tipo_documento::all();
         $this->paises = paise::all();
-        $this->departamentos = [];
-        $this->barrios = barrio::all();
         $this->profeciones = Profesion_oficio::all();
     }
 
@@ -86,6 +83,7 @@ class Contribuyentes extends Component
         $this->updateModal = false;
         $this->deleteModal = false;
         $this->viewmodal = false;
+        $this->resetInputFields();
     }
 
     public function store()

@@ -67,8 +67,8 @@
                         <tr class="table-secondary">
                             <th scope="col" class="p-4">ID</th>
                             <th scope="col" class="px-6 py-3">Identidad</th>
-                            <th scope="col" class="px-6 py-3">Primer Nombre</th>
-                            <th scope="col" class="px-6 py-3">Primer apellido</th>
+                            <th scope="col" class="px-6 py-3">Nombre completo</th>
+                            <th scope="col" class="px-6 py-3">Contacto</th>
                             <th scope="col" class="px-6 py-3">tipo de Documento</th>
                             <th scope="col" class="px-6 py-3">Acciones</th>
                         </tr>
@@ -79,8 +79,8 @@
                                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td class="px-6 py-4">{{ $contribuyente->id }}</td>
                                 <td class="px-6 py-4">{{ $contribuyente->identidad }}</td>
-                                <td class="px-6 py-4">{{ $contribuyente->primer_nombre }}</td>
-                                <td class="px-6 py-4">{{ $contribuyente->primer_apellido }}</td>
+                                <td class="px-6 py-4">{{ $contribuyente->primer_nombre}}  {{$contribuyente->segundo_nombre}}  {{$contribuyente->primer_apellido}} {{$contribuyente->segundo_apellido}}</td>
+                                <td class="px-6 py-4">{{ $contribuyente->email }} , {{ $contribuyente->telefono }}</td>
                                 <td class="px-6 py-4">{{ $contribuyente->tipo_documento_id }}</td>
                                 <td class="px-6 py-4">
                                     <button type="button" wire:click="edit({{ $contribuyente->id }})"
