@@ -77,7 +77,7 @@ class MunicipioSeeder extends Seeder
             [
                 'codigo' => '11',
                 'name' => 'Orocuina',
-                'departamento_id' => 1,
+                'departamento_id' => 6,
                 'created_by'=> 1,
             ],
             [
