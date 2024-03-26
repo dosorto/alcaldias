@@ -38,7 +38,7 @@ class PerfilContribuyente extends Component
 
     public $availableYears;
 
-   // public $suscripciones;
+
 
     public function confirmItemDeletion($id) 
     {
@@ -54,14 +54,10 @@ class PerfilContribuyente extends Component
                 ->orWhere('segundo_apellido', 'like', '%'.$this->search.'%')
                 ->orWhere('identidad', 'like', '%'.$this->search.'%');
         })->paginate(5);
-        
+    
         $servicios = Servicio::all();
-
-
-        $suscripciones = Suscripcion::with('servicios')->get();
-
-        
-        // Obtener las suscripciones del contribuyente actual
+    
+        // Obtener los pagos de servicios del contribuyente seleccionado
         $pagosQuery = PagoServicios::where('contribuyente_id', $this->contribuyenteId);
     
         // Aplicar filtro por año si está seleccionado
@@ -69,11 +65,11 @@ class PerfilContribuyente extends Component
             $pagosQuery->whereYear('fecha_pago', $this->selectedYear);
         }
     
-        // Paginar las suscripciones del contribuyente actual
-        $pagoServicios = $pagosQuery->paginate(3);
+        // Paginar los pagos de servicios del contribuyente seleccionado
+        $pagoservicio = $pagosQuery->paginate(3);
     
         // Calcular el importe total de cada recibo y añadirlo al objeto de pago de servicios
-        foreach ($pagoServicios as $pago) {
+        foreach ($pagoservicio as $pago) {
             $totalRecibo = $pago->servicios()->sum('importes');
             $pago->importe_total = $totalRecibo;
         }
@@ -82,54 +78,18 @@ class PerfilContribuyente extends Component
             ->distinct()
             ->orderBy('year', 'desc')
             ->pluck('year');
-        
+    
         return view('livewire.perfil-contribuyentes.list-contribuyentes', [
             'contribuyentes' => $contribuyentes, 
             'servicios' => $servicios, 
-            'pagoServicios' => $pagoServicios,
-            'suscripciones'=>$suscripciones,
+            'pagoservicio' => $pagoservicio,
             'availableYears' => $availableYears
         ]);
     }
-    
-    public function updateSuscripciones()
-    {
-        $this->render(); 
-    }
-
-    public function openModalCreate($id)
-    {
-        $this->createModal = true;
-        $contribuyente = Contribuyente::findOrFail($id);
-
-        $this->nombrecompleto = $contribuyente->primer_nombre . ' ' . $contribuyente->segundo_nombre . ' ' . $contribuyente->primer_apellido . ' ' . $contribuyente->segundo_apellido;
-        $this->identidad = $contribuyente->identidad;
-        $this->sexo = $contribuyente->sexo;
-        $this->telefono = $contribuyente->telefono;
-        $this->email = $contribuyente->email;
-        $this->contribuyenteId = $contribuyente->id;
-    }
-
-    public function closeModal()
-    {
-        $this->selectedYear = null;
-        $this->resetPage();
    
-        $this->deleteModal = false;
-        $this->createModal = false;
-        $this->updateModal = false;
+    
+    
 
-        $this->render();
-    }
-
-    public function mount()
-    {
-        $this->availableYears = PagoServicios::selectRaw('YEAR(fecha_pago) as year')
-            ->distinct()
-            ->orderBy('year', 'desc')
-            ->pluck('year');
-        $this->availableYears->push(2023);
-        $this->availableYears->push(2022);
-        $this->availableYears->push(2021);
-    }
+    
+  
 }

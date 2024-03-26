@@ -1,5 +1,6 @@
 <?php
 use App\Livewire\ImportarExcel;
+use App\Http\Controllers\Detallesuscripcion;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\Role\PermissionController;
@@ -7,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
+use App\Livewire\HistorialContribuyente;
+use App\Livewire\PerfilContribuyente;
 use Illuminate\Support\Facades\View;
 
 
@@ -138,4 +141,15 @@ Route::get('/factura', function () {
 Route::get('/pago-servicio', function () {
     return View::make('pago-servicio');
 });
+
+Route::get('/detallesuscripcion/{id}', [\App\Http\Controllers\Detallesuscripcion::class, 'show'])->name('contribuyente.show');
+Route::post('/detallesuscripcion/agregar-servicio', [Detallesuscripcion::class, 'agregarServicio'])->name('contribuyente.agregar-servicio');
+Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion::class, 'eliminarServicio'])->name('suscripcion.eliminar');
+
+Route::get('/historial-contribuyente/{id}', [HistorialContribuyente::class, 'showHistory'])->name('contribuyente.showHistory');
+
+
+
+
+
 
