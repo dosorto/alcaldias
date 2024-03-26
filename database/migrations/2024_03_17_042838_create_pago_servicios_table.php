@@ -16,10 +16,9 @@ return new class extends Migration
             $table->string('num_recibo');
             $table->string('fecha_pago');
             $table->float('total');
-            $table->unsignedBigInteger('periodo_id');
-            $table->foreign('periodo_id')->references('id')->on('periodos');
             $table->unsignedBigInteger('contribuyente_id');
             $table->foreign('contribuyente_id')->references('id')->on('contribuyentes');
+            $table->string('estado');
             $table->integer("created_by");
             $table->integer("deleted_by")->nullable();
             $table->integer("updated_by")->nullable();

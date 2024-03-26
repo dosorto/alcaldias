@@ -48,4 +48,9 @@ class Contribuyente extends Model
     {
         return $this->hasMany(suscripcion::class, 'contribuyente_id');
     }
+
+    public function pagoServicios()
+    {
+        return $this->hasMany(PagoServicios::class, 'contribuyente_id');
+    }
 }
