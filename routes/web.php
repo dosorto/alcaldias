@@ -146,10 +146,8 @@ Route::get('/detallesuscripcion/{id}', [\App\Http\Controllers\Detallesuscripcion
 Route::post('/detallesuscripcion/agregar-servicio', [Detallesuscripcion::class, 'agregarServicio'])->name('contribuyente.agregar-servicio');
 Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion::class, 'eliminarServicio'])->name('suscripcion.eliminar');
 
+Route::get('/pago-servicio/generate', function () {
+    return View::make('generar-pago');
+})->name('generar.pago');
+
 Route::get('/historial-contribuyente/{id}', [HistorialContribuyente::class, 'showHistory'])->name('contribuyente.showHistory');
-
-
-
-
-
-
