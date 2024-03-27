@@ -11,4 +11,15 @@ class PagoServicio_has_servicios extends BaseModel
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['pago_servicio_id', 'servicio_id', 'created_by'];
+
+    public function pagoServicio()
+    {
+        return $this->belongsTo(PagoServicios::class, 'pago_servicio_id');
+    }
+
+    public function servicio()
+    {
+        return $this->belongsTo(Servicio::class, 'servicio_id');
+    }
+
 }
