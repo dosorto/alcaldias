@@ -34,6 +34,7 @@ return array(
     'App\\Livewire\\Barrios' => $baseDir . '/app/Livewire/Barrios.php',
     'App\\Livewire\\Contribuyentes' => $baseDir . '/app/Livewire/Contribuyentes.php',
     'App\\Livewire\\Departamentos' => $baseDir . '/app/Livewire/Departamentos.php',
+    'App\\Livewire\\HistorialContribuyente' => $baseDir . '/app/Livewire/HistorialContribuyente.php',
     'App\\Livewire\\ImportarExcel' => $baseDir . '/app/Livewire/ImportarExcel.php',
     'App\\Livewire\\Municipios' => $baseDir . '/app/Livewire/Municipios.php',
     'App\\Livewire\\Niveles' => $baseDir . '/app/Livewire/Niveles.php',

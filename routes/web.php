@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
+use App\Livewire\HistorialContribuyente;
+use App\Livewire\PerfilContribuyente;
 use Illuminate\Support\Facades\View;
 
 
@@ -131,6 +133,10 @@ Route::get('/suscripciones', function () {
 Route::get('/perfil', function () {
     return View::make('perfil-contribuyente');
 });
+Route::get('/factura', function () {
+    return View::make('factura');
+});
+
 
 Route::get('/pago-servicio', function () {
     return View::make('pago-servicio');
@@ -143,3 +149,10 @@ Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion:
 Route::get('/pago-servicio/generate', function () {
     return View::make('generar-pago');
 })->name('generar.pago');
+
+Route::get('/historial-contribuyente', function () {
+    return View::make('historial-contribuyente');
+})->name('contribuyente.showHistory');
+
+Route::get('/factura/{id}', [HistorialContribuyente::class, 'generarFactura'])->name('generar.factura');
+

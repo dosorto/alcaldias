@@ -31,4 +31,9 @@ class PagoServicios extends BaseModel
         return $this->belongsToMany(Servicio::class, 'pago_servicio_has_servicios', 'pago_servicio_id', 'servicio_id');
     }
 
+        public function contribuyente()
+    {
+        return $this->belongsTo(PerfilContribuyente::class);
+    }
+
 }
