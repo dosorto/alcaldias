@@ -30,7 +30,7 @@ class PagoServicio extends Component
     public $sexo;
     public $telefono;
     public $email;
-    public $anio_id;
+    public $anio_id =1;
     public $periodo_id;
     public $direccion;
     public $periodo;
@@ -45,6 +45,7 @@ class PagoServicio extends Component
     public $totalVer=0;
     public $totalFVer=0;
     public $alert = false;
+    public $generar_pago = false;
 
     public function render()
     {
@@ -58,37 +59,12 @@ class PagoServicio extends Component
             })->paginate(5);
         $servicios = Servicio::all();
         $suscripciones = suscripcion::all();
-        $anio = Anio::all();
-        $periodos = Periodo::where('anio_id', $this->anio_id)->get();
-        $periodoSelected = Periodo::find($this->periodo_id);
-        $servicio_pagado = PagoServicios::where('contribuyente_id', $this->contribuyenteId)
-                                        ->where('periodo_id', $this->periodo_id)
-                                        ->first();
 
-        if($servicio_pagado){
-            $this->alert=true;
-        }
 
-        if ($periodoSelected) {
 
-            $fechaPeriodoInicio = $periodoSelected->fecha_inicio;
-            $fechaPeriodoFinal = $periodoSelected->fecha_final;
-            $this->num_recibo = $periodoSelected->periodo;
-            $suscripcionesPeriodo = suscripcion::where('contribuyente_id', $this->contribuyenteId)
-            ->whereBetween('fecha_suscripcion', [$fechaPeriodoInicio, $fechaPeriodoFinal])->get();
-
-            foreach ($suscripcionesPeriodo as $sp) {
-                $this->totalImportes += $sp->servicios->importes;
-                $this->totalFormateado = number_format($this->totalImportes, 2, '.', ',');
-                $this->servicios_pagar[] = $sp->servicios->id;
-
-            }
-        } else {
-            $suscripcionesPeriodo = [];
-        }
         return view('livewire.pago-servicio.pago-servicio', ['contribuyentes' => $contribuyentes, 'servicios' => $servicios, 'suscripciones' => $suscripciones,
-                                                             'anio' => $anio, 'periodos'=> $periodos, 'susPeriodo' => $suscripcionesPeriodo, 'periodo'=> $periodoSelected,
-                                                             'servicio_pagado' => $servicio_pagado]);
+
+                                                           ]);
     }
 
     public function updatedPeriodoId()
@@ -107,6 +83,8 @@ class PagoServicio extends Component
         $this->telefono = $contribuyente->telefono;
         $this->email = $contribuyente->email;
         $this->contribuyenteId = $contribuyente->id;
+
+
     }
 
 
@@ -151,22 +129,6 @@ class PagoServicio extends Component
         $this->deleteModal = false;
     }
 
-    public function openModalPago($id)
-    {
-        $this->createModalPago = true;
-        $contribuyente = Contribuyente::findOrFail($id);
-
-        $this->fechap = Carbon::now()->format('Y-m-d');
-        $this->nombrecompleto = $contribuyente->primer_nombre . ' ' . $contribuyente->segundo_nombre . ' ' . $contribuyente->primer_apellido . ' ' . $contribuyente->segundo_apellido;
-        $this->identidad = $contribuyente->identidad;
-        $this->sexo = $contribuyente->sexo;
-        $this->telefono = $contribuyente->telefono;
-        $this->email = $contribuyente->email;
-        $this->contribuyenteId = $contribuyente->id;
-        $this->direccion = $contribuyente->direccion;
-
-    }
-
 
     public function storePago()
     {
@@ -198,6 +160,16 @@ class PagoServicio extends Component
         $this->closeModal();
 
         session()->flash('message', 'Se ha creado exitosamente');
+    }
+
+    public function generarPagare($id){
+         // Establecer el ID del contribuyente
+        $this->contribuyenteId = $id;
+
+        // Establecer la cookie 'contribuyente_id' con el nuevo ID
+        cookie()->queue('contribuyente_id', $this->contribuyenteId);
+        return redirect()->route('generar.pago')->with('id', $id);
+
     }
 
 }
