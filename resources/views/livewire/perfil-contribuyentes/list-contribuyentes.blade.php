@@ -4,13 +4,13 @@
             {{ session('message') }}
         </div>
     @endif
-    
+
 <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
     <h2 class="text-3xl font-extrabold dark:text-white">Contribuyentes</h2>
     <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
-    
+
     <div class="flex items-center justify-between  md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
-        
+
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative">
             <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -74,7 +74,9 @@
                     <td class="px-6 py-4">{{ $con->primer_apellido }}</td>
                     <td class="px-6 py-4">{{ $con->segundo_apellido }}</td>
                     <td class="px-6 py-4">
-                        <a href="{{ route('contribuyente.showHistory', $con->id) }}" class="boton">Seleccionar</a>      
+                        <button wire:click="historial({{ $con->id }})" type="button" class="text-white bg-[#FF9119] hover:bg-[#FF9119]/80  font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Seleccionar
+                       </button>
                     </td>
                 </tr>
             @empty
@@ -83,7 +85,7 @@
                 </tr>
             @endforelse
         </tbody>
-    </table> 
+    </table>
     <br>
     {{ $contribuyentes->links()  }}
 </div>

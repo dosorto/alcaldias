@@ -63,7 +63,7 @@
                         <!-- Aquí se itera sobre cada servicio asociado al recibo de pago -->
                         <td class="px-6 py-4 whitespace-nowrap">{{ $servicio->nombre_servicio }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $servicio->importes }}</td>
-                       
+
                         @if ($index === 0)
                             <!-- Aquí se verifica si es la primera fila de un recibo de pago -->
                             <td rowspan="{{ count($sus->servicios) }}" class="px-6 py-4 whitespace-nowrap">{{ $sus->importe_total }}</td>

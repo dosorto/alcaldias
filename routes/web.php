@@ -150,4 +150,9 @@ Route::get('/pago-servicio/generate', function () {
     return View::make('generar-pago');
 })->name('generar.pago');
 
-Route::get('/historial-contribuyente/{id}', [HistorialContribuyente::class, 'showHistory'])->name('contribuyente.showHistory');
+Route::get('/historial-contribuyente', function () {
+    return View::make('historial-contribuyente');
+})->name('contribuyente.showHistory');
+
+Route::get('/factura/{id}', [HistorialContribuyente::class, 'generarFactura'])->name('generar.factura');
+

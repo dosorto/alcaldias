@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Factura</title>
+  
   <style>
     body {
       font-family: Arial, sans-serif;
     }
     .container {
-      max-width: 400px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 20px;
       border: 1px solid #ccc;
@@ -37,33 +37,68 @@
       font-weight: bold;
       margin-top: 20px;
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
   <div class="header">
-    <h2>Factura</h2>
-    <p>Fecha de emisión: 24 de marzo de 2024</p>
-    <p>Fecha de pago: 30 de marzo de 2024</p>
-    <p>Nombre de la empresa: Empresa XYZ</p>
+    <h1 style="text-align: center; color: #333;">Factura</h1>
+    <p><strong>Choluteca: {{ now()->toDateString() }}</strong></p>
+    <p><strong> Empresa XYZ</strong></p>
   </div>
   <div class="details">
-    <p><strong>Cliente:</strong> Juan Pérez</p>
-    <p><strong>Dirección:</strong> Calle Principal, 123</p>
-    <p><strong>Ciudad:</strong> Ciudad Principal</p>
+    <p><strong>Cliente:</strong> {{ $contribuyente->primer_nombre }} {{ $contribuyente->segundo_nombre }} {{ $contribuyente->primer_apellido }} {{ $contribuyente->segundo_apellido }}</p>
+    <p><strong>N° de Identidad:</strong> {{ $contribuyente->identidad }}</p>
+    <p><strong>Sexo:</strong> {{ $contribuyente->sexo === 0 ? 'Femenino' : 'Masculino' }}</p>
+    <p><strong>N° de Teléfono:</strong> {{ $contribuyente->telefono }}</p>
+    <p><strong>Correo Electrónico:</strong> {{ $contribuyente->email }}</p>
   </div>
-  <div class="item">
-    <span>$10.00</span>
-    Producto 1
-  </div>
-  <div class="item">
-    <span>$15.00</span>
-    Producto 2
-  </div>
-  <hr>
+  <!-- Tabla de detalles de la factura -->
+  <table>
+    <thead>
+      <tr>
+        <th>Número de Recibo</th>
+        <th>Fecha de Pago</th>
+        <th>Servicio</th>
+        <th>Importe Individual</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($pagoservicio as $pago)
+        @foreach ($pago->servicios as $index => $servicio)
+          <tr>
+            @if ($index === 0)
+              <td rowspan="{{ count($pago->servicios) }}">{{ $pago->num_recibo }}</td>
+              <td rowspan="{{ count($pago->servicios) }}">{{ $pago->fecha_pago }}</td>
+            @endif
+            <td>{{ $servicio->nombre_servicio }}</td>
+            <td>{{ $servicio->importes }}</td>
+          </tr>
+        @endforeach
+      @endforeach
+    </tbody>
+  </table>
+  <!-- Total de la factura -->
   <div class="total">
-    Total: $25.00
+    @php
+      $total_factura = 0;
+      foreach ($pagoservicio as $pago) {
+          foreach ($pago->servicios as $servicio) {
+              $total_factura += $servicio->importes;
+          }
+      }
+    @endphp
+    <p><strong>Total:</strong> {{ $total_factura }}</p>
   </div>
 </div>
 
