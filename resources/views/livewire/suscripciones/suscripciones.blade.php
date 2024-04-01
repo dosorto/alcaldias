@@ -74,7 +74,7 @@
                     <td class="px-6 py-4">{{ $con->primer_apellido }}</td>
                     <td class="px-6 py-4">{{ $con->segundo_apellido }}</td>
                     <td class="px-6 py-4">
-                    <a href="{{ route('contribuyente.show', $con->id) }}" class="boton">Seleccionar</a>      
+                    <a href="{{ route('contribuyente.show', $con->id) }}" type="button" class="text-white bg-[#FF9119] hover:bg-[#FF9119]/80  font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Seleccionar</a>      
                     </td>
                 </tr>
             @empty
