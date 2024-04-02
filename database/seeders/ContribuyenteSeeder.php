@@ -53,5 +53,42 @@ class ContribuyenteSeeder extends Seeder
             'profecion_id' => 2,
             'created_by' => 1,
         ]);
+        Contribuyente::create([
+            'identidad' => '77777777',
+            'primer_nombre' => 'David',
+            'segundo_nombre' => 'Rivera',
+            'primer_apellido' => 'Pérez',
+            'segundo_apellido' => 'González',
+            'sexo' => true,
+            'impuesto_personal' => 2002,
+            'direccion' => 'Calle Principal 123',
+            'apartado_postal' => '12345',
+            'telefono' => 987654321,
+            'fecha_nacimiento' => '1990-05-15',
+            'email' => 'juan@example.com',
+            'tipo_documento_id' => 1,
+            'barrio_id' => 2,
+            'profecion_id' => 3,
+            'created_by' => 1,
+        ]);
+        Contribuyente::create([
+            'identidad' => '111111111',
+            'primer_nombre' => 'Isaac',
+            'segundo_nombre' => 'Rivera',
+            'primer_apellido' => 'Pérez',
+            'segundo_apellido' => 'González',
+            'sexo' => true,
+            'impuesto_personal' => 2002,
+            'direccion' => 'Calle Principal 123',
+            'apartado_postal' => '12345',
+            'telefono' => 987654321,
+            'fecha_nacimiento' => '1990-05-15',
+            'email' => 'juan@example.com',
+            'tipo_documento_id' => 1,
+            'barrio_id' => 2,
+            'profecion_id' => 3,
+            'created_by' => 1,
+        ]);   
     }
+    
 }
