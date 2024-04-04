@@ -9,12 +9,8 @@
       font-family: Arial, sans-serif;
     }
     .container {
-      max-width: 800px;
       margin: 0 auto;
       padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     .header {
       text-align: center;
@@ -26,17 +22,6 @@
     .details p {
       margin: 5px 0;
     }
-    .item {
-      margin-bottom: 10px;
-    }
-    .item span {
-      float: right;
-    }
-    .total {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 20px;
-    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -45,6 +30,15 @@
       padding: 8px;
       text-align: left;
       border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: right;
     }
   </style>
 </head>
