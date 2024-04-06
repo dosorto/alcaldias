@@ -133,8 +133,8 @@ Route::get('/suscripciones', function () {
 Route::get('/perfil', function () {
     return View::make('perfil-contribuyente');
 });
-Route::get('/factura', function () {
-    return View::make('factura');
+Route::get('/cierre', function () {
+    return View::make('cierre');
 });
 
 
