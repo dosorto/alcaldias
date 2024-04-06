@@ -34,7 +34,7 @@ class HistorialContribuyente extends Component
     public $availableYears;
     public $availableYearsFiltered = [];
 
-
+    public $selectedService;
     public function mount()
     {
         // Verificar si ya hay una cookie 'contribuyente_id' establecida
@@ -77,48 +77,48 @@ class HistorialContribuyente extends Component
 
     public function render()
     {
-        // Aquí deberías tener lógica para obtener los datos necesarios para renderizar la vista de historial de contribuyentes
-        // Por ejemplo:
-        $contribuyentes = Contribuyente::all();
-        $servicios = Servicio::all();
-        $pagoservicio = PagoServicios::paginate(5);
         // Obtener las suscripciones del contribuyente seleccionado
         $suscripciones = Suscripcion::where('contribuyente_id', $this->contribuyenteId)->get();
-
-
-
-           $pagosQuery = PagoServicios::where('contribuyente_id', $this->contribuyenteId);
-           // $this->selectedYear = 2023;
-           // Aplicar filtro por año si está seleccionado
-           if ($this->selectedYear) {
-               $pagosQuery->whereRaw("DATE_FORMAT(fecha_pago, '%Y') = ?", [$this->selectedYear]);
-           }
-
-           // Obtener los resultados de la consulta paginados
-           $pagoservicio = $pagosQuery->paginate(5);
-
-
-
-           // Obtener todos los servicios disponibles
-           $servicios = Servicio::all();
-
-           // Calcular el importe total de cada recibo
-           foreach ($pagoservicio as $pago) {
-               $totalRecibo = $pago->servicios()->sum('importes');
-               $pago->importe_total = $totalRecibo;
-           }
-
-           $noRegistros = $this->selectedYear && $pagoservicio->isEmpty();
-
-
+    
+        // Construir la consulta base para los pagos de servicios
+        $pagosQuery = PagoServicios::where('contribuyente_id', $this->contribuyenteId);
+    
+        // Aplicar filtro por año si está seleccionado
+        if ($this->selectedYear) {
+            $pagosQuery->whereRaw("DATE_FORMAT(fecha_pago, '%Y') = ?", [$this->selectedYear]);
+        }
+    
+        // Aplicar filtro por servicio si está seleccionado
+        if ($this->selectedService) {
+            $pagosQuery->whereHas('servicios', function ($query) {
+                $query->where('id', $this->selectedService);
+            });
+        }
+    
+        // Obtener los resultados de la consulta paginados
+        $pagoservicio = $pagosQuery->paginate(5);
+    
+        // Obtener todos los servicios disponibles
+        $servicios = Servicio::all();
+    
+        // Calcular el importe total de cada recibo
+        foreach ($pagoservicio as $pago) {
+            $totalRecibo = $pago->servicios()->sum('importes');
+            $pago->importe_total = $totalRecibo;
+        }
+    
+        // Verificar si no hay registros para el año seleccionado
+        $noRegistros = $this->selectedYear && $pagoservicio->isEmpty();
+    
         return view('livewire.perfil-contribuyentes.historial-contribuyente', [
-            'contribuyentes' => $contribuyentes,
+            'contribuyentes' => Contribuyente::all(),
             'servicios' => $servicios,
             'pagoservicio' => $pagoservicio,
             'suscripciones' => $suscripciones,
             'noRegistros' => $noRegistros
         ]);
     }
+    
     
  public function generarFactura($id)
  {
@@ -133,4 +133,14 @@ class HistorialContribuyente extends Component
  
      return view('factura', compact('contribuyente', 'pagoservicio', 'total_factura'));
  }
+ public function filtrarPorServicio($servicioId)
+{
+    // Filtra los pagos de servicios por el ID del servicio seleccionado
+    $pagoservicioFiltrados = PagoServicio::whereHas('servicios', function ($query) use ($servicioId) {
+        $query->where('servicio_id', $servicioId);
+    })->get();
+
+    // Pasa los resultados filtrados a la vista
+    return view('tu_vista', compact('pagoservicioFiltrados'));
+}
 }
