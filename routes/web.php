@@ -1,4 +1,5 @@
 <?php
+use App\Livewire\Cobros;
 use App\Livewire\ImportarExcel;
 use App\Http\Controllers\Detallesuscripcion;
 use App\Http\Controllers\HomeController;
@@ -11,6 +12,8 @@ use App\Http\Controllers\AdminUserController;
 use App\Livewire\HistorialContribuyente;
 use App\Livewire\PerfilContribuyente;
 use Illuminate\Support\Facades\View;
+use App\Livewire\CobroContribuyentes;
+
 
 
 /*
@@ -133,6 +136,7 @@ Route::get('/suscripciones', function () {
 Route::get('/perfil', function () {
     return View::make('perfil-contribuyente');
 });
+
 Route::get('/cierre', function () {
     return View::make('cierre');
 });
@@ -155,4 +159,13 @@ Route::get('/historial-contribuyente', function () {
 })->name('contribuyente.showHistory');
 
 Route::get('/factura/{id}', [HistorialContribuyente::class, 'generarFactura'])->name('generar.factura');
+
+Route::get('/cobros', function () {
+    return View::make('cobros');
+});
+Route::get('/cobro-contribuyente/{contribuyente_id}', function ($contribuyenteId) {
+    // Aquí puedes retornar la vista cobro-contribuyente.blade.php pasando el ID del contribuyente como parámetro
+    return view('cobro-contribuyente')->with('contribuyenteId', $contribuyenteId);
+})->name('cobro.contribuyente');
+
 

@@ -35,5 +35,13 @@ class PagoServicios extends BaseModel
     {
         return $this->belongsTo(PerfilContribuyente::class);
     }
+    public function cobros()
+    {
+        return $this->hasMany(Cobro::class, 'pago_id');
+    }
+
+
+
+
 
 }

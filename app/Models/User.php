@@ -56,4 +56,14 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPassword($token));
     }*/
+
+    public function users()
+    {
+        return $this->hasMany(SesionCaja::class, 'usuario_id');
+    }
+
+    public function cobros()
+    {
+        return $this->hasMany(Cobro::class, 'usuario_id');
+    }
 }
