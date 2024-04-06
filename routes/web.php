@@ -133,6 +133,7 @@ Route::get('/suscripciones', function () {
 Route::get('/perfil', function () {
     return View::make('perfil-contribuyente');
 });
+
 Route::get('/factura', function () {
     return View::make('factura');
 });
@@ -156,3 +157,6 @@ Route::get('/historial-contribuyente', function () {
 
 Route::get('/factura/{id}', [HistorialContribuyente::class, 'generarFactura'])->name('generar.factura');
 
+Route::get('/cobros', function () {
+    return View::make('cobros');
+});
