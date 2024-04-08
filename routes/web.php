@@ -1,6 +1,7 @@
 <?php
 use App\Livewire\ImportarExcel;
 use App\Http\Controllers\Detallesuscripcion;
+use App\Http\Controllers\Sesioncaja;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\Role\PermissionController;
@@ -133,6 +134,7 @@ Route::get('/suscripciones', function () {
 Route::get('/perfil', function () {
     return View::make('perfil-contribuyente');
 });
+
 Route::get('/factura', function () {
     return View::make('factura');
 });
@@ -146,6 +148,15 @@ Route::get('/detallesuscripcion/{id}', [\App\Http\Controllers\Detallesuscripcion
 Route::post('/detallesuscripcion/agregar-servicio', [Detallesuscripcion::class, 'agregarServicio'])->name('contribuyente.agregar-servicio');
 Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion::class, 'eliminarServicio'])->name('suscripcion.eliminar');
 
+Route::get('/sesioncaja/{id}', [\App\Http\Controllers\Sesioncaja::class, 'show'])->name('sesioncaja.show');
+Route::get('/facturacaja/{id}', [Sesioncaja::class, 'imprimirFactura'])->name('imprimir_factura');
+
+Route::post('/sesioncaja/store', [Sesioncaja::class, 'store'])->name('crear_sesion');
+
+
+//Route::post('/sesiones', [Sesioncaja::class, 'store'])->name('sesiones');
+//Route::post('/sesiones', [SesionCajaController::class, 'store'])->name('sesiones.store');
+
 Route::get('/pago-servicio/generate', function () {
     return View::make('generar-pago');
 })->name('generar.pago');
@@ -156,3 +167,10 @@ Route::get('/historial-contribuyente', function () {
 
 Route::get('/factura/{id}', [HistorialContribuyente::class, 'generarFactura'])->name('generar.factura');
 
+Route::get('/cobros', function () {
+    return View::make('cobros');
+});
+
+Route::get('/sesiones', function () {
+    return View::make('sesiones');
+});
