@@ -12,6 +12,7 @@ use App\Models\Paise;
 use App\Models\Barrio;
 use App\Models\Aldea;
 use App\Models\Profesion_oficio;
+use Carbon\Carbon;
 
 class Contribuyentes extends Component
 {
@@ -45,12 +46,15 @@ class Contribuyentes extends Component
         $this->tipo_documentos = Tipo_documento::all();
         $this->paises = paise::all();
         $this->profeciones = Profesion_oficio::all();
+        $this->departamentos = collect();
+        $this->municipios = collect();
+        $this->aldeas = collect();
+        $this->barrios = collect();
     }
 
     public function render()
     {
         $tipo_documentos = Tipo_documento::all();
-        $contribuyentes = Contribuyente::where('primer_nombre','like','%'. $this->search.'%')->paginate(1);
         $contribuyentes = Contribuyente::where('primer_nombre','like','%'. $this->search.'%')->paginate(5);
         return view('livewire.contribuyente.contribuyente',compact('contribuyentes'));
     }
@@ -163,6 +167,7 @@ class Contribuyentes extends Component
 
     public function update(){
     $contribuyente = Contribuyente::find($this->id);
+    
     $contribuyente->update([
         'identidad' => $this->identidad,
         'primer_nombre' => $this->primer_nombre,
@@ -213,6 +218,36 @@ class Contribuyentes extends Component
             $this->profecion_id = $contribuyente->profecion_id;
         
     
+        }
+
+        public function updatedPaisId($value) {
+            $this->departamentos = collect();
+            $this->municipios = collect();
+            $this->aldeas = collect();
+            $this->barrios = collect();
+            $this->departamentos = Departamento::where('pais_id', $value)->get();
+            $this->departamento_id = null;
+        }
+        
+        public function updatedDepartamentoId($value) {
+            $this->municipios = collect();
+            $this->aldeas = collect();
+            $this->barrios = collect();
+            $this->municipios = Municipio::where('departamento_id', $value)->get();
+            $this->municipio_id = null;
+        }
+        
+        public function updatedMunicipioId($value) {
+            $this->aldeas = collect();
+            $this->barrios = collect();
+            $this->aldeas = Aldea::where('municipio_id', $value)->get();
+            $this->aldea_id = null;
+        }
+        
+        public function updatedAldeaId($value) {
+            $this->barrios = collect();
+            $this->barrios = Barrio::where('aldea_id', $value)->get();
+            $this->barrio_id = null;
         }
 
 

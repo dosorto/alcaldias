@@ -105,7 +105,7 @@
 
                             <label for="codigo"
                                 class="block mb-2 ml-5 text-sm mt-4 mx-2 font-medium text-gray-900 dark:text-white">
-                                Ultimo periodo facturado de impuesto personal</label>
+                                Último periodo facturado de impuesto personal</label>
                             <input type="text" wire:model="impuesto_personal" name="impuesto_personal" id="identidad"
                                 class="bg-gray-50 border mx-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/5 p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white h-[2.5rem]"
                                 placeholder="Año" required />
@@ -138,70 +138,84 @@
 
                     <div class="flex space-y-1">
                         <label for="codigo"
-                            class="block mb-2 text-sm mt-4 mx-2 font-medium text-gray-900 dark:text-white w-1/6">
+                            class="block mb-2 text-sm mt-4 mr-2 font-medium text-gray-900 dark:text-white">
                             Ubicación</label>
-                        <select wire:model.live="pais_id" 
+
+                        <select wire:model.live="pais_id"
                             class="bg-gray-50 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option value="">Pais</option>
+                            <!-- Opciones del desplegable -->
+                            <option value="">País</option>
                             @foreach ($paises as $pais)
                                 <option value="{{ $pais->id }}">{{ $pais->nombre }}</option>
                             @endforeach
                         </select>
-                        <select wire:model.live="departamento_id" wire:key="{{ $pais_id }}"
-                            class="bg-gray-50 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+
+                        @if ($departamentos->isNotEmpty())
+                            <select wire:model.live="departamento_id"
+                                class="bg-gray-50 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 <option value="">Departamento</option>
-                            @foreach (App\Models\Departamento::where('pais_id', $pais_id)->get() as $departamento)
-                                <option value="{{ $departamento->id }}">{{ $departamento->name }}</option>
-                            @endforeach
-                        </select>
-                        <select wire:model.live="municipio_id" wire:key="{{ $departamento_id }}"
-                            class="bg-gray-50 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option value="">Municipio</option>
-                            @foreach (App\Models\Municipio::where('departamento_id', $departamento_id)->get() as $municipio)
-                                <option value="{{ $municipio->id }}">{{ $municipio->name }}</option>
-                            @endforeach
-                        </select>
-                        <select wire:model.live="aldea_id" wire:key="{{ $municipio_id }}"
-                            class="bg-gray-50 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option value="">Aldea</option>
-                            @foreach (App\Models\Aldea::where('municipio_id', $municipio_id)->get() as $aldea)
-                                <option value="{{ $aldea->id }}">{{ $aldea->nombre }}</option>
-                            @endforeach
-                        </select>
-                        <select wire:model.live="barrio_id" wire:key="{{ $aldea_id }}"
-                            class="bg-gray-50 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option value="">barrio</option>
-                            @foreach (App\Models\Barrio::where('aldea_id', $aldea_id)->get() as $barrio)
-                                <option value="{{ $barrio->id }}">{{ $barrio->nombre }}</option>
-                            @endforeach
-                        </select>
+                                @foreach ($departamentos as $departamento)
+                                    <option value="{{ $departamento->id }}">{{ $departamento->name}}</option>
+                                @endforeach
+                            </select>
+                        @endif
+
+                        @if ($municipios->isNotEmpty())
+                            <select wire:model.live="municipio_id"
+                                class="bg-gray-50 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option value="">Municipio</option>
+                                @foreach ($municipios as $municipio)
+                                    <option value="{{ $municipio->id }}">{{ $municipio->name }}</option>
+                                @endforeach
+                            </select>
+                        @endif
+
+                        @if ($aldeas->isNotEmpty())
+                            <select wire:model.live="aldea_id"
+                                class="bg-gray-50 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option value="">Aldea</option>
+                                @foreach ($aldeas as $aldea)
+                                    <option value="{{ $aldea->id }}">{{ $aldea->nombre }}</option>
+                                @endforeach
+                            </select>
+                        @endif
+
+                        @if ($barrios->isNotEmpty())
+                            <select wire:model.live="barrio_id"
+                                class="bg-gray-50 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option value="">Barrio</option>
+                                @foreach ($barrios as $barrio)
+                                    <option value="{{ $barrio->id }}">{{ $barrio->nombre }}</option>
+                                @endforeach
+                            </select>
+                        @endif
 
 
                     </div>
 
                     <div class="flex space-y-1">
                         <label for="codigo"
-                            class="block mb-2 text-sm mt-4 mx-2 font-medium text-gray-900 dark:text-white">
+                            class="block mb-2 text-sm mt-4 mx-2 font-medium text-gray-900 dark:text-white w-1/5">
                             Teléfeno</label>
                         <input wire:model="telefono" type="text" name="direccion" id="direccion"
-                            class="bg-gray-50 mx-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white h-[2.5rem]"
-                            placeholder="Telefeno" required />
+                            class="bg-gray-50 mx-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white h-[2.5rem]"
+                            placeholder="Teléfeno" required />
 
                         <label for="codigo"
-                            class="block mb-2 text-sm mx-2 font-medium text-gray-900 dark:text-white">
-                            Gmail</label>
+                            class="block mb-2 text-sm mx-2 font-medium text-gray-900 dark:text-white w-1/5">
+                            Correo electrónico</label>
                         <input wire:model="email" type="text" name="direccion" id="direccion"
-                            class="bg-gray-50 mx-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/6 p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white h-[2.5rem]"
-                            placeholder="Telefeno" required />
+                            class="bg-gray-50 mx-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white h-[2.5rem]"
+                            placeholder="Correo electrónico" required />
 
                     </div>
 
                     <div class="flex space-y-1">
                         <label for="codigo"
                             class="block mb-2 text-sm mt-4 mx-2 font-medium text-gray-900 dark:text-white">
-                            Prefesion/Oficio</label>
+                            Profesión/Oficio</label>
                         <select wire:model="profecion_id"n ame="barrio" id="barrio"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/6 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             @foreach ($profeciones as $profesion)
                                 <option value="{{ $profesion->id }}">{{ $profesion->nombre }}</option>
                             @endforeach
@@ -210,7 +224,7 @@
                         <label for="codigo"
                             class="block mb-2 text-sm mx-2 font-medium text-gray-900 dark:text-white">
                             Fecha de nacimiento</label>
-                        <input wire:model="fecha_nacimiento" type="text" name="direccion" id="direccion"
+                        <input wire:model="fecha_nacimiento" type="date" type="text" name="direccion" id="direccion"
                             class="bg-gray-50 mx-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white h-[2.5rem]"
                             placeholder="AAAA-MM-DD" required />
                         <label for="codigo"

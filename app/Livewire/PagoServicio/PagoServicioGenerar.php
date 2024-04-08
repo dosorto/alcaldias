@@ -222,5 +222,47 @@ class PagoServicioGenerar extends Component
         // $this->emit('actualizarNumeroRecibo');
     }
 
+    public function eliminarRegistro($pago_servicio_id)
+{
+    // Busca el registro de pago de servicios
+    // Busca el registro de pago de servicios
+    $pago_servicio = PagoServicios::find($pago_servicio_id);
+
+    if ($pago_servicio) {
+        // Obtiene los servicios asociados a este pago
+        $servicios = $pago_servicio->servicios;
+
+        // Agrega los servicios a la lista de servicios por pagar
+        foreach ($servicios as $servicio) {
+            $this->servicios_pagar[] = [
+                'id' => $servicio->id,
+                'nombre_servicio' => $servicio->nombre_servicio,
+                'importes' => $servicio->importes,
+                'clave_presupuestaria' => $servicio->clave_presupuestaria,
+            ];
+            $this->totalImportes += $servicio->importes;
+        }
+
+        // Elimina el registro de pago de servicios
+        $pago_servicio->delete();
+
+        session()->flash('message', 'El registro se ha eliminado exitosamente');
+    } else {
+        session()->flash('message', 'No se encontró el registro de pago de servicios');
+    }
+}
+
+public function actualizarImporte($index, $nuevoImporte)
+{
+    // Actualiza el importe del servicio en el array
+    $this->servicios_pagar[$index]['importes'] = $nuevoImporte;
+
+    // Recalcula el total de los importes
+    $this->totalImportes = array_reduce($this->servicios_pagar, function ($carry, $servicio) {
+        return $carry + $servicio['importes'];
+    }, 0);
+}
+
+
 
 }
