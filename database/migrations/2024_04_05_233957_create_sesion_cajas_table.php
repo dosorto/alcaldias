@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('usuario_id')->references('id')->on('users');
             $table->double("monto_inicial");
             $table->datetime("created_at");
+            $table->datetime("updated_at")->nullable();
             $table->datetime("closed_at")->nullable();
             $table->boolean("status");
         });

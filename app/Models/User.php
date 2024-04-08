@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(SesionCaja::class, 'usuario_id');
     }
+
+    public function cobros()
+    {
+        return $this->hasMany(Cobro::class, 'usuario_id');
+    }
 }
