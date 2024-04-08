@@ -15,29 +15,38 @@ class TipoDocumentoSeeder extends Seeder
     {
         $tipo_documento = [
             [
-                'tipo_documento' => 'Declaración de impuestos',
+                'tipo_documento' => 'DNI',
                 'created_by'=> 1,
             ],
             [
-                'tipo_documento' => 'Facturas y recibos',
+                'tipo_documento' => 'Licencia de conducir',
                 'created_by'=> 1,
             ],
             [
-                'tipo_documento' => 'Estado de cuenta bancaria',
+                'tipo_documento' => 'Actos civiles',
                 'created_by'=> 1,
             ],
             [
-                'tipo_documento' => 'Contratos',
+                'tipo_documento' => 'Pasaporte',
                 'created_by'=> 1,
             ],
             [
-                'tipo_documento' => 'Certificados y documentos legales',
+                'tipo_documento' => 'Visa',
                 'created_by'=> 1,
             ],
             [
-                'tipo_documento' => 'Registros contables',
+                'tipo_documento' => 'Antecedenetes penales',
+                'created_by'=> 1,
+            ],
+            [
+                'tipo_documento' => 'RTN',
+                'created_by'=> 1,
+            ],
+            [
+                'tipo_documento' => 'Antecedenetes penales',
                 'created_by'=> 1,
             ]
+ 
         ];
             foreach ($tipo_documento as $tipo_doc) {
                 Tipo_documento::forceCreate($tipo_doc);
