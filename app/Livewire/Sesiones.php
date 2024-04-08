@@ -19,7 +19,7 @@ class Sesiones extends Component
     
     public function render()
     {
-        return view('livewire.sesiones');
+        return view('livewire.cobros.cobros');
     }
 
     public function store()

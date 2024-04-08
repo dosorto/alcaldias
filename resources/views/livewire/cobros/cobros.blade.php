@@ -1,9 +1,6 @@
+@extends('layouts.app')
+
 <div>
-    @if (session()->has('message'))
-        <div class="alert alert-success">
-            {{ session('message') }}
-        </div>
-    @endif
     <nav class="flex" aria-label="Breadcrumb">
     <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
       <li class="inline-flex items-center">
@@ -110,24 +107,4 @@
     </table> 
     <br>
     {{ $contribuyentes->links()  }}
-    <form action="{{ route('crear_sesion') }}" method="POST">
-        @csrf
-        <div class="mb-4">
-            <label for="monto_inicial" class="block text-sm font-medium text-gray-700">Monto Inicial</label>
-            <input type="number" name="monto_inicial" id="monto_inicial" class="mt-1 p-2 w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-        </div>
-        <div class="mb-4">
-            <button type="submit" class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200 disabled:opacity-25 transition">Iniciar Sesión</button>
-        </div>
-    </form>
 </div>
-
-@section('scripts')
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            Livewire.emit('openModal');
-        });
-    </script>
-@endsection
-
-

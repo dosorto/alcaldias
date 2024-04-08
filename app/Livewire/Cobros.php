@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 use App\Models\Contribuyente;
+use App\Models\SesionCaja;
 use Livewire\WithPagination;
 
 use Livewire\Component;
@@ -26,24 +27,19 @@ class Cobros extends Component
     
     public function store()
     {
-        $validatedData = $this->validate([
+        $validatedDate = $this->validate([
             'monto_inicial' => 'required',
         ]);
 
-        $validatedData['usuario_id'] = auth()->user()->id;
-        $validatedData['created_at'] = now();
-        $validatedData['status'] = true; // Establecer status como true por defecto
+        $validatedDate['usuario_id'] = auth()->user()->id;
+        $validatedDate['created_at'] = now();
+        $validatedDate['status'] = 1;
 
-        try {
-            SesionCaja::create($validatedData);
-            $this->Modal = false;
-            $this->monto_inicial = null;
-            
-            // Redirigir a la ruta /cobros después de abrir la sesión de caja
-            return Redirect::to('/cobros');
-        } catch (\Exception $e) {
-            session()->flash('error', 'Error al crear la sesión de caja.');
-        }
+        SesionCaja::create($validatedDate);
+  
+        session()->flash('message', 'Se ha iniciado sesión exitosamente');
+        $this->Modal = false;
+      
     }
 
     public function cancel()
