@@ -152,6 +152,7 @@ Route::get('/sesioncaja/{id}', [\App\Http\Controllers\Sesioncaja::class, 'show']
 Route::get('/facturacaja/{id}', [Sesioncaja::class, 'imprimirFactura'])->name('imprimir_factura');
 
 Route::post('/sesioncaja/store', [Sesioncaja::class, 'store'])->name('crear_sesion');
+Route::post('/procesar-pago', [Sesioncaja::class, 'procesarPago'])->name('procesar_pago');
 
 
 //Route::post('/sesiones', [Sesioncaja::class, 'store'])->name('sesiones');

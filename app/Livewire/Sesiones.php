@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Livewire;
-use App\Models\SesionCaja;
+use App\Models\SesionCajaModelo;
 
 use Livewire\Component;
 
@@ -25,7 +25,7 @@ class Sesiones extends Component
         $validatedDate['created_at'] = now();
         $validatedDate['status'] = 1;
 
-        SesionCaja::create($validatedDate);
+        SesionCajaModelo::create($validatedDate);
   
         session()->flash('message', 'Se ha iniciado sesión exitosamente');
         $this->Modal = false;
