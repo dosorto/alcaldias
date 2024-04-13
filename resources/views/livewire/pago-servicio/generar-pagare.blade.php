@@ -233,8 +233,7 @@
 
                     </div>
                     <div align="rigth">
-                        <button wire:click.prevent="guardarRegistro()" type="button"
-                            class="text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm p-2 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <button wire:click="abrirModal" type="button" class="text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm p-2 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Generar
                         </button>
                     </div>
@@ -376,6 +375,8 @@
 
 
     </div>
-
+    @if($isOpen)
+    @include('livewire.pago-servicio.resumen')
+    @endif
 
 </div>
