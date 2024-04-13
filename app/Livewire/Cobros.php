@@ -14,16 +14,7 @@ class Cobros extends Component
     public $updateModal = false;
     public $deleteModal = false;
     public $createModal = false;
-    public $Modal = false;
-    public $showModal = false;
     public $monto_inicial;
-    protected $listeners = ['openModal'];
-
-   
-    public function nuevoModal()
-    {
-        $this->createModal=true;
-    }
     
     public function store()
     {
@@ -42,11 +33,6 @@ class Cobros extends Component
       
     }
 
-    public function cancel()
-    {
-        $this->Modal = false;
-    }
-
     public function render()
     {
         $contribuyentes = Contribuyente::where(function($query) {
@@ -61,8 +47,11 @@ class Cobros extends Component
 
     public function openModal()
     {
-        $this->emit('openModal');
+        $this->createModal = true;
     }
 
-
+    public function closeModal()
+    {
+        $this->createModal = false;
+    }
 }
