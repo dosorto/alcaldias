@@ -70,9 +70,9 @@ class Sesioncaja extends Controller
 
     // Crear una nueva entrada en la tabla OperacionesSesion
     OperacionesSesion::create([
-        'idsesioncaja' => $idsesioncaja, // Asegúrate de tener acceso a $sesion
-        'num_recibo' => $num_recibo, // Si no tienes un número de recibo en este momento
-        'fecha' => $fecha, // Fecha actual
+        'idsesioncaja' => $idsesioncaja,
+        'num_recibo' => $num_recibo,
+        'fecha' => $fecha, 
         'monto' =>  $monto,
     ]);
 
