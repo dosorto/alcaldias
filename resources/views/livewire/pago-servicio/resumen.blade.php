@@ -4,7 +4,7 @@
         <!-- Contenido de la modal -->
         <div class="bg-white p-8 max-w-lg mx-auto rounded-md">
             <!-- Título de la modal -->
-            <h2 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Resumen</h2>
+            <h2 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Resumen De Pago</h2>
 
             <!-- Fecha actual -->
             <p class="text-sm text-gray-500 mb-4">Fecha actual: <span id="fecha-actual"></span></p>
