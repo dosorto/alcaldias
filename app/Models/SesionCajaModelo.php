@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SesionCajaModelo extends Model
 {
     use HasFactory;
-    protected $fillable = ['usuario_id', 'monto_inicial', 'created_at', 'updated_at', 'closed_at', 'status'];
+    protected $fillable = ['usuario_id', 'monto_inicial', 'created_at', 'updated_at', 'closed_at', 'status', 'monto_cierresis', 'monto_cierreuser'];
 
     public function users()
     {

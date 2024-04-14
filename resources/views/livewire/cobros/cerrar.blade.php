@@ -16,23 +16,13 @@
             </button>
         </div>
         <div class="p-4 md:p-4">
-            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Ingrese Cantidad de dinero en físico:</h4>
-            <input id="cantidadDinero" type="number" class="border border-gray-300 rounded-md p-2 mb-3 w-full" placeholder="Cantidad en efectivo">
-            <button   id="btnAceptar" type="button" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">Aceptar</button>
-            <!-- Aquí se mostrará la información de cierre de caja -->
-            <div>
-                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mt-4">Información de cierre de caja:</h4>
-                <p>Monto Inicial: {{ $montoInicial }}</p>
-                <p>Total de Operaciones: {{ $totalOperaciones }}</p>
-                <p>Total en Caja: {{ $totalCaja }}</p>
-                <p id="mensajeCierreCaja" class="text-sm text-gray-500 mt-2"></p>
-            </div>
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Seguro que quiere cerrar caja?</h4>
         </div>
 
         <div class="content-center justify-center place-content-center">
-                        <button   onclick="imprimirFactura('{{ route('facturacierre') }}')" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                            Cerrar caja
-                        </button>
+        <a href="/reportecierre" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+        Cerrar Caja
+        </a>
                         <button wire:click="closeModal()" data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancelar</button>
                         {{-- <button wire:click="closeModal">Cerrar Modal</button> --}}
 

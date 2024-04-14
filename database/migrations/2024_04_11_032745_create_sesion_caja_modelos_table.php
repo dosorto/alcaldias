@@ -20,6 +20,8 @@ return new class extends Migration
             $table->datetime("updated_at")->nullable();
             $table->datetime("closed_at")->nullable();
             $table->boolean("status");
+            $table->double("monto_cierresis")->nullable();
+            $table->double("monto_cierreuser")->nullable();
         });
     }
 

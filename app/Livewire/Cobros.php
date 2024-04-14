@@ -5,6 +5,7 @@ use App\Models\Contribuyente;
 use App\Models\OperacionesSesion;
 use App\Models\SesionCajaModelo;
 use App\Models\SesionCaja;
+use App\Models\User;
 use Livewire\WithPagination;
 
 use Livewire\Component;
@@ -16,8 +17,10 @@ class Cobros extends Component
     public $updateModal = false;
     public $deleteModal = false;
     public $createModal = false;
-    public $moneyInCash = 0;
     public $initialAmount;
+    public $monto_cierreuser;
+    public $totalCaja;
+    public $dineroTotal;
     
     public function store()
     {
@@ -38,15 +41,6 @@ class Cobros extends Component
 
     public function render()
     {
-
-        $sesionCaja = SesionCajaModelo::where('status', '1')->first();
-        $operacionesSesion = OperacionesSesion::where('idsesioncaja', $sesionCaja->id)->get();
-        
-        $montoInicial = $sesionCaja->monto_inicial;
-        $totalOperaciones = $operacionesSesion->sum('monto');
-        $totalCaja = $montoInicial + $totalOperaciones;
-        $diferencia = $this->moneyInCash - $totalCaja;
-        $cierreCajaCuadra = ($diferencia == 0);
         $contribuyentes = Contribuyente::where(function($query) {
             $query->where('primer_nombre', 'like', '%'.$this->search.'%')
             ->orWhere('segundo_nombre', 'like', '%'.$this->search.'%')
@@ -56,11 +50,6 @@ class Cobros extends Component
             })->paginate(5);
     
         return view('livewire.cobros.cobros', [
-            'montoInicial' => $montoInicial,
-            'totalOperaciones' => $totalOperaciones,
-            'totalCaja' => $totalCaja,
-            //'diferencia' => $diferencia,
-            'cierreCajaCuadra' => $cierreCajaCuadra,
             'contribuyentes' => $contribuyentes,
         ]);
         
@@ -130,13 +119,43 @@ class Cobros extends Component
         $operacionesSesion = OperacionesSesion::where('idsesioncaja', $sesionCaja->id)->get();
         
         $montoInicial = $sesionCaja->monto_inicial;
+        $fechainiciocaja = $sesionCaja->created_at;
         $totalOperaciones = $operacionesSesion->sum('monto');
         $totalCaja = $montoInicial + $totalOperaciones;
-        $diferencia = $this->moneyInCash - $totalCaja;
-        $cierreCajaCuadra = ($diferencia == 0);
+        //$diferencia = $this->moneyInCash - $totalCaja;
+        //$cierreCajaCuadra = ($diferencia == 0);
+        $usuario = User::find($sesionCaja->usuario_id);
 
     // Devolver una vista con el diseño de la factura
-    return view('facturacierrecaja', compact('montoInicial', 'totalOperaciones', 'totalCaja', 'cierreCajaCuadra'));
+    return view('facturacierrecaja', compact('montoInicial', 'totalOperaciones', 'totalCaja', 'fechainiciocaja', 'operacionesSesion', 'usuario'));
     }
+
+    public function cerrarSesionCaja()
+    {
+        // Validar el monto ingresado
+        $this->validate([
+            'dineroTotal' => 'required|numeric|min:0',
+        ]);
+    
+        // Obtener la sesión de caja activa
+        $sesionCaja = SesionCajaModelo::where('status', 1)->firstOrFail();
+    
+        // Actualizar los datos de la sesión de caja
+        $sesionCaja->update([
+            'close_at' => now(), // Guardar la fecha de cierre
+            'status' => 0, // Actualizar el estado de 1 a 0
+            'monto_cierresis' => $this->totalCaja, // Guardar el monto total en caja
+            'monto_cierreuser' => $this->dineroTotal, // Guardar el monto ingresado por el usuario
+        ]);
+
+        // Mostrar un mensaje de éxito
+        session()->flash('message', 'La sesión de caja se ha cerrado exitosamente.');
+    
+        // Redirigir o hacer cualquier otra acción necesaria
+        return redirect()->to('/');
+    }
+    
+
+
 
 }
