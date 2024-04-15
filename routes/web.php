@@ -151,7 +151,7 @@ Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion:
 
 Route::get('/sesioncaja/{id}', [\App\Http\Controllers\Sesioncaja::class, 'show'])->name('sesioncaja.show');
 Route::get('/facturacaja/{id}', [Sesioncaja::class, 'imprimirFactura'])->name('imprimir_factura');
-//Route::get('/reportecierre', [Cobros::class, 'imprimirFactura'])->name('reportecierre');
+Route::get('/reportecierrefactura', [Cobros::class, 'imprimirFactura'])->name('reportecierre');
 
 Route::post('/sesioncaja/store', [Sesioncaja::class, 'store'])->name('crear_sesion');
 Route::post('/procesar-pago', [Sesioncaja::class, 'procesarPago'])->name('procesar_pago');

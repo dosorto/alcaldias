@@ -24,6 +24,7 @@ class Cobros extends Component
     public $dineroTotal;
     public $monto_inicial;
     public $contribuyentes;
+    public $moneyInCash = 0;
 
     
     public function store()
@@ -158,7 +159,4 @@ class Cobros extends Component
         return redirect()->to('/');
     }
     
-
-
-
 }
