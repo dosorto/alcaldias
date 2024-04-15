@@ -113,34 +113,29 @@
         </div>
         <div class="flex justify-between gap-8">
             <div class="grid">
-                <h1 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white text-center">Seleccionar Servicio
-                </h1>
-                <form wire:submit.prevent="store()" class="flex gap-4 h-10 w-96">
-                    <div>
-                        <input size="70" list="drawfemails" wire:model.live="serviceSelected" type="text"
-                            placeholder="Buscar..." class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-md">
-                        <datalist id="drawfemails">
+                <h1 class="text-lg font-semibold text-gray-900 dark:text-white text-center">Seleccionar Servicio</h1>
+                <form wire:submit.prevent="store()" class="flex gap-4 h-10 w-96" id="miFormulario">
+                    <div wire:ignore>
+        
+                        <select id="editable-select" aria-placeholder="Seleccione">
                             @foreach ($servicios as $servi)
-                                <option value="{{ $servi->nombre_servicio }}">
+                                <option value="{{ $servi->nombre_servicio }}">{{ $servi->nombre_servicio }}</option>
                             @endforeach
-                        </datalist>
+                        </select>
+        
+                        {{-- <select style="height: 120px" wire:model="serviceSelected" class="select2">
+                            <option> Seleccione</option>
+                            @foreach ($servicios as $servi)
+                                <option value="{{ $servi->nombre_servicio }}">{{ $servi->nombre_servicio }}</option>
+                            @endforeach
+                        </select> --}}
                     </div>
-                    {{-- <div class="w-full">
-                <select wire:model="servicioId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected></option>
-                    @foreach ($servicios as $servi)
-                    <option value="{{ $servi->id }}">{{ $servi->nombre_servicio }}</</option>
-                    @endforeach
-                  </select>
-            </div> --}}
                     <div class="content-center justify-center place-content-center">
-                        <button type="submit"
-                            class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Seleccionar
                         </button>
                     </div>
                 </form>
-
                 <div class="mt-5 w-full relative max-h-56 overflow-y-auto">
                     <h1 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white text-center">Suscripciones del
                         contribuyente</h1>
@@ -379,4 +374,22 @@
     @include('livewire.pago-servicio.resumen')
     @endif
 
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.js"></script>
+<script>
+//     jQuery(document).ready(function() {
+//         jQuery('.select2').select2();
+
+//         jQuery('.select2').on('select2:select', function (e) {
+//             var theSelection = e.params.data.id;
+//             @this.set('serviceSelected', this.value)
+//             console.log(this.value);
+//     })
+// })
+    $('#editable-select').on('select.editable-select', function (e) {
+    @this.set('serviceSelected', this.value)
+    }).editableSelect();
+</script>
 </div>
