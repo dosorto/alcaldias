@@ -94,7 +94,6 @@
         </tbody>
     </table> 
     <br>
-    {{ $contribuyentes->links()  }}
 </div>
 
 @if($createModal)
