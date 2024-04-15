@@ -40,7 +40,10 @@ class PagoServicioGenerar extends Component
     public $serviceSelected;
     public $servicioss;
     public $numeroRecibo;
+    public $createModalImporte = false;
 
+
+    
 
     public function mount()
     {
@@ -263,6 +266,10 @@ public function actualizarImporte($index, $nuevoImporte)
     }, 0);
 }
 
+public function openModalCreate()
+    {
+        $this->createModalImporte = true;
+    }
 
 
 }
