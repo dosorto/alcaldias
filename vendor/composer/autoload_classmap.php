@@ -69,7 +69,6 @@ return array(
     'App\\Models\\Profesion_oficio' => $baseDir . '/app/Models/Profesion_oficio.php',
     'App\\Models\\Servicio' => $baseDir . '/app/Models/Servicio.php',
     'App\\Models\\SesionCaja' => $baseDir . '/app/Models/SesionCaja.php',
-    'App\\Models\\Sesioncajamodelo' => $baseDir . '/app/Models/Sesioncajamodelo.php',
     'App\\Models\\Tipo' => $baseDir . '/app/Models/Tipo.php',
     'App\\Models\\Tipo_documento' => $baseDir . '/app/Models/Tipo_documento.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
@@ -2358,6 +2357,7 @@ return array(
     'Laravel\\Prompts\\Table' => $vendorDir . '/laravel/prompts/src/Table.php',
     'Laravel\\Prompts\\Terminal' => $vendorDir . '/laravel/prompts/src/Terminal.php',
     'Laravel\\Prompts\\TextPrompt' => $vendorDir . '/laravel/prompts/src/TextPrompt.php',
+    'Laravel\\Prompts\\TextareaPrompt' => $vendorDir . '/laravel/prompts/src/TextareaPrompt.php',
     'Laravel\\Prompts\\Themes\\Contracts\\Scrolling' => $vendorDir . '/laravel/prompts/src/Themes/Contracts/Scrolling.php',
     'Laravel\\Prompts\\Themes\\Default\\Concerns\\DrawsBoxes' => $vendorDir . '/laravel/prompts/src/Themes/Default/Concerns/DrawsBoxes.php',
     'Laravel\\Prompts\\Themes\\Default\\Concerns\\DrawsScrollbars' => $vendorDir . '/laravel/prompts/src/Themes/Default/Concerns/DrawsScrollbars.php',
@@ -2375,6 +2375,7 @@ return array(
     'Laravel\\Prompts\\Themes\\Default\\SuggestPromptRenderer' => $vendorDir . '/laravel/prompts/src/Themes/Default/SuggestPromptRenderer.php',
     'Laravel\\Prompts\\Themes\\Default\\TableRenderer' => $vendorDir . '/laravel/prompts/src/Themes/Default/TableRenderer.php',
     'Laravel\\Prompts\\Themes\\Default\\TextPromptRenderer' => $vendorDir . '/laravel/prompts/src/Themes/Default/TextPromptRenderer.php',
+    'Laravel\\Prompts\\Themes\\Default\\TextareaPromptRenderer' => $vendorDir . '/laravel/prompts/src/Themes/Default/TextareaPromptRenderer.php',
     'Laravel\\Sail\\Console\\AddCommand' => $vendorDir . '/laravel/sail/src/Console/AddCommand.php',
     'Laravel\\Sail\\Console\\Concerns\\InteractsWithDockerComposeServices' => $vendorDir . '/laravel/sail/src/Console/Concerns/InteractsWithDockerComposeServices.php',
     'Laravel\\Sail\\Console\\InstallCommand' => $vendorDir . '/laravel/sail/src/Console/InstallCommand.php',
@@ -2929,12 +2930,6 @@ return array(
     'Livewire\\Features\\SupportMorphAwareIfStatement\\SupportMorphAwareIfStatement' => $vendorDir . '/livewire/livewire/src/Features/SupportMorphAwareIfStatement/SupportMorphAwareIfStatement.php',
     'Livewire\\Features\\SupportMultipleRootElementDetection\\MultipleRootElementsDetectedException' => $vendorDir . '/livewire/livewire/src/Features/SupportMultipleRootElementDetection/MultipleRootElementsDetectedException.php',
     'Livewire\\Features\\SupportMultipleRootElementDetection\\SupportMultipleRootElementDetection' => $vendorDir . '/livewire/livewire/src/Features/SupportMultipleRootElementDetection/SupportMultipleRootElementDetection.php',
-<<<<<<< HEAD
-    'Livewire\\Features\\SupportMultipleRootElementDetection\\UnitTest' => $vendorDir . '/livewire/livewire/src/Features/SupportMultipleRootElementDetection/UnitTest.php',
-    'Livewire\\Features\\SupportNavigate\\BrowserTest' => $vendorDir . '/livewire/livewire/src/Features/SupportNavigate/BrowserTest.php',
-    'Livewire\\Features\\SupportNavigate\\HooksBrowserTest' => $vendorDir . '/livewire/livewire/src/Features/SupportNavigate/HooksBrowserTest.php',
-=======
->>>>>>> 62c5618d5af92d04df29344451fb14d24f80712c
     'Livewire\\Features\\SupportNavigate\\SupportNavigate' => $vendorDir . '/livewire/livewire/src/Features/SupportNavigate/SupportNavigate.php',
     'Livewire\\Features\\SupportNestedComponentListeners\\SupportNestedComponentListeners' => $vendorDir . '/livewire/livewire/src/Features/SupportNestedComponentListeners/SupportNestedComponentListeners.php',
     'Livewire\\Features\\SupportNestingComponents\\SupportNestingComponents' => $vendorDir . '/livewire/livewire/src/Features/SupportNestingComponents/SupportNestingComponents.php',
@@ -3009,16 +3004,6 @@ return array(
     'Livewire\\Mechanisms\\HandleComponents\\Synthesizers\\StdClassSynth' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/Synthesizers/StdClassSynth.php',
     'Livewire\\Mechanisms\\HandleComponents\\Synthesizers\\StringableSynth' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/Synthesizers/StringableSynth.php',
     'Livewire\\Mechanisms\\HandleComponents\\Synthesizers\\Synth' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/Synthesizers/Synth.php',
-<<<<<<< HEAD
-    'Livewire\\Mechanisms\\HandleComponents\\Synthesizers\\Tests\\CarbonSynthUnitTest' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/Synthesizers/Tests/CarbonSynthUnitTest.php',
-    'Livewire\\Mechanisms\\HandleComponents\\Synthesizers\\Tests\\DataBindingUnitTest' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/Synthesizers/Tests/DataBindingUnitTest.php',
-    'Livewire\\Mechanisms\\HandleComponents\\Synthesizers\\Tests\\EnumUnitTest' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/Synthesizers/Tests/EnumUnitTest.php',
-    'Livewire\\Mechanisms\\HandleComponents\\Synthesizers\\Tests\\FloatSynthUnitTest' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/Synthesizers/Tests/FloatSynthUnitTest.php',
-    'Livewire\\Mechanisms\\HandleComponents\\Synthesizers\\Tests\\IntSynthUnitTest' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/Synthesizers/Tests/IntSynthUnitTest.php',
-    'Livewire\\Mechanisms\\HandleComponents\\Synthesizers\\Tests\\TypedPropertiesUnitTest' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/Synthesizers/Tests/TypedPropertiesUnitTest.php',
-    'Livewire\\Mechanisms\\HandleComponents\\UnitTest' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/UnitTest.php',
-=======
->>>>>>> 62c5618d5af92d04df29344451fb14d24f80712c
     'Livewire\\Mechanisms\\HandleComponents\\ViewContext' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleComponents/ViewContext.php',
     'Livewire\\Mechanisms\\HandleRequests\\HandleRequests' => $vendorDir . '/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php',
     'Livewire\\Mechanisms\\Mechanism' => $vendorDir . '/livewire/livewire/src/Mechanisms/Mechanism.php',
@@ -3066,6 +3051,7 @@ return array(
     'Mockery\\CountValidator\\AtLeast' => $vendorDir . '/mockery/mockery/library/Mockery/CountValidator/AtLeast.php',
     'Mockery\\CountValidator\\AtMost' => $vendorDir . '/mockery/mockery/library/Mockery/CountValidator/AtMost.php',
     'Mockery\\CountValidator\\CountValidatorAbstract' => $vendorDir . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorAbstract.php',
+    'Mockery\\CountValidator\\CountValidatorInterface' => $vendorDir . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorInterface.php',
     'Mockery\\CountValidator\\Exact' => $vendorDir . '/mockery/mockery/library/Mockery/CountValidator/Exact.php',
     'Mockery\\CountValidator\\Exception' => $vendorDir . '/mockery/mockery/library/Mockery/CountValidator/Exception.php',
     'Mockery\\Exception' => $vendorDir . '/mockery/mockery/library/Mockery/Exception.php',

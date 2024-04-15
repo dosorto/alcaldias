@@ -40,6 +40,7 @@ class PagoServicioGenerar extends Component
     public $serviceSelected;
     public $servicioss;
     public $numeroRecibo;
+    public $isOpen = false;
 
 
     public function mount()
@@ -217,13 +218,14 @@ class PagoServicioGenerar extends Component
             $this->totalImportes = 0;
 
             session()->flash('message', 'Se ha creado exitosamente');
+            $this->cerrarModal();
         }
         // Actualizar la vista para reflejar el nuevo número de recibo generado
         // $this->emit('actualizarNumeroRecibo');
     }
 
     public function eliminarRegistro($pago_servicio_id)
-{
+    {
     // Busca el registro de pago de servicios
     // Busca el registro de pago de servicios
     $pago_servicio = PagoServicios::find($pago_servicio_id);
@@ -250,19 +252,28 @@ class PagoServicioGenerar extends Component
     } else {
         session()->flash('message', 'No se encontró el registro de pago de servicios');
     }
-}
+    }
 
-public function actualizarImporte($index, $nuevoImporte)
-{
-    // Actualiza el importe del servicio en el array
-    $this->servicios_pagar[$index]['importes'] = $nuevoImporte;
+    public function actualizarImporte($index, $nuevoImporte)
+    {
+        // Actualiza el importe del servicio en el array
+        $this->servicios_pagar[$index]['importes'] = $nuevoImporte;
 
-    // Recalcula el total de los importes
-    $this->totalImportes = array_reduce($this->servicios_pagar, function ($carry, $servicio) {
-        return $carry + $servicio['importes'];
-    }, 0);
-}
+        // Recalcula el total de los importes
+        $this->totalImportes = array_reduce($this->servicios_pagar, function ($carry, $servicio) {
+            return $carry + $servicio['importes'];
+        }, 0);
+    }
 
+    public function abrirModal()
+    {
+        $this->isOpen = true;
+    }
+
+    public function cerrarModal()
+    {
+        $this->isOpen = false;
+    }
 
 
 }
