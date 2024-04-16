@@ -41,7 +41,13 @@ class PagoServicioGenerar extends Component
     public $servicioss;
     public $numeroRecibo;
     public $isOpen = false;
+    public $precioEditable;
+    public $indexEditable;
+    public $modalDelete = false;
+    public $confirmarDelete;
 
+
+    
 
     public function mount()
     {
@@ -131,6 +137,7 @@ class PagoServicioGenerar extends Component
 
     public function store() //Funcion para agregar un servicio a la lsita de servicios para agregar
     {
+        // $this->serviceSelected = $this->valor;
         if($this->serviceSelected){ //Verificamos si el servicio ha sido seleccionado
             //Buscamos el servicio por el nombre
             $servicio = Servicio::where('nombre_servicio', $this->serviceSelected)->first();
@@ -138,11 +145,12 @@ class PagoServicioGenerar extends Component
                 //Verificamos si existe el servicio en la lista de servicios a agregar al pago
                 $existingService = collect($this->servicios_pagar)->firstWhere('id', $servicio->id);
                 if (!$existingService) {
+                    $this->precioEditable = $servicio->importes;
                     // Agregar el servicio a la lista solo si no está presente
                     $this->servicios_pagar[] = [
                         'id' => $servicio->id,
                         'nombre_servicio' => $servicio->nombre_servicio,
-                        'importes' => $servicio->importes,
+                        'importes' => $this->precioEditable,
                         'clave_presupuestaria' => $servicio->clave_presupuestaria
                     ];
                 } else {
@@ -150,7 +158,7 @@ class PagoServicioGenerar extends Component
                     session()->flash('error','El servicio "' . $servicio->nombre_servicio . '" ya ha sido agregado a la lista.');
                 }
                 //Ponemos null el servicio seleccionado
-                $this->serviceSelected = null;
+                $this->serviceSelected = '';
             }
         }
     }
@@ -224,11 +232,17 @@ class PagoServicioGenerar extends Component
         // $this->emit('actualizarNumeroRecibo');
     }
 
-    public function eliminarRegistro($pago_servicio_id)
+    public function opendelete($pago_servicio_id)
+    {
+        $this->modalDelete = true;
+        $this->confirmarDelete = $pago_servicio_id;
+    }
+
+    public function eliminarRegistro()
     {
     // Busca el registro de pago de servicios
     // Busca el registro de pago de servicios
-    $pago_servicio = PagoServicios::find($pago_servicio_id);
+    $pago_servicio = PagoServicios::find($this->confirmarDelete);
 
     if ($pago_servicio) {
         // Obtiene los servicios asociados a este pago
@@ -248,22 +262,15 @@ class PagoServicioGenerar extends Component
         // Elimina el registro de pago de servicios
         $pago_servicio->delete();
 
+        $this->modalDelete = false;
+
         session()->flash('message', 'El registro se ha eliminado exitosamente');
     } else {
         session()->flash('message', 'No se encontró el registro de pago de servicios');
     }
     }
 
-    public function actualizarImporte($index, $nuevoImporte)
-    {
-        // Actualiza el importe del servicio en el array
-        $this->servicios_pagar[$index]['importes'] = $nuevoImporte;
-
-        // Recalcula el total de los importes
-        $this->totalImportes = array_reduce($this->servicios_pagar, function ($carry, $servicio) {
-            return $carry + $servicio['importes'];
-        }, 0);
-    }
+    
 
     public function abrirModal()
     {
@@ -273,6 +280,44 @@ class PagoServicioGenerar extends Component
     public function cerrarModal()
     {
         $this->isOpen = false;
+    }
+    public function actualizarValor($valor){
+        $this->serviceSelected = $valor;
+    }
+
+    public function actualizarImporte()
+    {
+        if ($this->indexEditable !== null && $this->precioEditable !== null) {
+            $this->servicios_pagar[$this->indexEditable]['importes'] = $this->precioEditable;
+        }
+        // Limpiar los valores después de la actualización
+        // $this->precioEditable = null;
+        $this->indexEditable = null;
+
+    }
+
+    public function editarImporte($index)
+    {
+
+        // // Guardar el índice del servicio que estamos editando
+        $this->indexEditable = $index;
+        // // Establecer el valor editable al valor actual del importe
+        $this->precioEditable = $this->servicios_pagar[$index]['importes'];
+    }
+
+    public function closeModal()
+    {
+        $this->precioEditable = $this->servicios_pagar[$this->indexEditable]['importes'];
+        if($this->precioEditable = $this->servicios_pagar[$this->indexEditable]['importes']){
+            $this->indexEditable = null;
+        }
+    }
+
+    
+
+    public function closeDelete()
+    {
+        $this->modalDelete = false;
     }
 
 
