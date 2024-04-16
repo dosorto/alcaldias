@@ -21,6 +21,12 @@
     </ol>
   </nav>  
 <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
+    
+    <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+    <p class="font-bold">Se ha iniciado una sesión en caja por el usuario: {{ $usuario->name }}</p>
+    <p class="text-sm"><b>Hora de apertura:</b> {{ $fechainiciocaja }}</p>
+    </div>
+
     <h2 class="text-3xl font-extrabold dark:text-white">Cobros</h2>
     <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
     

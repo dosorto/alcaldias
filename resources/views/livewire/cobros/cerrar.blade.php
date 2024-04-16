@@ -6,7 +6,7 @@
         <!-- Modal header -->
         <div class="flex items-center justify-between border-b rounded-t dark:border-gray-600">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                Cerrar Caja
+                Cerrar Sesión de Caja
             </h3>
             <button wire:click="closeModal()" type="button" class="mb-3 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -16,17 +16,15 @@
             </button>
         </div>
         <div class="p-4 md:p-4">
-            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Seguro que quiere cerrar caja?</h4>
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">¿Está seguro de realizar esta acción?</h4>
         </div>
 
-        <div class="content-center justify-center place-content-center">
+        <div style="text-align: center;" class="content-center justify-center place-content-center">
         <a href="/reportecierre" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
         Cerrar Caja
         </a>
-                        <button wire:click="closeModal()" data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancelar</button>
-                        {{-- <button wire:click="closeModal">Cerrar Modal</button> --}}
-
-                    </div>
+        <button wire:click="closeModal()" data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancelar</button>
+        </div>
     </div>
 </div>
 
@@ -49,4 +47,3 @@
             .catch(error => console.error('Error:', error));
     }
 </script>
-

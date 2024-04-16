@@ -25,6 +25,10 @@ class Cobros extends Component
     public $monto_inicial;
     public $contribuyentes;
     public $moneyInCash = 0;
+    public $montoInicial;
+    public $fechainiciocaja;
+    public $usuario;
+    public $sesionCaja;
 
     
     public function store()
@@ -53,6 +57,11 @@ class Cobros extends Component
         ->where('pago_servicios.estado', 'Pendiente')
         ->distinct()
         ->get();
+
+        $sesionCaja = SesionCajaModelo::where('status', '1')->first();
+        $this->montoInicial = $sesionCaja->monto_inicial;
+        $this->fechainiciocaja = $sesionCaja->created_at;
+        $this->usuario = User::find($sesionCaja->usuario_id);
     }
 
     public function render()

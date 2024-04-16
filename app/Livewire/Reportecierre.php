@@ -24,6 +24,8 @@ class Reportecierre extends Component
     public $usuario;
     public $operacionesSesion;
     public $montoCierreUser;
+    public $inputEnabled = true;
+    public $botonHabilitado = true;
 
     public function mount()
     {
@@ -41,7 +43,7 @@ class Reportecierre extends Component
 
     public function render()
     {
-        return view('livewire.reportecierre', [
+        return view('livewire.cobros.reportecierre', [
             'montoInicial' => $this->montoInicial,
             'totalOperaciones' => $this->totalOperaciones,
             'totalCaja' => $this->totalCaja,
@@ -61,7 +63,8 @@ class Reportecierre extends Component
             'monto_cierresis' => $this->totalCaja,
             'monto_cierreuser' => $this->montoCierreUser,
         ]);
-
+        $this->inputEnabled = false;
+        $this->botonHabilitado = false;
         // Aquí podrías agregar más acciones si es necesario, como redireccionar a otra página, mostrar un mensaje, etc.
 
         // Limpiar los campos del formulario después de cerrar la sesión
