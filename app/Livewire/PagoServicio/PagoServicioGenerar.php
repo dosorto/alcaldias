@@ -43,6 +43,8 @@ class PagoServicioGenerar extends Component
     public $isOpen = false;
     public $precioEditable;
     public $indexEditable;
+    public $modalDelete = false;
+    public $confirmarDelete;
 
 
     
@@ -230,11 +232,17 @@ class PagoServicioGenerar extends Component
         // $this->emit('actualizarNumeroRecibo');
     }
 
-    public function eliminarRegistro($pago_servicio_id)
+    public function opendelete($pago_servicio_id)
+    {
+        $this->modalDelete = true;
+        $this->confirmarDelete = $pago_servicio_id;
+    }
+
+    public function eliminarRegistro()
     {
     // Busca el registro de pago de servicios
     // Busca el registro de pago de servicios
-    $pago_servicio = PagoServicios::find($pago_servicio_id);
+    $pago_servicio = PagoServicios::find($this->confirmarDelete);
 
     if ($pago_servicio) {
         // Obtiene los servicios asociados a este pago
@@ -253,6 +261,8 @@ class PagoServicioGenerar extends Component
 
         // Elimina el registro de pago de servicios
         $pago_servicio->delete();
+
+        $this->modalDelete = false;
 
         session()->flash('message', 'El registro se ha eliminado exitosamente');
     } else {
@@ -301,6 +311,13 @@ class PagoServicioGenerar extends Component
         if($this->precioEditable = $this->servicios_pagar[$this->indexEditable]['importes']){
             $this->indexEditable = null;
         }
+    }
+
+    
+
+    public function closeDelete()
+    {
+        $this->modalDelete = false;
     }
 
 
