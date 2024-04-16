@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
+class ComposerStaticInitaabbb096b244570431e0647d6a37ef7e
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -3616,7 +3616,6 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
         'Mockery\\CountValidator\\AtLeast' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/AtLeast.php',
         'Mockery\\CountValidator\\AtMost' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/AtMost.php',
         'Mockery\\CountValidator\\CountValidatorAbstract' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorAbstract.php',
-        'Mockery\\CountValidator\\CountValidatorInterface' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorInterface.php',
         'Mockery\\CountValidator\\Exact' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/Exact.php',
         'Mockery\\CountValidator\\Exception' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/Exception.php',
         'Mockery\\Exception' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception.php',
@@ -7297,10 +7296,10 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitaabbb096b244570431e0647d6a37ef7e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitaabbb096b244570431e0647d6a37ef7e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitaabbb096b244570431e0647d6a37ef7e::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitaabbb096b244570431e0647d6a37ef7e::$classMap;
 
         }, null, ClassLoader::class);
     }
