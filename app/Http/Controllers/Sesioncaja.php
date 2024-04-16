@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Contribuyente;
 use App\Models\Servicio;
 use App\Models\suscripcion;
-use App\Models\Sesioncajamodelo;
+use App\Models\OperacionesSesion;
+use App\Models\SesionCajaModelo;
 use App\Models\PagoServicio_has_servicios;
 use App\Models\PagoServicios;
 use Illuminate\Support\Facades\Redirect;
@@ -24,50 +25,67 @@ class Sesioncaja extends Controller
 
     public function show($id)
     {
-        // Buscar el contribuyente por su ID
         $contribuyente = Contribuyente::findOrFail($id);
         $servicios = Servicio::all();
         $suscripciones = suscripcion::all();
-        $pagoservicios = PagoServicios::where('contribuyente_id', $id)->get();
+        //$sesioncaja = SesionCajaModelo::all();
+        //$sesioncaja = SesionCajaModelo::where('status', 1)->get();
+        $sesioncaja = SesionCajaModelo::where('status', 1)->first();
+        $pagoservicios = PagoServicios::where('contribuyente_id', $id)->where('estado', 'Pendiente')->get();
+        $totalAPagar = PagoServicios::where('contribuyente_id', $id)->whereNull('deleted_at')->where('estado', 'Pendiente')->sum('total');
+        //$totalAPagar = DB::table('pago_servicios')->where('contribuyente_id', $id)->whereNull('deleted_at')->sum('total');
 
-        $totalAPagar = DB::table('pago_servicios')->where('contribuyente_id', $id)->sum('total');
 
-        // Pasar los datos del contribuyente a la vista
-        return view('sesioncaja', compact('contribuyente', 'servicios', 'suscripciones', 'pagoservicios', 'totalAPagar'));
+        return view('sesioncaja', compact('contribuyente', 'servicios', 'suscripciones', 'pagoservicios', 'totalAPagar', 'sesioncaja'));
     }
 
     public function imprimirFactura($id)
     {
-    // Obtener datos necesarios para la factura
+ 
     $contribuyente = Contribuyente::findOrFail($id);
-    $pagoservicios = PagoServicios::where('contribuyente_id', $id)->get();
-    $totalAPagar = PagoServicios::where('contribuyente_id', $id)->sum('total');
+    $pagoservicios = PagoServicios::where('contribuyente_id', $id)->where('estado', 'Pendiente')->get();
+    $totalAPagar = PagoServicios::where('contribuyente_id', $id)->whereNull('deleted_at')->where('estado', 'Pendiente')->sum('total');
 
     // Devolver una vista con el diseño de la factura
     return view('facturacaja', compact('contribuyente', 'pagoservicios', 'totalAPagar'));
     }
 
-    public function store(Request $request)
-    {
-        // Validar datos del formulario
-        $request->validate([
-            'monto_inicial' => 'required|numeric',
-        ]);
+    public function procesarPago(Request $request)
+{
+    // Validar datos del formulario
+    $request->validate([
+        'idsesioncaja' => 'required|numeric',
+        'num_recibo' => 'required|string',
+        'fecha' => 'required|string',
+        'monto' => 'required|numeric',
+        'contribuyente_id' => 'required|numeric',
+    ]);
+    
 
-        // Obtener el usuario autenticado
-        $usuario_id = Auth::id();
+    // Obtener datos del formulario
+    $idsesioncaja = $request->input('idsesioncaja');
+    $num_recibo = $request->input('num_recibo');
+    $fecha = $request->input('fecha');
+    $monto = $request->input('monto');
 
-        // Crear una nueva sesión en la caja
-        $sesion = new Sesioncajamodelo();
-        $sesion->usuario_id = $usuario_id;
-        $sesion->monto_inicial = $request->input('monto_inicial');
-        $sesion->created_at = Carbon::now();
-        $sesion->status = true; // Indicar que la sesión está activa
-        $sesion->save();
+    // Crear una nueva entrada en la tabla OperacionesSesion
+    OperacionesSesion::create([
+        'idsesioncaja' => $idsesioncaja,
+        'num_recibo' => $num_recibo,
+        'fecha' => $fecha, 
+        'monto' =>  $monto,
+    ]);
 
-        // Redireccionar a la página actual o a donde desees
-        return redirect()->back()->with('message', 'Sesión iniciada correctamente.');
-    }
+    $contribuyenteId = $request->input('contribuyente_id'); 
+    PagoServicios::where('contribuyente_id', $contribuyenteId)->update(['estado' => 'Pagado']);
+
+    // Puedes realizar otras acciones aquí, como marcar los pagos como procesados, etc.
+
+    return redirect()->back()->with('message', 'Pago procesado correctamente.');
+}
+
+
+    
 
 
 }
