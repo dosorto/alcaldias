@@ -54,9 +54,10 @@ class Contribuyentes extends Component
 
     public function render()
     {
+        $profeciones = Profesion_oficio::all();
         $tipo_documentos = Tipo_documento::all();
         $contribuyentes = Contribuyente::where('primer_nombre','like','%'. $this->search.'%')->paginate(5);
-        return view('livewire.contribuyente.contribuyente',compact('contribuyentes'));
+        return view('livewire.contribuyente.contribuyente',compact('contribuyentes', 'tipo_documentos', 'profeciones'));
     }
 
     public function closeModalDelete()
