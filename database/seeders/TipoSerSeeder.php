@@ -12,20 +12,14 @@ class TipoSerSeeder extends Seeder
     {
         $tipo =[
             [
-                'nombre' => 'Tesoreria',
+                'nombre' => 'Regulares',
                 'fechacts' => '2023-10-10',
                 'status' => '1',
                 'created_by'=> 1,
             ],
             [
-                'nombre' => 'Catastro',
+                'nombre' => 'Especiales',
                 'fechacts' => '2023-10-10',
-                'status' => '1',
-                'created_by'=> 1,
-            ],
-            [
-                'nombre' => 'Administrativo',
-                'fechacts' => '2024-09-03',
                 'status' => '1',
                 'created_by'=> 1,
             ],

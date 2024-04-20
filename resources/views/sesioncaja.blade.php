@@ -83,14 +83,25 @@
                 </tbody>
             </table>
         </div>
-        
-        <div class="mt-4">
+      
+      <div class="mt-4">
             <p class="text-lg font-semibold">Total a Pagar L: {{ $totalAPagar }}</p>
         </div>
         <div class="text-center mt-4">
-            <button onclick="imprimirFactura('{{ route('imprimir_factura', $contribuyente->id) }}')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Procesar Pago</button>
-        </div>
-    </div>
+    <button onclick="confirmarProcesarPago('{{ route('imprimir_factura', $contribuyente->id) }}')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Procesar Pago</button>
+</div>
+</div>
+<form id="procesarPagoForm" method="POST" action="{{ route('procesar_pago') }}">
+    @csrf
+    <input type="hidden" name="idsesioncaja" value="{{ $sesioncaja->id }}">
+    @foreach($pagoservicios as $pagos)
+    <input type="hidden" name="num_recibo" value="{{ $pagos->num_recibo }}">
+    <input type="hidden" name="fecha" value="{{ $pagos->fecha_pago }}">
+    @endforeach
+    <input type="hidden" name="monto" value="{{ $totalAPagar }}">
+    <input type="hidden" name="contribuyente_id" value="{{ $contribuyente->id }}">
+    
+</form>
 </div>
 
 <script>
@@ -106,10 +117,19 @@
                     iframe.contentWindow.print();
                     setTimeout(function() {
                         document.body.removeChild(iframe);
+                        // Después de imprimir, enviar el formulario
+                        document.getElementById('procesarPagoForm').submit();
                     }, 1000);
                 }, 100);
             })
             .catch(error => console.error('Error:', error));
     }
+    
+    function confirmarProcesarPago(url) {
+        if (confirm("¿Estás seguro de que deseas procesar el pago?")) {
+            imprimirFactura(url);
+        }
+    }
 </script>
+
 @endsection

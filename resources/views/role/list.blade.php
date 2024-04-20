@@ -128,18 +128,18 @@
         <div>
             {{-- Previous Page Link --}}
             @if ($roles->onFirstPage())
-                <span class="px-2 py-1 text-gray-500"><< Anterior</span>
+                <span class="px-2 py-1 text-gray-500">&lt;&lt; Anterior</span>
             @else
-                <a href="{{ $roles->previousPageUrl() }}" class="px-2 py-1 text-blue-600 dark:text-white"><< Anterior</a>
+                <a href="{{ $roles->previousPageUrl() }}" class="px-2 py-1 text-blue-600 dark:text-white">&lt;&lt; Anterior</a>
             @endif
         </div>
 
         <div>
             {{-- Next Page Link --}}
             @if ($roles->hasMorePages())
-                <a href="{{ $roles->nextPageUrl() }}" class="px-2 py-1 text-blue-600 dark:text-white">Siguiente >></a>
+                <a href="{{ $roles->nextPageUrl() }}" class="px-2 py-1 text-blue-600 dark:text-white">Siguiente &gt;&gt;</a>
             @else
-                <span class="px-2 py-1 text-gray-500">Siguiente >></span>
+                <span class="px-2 py-1 text-gray-500">Siguiente &gt;&gt;</span>
             @endif
         </div>
     </div>

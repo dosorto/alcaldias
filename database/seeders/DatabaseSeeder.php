@@ -39,10 +39,9 @@ class DatabaseSeeder extends Seeder
             BarrioSeeder::class,
             ContribuyenteSeeder::class,
             ServicioSeeder::class,
-                       
             AnioSeeder::class,
             PeriodoSeeder::class
-            
+
         ]);
 
         User::factory()->count(50)->create();
