@@ -181,3 +181,7 @@ Route::get('/sesiones', function () {
 Route::get('/reportecierre', function () {
     return View::make('reportecierre');
 });
+
+Route::get('/configuracion', function () {
+    return View::make('configuracion');
+});

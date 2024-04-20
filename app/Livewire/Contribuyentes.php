@@ -112,10 +112,11 @@ class Contribuyentes extends Component
         $contribuyente->created_by = auth()->id();
     
         $contribuyente->save();
-    
-        session()->flash('message', 'Registro creado exitosamente');
+        $contribuyenteId = $contribuyente->id;    
+        session()->flash('message', 'Registro creado exitosamente');        
         $this->resetInputFields();
-        $this->createModal = false;
+        $this->createModal = false;        
+        return redirect()->to('/detallesuscripcion/' . $contribuyenteId);
     }
 
     private function resetInputFields(){
