@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string("codigo");
             $table->string("nombre");
             $table->string("direccion");
-            $table->double("latitud");
-            $table->double("longitud");
+            $table->string("latitud");
+            $table->string("longitud");
             $table->unsignedBigInteger('municipio_id');
             $table->foreign('municipio_id')->references('id')->on('municipios');
             $table->integer("created_by");

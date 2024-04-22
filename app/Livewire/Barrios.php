@@ -74,8 +74,8 @@ class Barrios extends Component
             
             'nombre' => 'required',
             'direccion' => 'required',
-            'latitud' => 'required',
-            'longitud' => 'required',
+            'latitud' => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+            'longitud' => ['required', 'regex:/^[-]?((([0-9]?[0-9])|([1]?[0-7][0-9]))\.(\d+))|(180(\.0+)?)$/'],
             'aldea_id' => 'required',
         ]);
   
@@ -169,8 +169,8 @@ public function updateAldeas()
            
             'nombre' => 'required',
             'direccion' => 'required',
-            'latitud' => 'required',
-            'longitud' => 'required',
+            'latitud' => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+            'longitud' => ['required', 'regex:/^[-]?((([0-9]?[0-9])|([1]?[0-7][0-9]))\.(\d+))|(180(\.0+)?)$/'],
             'aldea_id' => 'required',
         ]);
   
