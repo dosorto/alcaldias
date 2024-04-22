@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();     
             $table->string("nombre");
             $table->string("direccion");
-            $table->double("latitud");
-            $table->double("longitud");
+            $table->string("latitud");
+            $table->string("longitud");
             $table->unsignedBigInteger('aldea_id');
             $table->foreign('aldea_id')->references('id')->on('aldeas');
             $table->integer("created_by");
