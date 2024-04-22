@@ -1,11 +1,6 @@
 
 <div>
 
-@if (session()->has('success')) 
-    <strong>{{ session('success') }}</strong> 
-    <img src="{{ asset('storage/' . session('image')) }}" width="200px"> 
-@endif 
-
 <script>
   function togglePasswordVisibility() {
     var passwordInput = document.getElementById("password");
@@ -17,8 +12,20 @@
   }
 </script>
 
+<strong>{{ session('success') }}</strong> 
+<br>
+<div class="flex items-center gap-4">
+  @if (session()->has('image'))
+    <img src="{{ asset('storage/' . session('image')) }}" class="w-40 h-40 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" alt="Bordered avatar">
+  @endif
+  <div class="font-medium dark:text-white">
+    <div> {{ $alcaldia }}</div>
+    <div class="text-sm text-gray-500 dark:text-gray-400">Logo</div>
+  </div>
+</div>    
+<br>
 <form wire:submit.prevent="store" enctype="multipart/form-data">
-    <label class="block mr-2 mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Logo</label>
+    <label class="block mr-2 mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Cambiar Logo</label>
     <div class="flex items-center">
         <input class="flex-1 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file" wire:model="image">
         <button type="submit" class="ml-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">Subir Imagen</button> 

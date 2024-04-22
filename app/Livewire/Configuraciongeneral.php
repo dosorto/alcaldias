@@ -9,6 +9,7 @@ class Configuraciongeneral extends Component
 {
     use WithFileUploads;
     public $image;
+    public $imagePath;
     public $alcaldia;
     public $alcalde;
     public $direccion;
@@ -27,6 +28,10 @@ class Configuraciongeneral extends Component
         $this->correo = $info->correo;
         $this->correo_notificaciones = $info->correo_notificaciones;
         $this->contrasenia = $info->contrasenia;
+
+        // if (session()->has('image_url')) {
+            // $this->imageUrl = session('image_url');
+        // }
     }
     
     public function render()
@@ -44,7 +49,7 @@ class Configuraciongeneral extends Component
         $imagePath = $this->image->store('images', 'public'); // Almacenar la imagen en storage/app/public/images
 
         session()->flash('success', 'Imagen cargada correctamente.');
-        session()->flash('image', $imagePath);
+        session()->put('image', $imagePath);
     }
 
     public function updatealcaldia()
