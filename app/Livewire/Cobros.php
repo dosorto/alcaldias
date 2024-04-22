@@ -29,8 +29,10 @@ class Cobros extends Component
     public $fechainiciocaja;
     public $usuario;
     public $sesionCaja;
+    public $Modal;
+    public $totalOperaciones;
 
-    
+
     public function store()
     {
         $validatedDate = $this->validate([
@@ -42,10 +44,10 @@ class Cobros extends Component
         $validatedDate['status'] = 1;
 
         SesionCaja::create($validatedDate);
-  
+
         session()->flash('message', 'Se ha iniciado sesión exitosamente');
         $this->Modal = false;
-      
+
     }
 
     public function mount()
@@ -127,10 +129,10 @@ class Cobros extends Component
 
     public function imprimirFactura()
     {
- 
+
         $sesionCaja = SesionCajaModelo::where('status', '1')->first();
         $operacionesSesion = OperacionesSesion::where('idsesioncaja', $sesionCaja->id)->get();
-        
+
         $montoInicial = $sesionCaja->monto_inicial;
         $fechainiciocaja = $sesionCaja->created_at;
         $totalOperaciones = $operacionesSesion->sum('monto');
@@ -149,10 +151,10 @@ class Cobros extends Component
         $this->validate([
             'dineroTotal' => 'required|numeric|min:0',
         ]);
-    
+
         // Obtener la sesión de caja activa
         $sesionCaja = SesionCajaModelo::where('status', 1)->firstOrFail();
-    
+
         // Actualizar los datos de la sesión de caja
         $sesionCaja->update([
             'close_at' => now(), // Guardar la fecha de cierre
@@ -163,9 +165,9 @@ class Cobros extends Component
 
         // Mostrar un mensaje de éxito
         session()->flash('message', 'La sesión de caja se ha cerrado exitosamente.');
-    
+
         // Redirigir o hacer cualquier otra acción necesaria
         return redirect()->to('/');
     }
-    
+
 }
