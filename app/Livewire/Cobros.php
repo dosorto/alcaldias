@@ -2,8 +2,12 @@
 
 namespace App\Livewire;
 use App\Models\Contribuyente;
+use App\Models\OperacionesSesion;
+use App\Models\SesionCajaModelo;
 use App\Models\SesionCaja;
+use App\Models\User;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 use Livewire\Component;
 
@@ -14,16 +18,18 @@ class Cobros extends Component
     public $updateModal = false;
     public $deleteModal = false;
     public $createModal = false;
-    public $Modal = false;
-    public $showModal = false;
+    public $initialAmount;
+    public $monto_cierreuser;
+    public $totalCaja;
+    public $dineroTotal;
     public $monto_inicial;
-    protected $listeners = ['openModal'];
+    public $contribuyentes;
+    public $moneyInCash = 0;
+    public $montoInicial;
+    public $fechainiciocaja;
+    public $usuario;
+    public $sesionCaja;
 
-   
-    public function nuevoModal()
-    {
-        $this->createModal=true;
-    }
     
     public function store()
     {
@@ -42,27 +48,124 @@ class Cobros extends Component
       
     }
 
-    public function cancel()
+    public function mount()
     {
-        $this->Modal = false;
+        // Consulta SQL para obtener los contribuyentes con pagos pendientes
+        $this->contribuyentes = DB::table('contribuyentes')
+        ->join('pago_servicios', 'contribuyentes.id', '=', 'pago_servicios.contribuyente_id')
+        ->select('contribuyentes.*')
+        ->where('pago_servicios.estado', 'Pendiente')
+        ->distinct()
+        ->get();
+
+        $sesionCaja = SesionCajaModelo::where('status', '1')->first();
+        $this->montoInicial = $sesionCaja->monto_inicial;
+        $this->fechainiciocaja = $sesionCaja->created_at;
+        $this->usuario = User::find($sesionCaja->usuario_id);
     }
 
     public function render()
     {
-        $contribuyentes = Contribuyente::where(function($query) {
-            $query->where('primer_nombre', 'like', '%'.$this->search.'%')
-            ->orWhere('segundo_nombre', 'like', '%'.$this->search.'%')
-            ->orWhere('primer_apellido', 'like', '%'.$this->search.'%')
-            ->orWhere('segundo_apellido', 'like', '%'.$this->search.'%')
-            ->orWhere('identidad', 'like', '%'.$this->search.'%');
-            })->paginate(5);
-        return view('livewire.cobros.cobros', ['contribuyentes' => $contribuyentes]);
+        return view('livewire.cobros.cobros');
     }
 
     public function openModal()
     {
-        $this->emit('openModal');
+        // Llamar a la función para obtener la información de cierre de caja
+        $cierreCajaInfo = $this->updateCierreCaja();
+
+        // Asignar los resultados a las propiedades del componente Livewire
+        $this->montoInicial = $cierreCajaInfo['montoInicial'];
+        $this->totalOperaciones = $cierreCajaInfo['totalOperaciones'];
+        // Asigna otras variables aquí...
+        $this->createModal = true;
     }
 
+    public function openModalWithInitialAmount($initialAmount)
+    {
+        $this->initialAmount = $initialAmount;
+        $this->createModal = true;
+        //$this->openModal();
+    }
 
+    public function closeModal()
+    {
+        $this->createModal = false;
+    }
+
+    public function updateCierreCaja()
+{
+    // Obtener el monto inicial de la sesión de caja activa
+    $sesionCaja = SesionCajaModelo::where('status', '1')->first();
+    $montoInicial = $sesionCaja->monto_inicial;
+
+    // Obtener la suma total de los montos de las operaciones de la sesión de caja
+    $totalOperaciones = OperacionesSesion::where('idsesioncaja', $sesionCaja->id)
+        ->sum('monto');
+
+    // Calcular el total en caja sumando el monto inicial y el total de operaciones
+    $totalCaja = $montoInicial + $totalOperaciones;
+
+    // Comparar el total en caja con el dinero en efectivo ingresado
+    $diferencia = $this->moneyInCash - $totalCaja;
+
+    // Determinar si el cierre de caja cuadra o no
+    $cierreCajaCuadra = ($diferencia == 0) ? true : false;
+
+    // Aquí podrías almacenar esta información en la base de datos o hacer lo que necesites con ella
+    // Por ejemplo, podrías tener un modelo específico para el cierre de caja y almacenar los resultados allí
+
+    // Retornar los resultados para mostrar en el modal
+    return [
+        'montoInicial' => $montoInicial,
+        'totalOperaciones' => $totalOperaciones,
+        'totalCaja' => $totalCaja,
+        'diferencia' => $diferencia,
+        'cierreCajaCuadra' => $cierreCajaCuadra,
+    ];
+}
+
+    public function imprimirFactura()
+    {
+ 
+        $sesionCaja = SesionCajaModelo::where('status', '1')->first();
+        $operacionesSesion = OperacionesSesion::where('idsesioncaja', $sesionCaja->id)->get();
+        
+        $montoInicial = $sesionCaja->monto_inicial;
+        $fechainiciocaja = $sesionCaja->created_at;
+        $totalOperaciones = $operacionesSesion->sum('monto');
+        $totalCaja = $montoInicial + $totalOperaciones;
+        //$diferencia = $this->moneyInCash - $totalCaja;
+        //$cierreCajaCuadra = ($diferencia == 0);
+        $usuario = User::find($sesionCaja->usuario_id);
+
+    // Devolver una vista con el diseño de la factura
+    return view('facturacierrecaja', compact('montoInicial', 'totalOperaciones', 'totalCaja', 'fechainiciocaja', 'operacionesSesion', 'usuario'));
+    }
+
+    public function cerrarSesionCaja()
+    {
+        // Validar el monto ingresado
+        $this->validate([
+            'dineroTotal' => 'required|numeric|min:0',
+        ]);
+    
+        // Obtener la sesión de caja activa
+        $sesionCaja = SesionCajaModelo::where('status', 1)->firstOrFail();
+    
+        // Actualizar los datos de la sesión de caja
+        $sesionCaja->update([
+            'close_at' => now(), // Guardar la fecha de cierre
+            'status' => 0, // Actualizar el estado de 1 a 0
+            'monto_cierresis' => $this->totalCaja, // Guardar el monto total en caja
+            'monto_cierreuser' => $this->dineroTotal, // Guardar el monto ingresado por el usuario
+        ]);
+
+        // Mostrar un mensaje de éxito
+        session()->flash('message', 'La sesión de caja se ha cerrado exitosamente.');
+    
+        // Redirigir o hacer cualquier otra acción necesaria
+        return redirect()->to('/');
+    }
+    
 }

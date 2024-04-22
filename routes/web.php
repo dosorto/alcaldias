@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
 use App\Livewire\HistorialContribuyente;
+use App\Livewire\cobros;
 use App\Livewire\PerfilContribuyente;
 use Illuminate\Support\Facades\View;
-
+use App\Livewire\RoleManager;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/users/{id}', [App\Http\Controllers\AdminUserController::class, 'update'])->name('admin.users.update');
     Route::delete('/users/{id}', [App\Http\Controllers\AdminUserController::class, 'destroy'])->name('admin.users.destroy');
 });
-// Rutas para role
+// // Rutas para role
 Route::controller(RoleController::class)->group(function () {
 
 
@@ -69,6 +70,7 @@ Route::controller(RoleController::class)->group(function () {
 
 
 });
+
 
 //Rutas para permission
 // Route::controller(PermissionController::class)->group(function () {
@@ -150,8 +152,10 @@ Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion:
 
 Route::get('/sesioncaja/{id}', [\App\Http\Controllers\Sesioncaja::class, 'show'])->name('sesioncaja.show');
 Route::get('/facturacaja/{id}', [Sesioncaja::class, 'imprimirFactura'])->name('imprimir_factura');
+Route::get('/reportecierrefactura', [Cobros::class, 'imprimirFactura'])->name('reportecierre');
 
 Route::post('/sesioncaja/store', [Sesioncaja::class, 'store'])->name('crear_sesion');
+Route::post('/procesar-pago', [Sesioncaja::class, 'procesarPago'])->name('procesar_pago');
 
 
 //Route::post('/sesiones', [Sesioncaja::class, 'store'])->name('sesiones');
@@ -173,4 +177,12 @@ Route::get('/cobros', function () {
 
 Route::get('/sesiones', function () {
     return View::make('sesiones');
+});
+
+Route::get('/reportecierre', function () {
+    return View::make('reportecierre');
+});
+
+Route::get('/configuracion', function () {
+    return View::make('configuracion');
 });
