@@ -92,7 +92,7 @@
           }
       }
     @endphp
-    <p><strong>Total:</strong> {{ $total_factura }}</p>
+    <p><strong>Total:</strong> {{ $totalAPagar }}</p>
   </div>
 </div>
 
