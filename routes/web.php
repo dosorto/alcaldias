@@ -13,7 +13,7 @@ use App\Livewire\HistorialContribuyente;
 use App\Livewire\cobros;
 use App\Livewire\PerfilContribuyente;
 use Illuminate\Support\Facades\View;
-
+use App\Livewire\RoleManager;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/users/{id}', [App\Http\Controllers\AdminUserController::class, 'update'])->name('admin.users.update');
     Route::delete('/users/{id}', [App\Http\Controllers\AdminUserController::class, 'destroy'])->name('admin.users.destroy');
 });
-// Rutas para role
+// // Rutas para role
 Route::controller(RoleController::class)->group(function () {
 
 
@@ -70,6 +70,7 @@ Route::controller(RoleController::class)->group(function () {
 
 
 });
+
 
 //Rutas para permission
 // Route::controller(PermissionController::class)->group(function () {
@@ -180,4 +181,8 @@ Route::get('/sesiones', function () {
 
 Route::get('/reportecierre', function () {
     return View::make('reportecierre');
+});
+
+Route::get('/configuracion', function () {
+    return View::make('configuracion');
 });
