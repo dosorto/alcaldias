@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contribuyente;
 use App\Models\Servicio;
 use App\Models\suscripcion;
+use App\Models\Profesion_oficio;
 
 class Detallesuscripcion extends Controller
 {
@@ -19,8 +20,6 @@ class Detallesuscripcion extends Controller
         $contribuyente = Contribuyente::findOrFail($id);
         $servicios = Servicio::all();
         $suscripciones = suscripcion::all();
-
-        // Pasar los datos del contribuyente a la vista
         return view('detallesuscripcion', compact('contribuyente', 'servicios', 'suscripciones'));
     }
 

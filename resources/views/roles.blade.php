@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-@livewire('Lista')
+@livewire('roles')
 @stop

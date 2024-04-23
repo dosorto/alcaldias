@@ -54,8 +54,8 @@ class Aldeas extends Component
             'codigo' => 'required',
             'nombre' => 'required',
             'direccion' => 'required',
-            'latitud' => 'required',
-            'longitud' => 'required',
+            'latitud' => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+            'longitud' => ['required', 'regex:/^[-]?((([0-9]?[0-9])|([1]?[0-7][0-9]))\.(\d+))|(180(\.0+)?)$/'],
             'municipio_id' => 'required',
         ]);
   
@@ -107,8 +107,8 @@ class Aldeas extends Component
             'codigo' => 'required',
             'nombre' => 'required',
             'direccion' => 'required',
-            'latitud' => 'required',
-            'longitud' => 'required',
+            'latitud' => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+            'longitud' => ['required', 'regex:/^[-]?((([0-9]?[0-9])|([1]?[0-7][0-9]))\.(\d+))|(180(\.0+)?)$/'],
             'municipio_id' => 'required',
         ]);
   

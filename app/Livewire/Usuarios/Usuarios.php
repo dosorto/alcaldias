@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Usuarios extends Component
 {
-    public $users;
+    // public $users;
 
     use WithPagination;
 
@@ -30,16 +30,16 @@ class Usuarios extends Component
     }
 
     public function mount(){
-        $this->users = User::all();
+        // $this->users = User::all();
         $this->roles = Role::all();
     }
 
     public function render()
     {
-        $users = User::all();
-        $users = User::where('name', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
+        $users = User::where('name', 'like', '%'.$this->search.'%')
+                     ->orderBy('id', 'DESC')
+                     ->paginate(5);
         return view('livewire.usuarios.usuarios',['users' => $users]);
-
     }
 
     public function store()
