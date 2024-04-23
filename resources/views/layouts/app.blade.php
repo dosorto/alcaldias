@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body class="dark">
 
 
     <nav class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
@@ -475,7 +475,7 @@ themeToggleBtn.addEventListener('click', function() {
         </div>
     </nav>
 
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 dark:bg-gray-900">
         @yield('content')
     </div>
 
