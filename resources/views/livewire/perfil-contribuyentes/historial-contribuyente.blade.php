@@ -1,7 +1,7 @@
 
     <!-- Datos personales -->
     
-        <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
+        <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
             <h1 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white text-center">Datos Personales del Contribuyente</h1>
             <div class="flex justify-between mb-5">
                 <div>
