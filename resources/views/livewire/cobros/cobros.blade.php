@@ -20,7 +20,7 @@
 
     </ol>
   </nav>  
-<div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
+<div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
     
 <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 flex justify-between items-center" role="alert">
     <div>

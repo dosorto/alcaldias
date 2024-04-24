@@ -40,7 +40,8 @@ class DatabaseSeeder extends Seeder
             ContribuyenteSeeder::class,
             ServicioSeeder::class,
             AnioSeeder::class,
-            PeriodoSeeder::class
+            PeriodoSeeder::class,
+            InformacionSeeder::class
 
         ]);
 
