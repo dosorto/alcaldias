@@ -145,9 +145,14 @@ Route::get('/pago-servicio', function () {
     return View::make('pago-servicio');
 });
 
-Route::get('/detallesuscripcion/{id}', [\App\Http\Controllers\Detallesuscripcion::class, 'show'])->name('contribuyente.show');
-Route::post('/detallesuscripcion/agregar-servicio', [Detallesuscripcion::class, 'agregarServicio'])->name('contribuyente.agregar-servicio');
-Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion::class, 'eliminarServicio'])->name('suscripcion.eliminar');
+Route::get('/detalle-suscripcion/{id}', function ($id) {
+    return view('detalle-suscripcion', ['id' => $id]);
+})->name('contribuyente.show');
+
+
+// Route::get('/detalle-suscripcion/{id}', [\App\Http\Controllers\Detallesuscripcion::class, 'show'])->name('contribuyente.show');
+// Route::post('/detallesuscripcion/agregar-servicio', [Detallesuscripcion::class, 'agregarServicio'])->name('contribuyente.agregar-servicio');
+// Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion::class, 'eliminarServicio'])->name('suscripcion.eliminar');
 
 Route::get('/sesioncaja/{id}', [\App\Http\Controllers\Sesioncaja::class, 'show'])->name('sesioncaja.show');
 Route::get('/facturacaja/{id}', [Sesioncaja::class, 'imprimirFactura'])->name('imprimir_factura');
