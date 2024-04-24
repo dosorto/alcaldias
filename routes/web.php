@@ -186,3 +186,8 @@ Route::get('/reportecierre', function () {
 Route::get('/configuracion', function () {
     return View::make('configuracion');
 });
+
+
+Route::get('/reporte', function () {
+    return View::make('reporte-ingresos');
+});
