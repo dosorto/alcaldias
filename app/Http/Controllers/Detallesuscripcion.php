@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contribuyente;
 use App\Models\Servicio;
 use App\Models\suscripcion;
+use App\Models\Profesion_oficio;
 
 class Detallesuscripcion extends Controller
 {
