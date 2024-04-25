@@ -75,7 +75,7 @@
     <h1 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white text-center">Datos Personales del Contribuyente
     </h1>
     <!-- Datos personales -->
-    <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
+    <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
         <div class="flex justify-between mb-5">
             <div>
                 <img class="rounded-full w-20 h-20" src="https://cdn-icons-png.flaticon.com/512/2922/2922616.png"
@@ -255,7 +255,7 @@
                                         <div class="fixed inset-0 w-full h-full bg-gray-500 bg-opacity-75 flex items-center justify-center">
                                             <!-- Contenido de la modal -->
             
-                                            <div class="bg-white p-4 min-w-96 max-w-md mx-auto rounded-md">
+                                            <div class="bg-white p-4 min-w-96 max-w-md mx-auto rounded-md dark:bg-gray-900">
                                                 <!-- Contenido de tu modal aquí -->
                                                 <!-- Modal header -->
                                                 <div class="flex items-center justify-between border-b rounded-t dark:border-gray-600">
@@ -347,7 +347,7 @@
         </div>
 
 
-        <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md border-t mt-5">
+        <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md border-t mt-5 dark:bg-gray-900">
             <h1 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white text-center">Registro de pagares</h1>
 
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
