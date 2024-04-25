@@ -1,5 +1,4 @@
-
-<div>
+<div style="margin: 30px;">
 
 <script>
   function togglePasswordVisibility() {
@@ -42,12 +41,9 @@
     </div>
     <div class="flex items-center">
     <input wire:model="alcaldia" type="text" name="alcaldia" id="alcaldia" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">    
-    <button type="submit" class="ml-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">Cambiar</button> 
     </div>
   </div>
-  </form>
 
-  <form wire:submit.prevent="updatealcalde()">
   <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre del Alcalde</label>
   <div class="relative">
     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -57,12 +53,9 @@
     </div>
     <div class="flex items-center">
     <input wire:model="alcalde" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <button type="submit" class="ml-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">Cambiar</button> 
     </div>
   </div>
-  </form>
 
-  <form wire:submit.prevent="updatdireccion()">
   <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dirección</label>
   <div class="relative">
     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -74,12 +67,9 @@
     </div>
     <div class="flex items-center">
     <input wire:model="direccion" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <button type="submit" class="ml-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">Cambiar</button> 
-    </div>
   </div>
-  </form>
+  </div>
 
-  <form wire:submit.prevent="updatetelefono()">
   <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teléfono</label>
   <div class="relative">
     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -89,12 +79,9 @@
     </div>
     <div class="flex items-center">
     <input wire:model="telefono" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <button type="submit" class="ml-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">Cambiar</button> 
     </div>
   </div>
-  </form>
 
-  <form wire:submit.prevent="updatecorreo()">
   <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo electronico de Alcaldía</label>
   <div class="relative">
     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -105,12 +92,9 @@
     </div>
     <div class="flex items-center">
     <input wire:model="correo" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <button type="submit" class="ml-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">Cambiar</button> 
     </div>
   </div>
-  </form>
 
-  <form wire:submit.prevent="updatenotifi()">
   <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico para notificaciones</label>
   <div class="relative">
     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -120,12 +104,9 @@
     </div>
     <div class="flex items-center">
     <input wire:model="correo_notificaciones" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <button type="submit" class="ml-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">Cambiar</button> 
     </div>
   </div>
-  </form>
 
-  <form wire:submit.prevent="updatecontra()">
   <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña de correo electronico de notificaciones</label>
   <div class="relative">
     <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -135,9 +116,9 @@
     </div>
     <div class="flex items-center">
     <input wire:model="contrasenia" type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <button type="submit" class="ml-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">Cambiar</button> 
     </div>  
   </div>
   <input type="checkbox" onclick="togglePasswordVisibility()"> Mostrar Contraseña
+  <button type="submit" class="ml-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" style="float: right; margin-top: 10px; height: 40px;">Actualizar Datos</button> 
   </form>
 </div>
