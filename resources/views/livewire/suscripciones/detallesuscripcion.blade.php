@@ -1,6 +1,17 @@
 <div class="flex flex-wrap">
+    
     <!-- Datos Personales -->
-    <div class="w-full md:w-1/3 p-3"> <!-- Se ha reducido el ancho a 1/3 -->
+    <div class="w-full md:w-1/3 p-3">
+        <div class="flex items-center">
+            <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 9 4-4-4-4" />
+            </svg>
+            <a href="/"
+                class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Detalle
+                Suscripciones</a>
+        </div> <!-- Se ha reducido el ancho a 1/3 -->
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <h2 class="text-xl font-bold mb-3">Datos Personales</h2>
             <br>
@@ -28,69 +39,12 @@
             <th> ------------------------------------------------- </th>
             <p><b>Correo Electrónico:</b> {{ $contribuyente->email }}</p>
         </div>
-        </li>
-        <li>
-            <div class="flex items-center">
-                <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m1 9 4-4-4-4" />
-                </svg>
-                <a href="/"
-                    class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Detalle
-                    Suscripciones</a>
-            </div>
-        </li>
-
-        </ol>
-        </nav>
+    </div>
+    
 
         <div class="flex flex-col items-center">
             <!-- Historial de Pagos -->
             <div class="w-full bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4">
-                <h1 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white text-center"><u>Datos Personales del
-                        Contribuyente</u></h1>
-
-                <!-- Datos personales -->
-                <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
-                    <div class="flex justify-between mb-5">
-                        <div>
-                            <img class="rounded-full w-20 h-20"
-                                src="https://th.bing.com/th/id/R.8e2c571ff125b3531705198a15d3103c?rik=gzhbzBpXBa%2bxMA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-big-image-png-2240.png&ehk=VeWsrun%2fvDy5QDv2Z6Xm8XnIMXyeaz2fhR3AgxlvxAc%3d&risl=&pid=ImgRaw&r=0"
-                                alt="image description">
-                        </div>
-                        <div class="flex space-y-1 mr-4">
-                            <ul class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-                                <li><b>Nombre:</b>
-                                    {{ $contribuyente->primer_nombre . ' ' . $contribuyente->primer_apellido }}</li>
-                                <li><b>Fecha de Nacimiento:</b> {{ $contribuyente->fecha_nacimiento }}</li>
-                            </ul>
-                        </div>
-                        <div class="flex space-y-1 mr-4">
-                            <ul class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-                                <li><b>Correo Electrónico:</b> {{ $contribuyente->email }}</li>
-                                <li><b>N° de Identidad:</b> {{ $contribuyente->identidad }}</li>
-
-                            </ul>
-                        </div>
-                        <div class="flex space-y-1 mr-4">
-                            <ul class="max-w-md space-y-1 text-gray-500 dark:text-gray-400">
-                                <li><b>Sexo:</b>
-                                    @if ($contribuyente->sexo == 0)
-                                        Femenino
-                                    @elseif($contribuyente->sexo == 1)
-                                        Masculino
-                                    @else
-                                        N/D
-                                    @endif
-                                </li>
-                                <li><b>Dirección:</b> {{ $contribuyente->direccion }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
                 <!-- Filtro por año -->
                 <div class="mb-4">
                     <h2 class="text-lg font-semibold text-gray-900 dark:text-white text-center mb-2">Agregar Nueva
@@ -110,11 +64,11 @@
                         <button type="submit"
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agregar</button>
                     </form>
-                    <<<<<<< HEAD:resources/views/livewire/suscripciones/detallesuscripcion.blade.php @if (session('success'))
+                    @if (session('success'))
                         <div class="alert alert-success" class="green">
                             {{ session('success') }}
                         </div>
-                        @endif
+                    @endif
                 </div>
 
                 <!-- Tabla de historial de pagos -->
@@ -161,4 +115,4 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>

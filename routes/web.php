@@ -191,3 +191,7 @@ Route::get('/reportecierre', function () {
 Route::get('/configuracion', function () {
     return View::make('configuracion');
 });
+
+Route::get('/perfilusuario', function () {
+    return View::make('perfil-usuario');
+});
