@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-scrollable fixed inset-0 w-full h-full bg-gray-500 bg-opacity-75 flex items-center justify-center"
         role="document">
 
-        <div class="bg-white p-4   mx-auto rounded-md w-500">
+        <div class="bg-white p-4   mx-auto rounded-md w-500 dark:bg-gray-900">
 
             <div class="flex items-center justify-between border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
