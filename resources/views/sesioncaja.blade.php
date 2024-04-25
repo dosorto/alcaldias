@@ -31,21 +31,21 @@
 
     </ol>
   </nav>
-<div class="flex flex-wrap justify-center">
+<div class="flex flex-wrap justify-center dark:bg-gray-900">
     <!-- Datos Personales -->
-    <div class="w-full md:w-1/3 p-3">
-        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h2 class="text-xl font-bold mb-3">Datos Personales</h2>
+    <div class="w-full md:w-1/3 p-3 dark:bg-gray-900">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 dark:bg-gray-900">
+            <h2 class="text-xl font-bold mb-3 dark:text-white">Datos Personales</h2>
             <div class="text-center mb-4">
                 <img class="mx-auto mb-4" style="width: 150px;" src="https://th.bing.com/th/id/R.8e2c571ff125b3531705198a15d3103c?rik=gzhbzBpXBa%2bxMA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-big-image-png-2240.png&ehk=VeWsrun%2fvDy5QDv2Z6Xm8XnIMXyeaz2fhR3AgxlvxAc%3d&risl=&pid=ImgRaw&r=0" alt="Imagen de usuario">
             </div>
-            <hr class="my-4">
-            <p><b>Nombres:</b> {{ $contribuyente->primer_nombre . ' ' . $contribuyente->segundo_nombre }}</p>
-            <p><b>Apellidos:</b> {{ $contribuyente->primer_apellido . ' ' . $contribuyente->segundo_apellido }}</p>
-            <p><b>N° de Identidad:</b> {{ $contribuyente->identidad }}</p>
-            <p><b>Sexo:</b> @if($contribuyente->sexo == 0) Femenino @elseif($contribuyente->sexo == 1) Masculino @else N/D @endif</p>
-            <p><b>N° de Teléfono:</b> {{ $contribuyente->telefono }}</p>
-            <p><b>Correo Electrónico:</b> {{ $contribuyente->email }}</p>
+            <hr class="text-xl font-bold mb-3 dark:text-white">
+            <p class="text-xl font-bold mb-3 dark:text-white"><b>Nombres:</b> {{ $contribuyente->primer_nombre . ' ' . $contribuyente->segundo_nombre }}</p>
+            <p class="text-xl font-bold mb-3 dark:text-white"><b>Apellidos:</b> {{ $contribuyente->primer_apellido . ' ' . $contribuyente->segundo_apellido }}</p>
+            <p class="text-xl font-bold mb-3 dark:text-white"><b>N° de Identidad:</b> {{ $contribuyente->identidad }}</p>
+            <p class="text-xl font-bold mb-3 dark:text-white"><b>Sexo:</b> @if($contribuyente->sexo == 0) Femenino @elseif($contribuyente->sexo == 1) Masculino @else N/D @endif</p>
+            <p class="text-xl font-bold mb-3 dark:text-white"><b>N° de Teléfono:</b> {{ $contribuyente->telefono }}</p>
+            <p class="text-xl font-bold mb-3 dark:text-white"><b>Correo Electrónico:</b> {{ $contribuyente->email }}</p>
         </div>
     </div>
     
@@ -85,7 +85,7 @@
         </div>
       
       <div class="mt-4">
-            <p class="text-lg font-semibold">Total a Pagar L: {{ $totalAPagar }}</p>
+            <p class="text-xl font-bold mb-3 dark:text-white">Total a Pagar L: {{ $totalAPagar }}</p>
         </div>
         <div class="text-center mt-4">
     <button onclick="confirmarProcesarPago('{{ route('imprimir_factura', $contribuyente->id) }}')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Procesar Pago</button>

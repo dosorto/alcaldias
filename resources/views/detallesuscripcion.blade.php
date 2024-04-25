@@ -32,14 +32,14 @@
     </ol>
   </nav>  
 
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center dark:bg-gray-900">
     <!-- Historial de Pagos -->
-    <div class="w-full bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4">
+    <div class="w-full bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4 dark:bg-gray-900">
         <h1 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white text-center"><u>Datos Personales del Contribuyente</u></h1>
         
         <!-- Datos personales -->
-        <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
-        <div class="flex justify-between mb-5">
+        <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
+        <div class="flex justify-between mb-5 dark:bg-gray-900">
             <div>
                 <img class="rounded-full w-20 h-20" src="https://th.bing.com/th/id/R.8e2c571ff125b3531705198a15d3103c?rik=gzhbzBpXBa%2bxMA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-big-image-png-2240.png&ehk=VeWsrun%2fvDy5QDv2Z6Xm8XnIMXyeaz2fhR3AgxlvxAc%3d&risl=&pid=ImgRaw&r=0"
                     alt="image description">

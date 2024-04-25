@@ -44,9 +44,9 @@
       
             <h2 class="text-xl font-bold mb-3">Historial de Pagos</h2>
             <!-- Filtros -->
-            <div class="flex flex-wrap justify-between mb-4">
+            <div class="flex flex-wrap justify-between mb-4 dark:bg-gray-900">
                 <!-- Filtro por año -->
-                <div class="w-1/4 pr-2 mb-4 md:mb-0">
+                <div class="w-1/4 pr-2 mb-4 md:mb-0 dark:bg-gray-900">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="selectedYear">
                        Filtrar por año:
                     </label>
@@ -59,7 +59,7 @@
                 </div>
 
                 <!-- Filtro por servicio -->
-                <div class="w-full md:w-1/2 pl-2">
+                <div class="w-full md:w-1/2 pl-2 dark:bg-gray-900">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="selectedService">
                         Filtrar por servicio:
                     </label>
@@ -73,10 +73,10 @@
                 </div>
             </div>
             <!-- Tabla de historial de pagos -->
-            <div class="overflow-x-hidden">
+            <div class="overflow-x-hidden dark:bg-gray-900">
     @if ($pagoservicio->isNotEmpty() || $suscripciones->isNotEmpty())
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="bg-gray-50">
+            <thead class="bg-gray-50 dark:bg-gray-900">
                 <tr>
                     <th class="px-6 py-3 text-xs font-medium uppercase tracking-wider">Número de Recibo</th>
                     <th class="px-6 py-3 text-xs font-medium uppercase tracking-wider">Fecha de Pago</th>
@@ -87,7 +87,7 @@
                     <th class="px-6 py-3 text-xs font-medium uppercase tracking-wider">Imprimir</th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+            <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-900">
                 @forelse ($pagoservicio as $pago)
                     @foreach ($pago->servicios as $index => $servicio)
                         <tr>
