@@ -19,13 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(1)->create();
 
-        $role = Role::find(1);
 
-        User::factory()->create([
-        'name' => 'Admin',
-        'email' => 'admin@gmail.com',
-        'password' => '12345678',
-        ])->assignRole($role);
 
         $this->call([
             RoleSeeder::class,
@@ -46,6 +40,34 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        $role = Role::find(1);
+        $role2 = Role::find(2);
+        $role3 = Role::find(3);
+        $role4 = Role::find(4);
+
+        User::factory()->create([
+        'name' => 'Admin',
+        'email' => 'admin@gmail.com',
+        'password' => '12345678',
+        ])->assignRole($role);
+
+        User::factory()->create([
+        'name' => 'Contador',
+        'email' => 'conta@gmail.com',
+        'password' => 'conta1234',
+        ])->assignRole($role2);
+
+        User::factory()->create([
+        'name' => 'Secretario',
+        'email' => 'secre@gmail.com',
+        'password' => 'secre1234',
+        ])->assignRole($role3);
+
+        User::factory()->create([
+        'name' => 'User',
+        'email' => 'user@gmail.com',
+        'password' => 'user1234',
+        ])->assignRole($role4);
         User::factory()->count(50)->create();
     }
 }

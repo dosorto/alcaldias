@@ -1,24 +1,24 @@
 <div>
     <!-- Modal -->
-    <div class="fixed inset-0 w-full h-full bg-gray-500 bg-opacity-75 flex items-center justify-center">
+    <div class="fixed inset-0 w-full h-full bg-gray-500 bg-opacity-75 flex items-center justify-center ">
         <!-- Contenido de la modal -->
-        <div class="bg-white p-8 max-w-lg mx-auto rounded-md">
+        <div class="bg-white p-8 max-w-lg mx-auto rounded-md dark:bg-gray-900">
             <!-- Título de la modal -->
-            <h2 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Resumen De Pago</h2>
+            <h2 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200 dark:text-white">Resumen De Pago</h2>
 
             <!-- Fecha actual -->
             <p class="text-sm text-gray-500 mb-4">Fecha actual: <span id="fecha-actual"></span></p>
 
             <!-- Tabla de servicios -->
-            <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+            <div class="overflow-x-auto dark:bg-gray-900">
+                <table class="min-w-full divide-y divide-gray-200 dark:bg-gray-900">
+                    <thead class="bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Servicios a Pagar</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Importe</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-900 dark:text-gray-400">
                         @php
                             $totalImportes = 0;
                         @endphp

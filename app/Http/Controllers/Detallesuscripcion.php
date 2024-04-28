@@ -20,7 +20,9 @@ class Detallesuscripcion extends Controller
         $contribuyente = Contribuyente::findOrFail($id);
         $servicios = Servicio::all();
         $suscripciones = suscripcion::all();
-        return view('detallesuscripcion', compact('contribuyente', 'servicios', 'suscripciones'));
+
+        // Pasar los datos del contribuyente a la vista
+        return view('detalle-suscripcion', compact('contribuyente', 'servicios', 'suscripciones'));
     }
 
 

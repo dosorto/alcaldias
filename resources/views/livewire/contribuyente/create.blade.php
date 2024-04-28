@@ -20,7 +20,7 @@
             </div>
 
             <form wire:submit.prevent="store()">
-                <h4>Datos Personales </h4>
+                <h4 class="dark:text-white">Datos Personales </h4>
                 <div class="border shadow-md rounded-lg p-4">
                     <div class="flex space-y-1">
                         <label for="codigo"
@@ -89,12 +89,13 @@
                         <div class="flex items-center">
                             <input wire:model="sexo" type="radio" value="1" class="mr-1">
                             <label for="sexo_masculino"
-                                class="cursor-pointer bg-white border rounded-lg shadow-md p-2 mr-4">
+                                class="cursor-pointer bg-white border rounded-lg shadow-md p-2 mr-4 dark:bg-gray-900 dark:text-white">
                                 Masculino
                             </label>
 
                             <input wire:model="sexo" type="radio" value="0" class="mr-1">
-                            <label for="sexo_femenino" class="cursor-pointer bg-white border rounded-lg shadow-md p-2">
+                            <label for="sexo_femenino" 
+                                class="cursor-pointer bg-white border rounded-lg shadow-md p-2 dark:bg-gray-900 dark:text-white">
                                 Femenino
                             </label>
 
@@ -121,7 +122,7 @@
 
                 </div>
 
-                <h4>Datos de Residencia </h4>
+                <h4 class="dark:text-white">Datos de Residencia </h4>
 
                 <div class="border shadow-md rounded-lg p-4">
                     <div class="flex space-y-1">
@@ -214,7 +215,7 @@
                         <label for="codigo"
                             class="block mb-2 text-sm mt-4 mx-2 font-medium text-gray-900 dark:text-white">
                             Profesión u Oficio</label>
-                        <select wire:model="profecion_id"n ame="barrio" id="barrio"
+                        <select wire:model="profecion_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option value="">Seleccione</option>
                             @foreach ($profeciones as $profesion)

@@ -18,15 +18,15 @@ class Suscripciones extends Component
     public $createModal = false;
     public $suscripcion;
     public $confirmingItemDeletion;
-
     public $contribuyenteId;
     public $nombrecompleto;
     public $identidad;
     public $sexo;
     public $telefono;
     public $email;
-
     public $servicioId;
+    public $modalDelete = false;
+    public $confirmarDelete;
 
 
     public function confirmItemDeletion( $id) 
@@ -106,4 +106,5 @@ class Suscripciones extends Component
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
     }
+
 }
