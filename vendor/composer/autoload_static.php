@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
+class ComposerStaticInitaabbb096b244570431e0647d6a37ef7e
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -605,6 +605,7 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
         'App\\Livewire\\Contribuyentes' => __DIR__ . '/../..' . '/app/Livewire/Contribuyentes.php',
         'App\\Livewire\\Departamentos' => __DIR__ . '/../..' . '/app/Livewire/Departamentos.php',
         'App\\Livewire\\HistorialContribuyente' => __DIR__ . '/../..' . '/app/Livewire/HistorialContribuyente.php',
+        'App\\Livewire\\Home' => __DIR__ . '/../..' . '/app/Livewire/Home.php',
         'App\\Livewire\\ImportarExcel' => __DIR__ . '/../..' . '/app/Livewire/ImportarExcel.php',
         'App\\Livewire\\Municipios' => __DIR__ . '/../..' . '/app/Livewire/Municipios.php',
         'App\\Livewire\\Niveles' => __DIR__ . '/../..' . '/app/Livewire/Niveles.php',
@@ -613,11 +614,14 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
         'App\\Livewire\\Pais' => __DIR__ . '/../..' . '/app/Livewire/Pais.php',
         'App\\Livewire\\Pais\\Delete' => __DIR__ . '/../..' . '/app/Livewire/Pais/Delete.php',
         'App\\Livewire\\PerfilContribuyente' => __DIR__ . '/../..' . '/app/Livewire/PerfilContribuyente.php',
+        'App\\Livewire\\PerfilUsuario' => __DIR__ . '/../..' . '/app/Livewire/PerfilUsuario.php',
         'App\\Livewire\\ProfesionOficio\\ProfesionOficio' => __DIR__ . '/../..' . '/app/Livewire/ProfesionOficio/ProfesionOficio.php',
+        'App\\Livewire\\ReporteIngresos' => __DIR__ . '/../..' . '/app/Livewire/ReporteIngresos.php',
         'App\\Livewire\\Reportecierre' => __DIR__ . '/../..' . '/app/Livewire/Reportecierre.php',
         'App\\Livewire\\RoleManager' => __DIR__ . '/../..' . '/app/Livewire/RoleManager.php',
         'App\\Livewire\\Servicios' => __DIR__ . '/../..' . '/app/Livewire/Servicios.php',
         'App\\Livewire\\Sesiones' => __DIR__ . '/../..' . '/app/Livewire/Sesiones.php',
+        'App\\Livewire\\SuscripcionDetalle' => __DIR__ . '/../..' . '/app/Livewire/SuscripcionDetalle.php',
         'App\\Livewire\\Suscripciones' => __DIR__ . '/../..' . '/app/Livewire/Suscripciones.php',
         'App\\Livewire\\TipoDocumento\\TipoDocumento' => __DIR__ . '/../..' . '/app/Livewire/TipoDocumento/TipoDocumento.php',
         'App\\Livewire\\Tipos' => __DIR__ . '/../..' . '/app/Livewire/Tipos.php',
@@ -638,12 +642,14 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
         'App\\Models\\PerfilContribuyente' => __DIR__ . '/../..' . '/app/Models/PerfilContribuyente.php',
         'App\\Models\\Periodo' => __DIR__ . '/../..' . '/app/Models/Periodo.php',
         'App\\Models\\Profesion_oficio' => __DIR__ . '/../..' . '/app/Models/Profesion_oficio.php',
+        'App\\Models\\ReporteIngreso' => __DIR__ . '/../..' . '/app/Models/ReporteIngreso.php',
         'App\\Models\\Servicio' => __DIR__ . '/../..' . '/app/Models/Servicio.php',
         'App\\Models\\SesionCaja' => __DIR__ . '/../..' . '/app/Models/SesionCaja.php',
         'App\\Models\\SesionCajaModelo' => __DIR__ . '/../..' . '/app/Models/SesionCajaModelo.php',
         'App\\Models\\Tipo' => __DIR__ . '/../..' . '/app/Models/Tipo.php',
         'App\\Models\\Tipo_documento' => __DIR__ . '/../..' . '/app/Models/Tipo_documento.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\informacionalcaldia' => __DIR__ . '/../..' . '/app/Models/informacionalcaldia.php',
         'App\\Models\\suscripcion' => __DIR__ . '/../..' . '/app/Models/suscripcion.php',
         'App\\Notifications\\ResetPassword' => __DIR__ . '/../..' . '/app/Notifications/ResetPassword.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -771,6 +777,7 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
         'Database\\Seeders\\ContribuyenteSeeder' => __DIR__ . '/../..' . '/database/seeders/ContribuyenteSeeder.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\DepartamentoSeeder' => __DIR__ . '/../..' . '/database/seeders/DepartamentoSeeder.php',
+        'Database\\Seeders\\InformacionSeeder' => __DIR__ . '/../..' . '/database/seeders/InformacionSeeder.php',
         'Database\\Seeders\\MunicipioSeeder' => __DIR__ . '/../..' . '/database/seeders/MunicipioSeeder.php',
         'Database\\Seeders\\NivelSerSeeder' => __DIR__ . '/../..' . '/database/seeders/NivelSerSeeder.php',
         'Database\\Seeders\\PaisesSeeder' => __DIR__ . '/../..' . '/database/seeders/PaisesSeeder.php',
@@ -2911,7 +2918,10 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
         'Laravel\\Prompts\\Concerns\\Truncation' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Truncation.php',
         'Laravel\\Prompts\\Concerns\\TypedValue' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/TypedValue.php',
         'Laravel\\Prompts\\ConfirmPrompt' => __DIR__ . '/..' . '/laravel/prompts/src/ConfirmPrompt.php',
+        'Laravel\\Prompts\\Exceptions\\FormRevertedException' => __DIR__ . '/..' . '/laravel/prompts/src/Exceptions/FormRevertedException.php',
         'Laravel\\Prompts\\Exceptions\\NonInteractiveValidationException' => __DIR__ . '/..' . '/laravel/prompts/src/Exceptions/NonInteractiveValidationException.php',
+        'Laravel\\Prompts\\FormBuilder' => __DIR__ . '/..' . '/laravel/prompts/src/FormBuilder.php',
+        'Laravel\\Prompts\\FormStep' => __DIR__ . '/..' . '/laravel/prompts/src/FormStep.php',
         'Laravel\\Prompts\\Key' => __DIR__ . '/..' . '/laravel/prompts/src/Key.php',
         'Laravel\\Prompts\\MultiSearchPrompt' => __DIR__ . '/..' . '/laravel/prompts/src/MultiSearchPrompt.php',
         'Laravel\\Prompts\\MultiSelectPrompt' => __DIR__ . '/..' . '/laravel/prompts/src/MultiSelectPrompt.php',
@@ -3623,7 +3633,6 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
         'Mockery\\CountValidator\\AtLeast' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/AtLeast.php',
         'Mockery\\CountValidator\\AtMost' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/AtMost.php',
         'Mockery\\CountValidator\\CountValidatorAbstract' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorAbstract.php',
-        'Mockery\\CountValidator\\CountValidatorInterface' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorInterface.php',
         'Mockery\\CountValidator\\Exact' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/Exact.php',
         'Mockery\\CountValidator\\Exception' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/Exception.php',
         'Mockery\\Exception' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception.php',
@@ -7304,10 +7313,10 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitaabbb096b244570431e0647d6a37ef7e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitaabbb096b244570431e0647d6a37ef7e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitaabbb096b244570431e0647d6a37ef7e::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitaabbb096b244570431e0647d6a37ef7e::$classMap;
 
         }, null, ClassLoader::class);
     }

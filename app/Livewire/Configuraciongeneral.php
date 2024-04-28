@@ -56,62 +56,14 @@ class Configuraciongeneral extends Component
     {
         $alcaldia = informacionalcaldia::findOrFail(1);
         $alcaldia->nombre_alcaldia = $this->alcaldia;
-        $alcaldia->save();
-
-        session()->flash('success', 'Se ha actualizado el nombre de la Alcaldía');
-    }
-
-    public function updatealcalde()
-    {
-        $alcaldia = informacionalcaldia::findOrFail(1);
         $alcaldia->nombre_alcalde = $this->alcalde;
-        $alcaldia->save();
-
-        session()->flash('success', 'Se ha actualizado el nombre del Alcalde');
-    }
-
-    public function updatdireccion()
-    {
-        $alcaldia = informacionalcaldia::findOrFail(1);
         $alcaldia->direccion = $this->direccion;
-        $alcaldia->save();
-
-        session()->flash('success', 'Se ha actualizado la dirección');
-    }
-
-    public function updatetelefono()
-    {
-        $alcaldia = informacionalcaldia::findOrFail(1);
         $alcaldia->telefono = $this->telefono;
-        $alcaldia->save();
-
-        session()->flash('success', 'Se ha actualizado el número de teléfono');
-    }
-
-    public function updatecorreo()
-    {
-        $alcaldia = informacionalcaldia::findOrFail(1);
         $alcaldia->correo = $this->correo;
-        $alcaldia->save();
-
-        session()->flash('success', 'Se ha actualizado el correo electrónico');
-    }
-
-    public function updatenotifi()
-    {
-        $alcaldia = informacionalcaldia::findOrFail(1);
         $alcaldia->correo_notificaciones = $this->correo_notificaciones;
-        $alcaldia->save();
-
-        session()->flash('success', 'Se ha actualizado el correo electrónico de notificaciones');
-    }
-
-    public function updatecontra()
-    {
-        $alcaldia = informacionalcaldia::findOrFail(1);
         $alcaldia->contrasenia = $this->contrasenia;
         $alcaldia->save();
 
-        session()->flash('success', 'Se ha actualizado la contraseña de correo de notificaciones');
+        session()->flash('success', 'Se ha actualizado exitosamente');
     }
 }
