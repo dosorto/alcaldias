@@ -7,6 +7,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @yield('css')
+</head>
+
+<body>
     <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -18,6 +21,7 @@
 </head>
 
 <body class="bg-white dark:bg-gray-900">
+
 
 
     <nav class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
@@ -45,29 +49,32 @@
                 </button>
                 <!-- Dropdown menu -->
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                    id="user-dropdown">
-                    <div class="px-4 py-3">
-                        <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->name }}</span>
-                        <!--<span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>-->
-                    </div>
-                    <ul class="py-2" aria-labelledby="user-menu-button">
-                        <li>
-                            <a href="/"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Inicio</a>
-                        </li>
-                        </li>
-                        <li>
-                            <button type="button"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                out</button>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="is-hidden">
-                                @csrf
-                            </form>
-                        </li>
-
-                    </ul>
+                id="user-dropdown">
+                <div class="px-4 py-3">
+                    <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->name }}</span>
+                    <!--<span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>-->
                 </div>
+                <ul class="py-2" aria-labelledby="user-menu-button">
+                    <li>
+                        <a href="/"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="/perfil_usuario"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Perfil</a>
+                    </li>
+                    <li>
+                        <button type="button"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                            out</button>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="is-hidden">
+                            @csrf
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
                 <button data-collapse-toggle="navbar-user" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-user" aria-expanded="false">
@@ -89,10 +96,9 @@
                     </li>
                     <li>
                         <a href="/configuracion"
-                        class="flex items-center justify-between w-full py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                            class="flex items-center justify-between w-full py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
                             aria-current="page">Configuración General</a>
                     </li>
-                    {{-- Administracion con dropdow menu --}}
                     <li>
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
                             class="flex items-center justify-between w-full py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Administracion
@@ -331,33 +337,32 @@
 
                     <li>
                         <a href="/suscripciones"
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                        <span class="flex items-center">
-                        <span>Suscripciones</span>
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <span class="flex items-center">
+                                <span>Suscripciones</span>
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2"
-                            d="M15 4h3c.6 0 1 .4 1 1v15c0 .6-.4 1-1 1H6a1 1 0 0 1-1-1V5c0-.6.4-1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z" />
-                        </svg>
-                        </span>
+                                        d="M15 4h3c.6 0 1 .4 1 1v15c0 .6-.4 1-1 1H6a1 1 0 0 1-1-1V5c0-.6.4-1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z" />
+                                </svg>
+                            </span>
                         </a>
-                </li>
-                <li>
+                    </li>
+                    <li>
 
-                    <a href="/pago-servicio"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                    <span class="flex items-center">
-                    <span> Pago de Servicios</span>
+                        <a href="/pago-servicio"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <span class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
                             <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1z"/>
-                          </svg>
-                    
+                                </svg>
+                                <span> Pago de Servicios</span>
 
-                    </span>
-                    </a>
-            </li>
-            <a href="/perfil"
+                            </span>
+                        </a>
+                    </li>
+                    <a href="/perfil"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         <span class="flex items-center">
                         <span>Historial</span>
@@ -367,19 +372,20 @@
                                     d="M9.29289 1.29289C9.48043 1.10536 9.73478 1 10 1H18C19.6569 1 21 2.34315 21 4V20C21 21.6569 19.6569 23 18 23H6C4.34315 23 3 21.6569 3 20V8C3 7.73478 3.10536 7.48043 3.29289 7.29289L9.29289 1.29289ZM18 3H11V8C11 8.55228 10.5523 9 10 9H5V20C5 20.5523 5.44772 21 6 21H18C18.5523 21 19 20.5523 19 20V4C19 3.44772 18.5523 3 18 3ZM6.41421 7H9V4.41421L6.41421 7ZM7 13C7 12.4477 7.44772 12 8 12H16C16.5523 12 17 12.4477 17 13C17 13.5523 16.5523 14 16 14H8C7.44772 14 7 13.5523 7 13ZM7 17C7 16.4477 7.44772 16 8 16H16C16.5523 16 17 16.4477 17 17C17 17.5523 16.5523 18 16 18H8C7.44772 18 7 17.5523 7 17Z"
                                     fill="#000000" />
                             </svg>
-                            
-                            
+                            <span>Historial</span>
+
                         </span>
                     </a>
-                </li>
+                    </li>
             </div>
 
             </li>
 
+
             {{-- Alcaldia municipal ciudadana con dropdow menu --}}
             <li>
                 <button id="dropdownNavbarLink1" data-dropdown-toggle="dropdownNavbar1"
-                    class="flex items-center justify-between w-full py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Caja 
+                    class="flex items-center justify-between w-full py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Caja
                     <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -441,8 +447,6 @@
             <li>
             </li>
             </ul>
-            
-            
            
             <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                 <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -493,7 +497,6 @@ themeToggleBtn.addEventListener('click', function() {
         </div>
         </div>
     </nav>
-
     <div class="bg-white dark:bg-gray-900">
         @yield('content')
     </div>
@@ -501,11 +504,11 @@ themeToggleBtn.addEventListener('click', function() {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     @yield('js')
-    
+
     @livewireScripts()
 
 
 
-</body >
+</body>
 
 </html>
