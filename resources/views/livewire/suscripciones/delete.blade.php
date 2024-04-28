@@ -1,6 +1,6 @@
 <div class="fixed inset-0 w-full h-full bg-gray-500 bg-opacity-75 flex items-center justify-center">
         <!-- Contenido de la modal -->
-        <div class="bg-white p-8 max-w-md mx-auto rounded-md">
+        <div class="bg-white p-8 max-w-md mx-auto rounded-md dark:bg-gray-900">
             <!-- Contenido de tu modal aquí -->
             <div class="p-4 md:p-5 text-center">
                 <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

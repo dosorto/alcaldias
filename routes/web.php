@@ -192,8 +192,8 @@ Route::get('/configuracion', function () {
     return View::make('configuracion');
 });
 
-Route::get('/perfilusuario', function () {
-    return View::make('perfil-usuario')
+Route::get('/perfil_usuario', function () {
+    return View::make('perfil-usuario');
 });
 
 Route::get('/reporte', function () {

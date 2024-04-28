@@ -44,15 +44,19 @@ class SuscripcionDetalle extends Component
             return;
         }
 
+        if($this->servicioId){
+
         // Crear una nueva suscripción
         suscripcion::create([
             'contribuyente_id' => $this->contribuyenteId,
             'servicio_id' => $this->servicioId,
             'fecha_suscripcion' => now(), // Puedes cambiar esto según tus necesidades
         ]);
+        
 
         // Redirigir con un mensaje de éxito
         session()->flash('success', 'Servicio agregado exitosamente.');
+        }
     }
 
     public function opendelete($sus_delete_id)
