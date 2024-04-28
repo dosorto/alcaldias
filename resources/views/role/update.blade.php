@@ -44,7 +44,7 @@
    
   </div>
 
-<div class="max-w-3xl mx-auto bg-white p-6 rounded shadow-md">
+<div class="max-w-3xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
     <h2 class="text-3xl font-extrabold text-gray-800 mb-4">Actualizar Rol</h2>
     <hr class="h-px my-2 bg-gray-200 border-0">
 

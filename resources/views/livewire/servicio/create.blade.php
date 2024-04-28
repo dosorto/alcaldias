@@ -2,7 +2,7 @@
     <div class="fixed inset-0 w-full h-full bg-gray-500 bg-opacity-75 flex items-center justify-center">
         <!-- Contenido de la modal -->
 
-        <div class="bg-white p-4 min-w-96 max-w-md mx-auto rounded-md">
+        <div class="bg-white p-4 min-w-96 max-w-md mx-auto rounded-md dark:bg-gray-900">
             <div class="flex items-center justify-between border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                     Crear Nuevo Servicio

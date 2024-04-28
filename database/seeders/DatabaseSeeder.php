@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Periodo;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use PhpParser\Node\Expr\Assign;
 use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
@@ -40,7 +41,8 @@ class DatabaseSeeder extends Seeder
             ContribuyenteSeeder::class,
             ServicioSeeder::class,
             AnioSeeder::class,
-            PeriodoSeeder::class
+            PeriodoSeeder::class,
+            InformacionSeeder::class
 
         ]);
 

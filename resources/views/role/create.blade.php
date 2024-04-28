@@ -44,7 +44,7 @@
    
   </div>
 
-<div class="max-w-3xl mx-auto bg-white p-6 rounded shadow-md">
+<div class="max-w-3xl mx-auto bg-white p-6 rounded shadow-md bg-white p-4 min-w-96 max-w-md mx-auto rounded-md">
     <h2 class="text-3xl font-extrabold text-gray-800 mb-4">Crear Nuevo Rol</h2>
     <hr class="h-px my-2 bg-gray-200 border-0">
 
