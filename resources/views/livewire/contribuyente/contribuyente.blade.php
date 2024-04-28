@@ -95,7 +95,7 @@
                                         </svg>
                                     </button>
 
-                                    <a href="/detallesuscripcion/{{ $contribuyente->id }}" type="button"
+                                    <a href="{{ route('contribuyente.show', ['id' => $contribuyente->id]) }}" type="button"
                                         class="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                         data-bs-toggle="modal" data-bs-target="#delete-modal">
                                         <svg class="w-6 h-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">

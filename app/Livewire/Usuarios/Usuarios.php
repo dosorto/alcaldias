@@ -48,11 +48,10 @@ class Usuarios extends Component
         'name' => 'required',
         'email' => 'required',
         'password' => 'required',
-        'img' => 'storage/images/usuario.png'
         ]);
 
         $validatedData['created_by'] = auth()->id(); 
-
+        $validatedData['img'] = 'images/usuario.png';
         
         User::create($validatedData);
         session()->flash('message', 'Se ha creado exitosamente');
