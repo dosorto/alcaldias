@@ -37,4 +37,15 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    protected function authenticated($request, $user) // Eliminar la declaración de $request si no lo usas
+    {
+        if ($user->hasRole('Usuario')) {
+            return redirect()->route('contribuyente.perfil');
+        } elseif ($user->roles->isEmpty()) {
+            auth()->logout();
+            return redirect('/login')->with('error', 'No tiene ningún rol asignado.');
+        } else {
+            return redirect()->intended($this->redirectPath());
+        }
+    }
 }
