@@ -26,6 +26,10 @@ class Reportecierre extends Component
     public $montoCierreUser;
     public $inputEnabled = true;
     public $botonHabilitado = true;
+    public $updateModal = false;
+    public $deleteModal = false;
+    public $createModal = false;
+    public $Modal;
 
     public function mount()
     {
@@ -54,6 +58,16 @@ class Reportecierre extends Component
         ]);
     }
 
+    public function openModal()
+    {
+        $this->createModal = true;
+    }
+
+    public function closeModal()
+    {
+        $this->createModal = false;
+    }
+
     public function cerrarSesionCaja()
     {
         $sesionCaja = SesionCajaModelo::where('status', '1')->first();
@@ -66,8 +80,12 @@ class Reportecierre extends Component
         $this->inputEnabled = false;
         $this->botonHabilitado = false;
         // Aquí podrías agregar más acciones si es necesario, como redireccionar a otra página, mostrar un mensaje, etc.
-
+        $this->createModal = true;
         // Limpiar los campos del formulario después de cerrar la sesión
         $this->reset(['montoCierreUser']);
+        
+        //$this->openModal();
+        return redirect()->to('/reportecierrefactura');
+
     }
 }
