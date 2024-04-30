@@ -80,7 +80,7 @@ class Reportecierre extends Component
         $this->inputEnabled = false;
         $this->botonHabilitado = false;
         // Aquí podrías agregar más acciones si es necesario, como redireccionar a otra página, mostrar un mensaje, etc.
-        $this->createModal = true;
+        //$this->createModal = true;
         // Limpiar los campos del formulario después de cerrar la sesión
         $this->reset(['montoCierreUser']);
         
