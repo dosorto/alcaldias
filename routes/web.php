@@ -200,3 +200,7 @@ Route::get('/reporte', function () {
     return View::make('reporte-ingresos');
 
 });
+
+Route::get('/consultatributaria', function () {
+    return View::make('consulta-tributaria');
+});

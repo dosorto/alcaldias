@@ -602,6 +602,7 @@ class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
         'App\\Livewire\\Barrios' => __DIR__ . '/../..' . '/app/Livewire/Barrios.php',
         'App\\Livewire\\Cobros' => __DIR__ . '/../..' . '/app/Livewire/Cobros.php',
         'App\\Livewire\\Configuraciongeneral' => __DIR__ . '/../..' . '/app/Livewire/Configuraciongeneral.php',
+        'App\\Livewire\\ConsultaTributaria' => __DIR__ . '/../..' . '/app/Livewire/ConsultaTributaria.php',
         'App\\Livewire\\Contribuyentes' => __DIR__ . '/../..' . '/app/Livewire/Contribuyentes.php',
         'App\\Livewire\\Departamentos' => __DIR__ . '/../..' . '/app/Livewire/Departamentos.php',
         'App\\Livewire\\HistorialContribuyente' => __DIR__ . '/../..' . '/app/Livewire/HistorialContribuyente.php',
