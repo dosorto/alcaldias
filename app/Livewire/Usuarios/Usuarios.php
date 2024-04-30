@@ -44,21 +44,22 @@ class Usuarios extends Component
 
     public function store()
     {
+        $role=Role::find(4);
         $validatedData = $this->validate([
         'name' => 'required',
         'email' => 'required',
         'password' => 'required',
         ]);
 
-        $validatedData['created_by'] = auth()->id(); 
+        $validatedData['created_by'] = auth()->id();
         $validatedData['img'] = 'images/usuario.png';
-        
+
         User::create($validatedData);
         session()->flash('message', 'Se ha creado exitosamente');
         $this->createModal=false;
         $this->resetInputFields();
 
-        
+
     }
 
     public function openModalCreate()
@@ -79,7 +80,7 @@ class Usuarios extends Component
         $this->id = '';
         $this->email = '';
         $this->password = '';
-        
+
     }
 
     public function edit($id)
