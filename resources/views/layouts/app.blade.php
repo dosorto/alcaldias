@@ -472,6 +472,92 @@
                             </div>
                         </li>
                         <li>
+                            @hasanyrole('Administrador|Contador')
+                                <button id="mega-menu-icons-dropdown-button"
+                                    data-dropdown-toggle="mega-menu-icons-dropdown4"
+                                    class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                    Facturas
+                                    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 4 4 4-4" />
+                                    </svg>
+                                </button>
+                            @endhasanyrole
+
+                            <div id="mega-menu-icons-dropdown4"
+                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-1 dark:bg-gray-700">
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                    <ul class="space-y-4" aria-labelledby="mega-menu-icons-dropdown-button">
+                                        <li>
+                                            <a href="/sesiones"
+                                                class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                                <span class="sr-only">Cobros</span>
+                                                <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="currentColor" viewBox="0 0 24 24">
+                                                    <style type="text/css">
+                                                        .st0 {
+                                                            fill: none;
+                                                        }
+                                                    </style>
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                        stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM8.18182 12.0909C8.18182 9.98455 9.89364 8.27273 12 8.27273C12.6427 8.27273 13.2536 8.43182 13.7818 8.71818L14.7109 7.78909C13.9282 7.29273 12.9991 7 12 7C9.18727 7 6.90909 9.27818 6.90909 12.0909H5L7.54545 14.6364L10.0909 12.0909H8.18182ZM16.4545 9.54545L13.9091 12.0909H15.8182C15.8182 14.1973 14.1064 15.9091 12 15.9091C11.3573 15.9091 10.7464 15.75 10.2182 15.4636L9.28909 16.3927C10.0718 16.8891 11.0009 17.1818 12 17.1818C14.8127 17.1818 17.0909 14.9036 17.0909 12.0909H19L16.4545 9.54545Z">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                                Cobros
+                                            </a>
+
+                                        </li>
+                                        <li>
+                                            <a href="/reporte"
+
+                                                class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                                <span class="sr-only">Historial de pagos</span>
+                                                <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="currentColor" height="400px" width="400px" version="1.1"
+                                                    id="Money" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                    viewBox="0 0 128 128" xml:space="preserve">
+                                                    <style type="text/css">
+                                                        .st0 {
+                                                            fill: none;
+                                                        }
+                                                    </style>
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                        stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <g id="_x34__5_">
+                                                            <path
+                                                                d="M17.6,41.9v53h102.3v-53H17.6z M37.5,87.6h-12v-12h2.4v9.6h9.6V87.6z M37.5,51.5h-9.6v9.6h-2.4v-12h12V51.5z M68.8,87.6 c-10.6,0-19.3-8.6-19.3-19.3c0-10.6,8.6-19.3,19.3-19.3s19.3,8.6,19.3,19.3C88.1,79,79.4,87.6,68.8,87.6z M113.3,87.6h-12v-2.4h9.6 v-9.6h2.4V87.6z M113.3,61.1h-2.4v-9.6h-9.6v-2.4h12V61.1z">
+                                                            </path>
+                                                        </g>
+                                                        <path id="_x33__9_"
+                                                            d="M76.7,73c0-3.2-1.9-5.4-6-6.9c-3-1.1-4.3-1.8-4.3-3.2c0-1.2,1.1-2.2,3.3-2.2c2.3,0,3.9,0.6,4.8,1.1l1.2-4.2 c-1-0.5-2.3-0.9-4-1.1v-3.4h-5.9v4c-2.9,1.1-4.6,3.4-4.6,6.2c0,3.3,2.5,5.5,6.3,6.8c2.8,1,3.9,1.8,3.9,3.2c0,1.5-1.3,2.5-3.6,2.5 c-2.2,0-4.4-0.7-5.8-1.4l-1.1,4.3c1,0.6,2.9,1.1,4.9,1.3v3.3h5.9v-3.8C75.1,78.4,76.7,75.9,76.7,73z">
+                                                        </path>
+                                                        <polygon id="_x32__17_"
+                                                            points="115.1,37 12.8,37 12.8,89.4 15.2,89.4 15.2,39.5 115.1,39.5 ">
+                                                        </polygon>
+                                                        <polygon id="_x31__6_"
+                                                            points="110.3,32.2 8,32.2 8,84.6 10.4,84.6 10.4,34.6 110.3,34.6 ">
+                                                        </polygon>
+                                                    </g>
+                                                </svg>
+                                                Historial de pagos
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
                             @role('Administrador')
                                 <button id="mega-menu-icons-dropdown-button"
                                     data-dropdown-toggle="mega-menu-icons-dropdown2"
