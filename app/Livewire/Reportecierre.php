@@ -85,7 +85,7 @@ class Reportecierre extends Component
         $this->reset(['montoCierreUser']);
         
         //$this->openModal();
-        return redirect()->to('/reportecierrefactura');
+        return redirect()->to('/cierre-modal');
 
     }
 }
