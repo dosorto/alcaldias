@@ -7,6 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head> 
 <body class="bg-gray-100">
+
+    <div class="bg-gray-200 h-16 flex items-center justify-center">
+        <h2 class="text-4xl font-extrabold lg:leading-[50px] text-black mb-8">
+            SMIT - Pro
+        </h2>
+    </div>
+    
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-8">
        
         <div class="w-full md:w-1/2 mb-8 md:mb-0 ">
@@ -18,7 +25,7 @@
                     Sistema Municipal de Ingresos Tributarios - Profesional
                 </h2>
                 
-                <p>Somos una administración Municipal eficiente y efectiva, así como una línea de trabajo orientada a construir el desarrollo sostenible, involucrando la participación activa de la ciudadanía como parte esencial en el progreso del municipio.</p>
+                <p>Somos una herramienta diseñada para la gestion y transparencia tributaria de tu municipalidad.</p>
             </div>
         </div>
 

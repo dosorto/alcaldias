@@ -45,9 +45,23 @@ class PagoServicioGenerar extends Component
     public $indexEditable;
     public $modalDelete = false;
     public $confirmarDelete;
+    public $modalPrecio = false;
 
 
-    
+    public function abrirPrecio()
+    {
+    $servicio = Servicio::where('nombre_servicio', $this->serviceSelected)->first();
+    $this->precioEditable = $servicio->importes;
+    $this->modalPrecio = true;
+    }
+
+    public function cerrarPrecio()
+    {
+    $this->modalPrecio = false;
+    $this->serviceSelected = "";
+    $this->precioEditable = null;
+
+    }
 
     public function mount()
     {
@@ -145,7 +159,7 @@ class PagoServicioGenerar extends Component
                 //Verificamos si existe el servicio en la lista de servicios a agregar al pago
                 $existingService = collect($this->servicios_pagar)->firstWhere('id', $servicio->id);
                 if (!$existingService) {
-                    $this->precioEditable = $servicio->importes;
+                    // $this->precioEditable = $servicio->importes;
                     // Agregar el servicio a la lista solo si no está presente
                     $this->servicios_pagar[] = [
                         'id' => $servicio->id,
@@ -159,6 +173,8 @@ class PagoServicioGenerar extends Component
                 }
                 //Ponemos null el servicio seleccionado
                 $this->serviceSelected = '';
+                $this->modalPrecio = false;
+                $this->precioEditable = null;
             }
         }
     }
@@ -270,7 +286,7 @@ class PagoServicioGenerar extends Component
     }
     }
 
-    
+
 
     public function abrirModal()
     {
@@ -294,6 +310,7 @@ class PagoServicioGenerar extends Component
         // $this->precioEditable = null;
         $this->indexEditable = null;
 
+
     }
 
     public function editarImporte($index)
@@ -313,7 +330,7 @@ class PagoServicioGenerar extends Component
         }
     }
 
-    
+
 
     public function closeDelete()
     {
