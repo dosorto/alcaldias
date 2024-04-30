@@ -83,7 +83,7 @@ class ContribuyenteSeeder extends Seeder
             'apartado_postal' => '12345',
             'telefono' => 987654321,
             'fecha_nacimiento' => '1990-05-15',
-            'email' => 'juan@example.com',
+            'email' => 'isaac@example.com',
             'tipo_documento_id' => 1,
             'barrio_id' => 2,
             'profecion_id' => 3,

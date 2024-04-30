@@ -68,6 +68,32 @@ class DatabaseSeeder extends Seeder
         'email' => 'user@gmail.com',
         'password' => 'user1234',
         ])->assignRole($role4);
-        User::factory()->count(50)->create();
+
+
+        User::factory()->create([
+        'name' => 'Juan Carlos Pérez González',
+        'email' => 'juan@example.com',
+        'password' => 'juan1234',
+        ])->assignRole($role4);
+
+        User::factory()->create([
+        'name' => 'María Luisa García Martínez',
+        'email' => 'maria@example.com',
+        'password' => 'maria1234',
+        ])->assignRole($role4);
+
+        User::factory()->create([
+        'name' => 'David Rivera Pérez González',
+        'email' => 'darivera@gmail.com',
+        'password' => 'david1234',
+        ])->assignRole($role4);
+
+        User::factory()->create([
+        'name' => 'Isaac Rivera Pérez González',
+        'email' => 'isaac@example.com',
+        'password' => 'isaac1234',
+        ])->assignRole($role4);
+
+        //User::factory()->count(50)->create();
     }
 }
