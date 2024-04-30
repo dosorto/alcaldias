@@ -135,7 +135,7 @@ Route::get('/suscripciones', function () {
 
 Route::get('/perfil', function () {
     return View::make('perfil-contribuyente');
-});
+})->name('contribuyente.perfil');
 
 Route::get('/factura', function () {
     return View::make('factura');
@@ -202,6 +202,5 @@ Route::get('/reporte', function () {
 });
 
 Route::get('/graficas', function () {
-    return View::make('graficas');
-
-});
+    return view('graficas');
+})->name('graficas');
