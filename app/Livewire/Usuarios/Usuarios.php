@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Livewire\Usuarios;
+use App\Exports\UserExport;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 use Livewire\Component;
 
@@ -126,8 +128,9 @@ class Usuarios extends Component
         $this->resetInputFields();
     }
 
-
-
+    public function export(){
+        return Excel::download(new UserExport,'Ususarios.xlsx');
+    }
 
 
 }
