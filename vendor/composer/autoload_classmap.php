@@ -44,6 +44,7 @@ return array(
     'App\\Livewire\\Configuraciongeneral' => $baseDir . '/app/Livewire/Configuraciongeneral.php',
     'App\\Livewire\\Contribuyentes' => $baseDir . '/app/Livewire/Contribuyentes.php',
     'App\\Livewire\\Departamentos' => $baseDir . '/app/Livewire/Departamentos.php',
+    'App\\Livewire\\Graficas' => $baseDir . '/app/Livewire/Graficas.php',
     'App\\Livewire\\HistorialContribuyente' => $baseDir . '/app/Livewire/HistorialContribuyente.php',
     'App\\Livewire\\Home' => $baseDir . '/app/Livewire/Home.php',
     'App\\Livewire\\ImportarExcel' => $baseDir . '/app/Livewire/ImportarExcel.php',

@@ -13,7 +13,7 @@ class ReporteIngresos extends Component
 
     public $startDate;
     public $endDate;
-    public $totalIngresos = 0; // Propiedad para almacenar el total
+    public $totalIngresos = 0; 
 
     public function render()
     {
