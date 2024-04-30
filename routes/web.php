@@ -200,3 +200,7 @@ Route::get('/reporte', function () {
     return View::make('reporte-ingresos');
 
 });
+
+Route::get('/graficas', function () {
+    return view('graficas');
+})->name('graficas');
