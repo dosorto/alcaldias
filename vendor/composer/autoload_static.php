@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0be3d0888889186f757342cc9283e42d
+class ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -365,8 +365,8 @@ class ComposerStaticInit0be3d0888889186f757342cc9283e42d
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -2918,10 +2918,7 @@ class ComposerStaticInit0be3d0888889186f757342cc9283e42d
         'Laravel\\Prompts\\Concerns\\Truncation' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Truncation.php',
         'Laravel\\Prompts\\Concerns\\TypedValue' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/TypedValue.php',
         'Laravel\\Prompts\\ConfirmPrompt' => __DIR__ . '/..' . '/laravel/prompts/src/ConfirmPrompt.php',
-        'Laravel\\Prompts\\Exceptions\\FormRevertedException' => __DIR__ . '/..' . '/laravel/prompts/src/Exceptions/FormRevertedException.php',
         'Laravel\\Prompts\\Exceptions\\NonInteractiveValidationException' => __DIR__ . '/..' . '/laravel/prompts/src/Exceptions/NonInteractiveValidationException.php',
-        'Laravel\\Prompts\\FormBuilder' => __DIR__ . '/..' . '/laravel/prompts/src/FormBuilder.php',
-        'Laravel\\Prompts\\FormStep' => __DIR__ . '/..' . '/laravel/prompts/src/FormStep.php',
         'Laravel\\Prompts\\Key' => __DIR__ . '/..' . '/laravel/prompts/src/Key.php',
         'Laravel\\Prompts\\MultiSearchPrompt' => __DIR__ . '/..' . '/laravel/prompts/src/MultiSearchPrompt.php',
         'Laravel\\Prompts\\MultiSelectPrompt' => __DIR__ . '/..' . '/laravel/prompts/src/MultiSelectPrompt.php',
@@ -6085,11 +6082,8 @@ class ComposerStaticInit0be3d0888889186f757342cc9283e42d
         'Spatie\\Backtrace\\Arguments\\Reducers\\StringableArgumentReducer' => __DIR__ . '/..' . '/spatie/backtrace/src/Arguments/Reducers/StringableArgumentReducer.php',
         'Spatie\\Backtrace\\Arguments\\Reducers\\SymphonyRequestArgumentReducer' => __DIR__ . '/..' . '/spatie/backtrace/src/Arguments/Reducers/SymphonyRequestArgumentReducer.php',
         'Spatie\\Backtrace\\Backtrace' => __DIR__ . '/..' . '/spatie/backtrace/src/Backtrace.php',
-        'Spatie\\Backtrace\\CodeSnippets\\CodeSnippet' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/CodeSnippet.php',
-        'Spatie\\Backtrace\\CodeSnippets\\FileSnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/FileSnippetProvider.php',
-        'Spatie\\Backtrace\\CodeSnippets\\LaravelSerializableClosureSnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/LaravelSerializableClosureSnippetProvider.php',
-        'Spatie\\Backtrace\\CodeSnippets\\NullSnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/NullSnippetProvider.php',
-        'Spatie\\Backtrace\\CodeSnippets\\SnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/SnippetProvider.php',
+        'Spatie\\Backtrace\\CodeSnippet' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippet.php',
+        'Spatie\\Backtrace\\File' => __DIR__ . '/..' . '/spatie/backtrace/src/File.php',
         'Spatie\\Backtrace\\Frame' => __DIR__ . '/..' . '/spatie/backtrace/src/Frame.php',
         'Spatie\\FlareClient\\Api' => __DIR__ . '/..' . '/spatie/flare-client-php/src/Api.php',
         'Spatie\\FlareClient\\Concerns\\HasContext' => __DIR__ . '/..' . '/spatie/flare-client-php/src/Concerns/HasContext.php',
@@ -7317,10 +7311,10 @@ class ComposerStaticInit0be3d0888889186f757342cc9283e42d
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0be3d0888889186f757342cc9283e42d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0be3d0888889186f757342cc9283e42d::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit0be3d0888889186f757342cc9283e42d::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit0be3d0888889186f757342cc9283e42d::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit5af834a1bece62650ebe10be7f49d8e4::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -33,7 +33,7 @@ class Configuraciongeneral extends Component
             // $this->imageUrl = session('image_url');
         // }
     }
-    
+
     public function render()
     {
         return view('livewire.configuraciongeneral');
