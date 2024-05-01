@@ -208,3 +208,7 @@ Route::get('/consultatributaria', function () {
 Route::get('/cierre-modal', function () {
     return View::make('cierre-sesion');
 });
+
+Route::get('/graficas', function () {
+    return view('graficas');
+})->name('graficas');

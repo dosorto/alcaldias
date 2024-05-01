@@ -37,15 +37,34 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function authenticated($request, $user) // Eliminar la declaración de $request si no lo usas
+    protected function authenticated($request, $user)
     {
-        if ($user->hasRole('Usuario')) {
-            return redirect()->route('contribuyente.perfil');
-        } elseif ($user->roles->isEmpty()) {
-            auth()->logout();
-            return redirect('/login')->with('error', 'No tiene ningún rol asignado.');
+    if ($user->hasRole('Usuario')) {
+        // Obtener el perfil del contribuyente correspondiente al correo electrónico del usuario
+        $contribuyente = Contribuyente::where('email', $user->email)->first();
+
+
+
+        if ($contribuyente) {
+             // Establecer la cookie 'contribuyente_id' con el nuevo ID
+             cookie()->queue('contribuyenteH_id', $contribuyente->id);
+             return redirect()->route('contribuyente.showHistory')->with('id', $contribuyente->id);
+
+            // Redirigir al perfil del contribuyente en el historial
+            //return redirect()->route('contribuyente.showHistory', ['id' => $contribuyente->id]);
         } else {
-            return redirect()->intended($this->redirectPath());
+            // Si el perfil del contribuyente no existe, redirigir a una vista de error o a otra página apropiada
+            return redirect('/')->with('error', 'No se encontró el perfil del contribuyente.');
         }
+    } elseif ($user->hasRole('Administrador')) {
+        return redirect()->route('graficas');
+    } elseif ($user->roles->isEmpty()) {
+        auth()->logout();
+        return redirect('/login')->with('error', 'No tiene ningún rol asignado.');
+    } else {
+        return redirect()->intended($this->redirectPath());
     }
+    }
+
+
 }
