@@ -34,7 +34,6 @@
                         Cerrar Sesión
                     </button>
                     @endif
-                    <a href="/" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Volver a Inicio</a>
                 </form>
             </div>
             <br>
@@ -67,16 +66,8 @@
     </div>
 </div>
 
-<script>
-    document.querySelector('[type="submit"]').addEventListener('click', function() {
-        var montoCierreUser = document.getElementById('montoCierreUser').value;
-        var totalCaja = {{ $totalCaja ?? 0 }};
-        var cierreCaja = totalCaja - montoCierreUser;
-        if (cierreCaja === 0) {
-            alert('Se ha cerrado sesión correctamente. El cierre de caja cuadra.');
-        } else {
-            alert('Se ha cerrado sesión correctamente. El cierre de caja no cuadra. Diferencia: ' + cierreCaja);
-        }
-    });
-</script>
+@if($createModal)
+@include('livewire.cobros.reportecierremodal')
+@endif
+
 

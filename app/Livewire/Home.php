@@ -17,7 +17,6 @@ class Home extends Component
                                         ->orWhere('correo_notificaciones', 'N/D')
                                         ->orWhere('contrasenia', 'N/D')
                                         ->exists();
-    
 
         // Si se encuentra al menos un registro con valor "N/D"
         if ($registros) {
