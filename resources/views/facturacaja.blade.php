@@ -46,14 +46,13 @@
 
 <div class="container">
   <div class="header">
-    <h1 style="text-align: center; color: #333;">Factura</h1>
-    <p><strong>Choluteca: {{ now()->toDateString() }}</strong></p>
-    <p><strong> Empresa XYZ</strong></p>
+    <h1 style="text-align: center; color: #333;">Comprobante de Pago</h1>
+    <p><strong>Choluteca {{ now()->toDateString() }}</strong></p>
+    <p><strong>{{ $alcaldia }}</strong></p>
   </div>
   <div class="details">
     <p><strong>Cliente:</strong> {{ $contribuyente->primer_nombre }} {{ $contribuyente->segundo_nombre }} {{ $contribuyente->primer_apellido }} {{ $contribuyente->segundo_apellido }}</p>
     <p><strong>N° de Identidad:</strong> {{ $contribuyente->identidad }}</p>
-    <p><strong>Sexo:</strong> {{ $contribuyente->sexo === 0 ? 'Femenino' : 'Masculino' }}</p>
     <p><strong>N° de Teléfono:</strong> {{ $contribuyente->telefono }}</p>
     <p><strong>Correo Electrónico:</strong> {{ $contribuyente->email }}</p>
   </div>

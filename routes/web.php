@@ -156,6 +156,8 @@ Route::get('/detalle-suscripcion/{id}', function ($id) {
 // Route::delete('/detallesuscripcion/{suscripcion}/eliminar', [Detallesuscripcion::class, 'eliminarServicio'])->name('suscripcion.eliminar');
 
 Route::get('/sesioncaja/{id}', [\App\Http\Controllers\Sesioncaja::class, 'show'])->name('sesioncaja.show');
+Route::get('/consultatri/{contribuyenteId}', [\App\Http\Controllers\Sesioncaja::class, 'consultatri'])->name('consultatri');
+Route::post('/consulta', [Sesioncaja::class, 'consulta'])->name('consulta');
 Route::get('/facturacaja/{id}', [Sesioncaja::class, 'imprimirFactura'])->name('imprimir_factura');
 Route::get('/reportecierrefactura', [Cobros::class, 'imprimirFactura'])->name('reportecierre');
 
@@ -199,6 +201,14 @@ Route::get('/perfil_usuario', function () {
 Route::get('/reporte', function () {
     return View::make('reporte-ingresos');
 
+});
+
+Route::get('/consultatributaria', function () {
+    return View::make('consulta-tributaria');
+});
+
+Route::get('/cierre-modal', function () {
+    return View::make('cierre-sesion');
 });
 
 Route::get('/graficas', function () {

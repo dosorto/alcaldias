@@ -42,8 +42,6 @@ class Contribuyentes extends Component
     public $municipio_id;
     public $aldea_id;
 
-
-
     public function mount(){
         $this->tipo_documentos = Tipo_documento::all();
         $this->paises = paise::all();

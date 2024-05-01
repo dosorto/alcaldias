@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('informacionalcaldias', function (Blueprint $table) {
             $table->id();
             $table->string("nombre_alcaldia");
+            $table->string('img')->nullable();
             $table->string("nombre_alcalde");
             $table->string("direccion");
             $table->integer("telefono");
