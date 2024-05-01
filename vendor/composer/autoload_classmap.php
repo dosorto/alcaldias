@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Exports\\UserExport' => $baseDir . '/app/Exports/UserExport.php',
     'App\\Http\\Controllers\\AdminUserController' => $baseDir . '/app/Http/Controllers/AdminUserController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -2599,7 +2600,10 @@ return array(
     'Laravel\\Prompts\\Concerns\\Truncation' => $vendorDir . '/laravel/prompts/src/Concerns/Truncation.php',
     'Laravel\\Prompts\\Concerns\\TypedValue' => $vendorDir . '/laravel/prompts/src/Concerns/TypedValue.php',
     'Laravel\\Prompts\\ConfirmPrompt' => $vendorDir . '/laravel/prompts/src/ConfirmPrompt.php',
+    'Laravel\\Prompts\\Exceptions\\FormRevertedException' => $vendorDir . '/laravel/prompts/src/Exceptions/FormRevertedException.php',
     'Laravel\\Prompts\\Exceptions\\NonInteractiveValidationException' => $vendorDir . '/laravel/prompts/src/Exceptions/NonInteractiveValidationException.php',
+    'Laravel\\Prompts\\FormBuilder' => $vendorDir . '/laravel/prompts/src/FormBuilder.php',
+    'Laravel\\Prompts\\FormStep' => $vendorDir . '/laravel/prompts/src/FormStep.php',
     'Laravel\\Prompts\\Key' => $vendorDir . '/laravel/prompts/src/Key.php',
     'Laravel\\Prompts\\MultiSearchPrompt' => $vendorDir . '/laravel/prompts/src/MultiSearchPrompt.php',
     'Laravel\\Prompts\\MultiSelectPrompt' => $vendorDir . '/laravel/prompts/src/MultiSelectPrompt.php',

@@ -49,6 +49,7 @@ class DatabaseSeeder extends Seeder
         'name' => 'Admin',
         'email' => 'admin@gmail.com',
         'password' => '12345678',
+        
         ])->assignRole($role);
 
         User::factory()->create([
