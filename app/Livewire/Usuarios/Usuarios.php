@@ -131,7 +131,6 @@ class Usuarios extends Component
     public function export(){
         return Excel::download(new UserExport,'Ususarios.xlsx');
 
-        session()->flash('message', 'Exportacion realizada');
     }
 
 

@@ -31,12 +31,12 @@ class Contribuyente extends Model
 
     public function Tipo_documento()
     {
-        return $this->belongsTo(Tipo_documento::class, 'Tipo_documento_id');
+        return $this->belongsTo(Tipo_documento::class, 'tipo_documento_id');
     }
 
     public function Barrio()
     {
-        return $this->belongsTo(Barrio::class, 'Barrio_id');
+        return $this->belongsTo(Barrio::class, 'barrio_id');
     }
 
     public function Profecion_oficio()

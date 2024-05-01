@@ -2,10 +2,13 @@
 
 namespace App\Livewire\ProfesionOficio;
 
+
 use Livewire\Component;
 use App\Models\Profesion_oficio;
 use Livewire\WithPagination;
 use Livewire\WithoutUrlPagination;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\profeciones_oficiosExport;
 
 class ProfesionOficio extends Component
 {
@@ -106,6 +109,11 @@ class ProfesionOficio extends Component
         $profesion->delete();
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
+
+    }
+
+    public function export(){
+        return Excel::download(new profeciones_oficiosExport,'Profeciones u oficios.xlsx');
 
     }
 }

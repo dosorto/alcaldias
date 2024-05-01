@@ -13,6 +13,8 @@ use App\Models\Barrio;
 use App\Models\Aldea;
 use App\Models\Profesion_oficio;
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ContribuyenteExport;
 
 class Contribuyentes extends Component
 {
@@ -250,6 +252,11 @@ class Contribuyentes extends Component
             $this->barrios = collect();
             $this->barrios = Barrio::where('aldea_id', $value)->get();
             $this->barrio_id = null;
+        }
+
+        public function export(){
+            return Excel::download(new ContribuyenteExport,'Contribuyentes.xlsx');
+    
         }
 
 

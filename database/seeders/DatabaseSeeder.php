@@ -49,6 +49,7 @@ class DatabaseSeeder extends Seeder
         'name' => 'Admin',
         'email' => 'admin@gmail.com',
         'password' => '12345678',
+        'img' =>  'images/usuario.png'
         
         ])->assignRole($role);
 
@@ -56,18 +57,21 @@ class DatabaseSeeder extends Seeder
         'name' => 'Contador',
         'email' => 'conta@gmail.com',
         'password' => 'conta1234',
+        'img' =>  'images/usuario.png'
         ])->assignRole($role2);
 
         User::factory()->create([
         'name' => 'Secretario',
         'email' => 'secre@gmail.com',
         'password' => 'secre1234',
+        'img' =>  'images/usuario.png'
         ])->assignRole($role3);
 
         User::factory()->create([
         'name' => 'User',
         'email' => 'user@gmail.com',
         'password' => 'user1234',
+        'img' =>  'images/usuario.png'
         ])->assignRole($role4);
 
 
@@ -75,24 +79,28 @@ class DatabaseSeeder extends Seeder
         'name' => 'Juan Carlos Pérez González',
         'email' => 'juan@example.com',
         'password' => 'juan1234',
+        'img' =>  'images/usuario.png'
         ])->assignRole($role4);
 
         User::factory()->create([
         'name' => 'María Luisa García Martínez',
         'email' => 'maria@example.com',
         'password' => 'maria1234',
+        'img' =>  'images/usuario.png'
         ])->assignRole($role4);
 
         User::factory()->create([
         'name' => 'David Rivera Pérez González',
         'email' => 'darivera@gmail.com',
         'password' => 'david1234',
+        'img' =>  'images/usuario.png'
         ])->assignRole($role4);
 
         User::factory()->create([
         'name' => 'Isaac Rivera Pérez González',
         'email' => 'isaac@example.com',
         'password' => 'isaac1234',
+        'img' =>  'images/usuario.png'
         ])->assignRole($role4);
 
         //User::factory()->count(50)->create();
