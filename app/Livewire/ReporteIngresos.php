@@ -37,7 +37,7 @@ class ReporteIngresos extends Component
     // Método para calcular el total de ingresos
     public function calcularTotalIngresos($pagoservicios)
     {
-        $this->totalIngresos = $pagoservicios->sum('total');
+        $this->totalIngresos = $pagoservicios->where('estado', 'Pagado')->sum('total');
     }
 
     // Método para buscar
