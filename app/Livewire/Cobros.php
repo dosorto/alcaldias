@@ -138,6 +138,7 @@ class Cobros extends Component
         $montoCierreUser = $sesionCaja->monto_cierreuser;
         $montoInicial = $sesionCaja->monto_inicial;
         $fechainiciocaja = $sesionCaja->created_at;
+        $fechacierrecaja = $sesionCaja->closed_at;
         $totalOperaciones = $operacionesSesion->sum('monto');
         $totalCaja = $montoInicial + $totalOperaciones;
         //$diferencia = $this->moneyInCash - $totalCaja;
@@ -145,7 +146,7 @@ class Cobros extends Component
         $usuario = User::find($sesionCaja->usuario_id);
 
     // Devolver una vista con el diseño de la factura
-    return response()->view('facturacierrecaja', compact('montoInicial', 'totalOperaciones', 'totalCaja', 'fechainiciocaja', 'operacionesSesion', 'usuario', 'montoCierreUser'))
+    return response()->view('facturacierrecaja', compact('montoInicial', 'totalOperaciones', 'totalCaja', 'fechainiciocaja', 'operacionesSesion', 'usuario', 'montoCierreUser', 'fechacierrecaja'))
                     ->withHeaders(['Content-Type' => 'text/html', 'X-Download-Options' => 'noopen']); // Indicar al navegador que abra la vista en una nueva página
     }
 

@@ -13,7 +13,7 @@ class ConsultaTributaria extends Component
     
     public function render()
     {
-        return view('livewire.consulta-tributaria');
+        return view('livewire.consulta-tributaria', ['historialPagos' => $historialPagos]);
     }
 
     public function consultarHistorial()

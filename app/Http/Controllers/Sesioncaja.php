@@ -11,6 +11,7 @@ use App\Models\OperacionesSesion;
 use App\Models\SesionCajaModelo;
 use App\Models\PagoServicio_has_servicios;
 use App\Models\PagoServicios;
+use App\Models\informacionalcaldia;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -41,13 +42,14 @@ class Sesioncaja extends Controller
 
     public function imprimirFactura($id)
     {
- 
+
+    $alcaldia = informacionalcaldia::all()->pluck('nombre_alcaldia')->implode(', ');
     $contribuyente = Contribuyente::findOrFail($id);
     $pagoservicios = PagoServicios::where('contribuyente_id', $id)->where('estado', 'Pendiente')->get();
     $totalAPagar = PagoServicios::where('contribuyente_id', $id)->whereNull('deleted_at')->where('estado', 'Pendiente')->sum('total');
 
     // Devolver una vista con el diseño de la factura
-    return view('facturacaja', compact('contribuyente', 'pagoservicios', 'totalAPagar'));
+    return view('facturacaja', compact('contribuyente', 'pagoservicios', 'totalAPagar', 'alcaldia'));
     }
 
     public function procesarPago(Request $request)

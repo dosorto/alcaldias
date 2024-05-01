@@ -113,7 +113,7 @@ themeToggleBtn.addEventListener('click', function() {
         <button type="submit">Consultar Historial de Pagos</button>
     </form>
 
-    @if($historialPagos)
+    @if(isset($historialPagos))
         <table>
             <thead>
                 <tr>
