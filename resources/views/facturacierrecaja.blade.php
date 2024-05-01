@@ -3,82 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      margin: 0 auto;
+    /* Estilos CSS personalizados */
+    .caja {
+      background-color: #f9f9f9;
+      border-radius: 10px;
       padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    .header {
+    .titulo {
       text-align: center;
-      margin-bottom: 20px;
-    }
-    .details {
-      margin-bottom: 20px;
-    }
-    .details p {
-      margin: 5px 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-    .total {
-      font-size: 18px;
+      font-size: 24px;
       font-weight: bold;
-      margin-top: 20px;
-      text-align: right;
+    }
+    .imagen {
+      display: block;
+      margin: 0 auto;
+      width: 150px;
+    }
+    .mensaje-error {
+      color: red;
+      font-weight: bold;
+    }
+    .mensaje-exito {
+      color: green;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
+  <div class="caja">
+    <h2 class="titulo">Reporte de Cierre de Caja</h2>
+    <img class="imagen" src="https://cdn-icons-png.flaticon.com/512/245/245431.png">
+    <hr>
+    <p><strong>Usuario:</strong> {{ $usuario->name ?? 'Usuario no disponible' }}</p>
+    <hr>
+    <p><strong>Hora y fecha de apertura:</strong> {{ $fechainiciocaja ?? 'Fecha no disponible' }}</p>
+    <hr>
+    <p><strong>Hora y fecha de cierre:</strong> {{ $fechacierrecaja ?? 'Fecha no disponible' }}</p>
+    <hr>
+    <p><strong>Monto de apertura:</strong> {{ $montoInicial ?? 'Monto no disponible' }}</p>
+    <hr>
+    <p><strong>Suma de operaciones realizadas:</strong> {{ $totalOperaciones ?? 'Operaciones no disponibles' }}</p>
+    <hr>
+    <p><strong>Monto Total de cierre:</strong> {{ $totalCaja ?? 'Total no disponible' }}</p>
+    <hr>
+    <p><strong>Monto de cierre ingresado por el usuario:</strong> {{ $montoCierreUser }}</p>
+    <hr>
+    <p id="mensajeCierreCaja" class="mensaje-exito"></p>
+  </div>
 
-<div>
-  <h4 class="text-lg font-semibold text-gray-900 dark:text-white mt-4">Información de cierre de caja:</h4>
-  <p>Monto Inicial: {{ $montoInicial }}</p>
-  <p>Total de Operaciones: {{ $totalOperaciones }}</p>
-  <p>Total en Caja: {{ $totalCaja }}</p>
-  <p id="mensajeCierreCaja" class="text-sm text-gray-500 mt-2"></p>
-</div>
-
-<!-- Agregamos un input para que el usuario ingrese el monto en físico de la caja -->
-<div class="container">
-  <label for="montoFisico">Monto en Físico de la Caja:</label>
-  <input type="number" id="montoFisico">
-  <button onclick="realizarCierreCaja()">Realizar Cierre de Caja</button>
-</div>
-
-<script>
-  function realizarCierreCaja() {
-    // Obtenemos el valor ingresado por el usuario
-    var montoFisico = parseFloat(document.getElementById('montoFisico').value);
-    
-    // Obtenemos el valor total en caja
+  <script>
+    // Lógica para comparar los montos de cierre
     var totalCaja = parseFloat("{{ $totalCaja }}");
-    
-    // Restamos el monto en físico ingresado al total en caja
-    var diferencia = totalCaja - montoFisico;
+    var montoCierreUser = parseFloat("{{ $montoCierreUser }}");
+    var diferencia = montoCierreUser - totalCaja;
 
-    // Actualizamos el mensaje de cierre de caja
-    var mensajeCierreCaja = document.getElementById('mensajeCierreCaja');
     if (diferencia === 0) {
-      mensajeCierreCaja.innerText = "El cierre cuadra.";
+      document.getElementById("mensajeCierreCaja").innerText = "El cierre de caja cuadra correctamente.";
     } else {
-      mensajeCierreCaja.innerText = "El cierre no cuadra. Diferencia: " + diferencia.toFixed(2);
+      document.getElementById("mensajeCierreCaja").innerText = "El cierre de caja no cuadra. Diferencia: " + diferencia.toFixed(2);
+      document.getElementById("mensajeCierreCaja").classList.add("mensaje-error");
     }
-  }
-</script>
-
+  </script>
 </body>
 </html>

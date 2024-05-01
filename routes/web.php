@@ -201,6 +201,13 @@ Route::get('/reporte', function () {
 
 });
 
+Route::get('/consultatributaria', function () {
+    return View::make('consulta-tributaria');
+});
+
+Route::get('/cierre-modal', function () {
+    return View::make('cierre-sesion');
+});
 Route::get('/graficas', function () {
     return view('graficas');
 })->name('graficas');

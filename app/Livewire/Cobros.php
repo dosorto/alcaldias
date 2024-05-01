@@ -125,16 +125,20 @@ class Cobros extends Component
         'diferencia' => $diferencia,
         'cierreCajaCuadra' => $cierreCajaCuadra,
     ];
+
+    
 }
 
     public function imprimirFactura()
     {
+        
 
-        $sesionCaja = SesionCajaModelo::where('status', '1')->first();
+        $sesionCaja = SesionCajaModelo::latest('closed_at')->first();
         $operacionesSesion = OperacionesSesion::where('idsesioncaja', $sesionCaja->id)->get();
-
+        $montoCierreUser = $sesionCaja->monto_cierreuser;
         $montoInicial = $sesionCaja->monto_inicial;
         $fechainiciocaja = $sesionCaja->created_at;
+        $fechacierrecaja = $sesionCaja->closed_at;
         $totalOperaciones = $operacionesSesion->sum('monto');
         $totalCaja = $montoInicial + $totalOperaciones;
         //$diferencia = $this->moneyInCash - $totalCaja;
@@ -142,8 +146,10 @@ class Cobros extends Component
         $usuario = User::find($sesionCaja->usuario_id);
 
     // Devolver una vista con el diseño de la factura
-    return view('facturacierrecaja', compact('montoInicial', 'totalOperaciones', 'totalCaja', 'fechainiciocaja', 'operacionesSesion', 'usuario'));
+    return response()->view('facturacierrecaja', compact('montoInicial', 'totalOperaciones', 'totalCaja', 'fechainiciocaja', 'operacionesSesion', 'usuario', 'montoCierreUser', 'fechacierrecaja'))
+                    ->withHeaders(['Content-Type' => 'text/html', 'X-Download-Options' => 'noopen']); // Indicar al navegador que abra la vista en una nueva página
     }
+
 
     public function cerrarSesionCaja()
     {
@@ -162,12 +168,11 @@ class Cobros extends Component
             'monto_cierresis' => $this->totalCaja, // Guardar el monto total en caja
             'monto_cierreuser' => $this->dineroTotal, // Guardar el monto ingresado por el usuario
         ]);
-
-        // Mostrar un mensaje de éxito
-        session()->flash('message', 'La sesión de caja se ha cerrado exitosamente.');
-
-        // Redirigir o hacer cualquier otra acción necesaria
-        return redirect()->to('/');
+        $this->imprimirFactura();
+        //return redirect()->to('/reportecierrefactura');
     }
+
+    
+  
 
 }
