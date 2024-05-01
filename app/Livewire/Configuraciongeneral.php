@@ -17,9 +17,11 @@ class Configuraciongeneral extends Component
     public $correo;
     public $correo_notificaciones;
     public $contrasenia;
+    public $config;
 
     public function mount()
     {
+        $this->config = Informacionalcaldia::find(1);
         $info = informacionalcaldia::findOrFail(1);
         $this->alcaldia = $info->nombre_alcaldia;
         $this->alcalde = $info->nombre_alcalde;
@@ -46,10 +48,11 @@ class Configuraciongeneral extends Component
         ]);
 
         // Procesar la imagen después de la validación
-        $imagePath = $this->image->store('images', 'public'); // Almacenar la imagen en storage/app/public/images
-
-        session()->flash('success', 'Imagen cargada correctamente.');
-        session()->put('image', $imagePath);
+        $config = informacionalcaldia::find(1);
+        $imageName = $this->image->store('images', 'public'); // Almacenar la imagen en storage/app/public/images
+        $config->img = $imageName;
+        $config->save();
+        return redirect()->to('/configuracion');
     }
 
     public function updatealcaldia()
@@ -63,7 +66,5 @@ class Configuraciongeneral extends Component
         $alcaldia->correo_notificaciones = $this->correo_notificaciones;
         $alcaldia->contrasenia = $this->contrasenia;
         $alcaldia->save();
-
-        session()->flash('success', 'Se ha actualizado exitosamente');
     }
 }

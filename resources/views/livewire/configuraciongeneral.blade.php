@@ -11,12 +11,8 @@
   }
 </script>
 
-<strong>{{ session('success') }}</strong> 
-<br>
 <div class="flex items-center gap-4">
-  @if (session()->has('image'))
-    <img src="{{ asset('storage/' . session('image')) }}" class="w-40 h-40 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" alt="Bordered avatar">
-  @endif
+    <img src="{{ asset('storage/' . $config->img) }}" class="w-40 h-40 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" alt="Bordered avatar">
   <div class="font-medium dark:text-white">
     <div> {{ $alcaldia }}</div>
     <div class="text-sm text-gray-500 dark:text-gray-400">Logo</div>
