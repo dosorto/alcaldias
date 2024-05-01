@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if (Auth::check() && Auth::user()->hasRole('Administrador')) {
+            return redirect()->route('graficas');
+        } else {
+            return view('home');
+        }
     }
 }
