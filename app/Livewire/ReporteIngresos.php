@@ -18,8 +18,7 @@ class ReporteIngresos extends Component
     public function render()
     {
         $pagoservicios = PagoServicios::select('pago_servicios.*', 'contribuyentes.primer_nombre', 'contribuyentes.primer_apellido')
-            ->leftJoin('contribuyentes', 'pago_servicios.contribuyente_id', '=', 'contribuyentes.id')
-            ->where('pago_servicios.estado', 'Pagado');
+            ->leftJoin('contribuyentes', 'pago_servicios.contribuyente_id', '=', 'contribuyentes.id');
 
         if ($this->startDate && $this->endDate) {
             $pagoservicios->whereBetween('fecha_pago', [$this->startDate, $this->endDate]);

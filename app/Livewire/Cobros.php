@@ -172,7 +172,4 @@ class Cobros extends Component
         //return redirect()->to('/reportecierrefactura');
     }
 
-    
-  
-
 }

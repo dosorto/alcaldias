@@ -549,7 +549,7 @@
                                                         </polygon>
                                                     </g>
                                                 </svg>
-                                                Reporte de ingresos
+                                                Historial de pagos
                                             </a>
                                         </li>
 

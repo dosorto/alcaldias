@@ -8,6 +8,8 @@ use App\Models\Servicio;
 use App\Models\Tipo;
 use Livewire\WithPagination;
 use function Psy\debug;
+use App\Exports\ServiciosExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Servicios extends Component
 {
@@ -60,9 +62,10 @@ class Servicios extends Component
 
         // Agregar el campo 'created_by' antes de crear el registro
         $validatedData['created_by'] = auth()->id(); // Suponiendo que estás utilizando la autenticación de Laravel
-
+        
         // Crear el registro en la base de datos
         Servicio::create($validatedData);
+        session()->flash('message', 'Resgistro creado exitosamente.');
         $this->createModal=false;
 
         // Resto del código
@@ -121,7 +124,7 @@ class Servicios extends Component
 
         $this->updateModal = false;
 
-        session()->flash('message', 'Servicio Updated Successfully.');
+        session()->flash('message', 'Resgistro actualizado exitosamente.');
         $this->resetInputFields();
     }
 
@@ -143,6 +146,11 @@ class Servicios extends Component
     public function nuevoModal()
     {
         $this->createModal=true;
+    }
+
+    public function export(){
+        return Excel::download(new ServiciosExport,'Servicios.xlsx');
+
     }
 }
 

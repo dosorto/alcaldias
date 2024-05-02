@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\Tipo_documento;
 use Livewire\WithPagination;
 use Livewire\WithoutUrlPagination;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\Tipos_documentosExport;
 
 class TipoDocumento extends Component
 {
@@ -106,6 +108,11 @@ class TipoDocumento extends Component
         $documento->delete();
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
+
+    }
+
+    public function export(){
+        return Excel::download(new Tipos_documentosExport,'Tipos de documentos.xlsx');
 
     }
 

@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\Departamento;
 use Livewire\WithPagination;
 use App\Models\Paise;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\DepartamentosExport;
 
 class Departamentos extends Component
 {
@@ -126,6 +128,10 @@ class Departamentos extends Component
         $depto->delete();
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
+
+    }
+    public function export(){
+        return Excel::download(new DepartamentosExport,'Departamentos.xlsx');
 
     }
 }

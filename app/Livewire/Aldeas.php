@@ -7,6 +7,8 @@ use App\Models\Municipio;
 use App\Models\Departamento;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\AldeasExport;
 
 class Aldeas extends Component
 {
@@ -140,5 +142,10 @@ class Aldeas extends Component
         $aldea->delete();
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
+    }
+
+    public function export(){
+        return Excel::download(new AldeasExport,'Aldeas.xlsx');
+
     }
 }

@@ -5,6 +5,8 @@ namespace App\Livewire;
 use App\Models\Nivel;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\NivelesExport;
 
 class Niveles extends Component
 {
@@ -124,5 +126,10 @@ class Niveles extends Component
         $nivel->delete();
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
+    }
+
+    public function export(){
+        return Excel::download(new NivelesExport,'Niveles de sercios.xlsx');
+
     }
 }

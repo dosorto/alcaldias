@@ -5,6 +5,8 @@ namespace App\Livewire;
 use App\Models\Paise;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\paisesExport;
 
 use function Psy\debug;
 
@@ -123,6 +125,9 @@ class Pais extends Component
     {
         $this->createModal=true;
     }
+    public function export(){
+        return Excel::download(new paisesExport,'Paises.xlsx');
 
+    }
     
 }
