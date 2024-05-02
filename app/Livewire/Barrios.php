@@ -9,6 +9,8 @@ use App\Models\Departamento;
 use App\Models\Paise;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BarriosExport;
 
 
 class Barrios extends Component
@@ -202,5 +204,10 @@ public function updateAldeas()
         $barrio->delete();
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
+    }
+
+    public function export(){
+        return Excel::download(new BarriosExport,'Barrios.xlsx');
+
     }
 }

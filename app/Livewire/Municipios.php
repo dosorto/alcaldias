@@ -6,7 +6,8 @@ use Livewire\Component;
 use App\Models\Departamento;
 use Livewire\WithPagination;
 use App\Models\Municipio;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\municipiosExport;
 class Municipios extends Component
 {
 
@@ -127,5 +128,10 @@ class Municipios extends Component
         $municipio->delete();
         session()->flash('message', 'Registro eliminado exitosamente.');
         $this->deleteModal = false;
+    }
+
+    public function export(){
+        return Excel::download(new municipiosExport,'Muncipios.xlsx');
+
     }
 }
