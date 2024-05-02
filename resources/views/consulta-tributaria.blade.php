@@ -107,18 +107,17 @@ themeToggleBtn.addEventListener('click', function() {
     @livewireScripts()
 
     <div>
-    <form wire:submit.prevent="consultarHistorial">
+    <form>
         <label for="identidad">Número de Identidad del Contribuyente:</label>
-        <input type="text" wire:model.defer="contribuyenteId" id="identidad">
-        <button type="submit">Consultar Historial de Pagos</button>
+        <input type="text" wire:model="contribuyenteId" id="identidad">
     </form>
 
-    @if(isset($historialPagos))
+    @if(!empty($historialPagos))
         <table>
             <thead>
                 <tr>
                     <th>Fecha de Pago</th>
-                    <th>Descripción</th>
+                    <th>num_recibo</th>
                     <th>Importe Total</th>
                     <!-- Agrega más columnas si es necesario -->
                 </tr>
@@ -127,8 +126,8 @@ themeToggleBtn.addEventListener('click', function() {
                 @foreach($historialPagos as $pago)
                     <tr>
                         <td>{{ $pago->fecha_pago }}</td>
-                        <td>{{ $pago->descripcion }}</td>
-                        <td>{{ $pago->importe_total }}</td>
+                        <td>{{ $pago->num_recibo }}</td>
+                        <td>{{ $pago->total }}</td>
                         <!-- Agrega más celdas si es necesario -->
                     </tr>
                 @endforeach
@@ -136,6 +135,7 @@ themeToggleBtn.addEventListener('click', function() {
         </table>
     @endif
 </div>
+
 
 </body>
 
