@@ -31,7 +31,7 @@
 
     <br>
 
-    <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
+    <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-800">
         <div class="flex items-center justify-between md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
             <h2 class="text-3xl font-extrabold dark:text-white">Reporte de Ingresos</h2>
             <div class="flex items-center space-x-4">

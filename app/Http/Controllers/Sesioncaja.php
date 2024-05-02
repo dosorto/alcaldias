@@ -40,6 +40,33 @@ class Sesioncaja extends Controller
         return view('sesioncaja', compact('contribuyente', 'servicios', 'suscripciones', 'pagoservicios', 'totalAPagar', 'sesioncaja'));
     }
 
+    public function consulta(Request $request)
+    {
+        // Obtener el valor del input
+        $contribuyenteId = $request->input('contribuyenteid');
+
+        // Redireccionar a la ruta deseada con el parámetro
+        return redirect()->route('consultatri', ['contribuyenteId' => $contribuyenteId]);
+    }
+
+
+    public function consultatri($contribuyenteid)
+{
+    // Buscar el contribuyente por su número de identidad
+    $contribuyente = Contribuyente::where('identidad', $contribuyenteid)->first();
+
+    if ($contribuyente) {
+        // Obtener el historial de pagos del contribuyente
+        $historialPagos = PagoServicios::where('contribuyente_id', $contribuyente->id)->get();
+    } else {
+        // Si no se encuentra el contribuyente, establecer historial de pagos como vacío
+        $historialPagos = [];
+    }
+
+    return view('consulta', compact('historialPagos', 'contribuyente'));
+}
+
+
     public function imprimirFactura($id)
     {
 

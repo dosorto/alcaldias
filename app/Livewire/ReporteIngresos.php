@@ -18,7 +18,8 @@ class ReporteIngresos extends Component
     public function render()
     {
         $pagoservicios = PagoServicios::select('pago_servicios.*', 'contribuyentes.primer_nombre', 'contribuyentes.primer_apellido')
-            ->leftJoin('contribuyentes', 'pago_servicios.contribuyente_id', '=', 'contribuyentes.id');
+            ->leftJoin('contribuyentes', 'pago_servicios.contribuyente_id', '=', 'contribuyentes.id')
+            ->where('pago_servicios.estado', 'Pagado');
 
         if ($this->startDate && $this->endDate) {
             $pagoservicios->whereBetween('fecha_pago', [$this->startDate, $this->endDate]);
@@ -37,7 +38,7 @@ class ReporteIngresos extends Component
     // Método para calcular el total de ingresos
     public function calcularTotalIngresos($pagoservicios)
     {
-        $this->totalIngresos = $pagoservicios->sum('total');
+        $this->totalIngresos = $pagoservicios->where('estado', 'Pagado')->sum('total');
     }
 
     // Método para buscar

@@ -44,6 +44,7 @@ class Sesiones extends Component
         session()->flash('message', 'Se ha iniciado sesión exitosamente');
         $this->Modal = false;
       
+        return redirect()->to('/cobros');
     }
 
 }
