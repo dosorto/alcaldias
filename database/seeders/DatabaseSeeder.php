@@ -36,7 +36,11 @@ class DatabaseSeeder extends Seeder
             ServicioSeeder::class,
             AnioSeeder::class,
             PeriodoSeeder::class,
-            InformacionSeeder::class
+            InformacionSeeder::class,
+            GeoreferenciacionSeeder::class,
+            TipoPropiedadSeeder::class,
+            PropiedadSeeder::class
+
 
         ]);
 
