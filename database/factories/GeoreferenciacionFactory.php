@@ -18,10 +18,10 @@ class GeoreferenciacionFactory extends Factory
     {
         return [
             'latitud' => $this->faker->latitude(),
-            'longitud' . $this->faker->longitude(), 
-            'perimetro' => $this->faker->name(),
-            'area' => $this->faker->name(),
-            'created_by' => 1, 
+            'longitud' => $this->faker->longitude(), 
+            'area' => $this->faker->randomFloat(2, 0, 100), 
+            'perimetro' => $this->faker->randomFloat(2, 0, 100), 
+            'created_by'=> 1,
         ];
     }
 }

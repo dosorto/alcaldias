@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('georeferenciacions', function (Blueprint $table) {
             $table->id();
-            $table->latitude('latitud'); 
-            $table->longitude('longitud');
-            $table->string('area');
-            $table->string('perimetro');
+            $table->decimal('latitud'); 
+            $table->decimal('longitud');
+            $table->decimal('area');
+            $table->decimal('perimetro');
             $table->integer("created_by");
             $table->integer("deleted_by")->nullable();
             $table->integer("updated_by")->nullable();

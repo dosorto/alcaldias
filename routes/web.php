@@ -155,6 +155,11 @@ Route::get('/detalle-suscripcion/{id}', function ($id) {
     return view('detalle-suscripcion', ['id' => $id]);
 })->name('contribuyente.show');
 
+Route::get('/georreferenciaciones', function () {
+    return View::make('georreferenciaciones');
+})
+->name('georreferenciaciones');
+
 
 // Route::get('/detalle-suscripcion/{id}', [\App\Http\Controllers\Detallesuscripcion::class, 'show'])->name('contribuyente.show');
 // Route::post('/detallesuscripcion/agregar-servicio', [Detallesuscripcion::class, 'agregarServicio'])->name('contribuyente.agregar-servicio');
