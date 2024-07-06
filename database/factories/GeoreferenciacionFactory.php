@@ -17,7 +17,8 @@ class GeoreferenciacionFactory extends Factory
     public function definition(): array
     {
         return [
-            'Coordenadas' => $this->faker->latitude() . ',' . $this->faker->longitude(), 
+            'latitud' => $this->faker->latitude(),
+            'longitud' . $this->faker->longitude(), 
             'perimetro' => $this->faker->name(),
             'area' => $this->faker->name(),
             'created_by' => 1, 
