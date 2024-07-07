@@ -725,7 +725,7 @@
                         </li>
 
                             <!-- Prueva Catastro -->
-                                                    <li>
+                        <li>
                             @hasanyrole('Administrador|Contador')
                                 <button id="mega-menu-icons-dropdown-button"
                                     data-dropdown-toggle="mega-menu-icons-dropdown4"
@@ -768,15 +768,40 @@
                                             </a>
 
                                         </li>
-                                        
 
+                                        <!-- Prueba Catastro fin -->
+                                        <!-- Prueba Georreferenciacion  -->
+                                        <li>
+                                                            <a href="{{ route('georreferenciaciones') }}"
+                                                                class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                                                <span class="sr-only">Cobros</span>
+                                                                <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                                    fill="currentColor" viewBox="0 0 24 24">
+                                                                    <style type="text/css">
+                                                                        .st0 {
+                                                                            fill: none;
+                                                                        }
+                                                                    </style>
+                                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                                        stroke-linejoin="round"></g>
+                                                                    <g id="SVGRepo_iconCarrier">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                            d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM8.18182 12.0909C8.18182 9.98455 9.89364 8.27273 12 8.27273C12.6427 8.27273 13.2536 8.43182 13.7818 8.71818L14.7109 7.78909C13.9282 7.29273 12.9991 7 12 7C9.18727 7 6.90909 9.27818 6.90909 12.0909H5L7.54545 14.6364L10.0909 12.0909H8.18182ZM16.4545 9.54545L13.9091 12.0909H15.8182C15.8182 14.1973 14.1064 15.9091 12 15.9091C11.3573 15.9091 10.7464 15.75 10.2182 15.4636L9.28909 16.3927C10.0718 16.8891 11.0009 17.1818 12 17.1818C14.8127 17.1818 17.0909 14.9036 17.0909 12.0909H19L16.4545 9.54545Z">
+                                                                        </path>
+                                                                    </g>
+                                                                </svg>
+                                                                Georreferenciacion
+                                                            </a>
+
+                                                        </li>
+                                                    </li>
                                     </ul>
                                 </div>
                             </div>
-                        </li>
 
-                            <!-- Prueva Catastro fin -->
-
+                                        <!-- Prueva Geolocalizacion fin -->
                         <li>
                             <button id="theme-toggle" type="button"
                                 class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
