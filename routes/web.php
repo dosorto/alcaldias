@@ -146,9 +146,18 @@ Route::get('/pago-servicio', function () {
     return View::make('pago-servicio');
 });
 
+Route::get('/TipoPropiedad', function () {
+    return View::make('tipo-propiedad');
+})
+->name('tipo-propiedad');
+
 Route::get('/detalle-suscripcion/{id}', function ($id) {
     return view('detalle-suscripcion', ['id' => $id]);
 })->name('contribuyente.show');
+
+Route::get('/Georreferenciacion', function () {
+    return View::make('georreferenciaciones');
+})->name('georreferenciacion');
 
 
 // Route::get('/detalle-suscripcion/{id}', [\App\Http\Controllers\Detallesuscripcion::class, 'show'])->name('contribuyente.show');
