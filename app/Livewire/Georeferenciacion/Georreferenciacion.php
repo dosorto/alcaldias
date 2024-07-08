@@ -1,70 +1,87 @@
 <?php
 
 namespace App\Livewire\Georeferenciacion;
+
 use Livewire\WithPagination;
 use Livewire\Component;
 use App\Models\Georeferenciacion;
 
 class Georreferenciacion extends Component
 {
-   use WithPagination;
-   public $latitud, $longitud, $area, $perimetro;
-   public $isOpen = 0;
-   
-   public function render()
-   {
-       $georreferenciacion = Georreferenciacion::where('area', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
-       return view('livewire.georreferenciacion.georreferenciaciones', ['georreferenciaciones' => $georreferenciacion]);
-   }
+    use WithPagination;
+    public $IdGeoreferenciacion, $latitud, $longitud, $area, $perimetro;
+    public $isOpen = 0;
 
-   public function create()
-   {
-       $this->resetInputFields();
-       $this->openModal();
-   }
-   public function openModal()
-   {
-       $this->isOpen = true;
-   }
-   public function closeModal()
-   {
-       $this->isOpen = false;
-   }
+    public $confirmingItemDeletion;
 
-   private function resetInputFields(){
-      $this->latitud = '';
-      $this->longitud = '';
-      $this->area = '';
-      $this->perimetro = '';
-      $this-> IdGeoreferenciacion = '';
-  }
+    public $deleteModal=false;
 
-  public function store()
-  {
-      $this->validate([
-          'latitud' => 'required',
-          'longitud' => 'required',
-          'area' => 'required',
-          'perimetro' => 'required',
-      ]);
-   
+    public function render()
+    {
+        $georreferenciacion = Georeferenciacion::paginate(5);
+        return view('livewire.georreferenciacion.georreferenciacion', ['georreferenciacion' => $georreferenciacion]);
+    }
 
-      Georeferenciacion::updateOrCreate(['id' => $this->IdGeoreferenciacion], [
-         'latitud' => $this->latitud,
-         'longitud' => $this->longitud,
-         'area' => $this->area,
-         'perimetro' => $this->perimetro
-      ]);
+    public function create()
+    {
+        $this->resetInputFields();
+        $this->openModal();
+    }
+    public function openModal()
+    {
+        $this->isOpen = true;
+    }
+    public function closeModal()
+    {
+        $this->isOpen = false;
+    }
 
-      session()->flash('message', 
-            $this->IdGeoreferenciacion ? 'Información Actualizada correctamente!' : 'Georeferenciación creada correctamente!');
+    private function resetInputFields()
+    {
+        $this->latitud = '';
+        $this->longitud = '';
+        $this->area = '';
+        $this->perimetro = '';
+        $this->IdGeoreferenciacion= '';
+       
+    }
+
+    public function store()
+    {
+            $this->validate([
+            'latitud' => 'required',
+            'longitud' => 'required',
+            'area' => 'required',
+            'perimetro' => 'required',
+        ]);
+
+        
+        Georeferenciacion::updateOrCreate( ['id' => $this-> IdGeoreferenciacion],[
+            'latitud' => $this->latitud,
+            'longitud' => $this->longitud,
+            'area' => $this->area,
+            'perimetro' => $this->perimetro
+        ]);
   
+
+        session()->flash(
+            'message',
+            $this->IdGeoreferenciacion ? 'Información Actualizada correctamente!' : 'Georreferenciación creada correctamente!'
+        );
         $this->closeModal();
         $this->resetInputFields();
+        $this->dispatch('close-modal');
 
-   }
+    }
 
-   public function edit($id)
+    public function remove($id)
+    {
+        $this->deleteModal = true;
+        // se asigna el id del registro a la variable confirmingItemDeletion
+        $this->confirmingItemDeletion = $id;
+
+    }
+    public function edit($id)
     {
         $georreferenciacion = Georeferenciacion::findOrFail($id);
         $this->IdGeoreferenciacion = $id;
@@ -72,13 +89,19 @@ class Georreferenciacion extends Component
         $this->longitud = $georreferenciacion->longitud;
         $this->area = $georreferenciacion->area;
         $this->perimetro = $georreferenciacion->perimetro;
-    
+
         $this->openModal();
     }
 
-    public function delete($id)
+    public function delete()
     {
-        Georeferenciacion::find($id)->delete();
+        Georeferenciacion::findOrFail($this->confirmingItemDeletion)->delete();
         session()->flash('message', 'Registro Eliminado correctamente!');
+        $this ->deleteModal = false;
+    }
+
+    public function closeModalDelete()
+    {
+        $this->deleteModal = false;
     }
 }

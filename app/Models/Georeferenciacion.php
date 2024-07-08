@@ -11,7 +11,7 @@ class Georeferenciacion extends BaseModel
     use HasFactory;
     use softdeletes;
 
-    protected $fillable = ['idGeoreferenciacion','Latitud','Longitud','Area','Perimetro'];
+    protected $fillable = ['IdGeoreferenciacion','latitud','longitud','area','perimetro'];
 
     public function propiedad()
     {
