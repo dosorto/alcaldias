@@ -16,13 +16,8 @@ class TipoPropiedad extends BaseModel
 
     protected $table = 'tipo_propiedads';
 
-<<<<<<< HEAD
-}
-=======
     public function Propiedad()
     {
         return $this->hasMany(Propiedad::class);
     }
-
 }
->>>>>>> dayanni

@@ -146,23 +146,18 @@ Route::get('/pago-servicio', function () {
     return View::make('pago-servicio');
 });
 
-<<<<<<< HEAD
-=======
 
->>>>>>> dayanni
 Route::get('/TipoPropiedad', function () {
     return View::make('tipo-propiedad');
 })
 ->name('tipo-propiedad');
 
-<<<<<<< HEAD
-=======
 Route::get('/Propiedad', function () {
     return View::make('propiedad');
 })
 ->name('propiedad');
 
->>>>>>> dayanni
+
 Route::get('/detalle-suscripcion/{id}', function ($id) {
     return view('detalle-suscripcion', ['id' => $id]);
 })->name('contribuyente.show');

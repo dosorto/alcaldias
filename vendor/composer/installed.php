@@ -3,15 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-<<<<<<< HEAD
-<<<<<<< HEAD
-        'reference' => '14ca4d83918347004e6af711ef895080c4d752ce',
-=======
-        'reference' => '638c4ec3a6382d385035bf4fb733e0f9e1f38809',
->>>>>>> alcaldias2
-=======
-        'reference' => '950cf7f26a42d3d8da0aeda6164b38c2dd3db58a',
->>>>>>> dayanni
+        'reference' => '99832de19dcd02116a1c566fa3bb6785d71d0515',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -417,15 +409,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< HEAD
-<<<<<<< HEAD
-            'reference' => '14ca4d83918347004e6af711ef895080c4d752ce',
-=======
-            'reference' => '638c4ec3a6382d385035bf4fb733e0f9e1f38809',
->>>>>>> alcaldias2
-=======
-            'reference' => '950cf7f26a42d3d8da0aeda6164b38c2dd3db58a',
->>>>>>> dayanni
+            'reference' => '99832de19dcd02116a1c566fa3bb6785d71d0515',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -753,9 +737,9 @@
             'dev_requirement' => true,
         ),
         'phpunit/phpunit' => array(
-            'pretty_version' => '10.5.25',
-            'version' => '10.5.25.0',
-            'reference' => '831bf82312be6037e811833ddbea0b8de60ea314',
+            'pretty_version' => '10.5.26',
+            'version' => '10.5.26.0',
+            'reference' => '42e2f13ceaa2e34461bc89bea75407550b40b2aa',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),

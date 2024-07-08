@@ -722,9 +722,7 @@
                             </div>
                         </li>
 
-<<<<<<< HEAD
-                        <!-- Prueva Catastro -->
-=======
+                        
                         <!-- Prueba Catastro -->
                         <li>
                             @hasanyrole('Administrador|Catastro')
@@ -786,7 +784,7 @@
                         <!-- Prueba Catastro fin -->
 
 
->>>>>>> dayanni
+
                         <li>
                             @hasanyrole('Administrador|Contador')
                             <button id="mega-menu-icons-dropdown-button"
