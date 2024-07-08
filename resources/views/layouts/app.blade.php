@@ -722,6 +722,7 @@
                             </div>
                         </li>
 
+<<<<<<< HEAD
                         <!-- Prueba Catastro -->
                         <li>
                             @hasanyrole('Administrador|Catastro')
@@ -783,25 +784,117 @@
                         <!-- Prueba Catastro fin -->
 
 
+=======
+                        <!-- Prueva Catastro -->
+>>>>>>> origin/Osman
                         <li>
-                            <button id="theme-toggle" type="button"
-                                class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
-                                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                                </svg>
-                                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                            @hasanyrole('Administrador|Contador')
+                            <button id="mega-menu-icons-dropdown-button"
+                                data-dropdown-toggle="mega-menu-icons-dropdown4"
+                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                Catastro
+                                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
                                 </svg>
                             </button>
+                            @endhasanyrole
+
+                            <div id="mega-menu-icons-dropdown4"
+                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-1 dark:bg-gray-700">
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                    <ul class="space-y-4" aria-labelledby="mega-menu-icons-dropdown-button">
+                                        <li>
+                                            <a href="{{ route('tipo-propiedad') }}"
+                                                class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                                <span class="sr-only">Cobros</span>
+                                                <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="currentColor" viewBox="0 0 24 24">
+                                                    <style type="text/css">
+                                                        .st0 {
+                                                            fill: none;
+                                                        }
+                                                    </style>
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                        stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM8.18182 12.0909C8.18182 9.98455 9.89364 8.27273 12 8.27273C12.6427 8.27273 13.2536 8.43182 13.7818 8.71818L14.7109 7.78909C13.9282 7.29273 12.9991 7 12 7C9.18727 7 6.90909 9.27818 6.90909 12.0909H5L7.54545 14.6364L10.0909 12.0909H8.18182ZM16.4545 9.54545L13.9091 12.0909H15.8182C15.8182 14.1973 14.1064 15.9091 12 15.9091C11.3573 15.9091 10.7464 15.75 10.2182 15.4636L9.28909 16.3927C10.0718 16.8891 11.0009 17.1818 12 17.1818C14.8127 17.1818 17.0909 14.9036 17.0909 12.0909H19L16.4545 9.54545Z">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                                Tipo Propiedad
+                                            </a>
+
+                                        </li>
+
+                                        <!-- Prueba Catastro fin -->
+                                        <!-- Prueba Georreferenciacion  -->
+                                        <li>
+                                            <a href='/Georreferenciacion'
+                                                class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                                <span class="sr-only">georeferenciaciones</span>
+                                                <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="currentColor" viewBox="0 0 100 100" version="1.1" id="svg9724"
+                                                    sodipodi:docname="settings.svg"
+                                                    inkscape:version="1.2.2 (1:1.2.2+202212051550+b0a8486541)"
+                                                    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                                                    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                                                    xmlns:svg="http://www.w3.org/2000/svg">
+                                                    <style type="text/css">
+                                                        .st0 {
+                                                            fill: none;
+                                                        }
+                                                    </style>
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                        stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path
+                                                            d="M50.001 0C33.65 0 20.25 13.36 20.25 29.666c0 6.318 2.018 12.19 5.433 17.016L46.37 82.445c2.897 3.785 4.823 3.066 7.232-.2l22.818-38.83c.46-.834.822-1.722 1.137-2.629a29.28 29.28 0 0 0 2.192-11.12C79.75 13.36 66.354 0 50.001 0zm0 13.9c8.806 0 15.808 6.986 15.808 15.766c0 8.78-7.002 15.763-15.808 15.763c-8.805 0-15.81-6.982-15.81-15.763c0-8.78 7.005-15.765 15.81-15.765z">
+                                                        </path>
+                                                        <path
+                                                            d="M68.913 48.908l-.048.126c.015-.038.027-.077.042-.115l.006-.011z"
+                                                            fill="#000000"></path>
+                                                        <path
+                                                            d="M34.006 69.057C19.88 71.053 10 75.828 10 82.857C10 92.325 26.508 100 50 100s40-7.675 40-17.143c0-7.029-9.879-11.804-24.004-13.8l-1.957 3.332C74.685 73.866 82 76.97 82 80.572c0 5.05-14.327 9.143-32 9.143c-17.673 0-32-4.093-32-9.143c-.001-3.59 7.266-6.691 17.945-8.174c-.645-1.114-1.294-2.226-1.94-3.341z">
+                                                        </path>
+                                                    </g>
+
+                                                </svg>
+                                                Georreferenciación
+                                            </a>
+
+                                        </li>
                         </li>
 
                     </ul>
-
                 </div>
+            </div>
+
+            <!-- Prueva Geolocalizacion fin -->
+            <li>
+                <button id="theme-toggle" type="button"
+                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </li>
+            </ul>
+
+            </div>
 
 
 

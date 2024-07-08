@@ -24,14 +24,22 @@ class TipoPropiedad extends Component
     // variable para la busqueda
     public $search = '';
 
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> origin/Osman
     // variables para la confirmacion de eliminacion
     public $confirmingItemDeletion;
 
 
     // variables para la actualizacion
     public $tipo_propiedad_id;
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> origin/Osman
     public function render()
     {
         $documento = TipodePropiedad::where('Nombre', 'like', '%'.$this->search.'%')
@@ -97,7 +105,11 @@ class TipoPropiedad extends Component
         $this->updateModal = false;
         $this->resetInputFields();
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/Osman
 
     // funciones para actualizar registros
 
@@ -131,4 +143,8 @@ class TipoPropiedad extends Component
     }
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/Osman
