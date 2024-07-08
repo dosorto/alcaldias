@@ -379,8 +379,8 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -646,6 +646,7 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         'App\\Livewire\\ConsultaTributaria' => __DIR__ . '/../..' . '/app/Livewire/ConsultaTributaria.php',
         'App\\Livewire\\Contribuyentes' => __DIR__ . '/../..' . '/app/Livewire/Contribuyentes.php',
         'App\\Livewire\\Departamentos' => __DIR__ . '/../..' . '/app/Livewire/Departamentos.php',
+        'App\\Livewire\\Georeferenciacion\\Georreferenciacion' => __DIR__ . '/../..' . '/app/Livewire/Georeferenciacion/Georreferenciacion.php',
         'App\\Livewire\\Graficas' => __DIR__ . '/../..' . '/app/Livewire/Graficas.php',
         'App\\Livewire\\HistorialContribuyente' => __DIR__ . '/../..' . '/app/Livewire/HistorialContribuyente.php',
         'App\\Livewire\\Home' => __DIR__ . '/../..' . '/app/Livewire/Home.php',
@@ -667,6 +668,7 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         'App\\Livewire\\SuscripcionDetalle' => __DIR__ . '/../..' . '/app/Livewire/SuscripcionDetalle.php',
         'App\\Livewire\\Suscripciones' => __DIR__ . '/../..' . '/app/Livewire/Suscripciones.php',
         'App\\Livewire\\TipoDocumento\\TipoDocumento' => __DIR__ . '/../..' . '/app/Livewire/TipoDocumento/TipoDocumento.php',
+        'App\\Livewire\\TipoPropiedad' => __DIR__ . '/../..' . '/app/Livewire/TipoPropiedad.php',
         'App\\Livewire\\Tipos' => __DIR__ . '/../..' . '/app/Livewire/Tipos.php',
         'App\\Livewire\\Usuarios\\Usuarios' => __DIR__ . '/../..' . '/app/Livewire/Usuarios/Usuarios.php',
         'App\\Models\\Aldea' => __DIR__ . '/../..' . '/app/Models/Aldea.php',
