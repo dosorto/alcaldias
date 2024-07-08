@@ -13,6 +13,16 @@ class PropiedadSeeder extends Seeder
      */
     public function run(): void
     {
-        Propiedad::factory()->count(50)->create();
+
+        Propiedad::create([
+            'ClaveCatastral' => 1,
+            'IdContribuyente' => 2,
+            'IdTipoPropiedad' => 1,
+            'IdGeoreferencia' => 1,
+            'IdBarrio' => 1,
+            'created_by' => 1,
+        ]);
+
+
     }
 }

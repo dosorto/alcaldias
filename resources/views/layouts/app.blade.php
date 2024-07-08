@@ -722,9 +722,9 @@
                             </div>
                         </li>
 
-                        <!-- Prueva Catastro -->
-                        <li>
-                            @hasanyrole('Administrador|Contador')
+                       <!-- Prueba Catastro -->
+                       <li>
+                            @hasanyrole('Administrador|Catastro')
                             <button id="mega-menu-icons-dropdown-button"
                                 data-dropdown-toggle="mega-menu-icons-dropdown4"
                                 class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
@@ -764,9 +764,21 @@
                                                 </svg>
                                                 Tipo Propiedad
                                             </a>
-
                                         </li>
-
+                                        <li>
+                                            <a href="{{ route('propiedad') }}"
+                                                class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                                <span class="sr-only">Cobros</span>
+                                                <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="currentColor" viewBox="0 0 24 24">
+                                                </svg>
+                                                Propiedades
+                                            </a>
+                                        </li>
+                                    
+                              
+                        
                                         <!-- Prueba Catastro fin -->
                                         <!-- Prueba Georreferenciacion  -->
                                         <li>

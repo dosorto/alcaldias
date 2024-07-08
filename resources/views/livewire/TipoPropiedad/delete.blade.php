@@ -24,4 +24,8 @@
             {{-- <button wire:click="closeModal">Cerrar Modal</button> --}}
         </div>
     </div>
+
 </div>
+
+</div>
+

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('propiedads', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre');
+            $table->integer("ClaveCatastral");
+            $table->unsignedBigInteger('IdContribuyente');
             $table->unsignedBigInteger('IdTipoPropiedad');
             $table->unsignedBigInteger('IdGeoreferencia');
             $table->unsignedBigInteger('IdBarrio');
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
+            $table->foreign('IdContribuyente')->references('id')->on('contribuyentes')->onDelete('restrict');
             $table->foreign('IdTipoPropiedad')->references('id')->on('tipo_propiedads')->onDelete('restrict');
             $table->foreign('IdGeoreferencia')->references('id')->on('georeferenciacions')->onDelete('restrict');
             $table->foreign('IdBarrio')->references('id')->on('barrios')->onDelete('restrict');

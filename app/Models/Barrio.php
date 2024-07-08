@@ -20,4 +20,9 @@ class Barrio extends BaseModel
     {
         return $this->hasMany(Contribuyente::class);
     }
+
+    public function Propiedad()
+    {
+        return $this->hasMany(Propiedad::class);
+    }
 }

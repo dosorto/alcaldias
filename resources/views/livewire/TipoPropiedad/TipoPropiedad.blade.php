@@ -187,4 +187,8 @@
 
     @if ($updateModal)
         @include('livewire.TipoPropiedad.update')
+
     @endif
+
+    @endif
+
