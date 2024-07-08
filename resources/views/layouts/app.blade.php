@@ -722,9 +722,14 @@
                             </div>
                         </li>
 
+<<<<<<< HEAD
                         
                         <!-- Prueba Catastro -->
                         <li>
+=======
+                       <!-- Prueba Catastro -->
+                       <li>
+>>>>>>> dayanni
                             @hasanyrole('Administrador|Catastro')
                             <button id="mega-menu-icons-dropdown-button"
                                 data-dropdown-toggle="mega-menu-icons-dropdown4"
@@ -777,6 +782,7 @@
                                                 Propiedades
                                             </a>
                                         </li>
+<<<<<<< HEAD
                                     </ul>
                                 </div>
                             </div>
@@ -829,6 +835,11 @@
 
                                         </li>
 
+=======
+                                    
+                              
+                        
+>>>>>>> dayanni
                                         <!-- Prueba Catastro fin -->
                                         <!-- Prueba Georreferenciacion  -->
                                         <li>
@@ -869,7 +880,6 @@
 
                                         </li>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -895,11 +905,7 @@
             </div>
 
 
-
-
             </div>
-
-
         </nav>
 
 
@@ -954,8 +960,6 @@
                 }
 
             });
-
-
         </script>
         @yield('js')
 

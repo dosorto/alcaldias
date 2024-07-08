@@ -151,7 +151,10 @@ Route::get('/TipoPropiedad', function () {
     return View::make('tipo-propiedad');
 })
 ->name('tipo-propiedad');
+<<<<<<< HEAD
 
+=======
+>>>>>>> dayanni
 Route::get('/Propiedad', function () {
     return View::make('propiedad');
 })

@@ -40,8 +40,7 @@
                 </form>
             </div>
     </div>
-<<<<<<< HEAD
+
 </div>
-=======
+
 </div>
->>>>>>> dayanni

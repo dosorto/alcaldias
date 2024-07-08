@@ -25,9 +25,16 @@ class TipoPropiedad extends Component
     public $search = '';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
    
 =======
 
+>>>>>>> dayanni
+=======
+
+=======
+   
+>>>>>>> origin/Osman
 >>>>>>> dayanni
     // variables para la confirmacion de eliminacion
     public $confirmingItemDeletion;
@@ -36,9 +43,16 @@ class TipoPropiedad extends Component
     // variables para la actualizacion
     public $tipo_propiedad_id;
 <<<<<<< HEAD
+<<<<<<< HEAD
   
 =======
 
+>>>>>>> dayanni
+=======
+
+=======
+  
+>>>>>>> origin/Osman
 >>>>>>> dayanni
     public function render()
     {
@@ -106,9 +120,16 @@ class TipoPropiedad extends Component
         $this->resetInputFields();
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
+>>>>>>> dayanni
+=======
+
+=======
+    
+>>>>>>> origin/Osman
 >>>>>>> dayanni
 
     // funciones para actualizar registros
@@ -147,4 +168,8 @@ class TipoPropiedad extends Component
 }
 =======
 }
+<<<<<<< HEAD
+>>>>>>> dayanni
+=======
+>>>>>>> origin/Osman
 >>>>>>> dayanni

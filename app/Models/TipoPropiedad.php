@@ -20,4 +20,11 @@ class TipoPropiedad extends BaseModel
     {
         return $this->hasMany(Propiedad::class);
     }
+<<<<<<< HEAD
 }
+=======
+
+
+}
+
+>>>>>>> dayanni

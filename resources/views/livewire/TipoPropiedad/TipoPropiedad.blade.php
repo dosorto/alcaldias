@@ -187,8 +187,8 @@
 
     @if ($updateModal)
         @include('livewire.TipoPropiedad.update')
-<<<<<<< HEAD
+
     @endif
-=======
+
     @endif
->>>>>>> dayanni
+
