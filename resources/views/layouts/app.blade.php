@@ -14,7 +14,7 @@
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-                '(prefers-color-scheme: dark)').matches)) {
+            '(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark')
@@ -88,15 +88,15 @@
                         </li>
                         <li>
                             @role('Administrador')
-                                <button id="mega-menu-icons-dropdown-button" data-dropdown-toggle="mega-menu-icons-dropdown"
-                                    class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                    Administración
-                                    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 4 4 4-4" />
-                                    </svg>
-                                </button ton>
+                            <button id="mega-menu-icons-dropdown-button" data-dropdown-toggle="mega-menu-icons-dropdown"
+                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                Administración
+                                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button ton>
                             @endrole
 
                             <div id="mega-menu-icons-dropdown"
@@ -184,8 +184,8 @@
                                                 <span class="sr-only">Servicios</span>
                                                 <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="currentColor" viewBox="0 0 600 600" version="1.1"
-                                                    id="svg9724" sodipodi:docname="settings.svg"
+                                                    fill="currentColor" viewBox="0 0 600 600" version="1.1" id="svg9724"
+                                                    sodipodi:docname="settings.svg"
                                                     inkscape:version="1.2.2 (1:1.2.2+202212051550+b0a8486541)"
                                                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
                                                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -210,8 +210,8 @@
                                                             inkscape:window-x="0" inkscape:window-y="1080"
                                                             inkscape:window-maximized="1"
                                                             inkscape:current-layer="g10449" showguides="true">
-                                                            <inkscape:grid type="xygrid" id="grid9972"
-                                                                originx="0" originy="0"></inkscape:grid>
+                                                            <inkscape:grid type="xygrid" id="grid9972" originx="0"
+                                                                originy="0"></inkscape:grid>
                                                         </sodipodi:namedview>
                                                         <g id="g10449"
                                                             transform="matrix(0.95173205,0,0,0.95115787,13.901174,12.168794)"
@@ -222,8 +222,7 @@
                                                                 transform="matrix(1.3636076,0,0,1.3667651,1527.8554,411.9526)"
                                                                 sodipodi:nodetypes="ssssssssscssssscssssssssssssssssssssssssssssssssssssss">
                                                             </path>
-                                                            <g id="path10026"
-                                                                inkscape:transform-center-x="-0.59233046"
+                                                            <g id="path10026" inkscape:transform-center-x="-0.59233046"
                                                                 inkscape:transform-center-y="-20.347403"
                                                                 transform="matrix(1.3807551,0,0,1.2700888,273.60014,263.99768)">
                                                             </g>
@@ -359,16 +358,16 @@
                         </li>
                         <li>
                             @hasanyrole('Administrador|Contador')
-                                <button id="mega-menu-icons-dropdown-button"
-                                    data-dropdown-toggle="mega-menu-icons-dropdown1"
-                                    class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                    Caja
-                                    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 4 4 4-4" />
-                                    </svg>
-                                </button>
+                            <button id="mega-menu-icons-dropdown-button"
+                                data-dropdown-toggle="mega-menu-icons-dropdown1"
+                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                Caja
+                                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button>
                             @endhasanyrole
 
                             <div id="mega-menu-icons-dropdown1"
@@ -473,19 +472,19 @@
                         </li>
                         <li>
                             @hasanyrole('Administrador|Contador')
-                                <button id="mega-menu-icons-dropdown-button"
-                                    data-dropdown-toggle="mega-menu-icons-dropdown4"
-                                    class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                    Facturas
-                                    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 4 4 4-4" />
-                                    </svg>
-                                </button>
+                            <button id="mega-menu-icons-dropdown-button"
+                                data-dropdown-toggle="mega-menu-icons-dropdown10"
+                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                Facturas
+                                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button>
                             @endhasanyrole
 
-                            <div id="mega-menu-icons-dropdown4"
+                            <div id="mega-menu-icons-dropdown10"
                                 class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-1 dark:bg-gray-700">
                                 <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
                                     <ul class="space-y-4" aria-labelledby="mega-menu-icons-dropdown-button">
@@ -516,7 +515,6 @@
                                         </li>
                                         <li>
                                             <a href="/reporte"
-
                                                 class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
                                                 <span class="sr-only">Historial de pagos</span>
                                                 <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
@@ -559,16 +557,16 @@
                         </li>
                         <li>
                             @role('Administrador')
-                                <button id="mega-menu-icons-dropdown-button"
-                                    data-dropdown-toggle="mega-menu-icons-dropdown2"
-                                    class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                    Localidad
-                                    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 4 4 4-4" />
-                                    </svg>
-                                </button>
+                            <button id="mega-menu-icons-dropdown-button"
+                                data-dropdown-toggle="mega-menu-icons-dropdown2"
+                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                Localidad
+                                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button>
                             @endrole
                             <div id="mega-menu-icons-dropdown2"
                                 class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-2 dark:bg-gray-700">
@@ -667,8 +665,8 @@
                                                 <span class="sr-only">Aldeas</span>
                                                 <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="currentColor" viewBox="0 0 100 100" version="1.1"
-                                                    id="svg9724" sodipodi:docname="settings.svg"
+                                                    fill="currentColor" viewBox="0 0 100 100" version="1.1" id="svg9724"
+                                                    sodipodi:docname="settings.svg"
                                                     inkscape:version="1.2.2 (1:1.2.2+202212051550+b0a8486541)"
                                                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
                                                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -724,6 +722,67 @@
                             </div>
                         </li>
 
+                        <!-- Prueba Catastro -->
+                        <li>
+                            @hasanyrole('Administrador|Catastro')
+                            <button id="mega-menu-icons-dropdown-button"
+                                data-dropdown-toggle="mega-menu-icons-dropdown4"
+                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                Catastro
+                                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button>
+                            @endhasanyrole
+
+                            <div id="mega-menu-icons-dropdown4"
+                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-1 dark:bg-gray-700">
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                    <ul class="space-y-4" aria-labelledby="mega-menu-icons-dropdown-button">
+                                        <li>
+                                            <a href="{{ route('tipo-propiedad') }}"
+                                                class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                                <span class="sr-only">Cobros</span>
+                                                <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="currentColor" viewBox="0 0 24 24">
+                                                    <style type="text/css">
+                                                        .st0 {
+                                                            fill: none;
+                                                        }
+                                                    </style>
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                        stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM8.18182 12.0909C8.18182 9.98455 9.89364 8.27273 12 8.27273C12.6427 8.27273 13.2536 8.43182 13.7818 8.71818L14.7109 7.78909C13.9282 7.29273 12.9991 7 12 7C9.18727 7 6.90909 9.27818 6.90909 12.0909H5L7.54545 14.6364L10.0909 12.0909H8.18182ZM16.4545 9.54545L13.9091 12.0909H15.8182C15.8182 14.1973 14.1064 15.9091 12 15.9091C11.3573 15.9091 10.7464 15.75 10.2182 15.4636L9.28909 16.3927C10.0718 16.8891 11.0009 17.1818 12 17.1818C14.8127 17.1818 17.0909 14.9036 17.0909 12.0909H19L16.4545 9.54545Z">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                                Tipo Propiedad
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('propiedad') }}"
+                                                class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                                <span class="sr-only">Cobros</span>
+                                                <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="currentColor" viewBox="0 0 24 24">
+                                                </svg>
+                                                Propiedades
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Prueba Catastro fin -->
+
+
                         <li>
                             <button id="theme-toggle" type="button"
                                 class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
@@ -739,12 +798,17 @@
                                 </svg>
                             </button>
                         </li>
+
                     </ul>
 
                 </div>
 
 
+
+
             </div>
+
+
         </nav>
 
 
@@ -763,7 +827,7 @@
 
             // Change the icons inside the button based on previous settings
             if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-                    '(prefers-color-scheme: dark)').matches)) {
+                '(prefers-color-scheme: dark)').matches)) {
                 themeToggleLightIcon.classList.remove('hidden');
             } else {
                 themeToggleDarkIcon.classList.remove('hidden');
@@ -771,7 +835,7 @@
 
             var themeToggleBtn = document.getElementById('theme-toggle');
 
-            themeToggleBtn.addEventListener('click', function() {
+            themeToggleBtn.addEventListener('click', function () {
 
                 // toggle icons inside button
                 themeToggleDarkIcon.classList.toggle('hidden');
@@ -799,6 +863,8 @@
                 }
 
             });
+
+
         </script>
         @yield('js')
 

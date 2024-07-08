@@ -53,4 +53,9 @@ class Contribuyente extends Model
     {
         return $this->hasMany(PagoServicios::class, 'contribuyente_id');
     }
+
+    public function Propiedad()
+    {
+        return $this->hasMany(Propiedad::class);
+    }
 }

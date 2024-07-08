@@ -17,7 +17,9 @@ class PropiedadFactory extends Factory
     public function definition(): array
     {
         return [
-            'Nombre' => $this->faker->company(), 
+            'IdContribuyente' => function () {
+                return \App\Models\Contribuyente::create()->id;
+            }, 
             'IdTipoPropiedad' => function () {
                 return \App\Models\TipoPropiedad::factory()->create()->id;
             },

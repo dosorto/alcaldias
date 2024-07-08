@@ -146,6 +146,17 @@ Route::get('/pago-servicio', function () {
     return View::make('pago-servicio');
 });
 
+
+Route::get('/TipoPropiedad', function () {
+    return View::make('tipo-propiedad');
+})
+->name('tipo-propiedad');
+
+Route::get('/Propiedad', function () {
+    return View::make('propiedad');
+})
+->name('propiedad');
+
 Route::get('/detalle-suscripcion/{id}', function ($id) {
     return view('detalle-suscripcion', ['id' => $id]);
 })->name('contribuyente.show');
@@ -214,3 +225,4 @@ Route::get('/cierre-modal', function () {
 Route::get('/graficas', function () {
     return view('graficas');
 })->name('graficas');
+
