@@ -9,13 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Georeferenciacion extends BaseModel
 {
     use HasFactory;
-    use SoftDeletes;
+    use softdeletes;
 
-<<<<<<< HEAD
-    protected $fillable = ['idGeoreferenciacion','Latitud','Longitud','Area','Perimetro'];
-
-    public function Propiedad()
-=======
 
    
 
@@ -25,14 +20,8 @@ class Georeferenciacion extends BaseModel
 
     public function propiedad()
 
->>>>>>> dayanni
     {
         return $this->hasMany(Propiedad::class, 'IdGeoreferenciacion');
     }
 
-<<<<<<< HEAD
 }
-=======
-}
-
->>>>>>> dayanni
