@@ -11,9 +11,15 @@ class Georeferenciacion extends BaseModel
     use HasFactory;
     use softdeletes;
 
+
     protected $fillable = ['IdGeoreferenciacion','latitud','longitud','area','perimetro'];
 
     public function propiedad()
+
+    protected $fillable = ['idGeoreferenciacion','Latitud','Longitud','Area','Perimetro'];
+
+    public function Propiedad()
+
     {
         return $this->hasMany(Propiedad::class, 'IdGeoreferenciacion');
     }
