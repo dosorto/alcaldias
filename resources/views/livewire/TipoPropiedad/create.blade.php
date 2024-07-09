@@ -40,8 +40,8 @@
                 </form>
             </div>
     </div>
-<<<<<<< HEAD
+
 </div>
-=======
+
 </div>
->>>>>>> origin/Osman
+

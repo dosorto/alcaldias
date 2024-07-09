@@ -386,8 +386,8 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -653,6 +653,7 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         'App\\Livewire\\ConsultaTributaria' => __DIR__ . '/../..' . '/app/Livewire/ConsultaTributaria.php',
         'App\\Livewire\\Contribuyentes' => __DIR__ . '/../..' . '/app/Livewire/Contribuyentes.php',
         'App\\Livewire\\Departamentos' => __DIR__ . '/../..' . '/app/Livewire/Departamentos.php',
+        'App\\Livewire\\Georeferenciacion\\Georreferenciacion' => __DIR__ . '/../..' . '/app/Livewire/Georeferenciacion/Georreferenciacion.php',
         'App\\Livewire\\Graficas' => __DIR__ . '/../..' . '/app/Livewire/Graficas.php',
         'App\\Livewire\\HistorialContribuyente' => __DIR__ . '/../..' . '/app/Livewire/HistorialContribuyente.php',
         'App\\Livewire\\Home' => __DIR__ . '/../..' . '/app/Livewire/Home.php',

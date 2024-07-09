@@ -25,4 +25,3 @@ class Georeferenciacion extends BaseModel
     }
 
 }
-

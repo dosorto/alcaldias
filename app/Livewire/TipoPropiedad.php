@@ -32,6 +32,7 @@ class TipoPropiedad extends Component
     // variables para la actualizacion
     public $tipo_propiedad_id;
 
+
     public function render()
     {
         $documento = TipodePropiedad::where('Nombre', 'like', '%'.$this->search.'%')
@@ -99,6 +100,7 @@ class TipoPropiedad extends Component
     }
 
 
+
     // funciones para actualizar registros
 
     public function edit($id)
@@ -133,4 +135,6 @@ class TipoPropiedad extends Component
 
 
 
+
+}
 

@@ -24,8 +24,8 @@
             {{-- <button wire:click="closeModal">Cerrar Modal</button> --}}
         </div>
     </div>
-<<<<<<< HEAD
+
 </div>
-=======
+
 </div>
->>>>>>> origin/Osman
+

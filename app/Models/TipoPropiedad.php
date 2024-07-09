@@ -23,4 +23,3 @@ class TipoPropiedad extends BaseModel
 
 
 }
-
