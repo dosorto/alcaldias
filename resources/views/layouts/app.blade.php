@@ -8,6 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @yield('css')
     <link rel="icon" href="{{ asset('assets/css/alcaldias.jpg') }}" type="image/x-icon" alt="32">
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
+    @filamentStyles
 </head>
 
 <body>
@@ -901,7 +908,7 @@
             });
         </script>
         @yield('js')
-
+        @filamentScripts
         @livewireScripts()
 
 

@@ -231,3 +231,7 @@ Route::get('/graficas', function () {
     return view('graficas');
 })->name('graficas');
 
+Route::get('/nueva', function () {
+    return view('nuevaPropiedad');
+})->name('nuevaPropiedad');
+
