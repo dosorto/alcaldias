@@ -10,7 +10,14 @@ class Propiedad extends BaseModel
 {
     use HasFactory;
     use softdeletes;
-    protected $fillable = ['ClaveCatastral', 'IdContribuyente','IdTipoPropiedad', 'IdGeoreferencia', 'IdBarrio'];
+    protected $fillable = [
+        'ClaveCatastral',
+        'IdContribuyente',
+        'IdTipoPropiedad',
+        'IdGeoreferencia',
+        'IdBarrio',
+        'Direccion',
+    ];
 
     protected $table = 'propiedads';
 

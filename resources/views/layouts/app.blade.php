@@ -908,6 +908,8 @@
             });
         </script>
         @yield('js')
+        @livewire('notifications')
+        
         @filamentScripts
         @livewireScripts()
 

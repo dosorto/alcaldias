@@ -24,6 +24,10 @@ use App\Models\Aldea;
 
 use Filament\Forms\Get;
 
+use App\Models\Propiedad;
+use Filament\Forms\Components\Section;
+use Filament\Notifications\Notification;
+
 class CreateContribuyenteForm extends Component implements HasForms
 {
     use InteractsWithForms;
@@ -43,23 +47,54 @@ class CreateContribuyenteForm extends Component implements HasForms
                     ->label('Clave Catastral')
                     ->required(),
 
-                Select::make('ContribuyenteId')
+                Select::make('IdContribuyente')
+                    ->label('Contribuyente')
                     ->options(
                         Contribuyente::all()->pluck('primer_nombre', 'id')
                     )
-                    ->searchable(['identidad']),
+                    ->searchable(),
 
-                Select::make('TipoPropiedadId')
+                Select::make('IdTipoPropiedad')
+                    ->label('Tipo Propiedad')
                     ->options(
                         TipoPropiedad::all()->pluck('Nombre', 'id')
                     )
                     ->searchable(['Nombre']),
+                /*
+                                Section::make('Georeferenciacion')
+                                    ->description('Datos de Georeferenciacion')
+                                    ->schema([
+                                        TextInput::make('Latitud')
+                                            ->label('Latitud')
+                                            ->numeric()
+                                            ->required(),
+
+                                        TextInput::make('Longitud')
+                                            ->label('Longitud')
+                                            ->numeric()
+                                            ->required(),
+
+                                        TextInput::make('Area')
+                                            ->label('Area')
+                                            ->numeric()
+                                            ->required(),
+
+                                        TextInput::make('Perimetro')
+                                            ->label('Perimetro')
+                                            ->numeric()
+                                            ->required(),
+                                    ])
+                                    ->columns(2),
+                */
 
                 Select::make('IdGeoreferencia')
+                    ->label('Georeferenciacion')
                     ->options(
-                        Georeferenciacion::all()->pluck('id', 'id')
+                        Georeferenciacion::all()->pluck('latitud', 'id')
                     )
-                    ->searchable(['Nombre']),
+                    ->searchable(['latitud']),
+
+
 
                 Select::make('IdPais')
                     ->label('Pais')
@@ -110,30 +145,33 @@ class CreateContribuyenteForm extends Component implements HasForms
                     ->disabled(fn(Get $get) => $get('IdAldea') == null),
 
                 TextInput::make('Direccion')
-                ->columnSpanFull()
+                    ->columnSpanFull()
                     ->label('Direccion')
-                    ->required(),
-                    
-
-                
-
-            
-                        
-
+                    ->required()
 
             ])
             ->columns(2)
             ->statePath('data')
-            ->model(Contribuyente::class);
+            ->model(Propiedad::class);
     }
 
     public function create(): void
     {
         $data = $this->form->getState();
 
-        $record = Contribuyente::create($data);
+        Propiedad::create($data);
 
-        $this->form->model($record)->saveRelationships();
+        Notification::make()
+        ->title('Exito!')
+        ->body('Propiedad creada exitosamente')
+        ->success()
+        ->send();
+    $this->js('location.reload();');
+
+        
+
+
+
     }
 
     public function render(): View

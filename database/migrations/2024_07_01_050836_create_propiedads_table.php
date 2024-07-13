@@ -18,6 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('IdTipoPropiedad');
             $table->unsignedBigInteger('IdGeoreferencia');
             $table->unsignedBigInteger('IdBarrio');
+            // $table->string("Direccion");
+            $table->string("Direccion", 100)->nullable();
+
             $table->integer("created_by");
             $table->integer("deleted_by")->nullable();
             $table->integer("updated_by")->nullable();
