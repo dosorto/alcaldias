@@ -48,7 +48,7 @@ class Propiedad extends Component
         $propiedad = PropiedadModel::where('IdContribuyente', 'like', '%'.$this->search.'%')
             ->paginate(10);
 
-        return view('livewire.propiedad.propiedad', ['propiedades' => $propiedad, 'Contribuyentes'=> $Contribuyente, 'Barrios' =>$Barrio, 'Georeferenciacions' => $Georeferenciacion , 'TipoPropiedades' => $TipoPropiedad]);
+        return view('livewire.Propiedad.Propiedad', ['propiedades' => $propiedad, 'Contribuyentes'=> $Contribuyente, 'Barrios' =>$Barrio, 'Georeferenciacions' => $Georeferenciacion , 'TipoPropiedades' => $TipoPropiedad]);
     }
 
     // Funciones para manejar la eliminación de registros
@@ -137,18 +137,6 @@ class Propiedad extends Component
         $this->tipo_propiedad_id = $propiedad->tipo_propiedad_id;
         $this->georeferenciacion_id = $propiedad->georeferenciacion_id;
         $this->dispatch("open-edit");
-    }
-
-    public function openModalEdit($id)
-    {
-        $this->updateModal = true;
-        $propiedad = PropiedadModel::findOrFail($id);
-        $this->propiedad_id = $propiedad->id;
-        $this->ClaveCatastral = $propiedad->ClaveCatastral;
-        $this->IdContribuyente = $propiedad->IdContribuyente;
-        $this->IdTipoPropiedad = $propiedad->IdTipoPropiedad;
-        $this->IdGeoreferencia = $propiedad->IdGeoreferencia;
-        $this->IdBarrio = $propiedad->IdBarrio;
     }
 
     public function cancel()

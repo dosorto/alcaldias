@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Georeferenciacion;
 
 class Propiedad extends BaseModel
 {
@@ -14,7 +15,6 @@ class Propiedad extends BaseModel
         'ClaveCatastral',
         'IdContribuyente',
         'IdTipoPropiedad',
-        'IdGeoreferencia',
         'IdBarrio',
         'Direccion',
     ];
@@ -36,9 +36,13 @@ class Propiedad extends BaseModel
         return $this->belongsTo(Contribuyente::class, 'IdContribuyente');
     }
 
+    
+
+    // relacion uno a muchos con el modelo Georeferenciacion
+
     public function Georeferenciacion()
     {
-        return $this->belongsTo(Georeferenciacion::class, 'IdGeoreferencia');
+        return $this->hasMany(Georeferenciacion::class, 'IdPropiedad');
     }
 }
 
