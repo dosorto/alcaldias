@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c2276543043e873b948e96d439eafc3261c78a87',
+        'reference' => '87c47c720e41ab676514e4dc6531df2a9e8188d6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'anourvalar/eloquent-serialize' => array(
-            'pretty_version' => '1.2.22',
-            'version' => '1.2.22.0',
-            'reference' => '6e91093c10940859c4b0549b6a90f18d8db45998',
+            'pretty_version' => '1.2.23',
+            'version' => '1.2.23.0',
+            'reference' => 'fd7bc1dc2c98fe705647ab4b81d13ea3d599ea1f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../anourvalar/eloquent-serialize',
             'aliases' => array(),
@@ -56,9 +56,9 @@
             'dev_requirement' => false,
         ),
         'composer/semver' => array(
-            'pretty_version' => '3.4.0',
-            'version' => '3.4.0.0',
-            'reference' => '35e8d0af4486141bc745f23a29cc2091eb624a32',
+            'pretty_version' => '3.4.2',
+            'version' => '3.4.2.0',
+            'reference' => 'c51258e759afdb17f1fd1fe83bc12baaef6309d6',
             'type' => 'library',
             'install_path' => __DIR__ . '/./semver',
             'aliases' => array(),
@@ -526,7 +526,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c2276543043e873b948e96d439eafc3261c78a87',
+            'reference' => '87c47c720e41ab676514e4dc6531df2a9e8188d6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -809,9 +809,9 @@
             'dev_requirement' => false,
         ),
         'openspout/openspout' => array(
-            'pretty_version' => 'v4.24.2',
-            'version' => '4.24.2.0',
-            'reference' => '24272c1f7d073cc64fa3ecc2a863dc5d13be33a8',
+            'pretty_version' => 'v4.24.3',
+            'version' => '4.24.3.0',
+            'reference' => '27de0c4d4a5b97927ece3e4dcbb7b48cb12e8a34',
             'type' => 'library',
             'install_path' => __DIR__ . '/../openspout/openspout',
             'aliases' => array(),
@@ -1018,8 +1018,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(

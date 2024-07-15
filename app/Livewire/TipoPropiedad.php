@@ -133,8 +133,3 @@ class TipoPropiedad extends Component
     }
 }
 
-
-
-
-}
-
