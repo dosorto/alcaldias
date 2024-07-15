@@ -16,7 +16,6 @@ return new class extends Migration
             $table->integer("ClaveCatastral");
             $table->unsignedBigInteger('IdContribuyente');
             $table->unsignedBigInteger('IdTipoPropiedad');
-            $table->unsignedBigInteger('IdGeoreferencia');
             $table->unsignedBigInteger('IdBarrio');
             // $table->string("Direccion");
             $table->string("Direccion", 100)->nullable();
@@ -29,7 +28,6 @@ return new class extends Migration
 
             $table->foreign('IdContribuyente')->references('id')->on('contribuyentes')->onDelete('restrict');
             $table->foreign('IdTipoPropiedad')->references('id')->on('tipo_propiedads')->onDelete('restrict');
-            $table->foreign('IdGeoreferencia')->references('id')->on('georeferenciacions')->onDelete('restrict');
             $table->foreign('IdBarrio')->references('id')->on('barrios')->onDelete('restrict');
         });
     }

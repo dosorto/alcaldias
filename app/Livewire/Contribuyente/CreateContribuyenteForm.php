@@ -27,6 +27,10 @@ use Filament\Forms\Get;
 use App\Models\Propiedad;
 use Filament\Forms\Components\Section;
 use Filament\Notifications\Notification;
+use Filament\Forms\Components\ViewField;
+
+use App\Forms\Components\Map;
+use Filament\Forms\Components\Repeater;
 
 class CreateContribuyenteForm extends Component implements HasForms
 {
@@ -60,41 +64,6 @@ class CreateContribuyenteForm extends Component implements HasForms
                         TipoPropiedad::all()->pluck('Nombre', 'id')
                     )
                     ->searchable(['Nombre']),
-                /*
-                                Section::make('Georeferenciacion')
-                                    ->description('Datos de Georeferenciacion')
-                                    ->schema([
-                                        TextInput::make('Latitud')
-                                            ->label('Latitud')
-                                            ->numeric()
-                                            ->required(),
-
-                                        TextInput::make('Longitud')
-                                            ->label('Longitud')
-                                            ->numeric()
-                                            ->required(),
-
-                                        TextInput::make('Area')
-                                            ->label('Area')
-                                            ->numeric()
-                                            ->required(),
-
-                                        TextInput::make('Perimetro')
-                                            ->label('Perimetro')
-                                            ->numeric()
-                                            ->required(),
-                                    ])
-                                    ->columns(2),
-                */
-
-                Select::make('IdGeoreferencia')
-                    ->label('Georeferenciacion')
-                    ->options(
-                        Georeferenciacion::all()->pluck('latitud', 'id')
-                    )
-                    ->searchable(['latitud']),
-
-
 
                 Select::make('IdPais')
                     ->label('Pais')
@@ -107,48 +76,64 @@ class CreateContribuyenteForm extends Component implements HasForms
                 Select::make('IdDepartamento')
                     ->label('Departamento')
                     ->options(
-                        /*   fn (Get $get) => Centro::find($get('centro_id'))
-                                        ->carreras->pluck('nombre', 'id') */
-                        fn(Get $get) => Departamento::where('pais_id', $get('IdPais'))
+                        fn (Get $get) => Departamento::where('pais_id', $get('IdPais'))
                             ->pluck('name', 'id')
 
                     )
                     ->live()
-                    ->disabled(fn(Get $get) => $get('IdPais') == null),
+                    ->disabled(fn (Get $get) => $get('IdPais') == null),
 
                 Select::make('IdMunicipio')
                     ->label('Municipio')
                     ->options(
-                        fn(Get $get) => Municipio::where('departamento_id', $get('IdDepartamento'))
+                        fn (Get $get) => Municipio::where('departamento_id', $get('IdDepartamento'))
                             ->pluck('name', 'id')
                     )
                     ->live()
-                    ->disabled(fn(Get $get) => $get('IdDepartamento') == null),
+                    ->disabled(fn (Get $get) => $get('IdDepartamento') == null),
 
 
                 Select::make('IdAldea')
                     ->label('Aldea')
                     ->options(
-                        fn(Get $get) => Aldea::where('municipio_id', $get('IdMunicipio'))
+                        fn (Get $get) => Aldea::where('municipio_id', $get('IdMunicipio'))
                             ->pluck('nombre', 'id')
                     )
                     ->live()
-                    ->disabled(fn(Get $get) => $get('IdMunicipio') == null),
+                    ->disabled(fn (Get $get) => $get('IdMunicipio') == null),
 
                 Select::make('IdBarrio')
                     ->label('Barrio')
                     ->options(
-                        fn(Get $get) => Barrio::where('aldea_id', $get('IdAldea'))
+                        fn (Get $get) => Barrio::where('aldea_id', $get('IdAldea'))
                             ->pluck('nombre', 'id')
                     )
                     ->live()
-                    ->disabled(fn(Get $get) => $get('IdAldea') == null),
+                    ->disabled(fn (Get $get) => $get('IdAldea') == null),
 
                 TextInput::make('Direccion')
                     ->columnSpanFull()
                     ->label('Direccion')
-                    ->required()
+                    ->required(),
 
+
+                Repeater::make('Georeferenciacion')
+                ->label('Coordenadas')
+                ->relationship()
+                    ->schema([
+                        TextInput::make('latitud')
+                            ->label('Latitud')
+                            ->numeric()
+                            ->required(),
+
+                        TextInput::make('longitud')
+                            ->label('Longitud')
+                            ->numeric()
+                            ->required(),
+
+                    ])
+                    ->columns(2)
+                    ->columnSpanFull()
             ])
             ->columns(2)
             ->statePath('data')
@@ -159,19 +144,18 @@ class CreateContribuyenteForm extends Component implements HasForms
     {
         $data = $this->form->getState();
 
-        Propiedad::create($data);
-
-        Notification::make()
-        ->title('Exito!')
-        ->body('Propiedad creada exitosamente')
-        ->success()
-        ->send();
-    $this->js('location.reload();');
-
         
+        $record = Propiedad::create($data);
 
+        $this->form->model($record)->saveRelationships();
+        
+        Notification::make()
+            ->title('Exito!')
+            ->body('Propiedad creada exitosamente')
+            ->success()
+            ->send();
 
-
+        $this->js('location.reload();');
     }
 
     public function render(): View
