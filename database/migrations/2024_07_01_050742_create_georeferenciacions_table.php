@@ -13,13 +13,19 @@ return new class extends Migration
     {
         Schema::create('georeferenciacions', function (Blueprint $table) {
             $table->id();
-            $table->decimal('latitud'); 
-            $table->decimal('longitud');
-            $table->decimal('area');
-            $table->decimal('perimetro');
+            $table->string('latitud', 50); 
+            $table->string('longitud', 50);
+            $table->decimal('area')->nullable();
+            $table->decimal('perimetro')->nullable();
+            
+            $table->unsignedBigInteger('IdPropiedad')->nullable();
+
             $table->integer("created_by");
             $table->integer("deleted_by")->nullable();
             $table->integer("updated_by")->nullable();
+
+
+            $table->foreign('IdPropiedad')->references('id')->on('propiedads')->onDelete('restrict');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Contribuyente;
 
-use App\Models\Contribuyente;
+use App\Models\Propiedad;
 use Filament\Forms;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -10,38 +10,33 @@ use Filament\Forms\Form;
 use Livewire\Component;
 use Illuminate\Contracts\View\View;
 use Filament\Forms\Components\TextInput;
-
 use Filament\Forms\Components\Select;
+use App\Models\Contribuyente;
 use App\Models\TipoPropiedad;
-use App\Models\Georeferenciacion;
-use App\Models\Barrio;
 use App\Models\Paise;
 use App\Models\Departamento;
-
 use App\Models\Municipio;
 use App\Models\Aldea;
-
-
+use App\Models\Barrio;
 use Filament\Forms\Get;
-
-use App\Models\Propiedad;
-use Filament\Forms\Components\Section;
 use Filament\Notifications\Notification;
-use Filament\Forms\Components\ViewField;
-
-use App\Forms\Components\Map;
 use Filament\Forms\Components\Repeater;
 
-class CreateContribuyenteForm extends Component implements HasForms
+
+
+class EditarPropiedad extends Component implements HasForms
 {
     use InteractsWithForms;
 
     public ?array $data = [];
     public ?array $prevCoordinates = [];
 
+    public Propiedad $record;
+    protected $listeners = ['actualizarCoordenadas'];
+
     public function mount(): void
     {
-        $this->form->fill();
+        $this->form->fill($this->record->attributesToArray());
         $this->prevCoordinates = $this->data['Georeferenciacion'] ?? [];
     }
 
@@ -51,7 +46,6 @@ class CreateContribuyenteForm extends Component implements HasForms
             ->schema([
                 TextInput::make('ClaveCatastral')
                     ->label('Clave Catastral')
-                    ->numeric()
                     ->required(),
 
                 Select::make('IdContribuyente')
@@ -59,18 +53,6 @@ class CreateContribuyenteForm extends Component implements HasForms
                     ->options(
                         Contribuyente::all()->pluck('primer_nombre', 'id')
                     )
-                    ->getSearchResultsUsing(function (string $search): array {
-                        return Contribuyente::where('primer_nombre', 'like', "%{$search}%")
-                            ->orWhere('identidad', 'like', "%{$search}%")
-                            ->limit(50)
-                            ->get()
-                            ->pluck('primer_nombre', 'id')
-                            ->toArray();
-                    })
-                    ->getOptionLabelUsing(function ($value): ?string {
-                        $contribuyente = Contribuyente::find($value);
-                        return $contribuyente ? $contribuyente->primer_nombre : null;
-                    })
                     ->searchable(),
 
                 Select::make('IdTipoPropiedad')
@@ -82,56 +64,101 @@ class CreateContribuyenteForm extends Component implements HasForms
 
                 Select::make('IdPais')
                     ->label('Pais')
+                    ->default($this->record->barrio->aldea->municipios->departamentos->paises->id)
                     ->options(
-                        Paise::all()->pluck('nombre', 'id')
+                        Paise::pluck('nombre', 'id')
+                        ->toArray()
                     )
+                    // ->searchable()
                     ->live()
-                    ->searchable(['Nombre']),
+                    ->selectablePlaceholder(false),
 
+                        // dd($this->record->barrio->aldea->municipios->departamentos->id),
                 Select::make('IdDepartamento')
                     ->label('Departamento')
+                    ->default(6)
+                    // ->default($this->record->barrio->aldea->municipios->departamentos->id)
                     ->options(
-                        fn (Get $get) => Departamento::where('pais_id', $get('IdPais'))
-                            ->pluck('name', 'id')
-
-                    )
+                    function (Get $get) {
+                            $paisId = $get('IdPais');
+                            
+                            if ($paisId) {
+                                return Departamento::where('pais_id', $paisId)->pluck('name', 'id');
+                            }
+                            
+                            $defaultPaisId = $this->record->barrio->aldea->municipios->departamentos->paises->id; 
+                            return Departamento::where('pais_id', $defaultPaisId)->pluck('name', 'id');
+                        }
+                        
+                        )
                     ->live()
-                    ->disabled(fn (Get $get) => $get('IdPais') == null),
+                    ->disabled(fn (Get $get) => $get('IdPais') == null)
+                    ->selectablePlaceholder(false),
 
                 Select::make('IdMunicipio')
                     ->label('Municipio')
+                    ->default($this->record->barrio->aldea->municipios->id)
                     ->options(
-                        fn (Get $get) => Municipio::where('departamento_id', $get('IdDepartamento'))
-                            ->pluck('name', 'id')
+                        function (Get $get) {
+                            $departamentoId = $get('IdDepartamento');
+                
+                            if ($departamentoId) {
+                                return Municipio::where('departamento_id', $departamentoId)->pluck('name', 'id');
+                            }
+                
+                            $defaultId = $this->record->barrio->aldea->municipios->departamentos->id; 
+                            return Municipio::where('departamento_id', $defaultId)->pluck('name', 'id');
+                        }
                     )
                     ->live()
-                    ->disabled(fn (Get $get) => $get('IdDepartamento') == null),
+                    ->disabled(fn (Get $get) => $get('IdDepartamento') == null)
+                    ->selectablePlaceholder(false),
 
 
                 Select::make('IdAldea')
                     ->label('Aldea')
+                    ->default($this->record->barrio->aldea->id)
                     ->options(
-                        fn (Get $get) => Aldea::where('municipio_id', $get('IdMunicipio'))
-                            ->pluck('nombre', 'id')
+                        function (Get $get) {
+                            $Id = $get('IdMunicipio');
+                
+                            if ($Id) {
+                                return Aldea::where('Municipio_id', $Id)->pluck('nombre', 'id');
+                            }
+                
+                            $defaultId = $this->record->barrio->aldea->municipios->id; 
+                            return Aldea::where('Municipio_id', $defaultId)->pluck('nombre', 'id');
+                        }
                     )
                     ->live()
-                    ->disabled(fn (Get $get) => $get('IdMunicipio') == null),
+                   ->disabled(fn (Get $get) => $get('IdMunicipio') == null)
+                   ->selectablePlaceholder(false),
 
                 Select::make('IdBarrio')
                     ->label('Barrio')
+                    ->default($this->record->barrio->id)
                     ->options(
-                        fn (Get $get) => Barrio::where('aldea_id', $get('IdAldea'))
-                            ->pluck('nombre', 'id')
+                        function (Get $get) {
+                            $Id = $get('IdAldea');
+                
+                            if ($Id) {
+                                return Barrio::where('Aldea_id', $Id)->pluck('nombre', 'id');
+                            }
+                
+                            $defaultId = $this->record->barrio->aldea->id; 
+                            return Barrio::where('Aldea_id', $defaultId)->pluck('nombre', 'id');
+                        }
                     )
                     ->live()
-                    ->disabled(fn (Get $get) => $get('IdAldea') == null),
+                    ->disabled(fn (Get $get) => $get('IdAldea') == null)
+                    ->selectablePlaceholder(false),
 
                 TextInput::make('Direccion')
                     ->columnSpanFull()
                     ->label('Direccion')
                     ->required(),
 
-
+                // cada que se actualice la propiedad, se actualizan las coordenadas
                 Repeater::make('Georeferenciacion')
                 ->label('Coordenadas')
                 ->relationship()
@@ -186,31 +213,35 @@ class CreateContribuyenteForm extends Component implements HasForms
                     ->grid(2)
                     ->live(),
             ])
-            ->columns(2)
             ->statePath('data')
-            ->model(Propiedad::class);
+            ->model($this->record);
     }
 
-    public function create(): void
+    public function actualizarCoordenadas($coordenadas)
+    {
+        // Asumiendo que tienes una propiedad llamada `Georeferenciacion` en tu componente
+        $this->form->Georeferenciacion = $coordenadas;
+        $this->save(); // O cualquier lógica para guardar las coordenadas actualizadas
+    }
+
+    public function save(): void
     {
         $data = $this->form->getState();
 
-        
-        $record = Propiedad::create($data);
+        $this->record->update($data);
 
-        $this->form->model($record)->saveRelationships();
-        
         Notification::make()
             ->title('Exito!')
             ->body('Propiedad creada exitosamente')
             ->success()
             ->send();
 
-        $this->js('location.reload();');
+        $this->redirect(route('propiedad'));
+
     }
 
     public function render(): View
     {
-        return view('livewire.contribuyente.create-contribuyente-form');
+        return view('livewire.contribuyente.editar-propiedad');
     }
 }
