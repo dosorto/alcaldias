@@ -32,10 +32,16 @@
     <center>
         <div id="map"></div>
     </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <script>
         // Obtener las coordenadas del controlador
         var coordenadas = <?php echo json_encode($coordenadas); ?>;
+        console.log(coordenadas);
 
         // Inicializa el mapa
         var map = L.map('map').setView(coordenadas[0], 19);
@@ -46,8 +52,14 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-        // crear marca
-        var marker = L.marker(coordenadas[0]).addTo(map);
+        // crear lista de markers
+        var markers = [];
+
+        for (let i = 0; i < coordenadas.length; i++) {
+            var marker = L.marker(coordenadas[i]).addTo(map);
+            markers.push(marker);
+        }
+        // var marker = L.marker(coordenadas[0]).addTo(map);
 
         // Crea un polígono
         var polygon = L.polygon([coordenadas]).addTo(map);
