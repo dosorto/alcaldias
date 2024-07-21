@@ -15,8 +15,8 @@
 
     <style>
         #map { 
-            height: 600px;
-            width: 800px; 
+            height: 700px;
+            width: 1110px; 
         }
     </style>
 
@@ -25,18 +25,23 @@
     <h2 class="text-3xl font-extrabold dark:text-white">Informacion de propiedad</h2>
     <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
     @livewire('VerPropiedad', ['record'=> $propiedad])
+    <br>
     <h2 class="text-3xl font-extrabold dark:text-white">Mapa de la propiedad</h2>
 </div>
 <body>
-    <br>
     <center>
         <div id="map"></div>
+        <br>
+        <a href="{{ route('propiedad') }}" color="danger" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                Regresar
+        </a>
     </center>
     <br>
     <br>
     <br>
     <br>
-    <br>
+
+    <!-- <button href="{{ route('propiedad') }}">Regresar</button> -->
 
     <script>
         // Obtener las coordenadas del controlador
