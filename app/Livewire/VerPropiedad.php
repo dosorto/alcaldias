@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Contribuyente;
+namespace App\Livewire;
 
 use App\Models\Propiedad;
 use Filament\Forms;
@@ -22,22 +22,17 @@ use Filament\Forms\Get;
 use Filament\Notifications\Notification;
 use Filament\Forms\Components\Repeater;
 
-
-
-class EditarPropiedad extends Component implements HasForms
+class VerPropiedad extends Component implements HasForms
 {
     use InteractsWithForms;
 
     public ?array $data = [];
-    public ?array $prevCoordinates = [];
 
     public Propiedad $record;
-    protected $listeners = ['actualizarCoordenadas'];
 
     public function mount(): void
     {
         $this->form->fill($this->record->attributesToArray());
-        $this->prevCoordinates = $this->data['Georeferenciacion'] ?? [];
     }
 
     public function form(Form $form): Form
@@ -46,21 +41,24 @@ class EditarPropiedad extends Component implements HasForms
             ->schema([
                 TextInput::make('ClaveCatastral')
                     ->label('Clave Catastral')
-                    ->required(),
+                    ->required()
+                    ->disabled(),
 
                 Select::make('IdContribuyente')
                     ->label('Contribuyente')
                     ->options(
                         Contribuyente::all()->pluck('primer_nombre', 'id')
                     )
-                    ->searchable(),
+                    ->searchable()
+                    ->disabled(),
 
                 Select::make('IdTipoPropiedad')
                     ->label('Tipo Propiedad')
                     ->options(
                         TipoPropiedad::all()->pluck('Nombre', 'id')
                     )
-                    ->searchable(['Nombre']),
+                    ->searchable(['Nombre'])
+                    ->disabled(),
 
                 Select::make('IdPais')
                     ->label('Pais')
@@ -69,11 +67,10 @@ class EditarPropiedad extends Component implements HasForms
                         Paise::pluck('nombre', 'id')
                         ->toArray()
                     )
-                    // ->searchable()
                     ->live()
-                    ->selectablePlaceholder(false),
+                    ->selectablePlaceholder(false)
+                    ->disabled(),
 
-                        // dd($this->record->barrio->aldea->municipios->departamentos->id),
                 Select::make('IdDepartamento')
                     ->label('Departamento')
                     ->default(6)
@@ -92,7 +89,7 @@ class EditarPropiedad extends Component implements HasForms
                         
                         )
                     ->live()
-                    ->disabled(fn (Get $get) => $get('IdPais') == null)
+                    ->disabled()
                     ->selectablePlaceholder(false),
 
                 Select::make('IdMunicipio')
@@ -111,7 +108,7 @@ class EditarPropiedad extends Component implements HasForms
                         }
                     )
                     ->live()
-                    ->disabled(fn (Get $get) => $get('IdDepartamento') == null)
+                    ->disabled()
                     ->selectablePlaceholder(false),
 
 
@@ -131,7 +128,7 @@ class EditarPropiedad extends Component implements HasForms
                         }
                     )
                     ->live()
-                   ->disabled(fn (Get $get) => $get('IdMunicipio') == null)
+                    ->disabled()
                    ->selectablePlaceholder(false),
 
                 Select::make('IdBarrio')
@@ -150,98 +147,50 @@ class EditarPropiedad extends Component implements HasForms
                         }
                     )
                     ->live()
-                    ->disabled(fn (Get $get) => $get('IdAldea') == null)
+                    ->disabled()
                     ->selectablePlaceholder(false),
 
                 TextInput::make('Direccion')
                     ->columnSpanFull()
                     ->label('Direccion')
-                    ->required(),
+                    ->required()
+                    ->disabled(),
 
                 // cada que se actualice la propiedad, se actualizan las coordenadas
                 Repeater::make('Georeferenciacion')
-                ->label('Coordenadas')
-                ->relationship()
-                ->schema([
+                    ->label('Coordenadas')
+                    ->relationship()
+                    ->schema([
                         TextInput::make('latitud')
                             ->label('Latitud')
                             ->numeric()
-                            ->required(),
+                            ->required()
+                            ->disabled(),
 
                         TextInput::make('longitud')
                             ->label('Longitud')
                             ->numeric()
-                            ->required(),
+                            ->required()
+                            ->disabled(),
 
                     ])
                     ->columns(2)
                     ->columnSpanFull()
-                    ->afterStateUpdated(function ($state) {
-                        // Verificar si se eliminó una coordenada
-                        if (count($state) < count($this->prevCoordinates)) {
-                            // lanzar evento para eliminar coordenadas
-                            $this->dispatch('eliminarcoordenada', ['coordenadas' => $state]); 
-                            $this->prevCoordinates = $state;
-                        }
-                        // verificar si se crea una nueva coordenada
-                        else if (count($state) > count($this->prevCoordinates)){
-                            // lanzar evento para actualizar las coordenadas cuando se crea una nueva
-                            $this->dispatch('actualizarCoordenadas', ['coordenadas' => $state]);
-                            $this->prevCoordinates = $state;
-                        } 
-                        // evento para actualizar los marcadores y el poligono en caso de
-                        // que haya una actualizacion de las coordenadas a mano
-                        else {
-                            // lanzar evento para actualizar las coordenadas
-                            $this->dispatch('actualizar', ['coordenadas' => $state]);
-                        }
-                    })
-                    ->defaultItems(1)
-                    ->itemLabel(function ($state) {
-                        // Obtener la clave actual
-                        $claveActual = array_search($state, $this->data['Georeferenciacion']);
-                        
-                        // Obtener todas las claves del arreglo
-                        $claves = array_keys($this->data['Georeferenciacion']);
-                        
-                        // Buscar la posición de la clave en el arreglo de claves
-                        $indice = array_search($claveActual, $claves);
-                        
-                        // Retornar la etiqueta con el índice convertido a entero
-                        return 'Punto ' . strval((int) $indice + 1);
-                    })
-                    ->grid(2)
-                    ->live(),
+                    ->disabled(),
             ])
             ->statePath('data')
             ->model($this->record);
     }
 
-    public function actualizarCoordenadas($coordenadas)
-    {
-        // Asumiendo que tienes una propiedad llamada `Georeferenciacion` en tu componente
-        $this->form->Georeferenciacion = $coordenadas;
-        $this->save(); // O cualquier lógica para guardar las coordenadas actualizadas
-    }
+    // public function save(): void
+    // {
+    //     $data = $this->form->getState();
 
-    public function save(): void
-    {
-        $data = $this->form->getState();
-
-        $this->record->update($data);
-
-        Notification::make()
-            ->title('Exito!')
-            ->body('Propiedad creada exitosamente')
-            ->success()
-            ->send();
-
-        $this->redirect(route('propiedad'));
-
-    }
+    //     $this->record->update($data);
+    // }
 
     public function render(): View
     {
-        return view('livewire.contribuyente.editar-propiedad');
+        return view('livewire.ver-propiedad');
     }
 }

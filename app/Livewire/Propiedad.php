@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Contribuyente; 
 use App\Models\Barrio; 
+use App\Models\Departamento;
 use App\Models\Georeferenciacion; 
 use App\Models\TipoPropiedad; 
 
@@ -23,6 +24,7 @@ class Propiedad extends Component
     public $IdGeoreferencia;
     public $NombrePropietario;
     public $ClaveCatastral;
+    public $name;
 
     // Variables para los modales
     public $updateModal = false;

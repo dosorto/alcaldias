@@ -14,6 +14,15 @@ class MapaController extends Controller
 
         // convertir coordenadas a una matriz donde solo voy a guardar latitud y longitud
         // pero no quiero que sea clave valor, solo quiero los valores
+use Maatwebsite\Excel\Concerns\ToArray;
+
+class MapaController extends Controller
+{
+    public function mapa(Propiedad $propiedad)
+    {
+        $coordenadas = Georeferenciacion::where('IdPropiedad', intval($propiedad->id))->get();
+
+        // convertir coordenadas a una matriz donde solo voy a guardar latitud y longitud
         $coordenadas = $coordenadas->map(function ($coordenada) {
             return [
                 $coordenada->latitud,
@@ -22,5 +31,6 @@ class MapaController extends Controller
         });
 
         return view('mapa', compact('coordenadas'));
+        return view('mapa', compact('coordenadas', 'propiedad'));
     }
 }

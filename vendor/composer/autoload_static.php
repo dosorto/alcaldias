@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
+class ComposerStaticInitc9c614937349e47592a52cd25314a375
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -445,8 +445,8 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -518,8 +518,8 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri',
-            1 => __DIR__ . '/..' . '/league/uri-interfaces',
+            0 => __DIR__ . '/..' . '/league/uri-interfaces',
+            1 => __DIR__ . '/..' . '/league/uri',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -793,7 +793,6 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         'App\\Livewire\\ConsultaTributaria' => __DIR__ . '/../..' . '/app/Livewire/ConsultaTributaria.php',
         'App\\Livewire\\Contribuyente\\CreateContribuyenteForm' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/CreateContribuyenteForm.php',
         'App\\Livewire\\Contribuyente\\EditarPropiedad' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/EditarPropiedad.php',
-        'App\\Livewire\\Contribuyente\\UpdateContribuyenteForm' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/UpdateContribuyenteForm.php',
         'App\\Livewire\\Contribuyentes' => __DIR__ . '/../..' . '/app/Livewire/Contribuyentes.php',
         'App\\Livewire\\Departamentos' => __DIR__ . '/../..' . '/app/Livewire/Departamentos.php',
         'App\\Livewire\\Georeferenciacion\\Georreferenciacion' => __DIR__ . '/../..' . '/app/Livewire/Georeferenciacion/Georreferenciacion.php',
@@ -822,6 +821,7 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         'App\\Livewire\\TipoPropiedad' => __DIR__ . '/../..' . '/app/Livewire/TipoPropiedad.php',
         'App\\Livewire\\Tipos' => __DIR__ . '/../..' . '/app/Livewire/Tipos.php',
         'App\\Livewire\\Usuarios\\Usuarios' => __DIR__ . '/../..' . '/app/Livewire/Usuarios/Usuarios.php',
+        'App\\Livewire\\VerPropiedad' => __DIR__ . '/../..' . '/app/Livewire/VerPropiedad.php',
         'App\\Models\\Aldea' => __DIR__ . '/../..' . '/app/Models/Aldea.php',
         'App\\Models\\Anio' => __DIR__ . '/../..' . '/app/Models/Anio.php',
         'App\\Models\\Barrio' => __DIR__ . '/../..' . '/app/Models/Barrio.php',
@@ -9397,10 +9397,10 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc9c614937349e47592a52cd25314a375::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc9c614937349e47592a52cd25314a375::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitc9c614937349e47592a52cd25314a375::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitc9c614937349e47592a52cd25314a375::$classMap;
 
         }, null, ClassLoader::class);
     }

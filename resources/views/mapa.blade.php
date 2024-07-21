@@ -21,8 +21,13 @@
     </style>
 
 </head>
+<div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
+    <h2 class="text-3xl font-extrabold dark:text-white">Informacion de propiedad</h2>
+    <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
+    @livewire('VerPropiedad', ['record'=> $propiedad])
+    <h2 class="text-3xl font-extrabold dark:text-white">Mapa de la propiedad</h2>
+</div>
 <body>
-
     <br>
     <center>
         <div id="map"></div>

@@ -37,10 +37,12 @@ class CreateContribuyenteForm extends Component implements HasForms
     use InteractsWithForms;
 
     public ?array $data = [];
+    public ?array $prevCoordinates = [];
 
     public function mount(): void
     {
         $this->form->fill();
+        $this->prevCoordinates = $this->data['Georeferenciacion'] ?? [];
     }
 
     public function form(Form $form): Form
@@ -49,6 +51,7 @@ class CreateContribuyenteForm extends Component implements HasForms
             ->schema([
                 TextInput::make('ClaveCatastral')
                     ->label('Clave Catastral')
+                    ->numeric()
                     ->required(),
 
                 Select::make('IdContribuyente')
@@ -56,6 +59,18 @@ class CreateContribuyenteForm extends Component implements HasForms
                     ->options(
                         Contribuyente::all()->pluck('primer_nombre', 'id')
                     )
+                    ->getSearchResultsUsing(function (string $search): array {
+                        return Contribuyente::where('primer_nombre', 'like', "%{$search}%")
+                            ->orWhere('identidad', 'like', "%{$search}%")
+                            ->limit(50)
+                            ->get()
+                            ->pluck('primer_nombre', 'id')
+                            ->toArray();
+                    })
+                    ->getOptionLabelUsing(function ($value): ?string {
+                        $contribuyente = Contribuyente::find($value);
+                        return $contribuyente ? $contribuyente->primer_nombre : null;
+                    })
                     ->searchable(),
 
                 Select::make('IdTipoPropiedad')
@@ -120,7 +135,7 @@ class CreateContribuyenteForm extends Component implements HasForms
                 Repeater::make('Georeferenciacion')
                 ->label('Coordenadas')
                 ->relationship()
-                    ->schema([
+                ->schema([
                         TextInput::make('latitud')
                             ->label('Latitud')
                             ->numeric()
@@ -134,6 +149,42 @@ class CreateContribuyenteForm extends Component implements HasForms
                     ])
                     ->columns(2)
                     ->columnSpanFull()
+                    ->afterStateUpdated(function ($state) {
+                        // Verificar si se eliminó una coordenada
+                        if (count($state) < count($this->prevCoordinates)) {
+                            // lanzar evento para eliminar coordenadas
+                            $this->dispatch('eliminarcoordenada', ['coordenadas' => $state]); 
+                            $this->prevCoordinates = $state;
+                        }
+                        // verificar si se crea una nueva coordenada
+                        else if (count($state) > count($this->prevCoordinates)){
+                            // lanzar evento para actualizar las coordenadas cuando se crea una nueva
+                            $this->dispatch('actualizarCoordenadas', ['coordenadas' => $state]);
+                            $this->prevCoordinates = $state;
+                        } 
+                        // evento para actualizar los marcadores y el poligono en caso de
+                        // que haya una actualizacion de las coordenadas a mano
+                        else {
+                            // lanzar evento para actualizar las coordenadas
+                            $this->dispatch('actualizar', ['coordenadas' => $state]);
+                        }
+                    })
+                    ->defaultItems(1)
+                    ->itemLabel(function ($state) {
+                        // Obtener la clave actual
+                        $claveActual = array_search($state, $this->data['Georeferenciacion']);
+                        
+                        // Obtener todas las claves del arreglo
+                        $claves = array_keys($this->data['Georeferenciacion']);
+                        
+                        // Buscar la posición de la clave en el arreglo de claves
+                        $indice = array_search($claveActual, $claves);
+                        
+                        // Retornar la etiqueta con el índice convertido a entero
+                        return 'Punto ' . strval((int) $indice + 1);
+                    })
+                    ->grid(2)
+                    ->live(),
             ])
             ->columns(2)
             ->statePath('data')
