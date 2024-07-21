@@ -24,7 +24,10 @@ class TipoPropiedad extends Component
     // variable para la busqueda
     public $search = '';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> esdras
     // variables para la confirmacion de eliminacion
     public $confirmingItemDeletion;
 
@@ -131,5 +134,8 @@ class TipoPropiedad extends Component
     }
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> esdras

@@ -13,6 +13,6 @@ class GeoreferenciacionSeeder extends Seeder
      */
     public function run(): void
     {
-        Georeferenciacion::factory()->count(50)->create();
+        //Georeferenciacion::factory()->count(50)->create();
     }
 }
