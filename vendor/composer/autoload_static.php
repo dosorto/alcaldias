@@ -445,8 +445,8 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -518,8 +518,8 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri-interfaces',
-            1 => __DIR__ . '/..' . '/league/uri',
+            0 => __DIR__ . '/..' . '/league/uri',
+            1 => __DIR__ . '/..' . '/league/uri-interfaces',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -793,6 +793,7 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'App\\Livewire\\ConsultaTributaria' => __DIR__ . '/../..' . '/app/Livewire/ConsultaTributaria.php',
         'App\\Livewire\\Contribuyente\\CreateContribuyenteForm' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/CreateContribuyenteForm.php',
         'App\\Livewire\\Contribuyente\\EditarPropiedad' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/EditarPropiedad.php',
+        'App\\Livewire\\Contribuyente\\UpdateContribuyenteForm' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/UpdateContribuyenteForm.php',
         'App\\Livewire\\Contribuyentes' => __DIR__ . '/../..' . '/app/Livewire/Contribuyentes.php',
         'App\\Livewire\\Departamentos' => __DIR__ . '/../..' . '/app/Livewire/Departamentos.php',
         'App\\Livewire\\Georeferenciacion\\Georreferenciacion' => __DIR__ . '/../..' . '/app/Livewire/Georeferenciacion/Georreferenciacion.php',
