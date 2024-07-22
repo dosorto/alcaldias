@@ -57,7 +57,15 @@ class CreateContribuyenteForm extends Component implements HasForms
                 Select::make('IdContribuyente')
                     ->label('Contribuyente')
                     ->options(
-                        Contribuyente::all()->pluck('primer_nombre', 'id')
+                        Contribuyente::all()->map(function ($contribuyente) {
+                            return [
+                                'id' => $contribuyente->id,
+                                'nombre_completo' => $contribuyente->primer_nombre . ' ' 
+                                . $contribuyente->segundo_nombre . ' ' 
+                                . $contribuyente->primer_apellido. ' ' 
+                                . $contribuyente->segundo_apellido,
+                            ];
+                        })->pluck('nombre_completo', 'id')
                     )
                     ->getSearchResultsUsing(function (string $search): array {
                         return Contribuyente::where('primer_nombre', 'like', "%{$search}%")
@@ -71,14 +79,16 @@ class CreateContribuyenteForm extends Component implements HasForms
                         $contribuyente = Contribuyente::find($value);
                         return $contribuyente ? $contribuyente->primer_nombre : null;
                     })
-                    ->searchable(),
+                    ->searchable()
+                    ->required(),
 
                 Select::make('IdTipoPropiedad')
                     ->label('Tipo Propiedad')
                     ->options(
                         TipoPropiedad::all()->pluck('Nombre', 'id')
                     )
-                    ->searchable(['Nombre']),
+                    ->searchable(['Nombre'])
+                    ->required(),
 
                 Select::make('IdPais')
                     ->label('Pais')
@@ -124,7 +134,8 @@ class CreateContribuyenteForm extends Component implements HasForms
                             ->pluck('nombre', 'id')
                     )
                     ->live()
-                    ->disabled(fn (Get $get) => $get('IdAldea') == null),
+                    ->disabled(fn (Get $get) => $get('IdAldea') == null)
+                    ->required(),
 
                 TextInput::make('Direccion')
                     ->columnSpanFull()
@@ -184,7 +195,8 @@ class CreateContribuyenteForm extends Component implements HasForms
                         return 'Punto ' . strval((int) $indice + 1);
                     })
                     ->grid(2)
-                    ->live(),
+                    ->live()
+                    ->required(),
             ])
             ->columns(2)
             ->statePath('data')

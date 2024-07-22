@@ -15,8 +15,8 @@
 
     <style>
         #map { 
-            height: 600px;
-            width: 800px; 
+            height: 700px;
+            width: 1110px; 
         }
     </style>
 
@@ -25,17 +25,28 @@
     <h2 class="text-3xl font-extrabold dark:text-white">Informacion de propiedad</h2>
     <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
     @livewire('VerPropiedad', ['record'=> $propiedad])
+    <br>
     <h2 class="text-3xl font-extrabold dark:text-white">Mapa de la propiedad</h2>
 </div>
 <body>
-    <br>
     <center>
         <div id="map"></div>
+        <br>
+        <a href="{{ route('propiedad') }}" color="danger" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                Regresar
+        </a>
     </center>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- <button href="{{ route('propiedad') }}">Regresar</button> -->
 
     <script>
         // Obtener las coordenadas del controlador
         var coordenadas = <?php echo json_encode($coordenadas); ?>;
+        console.log(coordenadas);
 
         // Inicializa el mapa
         var map = L.map('map').setView(coordenadas[0], 19);
@@ -46,8 +57,14 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-        // crear marca
-        var marker = L.marker(coordenadas[0]).addTo(map);
+        // crear lista de markers
+        var markers = [];
+
+        for (let i = 0; i < coordenadas.length; i++) {
+            var marker = L.marker(coordenadas[i]).addTo(map);
+            markers.push(marker);
+        }
+        // var marker = L.marker(coordenadas[0]).addTo(map);
 
         // Crea un polígono
         var polygon = L.polygon([coordenadas]).addTo(map);

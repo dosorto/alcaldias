@@ -110,7 +110,7 @@
                  
                         
 
-                        <td class="px-6 py-4">{{ $propiedad->Barrio->Aldea->nombre}}</td>
+                        <td class="px-6 py-4">{{ $propiedad->Barrio->Aldea->municipios->departamentos->name}}</td>
                         <td class="px-6 py-4">
                         <a href="{{ route('editar-propiedad', ['propiedad'=>$propiedad]) }}" 
                     class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#FF9119] hover:bg-[#FF9119]/80 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

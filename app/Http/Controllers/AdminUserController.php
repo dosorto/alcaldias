@@ -34,13 +34,6 @@ class AdminUserController extends Controller
         return redirect()->route('admin.users.index');
     }
 
-    /*public function assignRole(Request $request)
-    {
-        $user = User::find($request->user_id);
-        $user->assignRole($request->role);
-        return redirect()->back()->with('success', 'Rol asignado correctamente');
-    }*/
-
     public function assignRole(Request $request)
     {
         $user = User::find($request->user_id);
