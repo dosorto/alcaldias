@@ -47,7 +47,15 @@ class VerPropiedad extends Component implements HasForms
                 Select::make('IdContribuyente')
                     ->label('Contribuyente')
                     ->options(
-                        Contribuyente::all()->pluck('primer_nombre', 'id')
+                        Contribuyente::all()->map(function ($contribuyente) {
+                            return [
+                                'id' => $contribuyente->id,
+                                'nombre_completo' => $contribuyente->primer_nombre . ' ' 
+                                . $contribuyente->segundo_nombre . ' ' 
+                                . $contribuyente->primer_apellido. ' ' 
+                                . $contribuyente->segundo_apellido,
+                            ];
+                        })->pluck('nombre_completo', 'id')
                     )
                     ->searchable()
                     ->disabled(),
@@ -60,37 +68,37 @@ class VerPropiedad extends Component implements HasForms
                     ->searchable(['Nombre'])
                     ->disabled(),
 
-                Select::make('IdPais')
-                    ->label('Pais')
-                    ->default($this->record->barrio->aldea->municipios->departamentos->paises->id)
-                    ->options(
-                        Paise::pluck('nombre', 'id')
-                        ->toArray()
-                    )
-                    ->live()
-                    ->selectablePlaceholder(false)
-                    ->disabled(),
+                // Select::make('IdPais')
+                //     ->label('Pais')
+                //     ->default($this->record->barrio->aldea->municipios->departamentos->paises->id)
+                //     ->options(
+                //         Paise::pluck('nombre', 'id')
+                //         ->toArray()
+                //     )
+                //     ->live()
+                //     ->selectablePlaceholder(false)
+                //     ->disabled(),
 
-                Select::make('IdDepartamento')
-                    ->label('Departamento')
-                    ->default(6)
-                    // ->default($this->record->barrio->aldea->municipios->departamentos->id)
-                    ->options(
-                    function (Get $get) {
-                            $paisId = $get('IdPais');
+                // Select::make('IdDepartamento')
+                //     ->label('Departamento')
+                //     ->default(6)
+                //     // ->default($this->record->barrio->aldea->municipios->departamentos->id)
+                //     ->options(
+                //     function (Get $get) {
+                //             $paisId = $get('IdPais');
                             
-                            if ($paisId) {
-                                return Departamento::where('pais_id', $paisId)->pluck('name', 'id');
-                            }
+                //             if ($paisId) {
+                //                 return Departamento::where('pais_id', $paisId)->pluck('name', 'id');
+                //             }
                             
-                            $defaultPaisId = $this->record->barrio->aldea->municipios->departamentos->paises->id; 
-                            return Departamento::where('pais_id', $defaultPaisId)->pluck('name', 'id');
-                        }
+                //             $defaultPaisId = $this->record->barrio->aldea->municipios->departamentos->paises->id; 
+                //             return Departamento::where('pais_id', $defaultPaisId)->pluck('name', 'id');
+                //         }
                         
-                        )
-                    ->live()
-                    ->disabled()
-                    ->selectablePlaceholder(false),
+                //         )
+                //     ->live()
+                //     ->disabled()
+                //     ->selectablePlaceholder(false),
 
                 Select::make('IdMunicipio')
                     ->label('Municipio')
@@ -176,6 +184,7 @@ class VerPropiedad extends Component implements HasForms
                     ])
                     ->columns(2)
                     ->columnSpanFull()
+                    ->grid(2)
                     ->disabled(),
             ])
             ->statePath('data')

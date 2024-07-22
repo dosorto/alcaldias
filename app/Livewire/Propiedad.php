@@ -47,8 +47,9 @@ class Propiedad extends Component
         $Barrio=Barrio::all();
         $Georeferenciacion=Georeferenciacion::all();
         $TipoPropiedad=TipoPropiedad::all();
-        $propiedad = PropiedadModel::where('IdContribuyente', 'like', '%'.$this->search.'%')
-            ->paginate(10);
+        $propiedad= PropiedadModel::whereHas('contribuyente', function ($query) {
+            $query->where('identidad', 'like', '%' . $this->search . '%');
+        })->paginate(10);
 
         return view('livewire.Propiedad.Propiedad', ['propiedades' => $propiedad, 'Contribuyentes'=> $Contribuyente, 'Barrios' =>$Barrio, 'Georeferenciacions' => $Georeferenciacion , 'TipoPropiedades' => $TipoPropiedad]);
     }

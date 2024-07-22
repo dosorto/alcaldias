@@ -16,15 +16,15 @@
 
     <style>
         #map { 
-            height: 500px;
-            width: 800px; 
+            height: 700px;
+            width: 1110px; 
         }
     </style>
 
 </head>
 
     <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
-        <h2 class="text-3xl font-extrabold dark:text-white">Editar propiedad</h2>
+        <h2 class="text-3xl text-center font-extrabold dark:text-white">Editar Propiedad</h2>
         <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
 
         @livewire('Contribuyente.EditarPropiedad', ['record' => $propiedad])

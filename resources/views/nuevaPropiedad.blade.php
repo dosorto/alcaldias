@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+    <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
+        <h2 class="text-3xl font-extrabold dark:text-white">Agregar nueva propiedad</h2>
+        <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
 
     <head>
         <meta charset="UTF-8">
@@ -14,15 +17,15 @@
 
         <style>
             #map {
-                height: 500px;
-                width: 800px;
+                height: 700px;
+                width: 1110px;
             }
         </style>
 
     </head>
 
     <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
-        <h2 class="text-3xl font-extrabold dark:text-white">Agregar nueva propiedad</h2>
+        <h2 class="text-3xl text-center font-extrabold dark:text-white">Agregar Nueva Propiedad</h2>
         <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
         @livewire('contribuyente.create-contribuyente-form')
     </div>
@@ -84,7 +87,7 @@
         function removeLastMarker(coordenadas) {
             var coordenasClaves = Object.keys(coordenadas);
             var cantidadCoordenadas = Object.keys(coordenadas).length;
-            if (markers.length > 1 && markers.length > cantidadCoordenadas) {
+            if (markers.length > 0 && markers.length > cantidadCoordenadas) {
                 // Eliminar el último marcador del mapa y de la lista de marcadores
                 var lastMarker = markers.pop();
                 map.removeLayer(lastMarker);
@@ -117,6 +120,11 @@
             // actualizar la ubicacion del marcador por la ultima coordenada y actualizar el mapa
         });
 
+            var marker = new google.maps.Marker({
+                position: coord,
+                map: map,
+                draggable: true
+            });
 
         window.addEventListener('actualizarCoordenadas', function(e) {
 

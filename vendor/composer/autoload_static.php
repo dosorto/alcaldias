@@ -445,8 +445,8 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -518,8 +518,8 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri-interfaces',
-            1 => __DIR__ . '/..' . '/league/uri',
+            0 => __DIR__ . '/..' . '/league/uri',
+            1 => __DIR__ . '/..' . '/league/uri-interfaces',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -793,6 +793,7 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'App\\Livewire\\ConsultaTributaria' => __DIR__ . '/../..' . '/app/Livewire/ConsultaTributaria.php',
         'App\\Livewire\\Contribuyente\\CreateContribuyenteForm' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/CreateContribuyenteForm.php',
         'App\\Livewire\\Contribuyente\\EditarPropiedad' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/EditarPropiedad.php',
+        'App\\Livewire\\Contribuyente\\UpdateContribuyenteForm' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/UpdateContribuyenteForm.php',
         'App\\Livewire\\Contribuyentes' => __DIR__ . '/../..' . '/app/Livewire/Contribuyentes.php',
         'App\\Livewire\\Departamentos' => __DIR__ . '/../..' . '/app/Livewire/Departamentos.php',
         'App\\Livewire\\Georeferenciacion\\Georreferenciacion' => __DIR__ . '/../..' . '/app/Livewire/Georeferenciacion/Georreferenciacion.php',
@@ -855,6 +856,7 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
+        'App\\Providers\\Filament\\AdminPanelProvider' => __DIR__ . '/../..' . '/app/Providers/Filament/AdminPanelProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\View\\Components\\NombreDelComponente' => __DIR__ . '/../..' . '/app/View/Components/NombreDelComponente.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -997,6 +999,7 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'DanHarrin\\DateFormatConverter\\Converter' => __DIR__ . '/..' . '/danharrin/date-format-converter/src/Converter.php',
+        'Database\\Factories\\ContribuyenteFactory' => __DIR__ . '/../..' . '/database/factories/ContribuyenteFactory.php',
         'Database\\Factories\\GeoreferenciacionFactory' => __DIR__ . '/../..' . '/database/factories/GeoreferenciacionFactory.php',
         'Database\\Factories\\MunicipioFactory' => __DIR__ . '/../..' . '/database/factories/MunicipioFactory.php',
         'Database\\Factories\\PaisFactory' => __DIR__ . '/../..' . '/database/factories/PaisFactory.php',
