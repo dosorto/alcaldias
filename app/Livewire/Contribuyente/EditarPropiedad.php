@@ -29,12 +29,15 @@ class EditarPropiedad extends Component implements HasForms
     use InteractsWithForms;
 
     public ?array $data = [];
+    public ?array $prevCoordinates = [];
 
     public Propiedad $record;
+    protected $listeners = ['actualizarCoordenadas'];
 
     public function mount(): void
     {
         $this->form->fill($this->record->attributesToArray());
+        $this->prevCoordinates = $this->data['Georeferenciacion'] ?? [];
     }
 
     public function form(Form $form): Form
@@ -50,79 +53,119 @@ class EditarPropiedad extends Component implements HasForms
                     ->options(
                         Contribuyente::all()->pluck('primer_nombre', 'id')
                     )
-                    ->searchable(),
+                    ->searchable()
+                    ->required(),
 
                 Select::make('IdTipoPropiedad')
                     ->label('Tipo Propiedad')
                     ->options(
                         TipoPropiedad::all()->pluck('Nombre', 'id')
                     )
-                    ->searchable(['Nombre']),
+                    ->searchable(['Nombre'])
+                    ->required(),
 
-                // Select::make('IdPais')
-                //     ->label('Pais')
-                //     ->default($this->record->barrio->aldea->municipios->departamentos->paises->id)
-                //     ->options(
-                //         Paise::pluck('nombre', 'id')
-                //         ->toArray()
-                //     )
-                //     // ->searchable()
-                //     ->live()
-                //     ->selectablePlaceholder(false),
+                Select::make('IdPais')
+                    ->label('Pais')
+                    ->default($this->record->barrio->aldea->municipios->departamentos->paises->id)
+                    ->options(
+                        Paise::pluck('nombre', 'id')
+                        ->toArray()
+                    )
+                    // ->searchable()
+                    ->live()
+                    ->selectablePlaceholder(false),
+
+                        // dd($this->record->barrio->aldea->municipios->departamentos->id),
+                Select::make('IdDepartamento')
+                    ->label('Departamento')
+                    ->default(6)
+                    // ->default($this->record->barrio->aldea->municipios->departamentos->id)
+                    ->options(
+                    function (Get $get) {
+                            $paisId = $get('IdPais');
+                            
+                            if ($paisId) {
+                                return Departamento::where('pais_id', $paisId)->pluck('name', 'id');
+                            }
+                            
+                            $defaultPaisId = $this->record->barrio->aldea->municipios->departamentos->paises->id; 
+                            return Departamento::where('pais_id', $defaultPaisId)->pluck('name', 'id');
+                        }
+                        
+                        )
+                    ->live()
+                    ->disabled(fn (Get $get) => $get('IdPais') == null)
+                    ->selectablePlaceholder(false),
+
+                Select::make('IdMunicipio')
+                    ->label('Municipio')
+                    ->default($this->record->barrio->aldea->municipios->id)
+                    ->options(
+                        function (Get $get) {
+                            $departamentoId = $get('IdDepartamento');
+                
+                            if ($departamentoId) {
+                                return Municipio::where('departamento_id', $departamentoId)->pluck('name', 'id');
+                            }
+                
+                            $defaultId = $this->record->barrio->aldea->municipios->departamentos->id; 
+                            return Municipio::where('departamento_id', $defaultId)->pluck('name', 'id');
+                        }
+                    )
+                    ->live()
+                    ->disabled(fn (Get $get) => $get('IdDepartamento') == null)
+                    ->selectablePlaceholder(false),
 
 
-                // Select::make('IdDepartamento')
-                //     ->label('Departamento')
-                //     ->options(
-                //         fn (Get $get) => Departamento::where('pais_id', $get('IdPais'))
-                //             ->pluck('name', 'id')
+                Select::make('IdAldea')
+                    ->label('Aldea')
+                    ->default($this->record->barrio->aldea->id)
+                    ->options(
+                        function (Get $get) {
+                            $Id = $get('IdMunicipio');
+                
+                            if ($Id) {
+                                return Aldea::where('Municipio_id', $Id)->pluck('nombre', 'id');
+                            }
+                
+                            $defaultId = $this->record->barrio->aldea->municipios->id; 
+                            return Aldea::where('Municipio_id', $defaultId)->pluck('nombre', 'id');
+                        }
+                    )
+                    ->live()
+                   ->disabled(fn (Get $get) => $get('IdMunicipio') == null)
+                   ->selectablePlaceholder(false),
 
-                //     )
-                //     ->default($this->record->barrio->aldea->municipios->departamentos->id)
-                //     ->live(),
-                //     //->disabled(fn (Get $get) => $get('IdPais') == null),
-
-                // Select::make('IdMunicipio')
-                //     ->label('Municipio')
-                //     ->options(
-                //         fn (Get $get) => Municipio::where('departamento_id', $get('IdDepartamento'))
-                //             ->pluck('name', 'id')
-                //     )
-                //     ->default($this->record->barrio->aldea->municipios->id)
-                //     ->live(),
-                //     //->disabled(fn (Get $get) => $get('IdDepartamento') == null),
-
-
-                // Select::make('IdAldea')
-                //     ->label('Aldea')
-                //     ->options(
-                //         fn (Get $get) => Aldea::where('municipio_id', $get('IdMunicipio'))
-                //             ->pluck('nombre', 'id')
-                //     )
-                //     ->default($this->record->barrio->aldea->id)
-                //     ->live(),
-                //    // ->disabled(fn (Get $get) => $get('IdMunicipio') == null),
-
-                // Select::make('IdBarrio')
-                //     ->label('Barrio')
-                //     ->options(
-                //         fn (Get $get) => Barrio::where('aldea_id', $get('IdAldea'))
-                //             ->pluck('nombre', 'id')
-                //     )
-                //     ->live()
-                //     ->default($this->record->barrio->id),
-                //     // ->disabled(fn (Get $get) => $get('IdAldea') == null),
+                Select::make('IdBarrio')
+                    ->label('Barrio')
+                    ->default($this->record->barrio->id)
+                    ->options(
+                        function (Get $get) {
+                            $Id = $get('IdAldea');
+                
+                            if ($Id) {
+                                return Barrio::where('Aldea_id', $Id)->pluck('nombre', 'id');
+                            }
+                
+                            $defaultId = $this->record->barrio->aldea->id; 
+                            return Barrio::where('Aldea_id', $defaultId)->pluck('nombre', 'id');
+                        }
+                    )
+                    ->live()
+                    ->disabled(fn (Get $get) => $get('IdAldea') == null)
+                    ->selectablePlaceholder(false)
+                    ->required(),
 
                 TextInput::make('Direccion')
                     ->columnSpanFull()
                     ->label('Direccion')
                     ->required(),
 
-
+                // cada que se actualice la propiedad, se actualizan las coordenadas
                 Repeater::make('Georeferenciacion')
-                    ->label('Coordenadas')
-                    ->relationship()
-                    ->schema([
+                ->label('Coordenadas')
+                ->relationship()
+                ->schema([
                         TextInput::make('latitud')
                             ->label('Latitud')
                             ->numeric()
@@ -136,9 +179,53 @@ class EditarPropiedad extends Component implements HasForms
                     ])
                     ->columns(2)
                     ->columnSpanFull()
+                    ->afterStateUpdated(function ($state) {
+                        // Verificar si se eliminó una coordenada
+                        if (count($state) < count($this->prevCoordinates)) {
+                            // lanzar evento para eliminar coordenadas
+                            $this->dispatch('eliminarcoordenada', ['coordenadas' => $state]); 
+                            $this->prevCoordinates = $state;
+                        }
+                        // verificar si se crea una nueva coordenada
+                        else if (count($state) > count($this->prevCoordinates)){
+                            // lanzar evento para actualizar las coordenadas cuando se crea una nueva
+                            $this->dispatch('actualizarCoordenadas', ['coordenadas' => $state]);
+                            $this->prevCoordinates = $state;
+                        } 
+                        // evento para actualizar los marcadores y el poligono en caso de
+                        // que haya una actualizacion de las coordenadas a mano
+                        else {
+                            // lanzar evento para actualizar las coordenadas
+                            $this->dispatch('actualizar', ['coordenadas' => $state]);
+                        }
+                    })
+                    ->defaultItems(1)
+                    ->itemLabel(function ($state) {
+                        // Obtener la clave actual
+                        $claveActual = array_search($state, $this->data['Georeferenciacion']);
+                        
+                        // Obtener todas las claves del arreglo
+                        $claves = array_keys($this->data['Georeferenciacion']);
+                        
+                        // Buscar la posición de la clave en el arreglo de claves
+                        $indice = array_search($claveActual, $claves);
+                        
+                        // Retornar la etiqueta con el índice convertido a entero
+                        return 'Punto ' . strval((int) $indice + 1);
+                    })
+                    ->grid(2)
+                    ->live()
+                    ->required(),
             ])
             ->statePath('data')
             ->model($this->record);
+    }
+
+    public function actualizarCoordenadas($coordenadas)
+    {
+        // Asumiendo que tienes una propiedad llamada `Georeferenciacion` en tu componente
+        $this->form->Georeferenciacion = $coordenadas;
+        $this->save(); // O cualquier lógica para guardar las coordenadas actualizadas
     }
 
     public function save(): void

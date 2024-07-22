@@ -242,5 +242,5 @@ Route::get('/editar-propiedad/{propiedad}', function (Propiedad $propiedad) {
 })->name('editar-propiedad');
 
 // la ruta /mapa-propiedad espera recibir un id de propiedad
-Route::get('/mapa-propiedad/{id}', [MapaController::class, 'mapa'])->name('mapa-propiedad');
+Route::get('/mapa-propiedad/{propiedad}', [MapaController::class, 'mapa'])->name('mapa-propiedad');
 // Route::get('/mapa-propiedad', [MapaController::class, 'mapa'])->name('nuevaPropiedad');

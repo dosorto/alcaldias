@@ -14,14 +14,14 @@ class PropiedadSeeder extends Seeder
     public function run(): void
     {
 
-        /* Propiedad::create([
-             'ClaveCatastral' => 1,
-             'IdContribuyente' => 2,
-             'IdTipoPropiedad' => 1,
-             'IdBarrio' => 1,
-             'created_by' => 1,
-         ]);
- */
+        Propiedad::create([
+            'ClaveCatastral' => 1,
+            'IdContribuyente' => 2,
+            'IdTipoPropiedad' => 1,
+            'IdBarrio' => 1,
+            'created_by' => 1,
+        ]);
+
 
     }
 }
