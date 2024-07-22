@@ -14,8 +14,8 @@
 
         <style>
             #map {
-                height: 500px;
-                width: 800px;
+                height: 700px;
+                width: 1110px;
             }
         </style>
 
@@ -84,7 +84,7 @@
         function removeLastMarker(coordenadas) {
             var coordenasClaves = Object.keys(coordenadas);
             var cantidadCoordenadas = Object.keys(coordenadas).length;
-            if (markers.length > 1 && markers.length > cantidadCoordenadas) {
+            if (markers.length > 0 && markers.length > cantidadCoordenadas) {
                 // Eliminar el último marcador del mapa y de la lista de marcadores
                 var lastMarker = markers.pop();
                 map.removeLayer(lastMarker);

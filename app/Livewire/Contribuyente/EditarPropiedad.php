@@ -53,14 +53,16 @@ class EditarPropiedad extends Component implements HasForms
                     ->options(
                         Contribuyente::all()->pluck('primer_nombre', 'id')
                     )
-                    ->searchable(),
+                    ->searchable()
+                    ->required(),
 
                 Select::make('IdTipoPropiedad')
                     ->label('Tipo Propiedad')
                     ->options(
                         TipoPropiedad::all()->pluck('Nombre', 'id')
                     )
-                    ->searchable(['Nombre']),
+                    ->searchable(['Nombre'])
+                    ->required(),
 
                 Select::make('IdPais')
                     ->label('Pais')
@@ -151,7 +153,8 @@ class EditarPropiedad extends Component implements HasForms
                     )
                     ->live()
                     ->disabled(fn (Get $get) => $get('IdAldea') == null)
-                    ->selectablePlaceholder(false),
+                    ->selectablePlaceholder(false)
+                    ->required(),
 
                 TextInput::make('Direccion')
                     ->columnSpanFull()
@@ -211,7 +214,8 @@ class EditarPropiedad extends Component implements HasForms
                         return 'Punto ' . strval((int) $indice + 1);
                     })
                     ->grid(2)
-                    ->live(),
+                    ->live()
+                    ->required(),
             ])
             ->statePath('data')
             ->model($this->record);
