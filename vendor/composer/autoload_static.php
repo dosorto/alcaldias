@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
+class ComposerStaticInitc9c614937349e47592a52cd25314a375
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -344,13 +344,13 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
-            1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
         ),
         'Spatie\\Ignition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
-            1 => __DIR__ . '/..' . '/spatie/ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -632,6 +632,7 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Detallesuscripcion' => __DIR__ . '/../..' . '/app/Http/Controllers/Detallesuscripcion.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\MapaController' => __DIR__ . '/../..' . '/app/Http/Controllers/MapaController.php',
         'App\\Http\\Controllers\\Role\\PermissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Role/PermissionController.php',
         'App\\Http\\Controllers\\Role\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Role/RoleController.php',
         'App\\Http\\Controllers\\Sesioncaja' => __DIR__ . '/../..' . '/app/Http/Controllers/Sesioncaja.php',
@@ -8180,10 +8181,10 @@ class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc9c614937349e47592a52cd25314a375::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc9c614937349e47592a52cd25314a375::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitc9c614937349e47592a52cd25314a375::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitc9c614937349e47592a52cd25314a375::$classMap;
 
         }, null, ClassLoader::class);
     }
