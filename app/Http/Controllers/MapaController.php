@@ -21,6 +21,9 @@ class MapaController extends Controller
             ];
         });
 
+        return view('mapa', compact('coordenadas'));
         return view('mapa', compact('coordenadas', 'propiedad'));
     }
 }
+
+
