@@ -4,11 +4,8 @@
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => '87c47c720e41ab676514e4dc6531df2a9e8188d6',
-<<<<<<< HEAD
         'reference' => '73306cc8cb2728df51230de2878dd100938ad0e5',
-=======
         'reference' => 'ee4ef113fcb32107ad6f7ac28185367cecc51869',
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -535,11 +532,8 @@
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '87c47c720e41ab676514e4dc6531df2a9e8188d6',
-<<<<<<< HEAD
             'reference' => '73306cc8cb2728df51230de2878dd100938ad0e5',
-=======
             'reference' => 'ee4ef113fcb32107ad6f7ac28185367cecc51869',
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -912,15 +906,12 @@
             'dev_requirement' => true,
         ),
         'phpunit/phpunit' => array(
-<<<<<<< HEAD
             'pretty_version' => '10.5.28',
             'version' => '10.5.28.0',
             'reference' => 'ff7fb85cdf88131b83e721fb2a327b664dbed275',
-=======
             'pretty_version' => '10.5.27',
             'version' => '10.5.27.0',
             'reference' => '2425f713b2a5350568ccb1a2d3984841a23e83c5',
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
@@ -1261,15 +1252,12 @@
             'dev_requirement' => false,
         ),
         'spatie/error-solutions' => array(
-<<<<<<< HEAD
             'pretty_version' => '1.1.0',
             'version' => '1.1.0.0',
             'reference' => 'a014da18f2675ea15af0ba97f7e9aee59e13964f',
-=======
             'pretty_version' => '1.0.5',
             'version' => '1.0.5.0',
             'reference' => '4bb6c734dc992b2db3e26df1ef021c75d2218b13',
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
             'type' => 'library',
             'install_path' => __DIR__ . '/../spatie/error-solutions',
             'aliases' => array(),
