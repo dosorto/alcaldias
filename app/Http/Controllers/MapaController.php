@@ -24,3 +24,5 @@ class MapaController extends Controller
         return view('mapa', compact('coordenadas', 'propiedad'));
     }
 }
+
+

@@ -8,6 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @yield('css')
     <link rel="icon" href="{{ asset('assets/css/alcaldias.jpg') }}" type="image/x-icon" alt="32">
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
+    @filamentStyles
 </head>
 
 <body>
@@ -769,10 +776,10 @@
                                             <a href="{{ route('propiedad') }}"
                                                 class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
                                                 <span class="sr-only">Cobros</span>
-                                                <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
-                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="currentColor" viewBox="0 0 24 24">
-                                                </svg>
+                                                <svg class="w-4 h-4 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v13c0 .552.448 1 1 1h18c.552 0 1-.448 1-1V7l-10-5zm0 2.18l7 3.3V20H5V7.48l7-3.3zm1 5.82h-2v2h2v-2zm0 4h-2v2h2v-2zm-4-4H7v2h2v-2zm0 4H7v2h2v-2zm8-4h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                        </svg>
                                                 Propiedades
                                             </a>
                                         </li>
@@ -901,7 +908,9 @@
             });
         </script>
         @yield('js')
-
+        @livewire('notifications')
+        
+        @filamentScripts
         @livewireScripts()
 
 

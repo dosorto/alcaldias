@@ -24,7 +24,6 @@ class TipoPropiedad extends Component
     // variable para la busqueda
     public $search = '';
 
-
     // variables para la confirmacion de eliminacion
     public $confirmingItemDeletion;
 
@@ -37,7 +36,7 @@ class TipoPropiedad extends Component
         $documento = TipodePropiedad::where('Nombre', 'like', '%'.$this->search.'%')
             ->paginate(10);
 
-        return view('livewire.tipopropiedad.tipopropiedad', ['documentos' => $documento]);
+        return view('livewire.TipoPropiedad.TipoPropiedad', ['documentos' => $documento]);
     }
 
 
@@ -130,6 +129,5 @@ class TipoPropiedad extends Component
         $this->resetInputFields();
     }
 }
-
 
 

@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\MapaController;
 use App\Livewire\HistorialContribuyente;
 use App\Livewire\cobros;
 use App\Livewire\PerfilContribuyente;
 use Illuminate\Support\Facades\View;
 use App\Livewire\RoleManager;
+use App\Models\Propiedad;
 
 /*
 |--------------------------------------------------------------------------
@@ -231,3 +233,14 @@ Route::get('/graficas', function () {
     return view('graficas');
 })->name('graficas');
 
+Route::get('/nueva', function () {
+    return view('nuevaPropiedad');
+})->name('nuevaPropiedad');
+
+Route::get('/editar-propiedad/{propiedad}', function (Propiedad $propiedad) {
+    return view('edit-propiedad', ['propiedad' => $propiedad]);
+})->name('editar-propiedad');
+
+// la ruta /mapa-propiedad espera recibir un id de propiedad
+Route::get('/mapa-propiedad/{propiedad}', [MapaController::class, 'mapa'])->name('mapa-propiedad');
+// Route::get('/mapa-propiedad', [MapaController::class, 'mapa'])->name('nuevaPropiedad');

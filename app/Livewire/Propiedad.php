@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Contribuyente; 
 use App\Models\Barrio; 
+use App\Models\Departamento;
 use App\Models\Georeferenciacion; 
 use App\Models\TipoPropiedad; 
 
@@ -23,6 +24,7 @@ class Propiedad extends Component
     public $IdGeoreferencia;
     public $NombrePropietario;
     public $ClaveCatastral;
+    public $name;
 
     // Variables para los modales
     public $updateModal = false;
@@ -45,10 +47,11 @@ class Propiedad extends Component
         $Barrio=Barrio::all();
         $Georeferenciacion=Georeferenciacion::all();
         $TipoPropiedad=TipoPropiedad::all();
-        $propiedad = PropiedadModel::where('IdContribuyente', 'like', '%'.$this->search.'%')
-            ->paginate(10);
+        $propiedad= PropiedadModel::whereHas('contribuyente', function ($query) {
+            $query->where('identidad', 'like', '%' . $this->search . '%');
+        })->paginate(10);
 
-        return view('livewire.propiedad.propiedad', ['propiedades' => $propiedad, 'Contribuyentes'=> $Contribuyente, 'Barrios' =>$Barrio, 'Georeferenciacions' => $Georeferenciacion , 'TipoPropiedades' => $TipoPropiedad]);
+        return view('livewire.Propiedad.Propiedad', ['propiedades' => $propiedad, 'Contribuyentes'=> $Contribuyente, 'Barrios' =>$Barrio, 'Georeferenciacions' => $Georeferenciacion , 'TipoPropiedades' => $TipoPropiedad]);
     }
 
     // Funciones para manejar la eliminación de registros
@@ -137,18 +140,6 @@ class Propiedad extends Component
         $this->tipo_propiedad_id = $propiedad->tipo_propiedad_id;
         $this->georeferenciacion_id = $propiedad->georeferenciacion_id;
         $this->dispatch("open-edit");
-    }
-
-    public function openModalEdit($id)
-    {
-        $this->updateModal = true;
-        $propiedad = PropiedadModel::findOrFail($id);
-        $this->propiedad_id = $propiedad->id;
-        $this->ClaveCatastral = $propiedad->ClaveCatastral;
-        $this->IdContribuyente = $propiedad->IdContribuyente;
-        $this->IdTipoPropiedad = $propiedad->IdTipoPropiedad;
-        $this->IdGeoreferencia = $propiedad->IdGeoreferencia;
-        $this->IdBarrio = $propiedad->IdBarrio;
     }
 
     public function cancel()
