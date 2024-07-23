@@ -793,10 +793,7 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'App\\Livewire\\ConsultaTributaria' => __DIR__ . '/../..' . '/app/Livewire/ConsultaTributaria.php',
         'App\\Livewire\\Contribuyente\\CreateContribuyenteForm' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/CreateContribuyenteForm.php',
         'App\\Livewire\\Contribuyente\\EditarPropiedad' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/EditarPropiedad.php',
-<<<<<<< HEAD
         'App\\Livewire\\Contribuyente\\UpdateContribuyenteForm' => __DIR__ . '/../..' . '/app/Livewire/Contribuyente/UpdateContribuyenteForm.php',
-=======
->>>>>>> dayanni
         'App\\Livewire\\Contribuyentes' => __DIR__ . '/../..' . '/app/Livewire/Contribuyentes.php',
         'App\\Livewire\\Departamentos' => __DIR__ . '/../..' . '/app/Livewire/Departamentos.php',
         'App\\Livewire\\Georeferenciacion\\Georreferenciacion' => __DIR__ . '/../..' . '/app/Livewire/Georeferenciacion/Georreferenciacion.php',

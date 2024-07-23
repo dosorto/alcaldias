@@ -60,10 +60,7 @@ return array(
     'App\\Livewire\\ConsultaTributaria' => $baseDir . '/app/Livewire/ConsultaTributaria.php',
     'App\\Livewire\\Contribuyente\\CreateContribuyenteForm' => $baseDir . '/app/Livewire/Contribuyente/CreateContribuyenteForm.php',
     'App\\Livewire\\Contribuyente\\EditarPropiedad' => $baseDir . '/app/Livewire/Contribuyente/EditarPropiedad.php',
-<<<<<<< HEAD
     'App\\Livewire\\Contribuyente\\UpdateContribuyenteForm' => $baseDir . '/app/Livewire/Contribuyente/UpdateContribuyenteForm.php',
-=======
->>>>>>> dayanni
     'App\\Livewire\\Contribuyentes' => $baseDir . '/app/Livewire/Contribuyentes.php',
     'App\\Livewire\\Departamentos' => $baseDir . '/app/Livewire/Departamentos.php',
     'App\\Livewire\\Georeferenciacion\\Georreferenciacion' => $baseDir . '/app/Livewire/Georeferenciacion/Georreferenciacion.php',
