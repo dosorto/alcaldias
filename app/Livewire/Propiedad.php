@@ -47,7 +47,7 @@ class Propiedad extends Component
         $Barrio=Barrio::all();
         $Georeferenciacion=Georeferenciacion::all();
         $TipoPropiedad=TipoPropiedad::all();
-        $propiedad = PropiedadModel::whereHas('contribuyente', function ($query) {
+        $propiedad= PropiedadModel::whereHas('contribuyente', function ($query) {
             $query->where('identidad', 'like', '%' . $this->search . '%');
         })->paginate(10);
 

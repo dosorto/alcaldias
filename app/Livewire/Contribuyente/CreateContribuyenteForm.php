@@ -219,6 +219,7 @@ class CreateContribuyenteForm extends Component implements HasForms
             ->send();
 
         $this->js('location.reload();');
+        
     }
 
     public function render(): View
