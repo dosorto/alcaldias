@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
         <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
 
@@ -119,11 +120,6 @@
             // actualizar la ubicacion del marcador por la ultima coordenada y actualizar el mapa
         });
 
-            var marker = new google.maps.Marker({
-                position: coord,
-                map: map,
-                draggable: true
-            });
 
         window.addEventListener('actualizarCoordenadas', function(e) {
 
