@@ -787,7 +787,7 @@
                               
                         
                                        
-                                        <!-- Prueba Georreferenciacion  -->
+                                        <!-- Prueba Georreferenciacion  
                                         <li>
                                             <a href='/Georreferenciacion'
                                                 class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
@@ -825,12 +825,13 @@
                                             </a>
 
                                         </li>
+                                         Prueva Georeferencia fin -->
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Prueva Georeferencia fin -->
+         
             <li>
                 <button id="theme-toggle" type="button"
                     class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
