@@ -48,11 +48,33 @@ class EditarPropiedad extends Component implements HasForms
                     ->label('Clave Catastral')
                     ->required(),
 
-                Select::make('IdContribuyente')
+                    Select::make('IdContribuyente')
                     ->label('Contribuyente')
                     ->options(
-                        Contribuyente::all()->pluck('primer_nombre', 'id')
+                        Contribuyente::all()->map(function ($contribuyente) {
+                            return [
+                                'id' => $contribuyente->id,
+                                'nombre_completo' => $contribuyente->primer_nombre . ' ' 
+                                . $contribuyente->segundo_nombre . ' ' 
+                                . $contribuyente->primer_apellido. ' ' 
+                                . $contribuyente->segundo_apellido,
+                            ];
+                        })->pluck('nombre_completo', 'id')
+                        
                     )
+
+                    ->getSearchResultsUsing(function (string $search): array {
+                        return Contribuyente::where('identidad', 'like', "%{$search}%")
+                            ->limit(50)
+                            ->get()
+                            ->mapWithKeys(function ($contribuyente) {
+                    
+                                $fullName = "{$contribuyente->primer_nombre} {$contribuyente->segundo_nombre} {$contribuyente->primer_apellido} {$contribuyente->segundo_apellido}";
+                                return [$contribuyente->id => $fullName];
+                            })
+                            ->toArray();
+                    })
+                    
                     ->searchable()
                     ->required(),
 
