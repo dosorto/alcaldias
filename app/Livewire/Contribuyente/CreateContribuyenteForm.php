@@ -68,11 +68,14 @@ class CreateContribuyenteForm extends Component implements HasForms
                         })->pluck('nombre_completo', 'id')
                     )
                     ->getSearchResultsUsing(function (string $search): array {
-                        return Contribuyente::where('primer_nombre', 'like', "%{$search}%")
-                            ->orWhere('identidad', 'like', "%{$search}%")
+                        return Contribuyente::where('identidad', 'like', "%{$search}%")
                             ->limit(50)
                             ->get()
-                            ->pluck('primer_nombre', 'id')
+                            ->mapWithKeys(function ($contribuyente) {
+                    
+                                $fullName = "{$contribuyente->primer_nombre} {$contribuyente->segundo_nombre} {$contribuyente->primer_apellido} {$contribuyente->segundo_apellido}";
+                                return [$contribuyente->id => $fullName];
+                            })
                             ->toArray();
                     })
                     ->getOptionLabelUsing(function ($value): ?string {

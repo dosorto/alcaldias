@@ -10,6 +10,8 @@ use App\Models\Barrio;
 use App\Models\Departamento;
 use App\Models\Georeferenciacion; 
 use App\Models\TipoPropiedad; 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PropiedadesExport;
 
 class Propiedad extends Component
 {
@@ -172,5 +174,10 @@ class Propiedad extends Component
 
         session()->flash('message', 'Propiedad actualizada exitosamente.');
         $this->resetInputFields();
+    }
+
+    public function export(){
+        return Excel::download(new PropiedadesExport,'Propiedades.xlsx');
+
     }
 }

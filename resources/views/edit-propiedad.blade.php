@@ -192,6 +192,9 @@
                 // actualizar el poligono con las coordenadas
                 polygon.setLatLngs(Object.values(coordenadas).map(coordenada => [coordenada.latitud, coordenada
                     .longitud]));
+                
+                // Ajustar la vista del mapa para que incluya todo el polígono
+                map.fitBounds(polygon.getBounds());
 
             };
 
@@ -199,6 +202,11 @@
 
         </script>
         
+        <div>
+    
+</div>
+    
+
         <br>
         <br>
         <br>
