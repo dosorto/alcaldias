@@ -149,15 +149,14 @@ Route::get('/pago-servicio', function () {
 });
 
 
-Route::get('/TipoPropiedad', function () {
+/*Route::get('/TipoPropiedad', function () {
     return View::make('tipo-propiedad');
-})
-->name('tipo-propiedad');
+})->name('tipo-propiedad')->middleware('auth');
 
 Route::get('/Propiedad', function () {
     return View::make('propiedad');
-})
-->name('propiedad');
+})->name('propiedad')->middleware('auth');*/
+
 
 
 Route::get('/detalle-suscripcion/{id}', function ($id) {
@@ -233,14 +232,33 @@ Route::get('/graficas', function () {
     return view('graficas');
 })->name('graficas');
 
-Route::get('/nueva', function () {
+/*Route::get('/nueva', function () {
     return view('nuevaPropiedad');
-})->name('nuevaPropiedad');
+})->name('nuevaPropiedad')->middleware('auth');
 
 Route::get('/editar-propiedad/{propiedad}', function (Propiedad $propiedad) {
     return view('edit-propiedad', ['propiedad' => $propiedad]);
-})->name('editar-propiedad');
+})->name('editar-propiedad')->middleware('auth');
 
-// la ruta /mapa-propiedad espera recibir un id de propiedad
-Route::get('/mapa-propiedad/{propiedad}', [MapaController::class, 'mapa'])->name('mapa-propiedad');
-// Route::get('/mapa-propiedad', [MapaController::class, 'mapa'])->name('nuevaPropiedad');
+Route::get('/mapa-propiedad/{propiedad}', [MapaController::class, 'mapa'])->name('mapa-propiedad')->middleware('auth');*/
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/nueva', function () {
+        return view('nuevaPropiedad');
+    })->name('nuevaPropiedad');
+
+    Route::get('/editar-propiedad/{propiedad}', function (Propiedad $propiedad) {
+        return view('edit-propiedad', ['propiedad' => $propiedad]);
+    })->name('editar-propiedad');
+
+    Route::get('/mapa-propiedad/{propiedad}', [MapaController::class, 'mapa'])->name('mapa-propiedad');
+
+    Route::get('/TipoPropiedad', function () {
+        return View::make('tipo-propiedad');
+    })->name('tipo-propiedad');
+
+    Route::get('/Propiedad', function () {
+        return View::make('propiedad');
+    })->name('propiedad');
+});
+

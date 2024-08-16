@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
+    <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md dark:bg-gray-900">
+        <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -184,6 +187,8 @@
                 longitud: markers[0].getLatLng().lng
             };
         };
+
+        //map.fitBounds(polygon.getBounds());
 
         window.onload = iniciar;
 
