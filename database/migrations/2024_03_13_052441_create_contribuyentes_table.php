@@ -29,6 +29,8 @@ return new class extends Migration
             $table->foreign('tipo_documento_id')->references('id')->on('tipo_documentos');
             $table->unsignedBigInteger('barrio_id');
             $table->foreign('barrio_id')->references('id')->on('barrios');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('profecion_id');
             $table->foreign('profecion_id')->references('id')->on('profesion_oficios');
             $table->integer("created_by");
@@ -46,4 +48,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('contribuyentes');
     }
+
+    
 };

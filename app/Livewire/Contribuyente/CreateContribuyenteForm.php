@@ -210,8 +210,15 @@ class CreateContribuyenteForm extends Component implements HasForms
     {
         $data = $this->form->getState();
 
+        // Validar la unicidad de ClaveCatastral
+        $this->validate([
+        'data.ClaveCatastral' => 'required|numeric|unique:propiedads,ClaveCatastral',
+    ], [
+        'data.ClaveCatastral.unique' => 'Error: Clave Catastral ya está registrada.',
+    ]);
+
         
-        $record = Propiedad::create($data);
+    $record = Propiedad::create($data);
 
         $this->form->model($record)->saveRelationships();
         
@@ -221,12 +228,14 @@ class CreateContribuyenteForm extends Component implements HasForms
             ->success()
             ->send();
 
-        $this->js('location.reload();');
+       
+        $this->redirect(route('propiedad'));
         
     }
 
-    public function render(): View
+   /* public function render(): View
     {
         return view('livewire.contribuyente.create-contribuyente-form');
     }
+   */     
 }
