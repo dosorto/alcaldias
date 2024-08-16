@@ -433,17 +433,6 @@
             "time": "2024-07-12T11:35:52+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "dflydev/dot-access-data",
-            "version": "v3.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dflydev/dflydev-dot-access-data.git",
-                "reference": "a23a2bf4f31d3518f3ecb38660c95715dfead60f"
-            },
-            "dist": {
-                "type": "zip",
-=======
             "name": "danharrin/date-format-converter",
             "version": "v0.3.1",
             "source": {
@@ -504,7 +493,6 @@
             },
             "dist": {
                 "type": "zip",
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
                 "url": "https://api.github.com/repos/dflydev/dflydev-dot-access-data/zipball/a23a2bf4f31d3518f3ecb38660c95715dfead60f",
                 "reference": "a23a2bf4f31d3518f3ecb38660c95715dfead60f",
                 "shasum": ""
@@ -569,8 +557,6 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.3"
             },
             "time": "2024-07-08T12:26:09+00:00"
-<<<<<<< HEAD
-=======
         },
         {
             "name": "doctrine/cache",
@@ -915,7 +901,6 @@
                 }
             ],
             "time": "2024-05-22T20:47:39+00:00"
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
         },
         {
             "name": "doctrine/inflector",
@@ -9153,18 +9138,6 @@
         },
         {
             "name": "phpunit/phpunit",
-<<<<<<< HEAD
-            "version": "10.5.28",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "ff7fb85cdf88131b83e721fb2a327b664dbed275"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ff7fb85cdf88131b83e721fb2a327b664dbed275",
-                "reference": "ff7fb85cdf88131b83e721fb2a327b664dbed275",
-=======
             "version": "10.5.27",
             "source": {
                 "type": "git",
@@ -9175,7 +9148,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2425f713b2a5350568ccb1a2d3984841a23e83c5",
                 "reference": "2425f713b2a5350568ccb1a2d3984841a23e83c5",
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
                 "shasum": ""
             },
             "require": {
@@ -9247,11 +9219,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-<<<<<<< HEAD
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.28"
-=======
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.27"
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
             },
             "funding": [
                 {
@@ -9267,11 +9235,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2024-07-18T14:54:16+00:00"
-=======
             "time": "2024-07-10T11:48:06+00:00"
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
         },
         {
             "name": "sebastian/cli-parser",
@@ -10254,18 +10218,6 @@
         },
         {
             "name": "spatie/error-solutions",
-<<<<<<< HEAD
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/error-solutions.git",
-                "reference": "a014da18f2675ea15af0ba97f7e9aee59e13964f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/error-solutions/zipball/a014da18f2675ea15af0ba97f7e9aee59e13964f",
-                "reference": "a014da18f2675ea15af0ba97f7e9aee59e13964f",
-=======
             "version": "1.0.5",
             "source": {
                 "type": "git",
@@ -10276,7 +10228,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/error-solutions/zipball/4bb6c734dc992b2db3e26df1ef021c75d2218b13",
                 "reference": "4bb6c734dc992b2db3e26df1ef021c75d2218b13",
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
                 "shasum": ""
             },
             "require": {
@@ -10329,11 +10280,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/error-solutions/issues",
-<<<<<<< HEAD
-                "source": "https://github.com/spatie/error-solutions/tree/1.1.0"
-=======
                 "source": "https://github.com/spatie/error-solutions/tree/1.0.5"
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
             },
             "funding": [
                 {
@@ -10341,11 +10288,7 @@
                     "type": "github"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2024-07-22T08:18:22+00:00"
-=======
             "time": "2024-07-09T12:13:32+00:00"
->>>>>>> 29fe36029f7b0e097dcd2f56c6afd911100ea60c
         },
         {
             "name": "spatie/flare-client-php",
