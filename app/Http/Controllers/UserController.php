@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends ApiController
 {
@@ -55,13 +56,17 @@ class UserController extends ApiController
                 return $this->errorResponse('Falta campos en la petición', ['error'=>'Validadción'], 403);
             }
             //resvisar 
-            User::create([
+            DB::beginTransaction();
+            $user = User::create([
                 'name'=>$request['name'],
                 'email'=>$request['email'],
                 'password'=>$request['password'], ]);
-            // Contribuyente::create([
+            Contribuyente::create([
+                'user_id' =>$user->id,
 
-            // ])
+            ]);
+            DB::commit();
+            
             
             return $this->successResponse('usuario creado', $request );
 

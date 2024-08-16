@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('propiedads', function (Blueprint $table) {
             $table->id();
-            $table->integer("ClaveCatastral");
+            $table->integer("ClaveCatastral")->unique();
             $table->unsignedBigInteger('IdContribuyente');
             $table->unsignedBigInteger('IdTipoPropiedad');
             $table->unsignedBigInteger('IdBarrio');

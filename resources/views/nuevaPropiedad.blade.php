@@ -188,6 +188,8 @@
             };
         };
 
+        //map.fitBounds(polygon.getBounds());
+
         window.onload = iniciar;
 
     </script>
