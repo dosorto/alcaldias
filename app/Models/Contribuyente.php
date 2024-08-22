@@ -27,6 +27,7 @@ class Contribuyente extends Model
         'tipo_documento_id',
         'barrio_id',
         'profecion_id',
+        'user_id'
     ];
 
     public function Tipo_documento()
