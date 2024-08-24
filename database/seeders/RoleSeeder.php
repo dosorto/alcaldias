@@ -19,11 +19,11 @@ class RoleSeeder extends Seeder
         $role2 = Role::create(['name' => 'Contador', 'description' => 'Rol para el usuario contador']);
         $role3 = Role::create(['name' => 'Secretarial', 'description' => 'Rol para el usuario secretarial']);
         $role4 = Role::create(['name' => 'Usuario', 'description' => 'Rol para el usuario']);
-        
+        $role5 = Role::create(['name' => 'Catastro', 'description' => 'Rol para catastro']);
        
 
         //Permisos para visualizar
-        Permission::create(['name' => 'home', 'description' => 'Permiso para poder visualizar el inicio'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'home', 'description' => 'Permiso para poder visualizar el inicio'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
 
         //Permisos para el apartado de rol
         Permission::create(['name' => 'Listar roles', 'description' => 'Permiso para ver la lista de roles'])->assignRole($role1);

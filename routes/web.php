@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\MapaController;
 use App\Livewire\HistorialContribuyente;
 use App\Livewire\cobros;
 use App\Livewire\PerfilContribuyente;
 use Illuminate\Support\Facades\View;
 use App\Livewire\RoleManager;
+use App\Models\Propiedad;
 
 /*
 |--------------------------------------------------------------------------
@@ -146,9 +148,24 @@ Route::get('/pago-servicio', function () {
     return View::make('pago-servicio');
 });
 
+
+/*Route::get('/TipoPropiedad', function () {
+    return View::make('tipo-propiedad');
+})->name('tipo-propiedad')->middleware('auth');
+
+Route::get('/Propiedad', function () {
+    return View::make('propiedad');
+})->name('propiedad')->middleware('auth');*/
+
+
+
 Route::get('/detalle-suscripcion/{id}', function ($id) {
     return view('detalle-suscripcion', ['id' => $id]);
 })->name('contribuyente.show');
+
+Route::get('/Georreferenciacion', function () {
+    return View::make('georreferenciaciones');
+})->name('georreferenciacion');
 
 
 // Route::get('/detalle-suscripcion/{id}', [\App\Http\Controllers\Detallesuscripcion::class, 'show'])->name('contribuyente.show');
@@ -214,3 +231,34 @@ Route::get('/cierre-modal', function () {
 Route::get('/graficas', function () {
     return view('graficas');
 })->name('graficas');
+
+/*Route::get('/nueva', function () {
+    return view('nuevaPropiedad');
+})->name('nuevaPropiedad')->middleware('auth');
+
+Route::get('/editar-propiedad/{propiedad}', function (Propiedad $propiedad) {
+    return view('edit-propiedad', ['propiedad' => $propiedad]);
+})->name('editar-propiedad')->middleware('auth');
+
+Route::get('/mapa-propiedad/{propiedad}', [MapaController::class, 'mapa'])->name('mapa-propiedad')->middleware('auth');*/
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/nueva', function () {
+        return view('nuevaPropiedad');
+    })->name('nuevaPropiedad');
+
+    Route::get('/editar-propiedad/{propiedad}', function (Propiedad $propiedad) {
+        return view('edit-propiedad', ['propiedad' => $propiedad]);
+    })->name('editar-propiedad');
+
+    Route::get('/mapa-propiedad/{propiedad}', [MapaController::class, 'mapa'])->name('mapa-propiedad');
+
+    Route::get('/TipoPropiedad', function () {
+        return View::make('tipo-propiedad');
+    })->name('tipo-propiedad');
+
+    Route::get('/Propiedad', function () {
+        return View::make('propiedad');
+    })->name('propiedad');
+});
+

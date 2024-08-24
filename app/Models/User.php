@@ -67,4 +67,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cobro::class, 'usuario_id');
     }
+    
+    public function Contribuyente()
+    {
+        return $this->hasOne(Contribuyente::class);
+    }
+
 }

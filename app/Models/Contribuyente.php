@@ -27,6 +27,8 @@ class Contribuyente extends Model
         'tipo_documento_id',
         'barrio_id',
         'profecion_id',
+        'user_id',
+        'created_by',
     ];
 
     public function Tipo_documento()
@@ -52,5 +54,15 @@ class Contribuyente extends Model
     public function pagoServicios()
     {
         return $this->hasMany(PagoServicios::class, 'contribuyente_id');
+    }
+
+    public function Propiedad()
+    {
+        return $this->hasMany(Propiedad::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');  
     }
 }

@@ -36,7 +36,11 @@ class DatabaseSeeder extends Seeder
             ServicioSeeder::class,
             AnioSeeder::class,
             PeriodoSeeder::class,
-            InformacionSeeder::class
+            InformacionSeeder::class,
+            GeoreferenciacionSeeder::class,
+            TipoPropiedadSeeder::class,
+            PropiedadSeeder::class
+
 
         ]);
 
@@ -44,6 +48,7 @@ class DatabaseSeeder extends Seeder
         $role2 = Role::find(2);
         $role3 = Role::find(3);
         $role4 = Role::find(4);
+        $role5 = Role::find(5);
 
         User::factory()->create([
         'name' => 'Admin',
@@ -102,6 +107,13 @@ class DatabaseSeeder extends Seeder
         'password' => 'isaac1234',
         'img' =>  'images/usuario.png'
         ])->assignRole($role4);
+
+        User::factory()->create([
+            'name' => 'Catastro',
+            'email' => 'catastro@gmail.com',
+            'password' => 'catastro1234',
+            'img' =>  ''
+            ])->assignRole($role5);
 
         //User::factory()->count(50)->create();
     }
