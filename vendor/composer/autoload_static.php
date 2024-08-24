@@ -4,11 +4,8 @@
 
 namespace Composer\Autoload;
 
-<<<<<<< HEAD
-class ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5
-=======
 class ComposerStaticInitc9c614937349e47592a52cd25314a375
->>>>>>> elvis
+
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -21,19 +18,6 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
-<<<<<<< HEAD
-        '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
-        '47e1160838b5e5a10346ac4084b58c23' => __DIR__ . '/..' . '/laravel/prompts/src/helpers.php',
-        '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
-        '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-=======
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '29ffe97919493792170d47eb03a68da9' => __DIR__ . '/..' . '/blade-ui-kit/blade-icons/src/helpers.php',
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
@@ -43,7 +27,6 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '47e1160838b5e5a10346ac4084b58c23' => __DIR__ . '/..' . '/laravel/prompts/src/helpers.php',
->>>>>>> elvis
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
@@ -127,10 +110,7 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
             'Spatie\\Ignition\\' => 16,
             'Spatie\\FlareClient\\' => 19,
             'Spatie\\ErrorSolutions\\' => 22,
-<<<<<<< HEAD
-=======
             'Spatie\\Color\\' => 13,
->>>>>>> elvis
             'Spatie\\Backtrace\\' => 17,
         ),
         'R' => 
@@ -410,13 +390,10 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         array (
             0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
             1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
-<<<<<<< HEAD
-=======
         ),
         'Spatie\\Invade\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/invade/src',
->>>>>>> elvis
         ),
         'Spatie\\Ignition\\' => 
         array (
@@ -431,13 +408,10 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         array (
             0 => __DIR__ . '/..' . '/spatie/error-solutions/src',
         ),
-<<<<<<< HEAD
-=======
         'Spatie\\Color\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/color/src',
         ),
->>>>>>> elvis
         'Spatie\\Backtrace\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/backtrace/src',
@@ -766,15 +740,12 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
     );
 
     public static $classMap = array (
-<<<<<<< HEAD
-=======
         'AnourValar\\EloquentSerialize\\Facades\\EloquentSerializeFacade' => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src/Facades/EloquentSerializeFacade.php',
         'AnourValar\\EloquentSerialize\\Grammars\\EloquentBuilderGrammar' => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src/Grammars/EloquentBuilderGrammar.php',
         'AnourValar\\EloquentSerialize\\Grammars\\ModelGrammar' => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src/Grammars/ModelGrammar.php',
         'AnourValar\\EloquentSerialize\\Grammars\\QueryBuilderGrammar' => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src/Grammars/QueryBuilderGrammar.php',
         'AnourValar\\EloquentSerialize\\Package' => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src/Package.php',
         'AnourValar\\EloquentSerialize\\Service' => __DIR__ . '/..' . '/anourvalar/eloquent-serialize/src/Service.php',
->>>>>>> elvis
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Exports\\AldeasExport' => __DIR__ . '/../..' . '/app/Exports/AldeasExport.php',
@@ -782,10 +753,7 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'App\\Exports\\ContribuyenteExport' => __DIR__ . '/../..' . '/app/Exports/ContribuyenteExport.php',
         'App\\Exports\\DepartamentosExport' => __DIR__ . '/../..' . '/app/Exports/DepartamentosExport.php',
         'App\\Exports\\NivelesExport' => __DIR__ . '/../..' . '/app/Exports/NivelesExport.php',
-<<<<<<< HEAD
-=======
         'App\\Exports\\PropiedadesExport' => __DIR__ . '/../..' . '/app/Exports/PropiedadesExport.php',
->>>>>>> elvis
         'App\\Exports\\RolesExport' => __DIR__ . '/../..' . '/app/Exports/RolesExport.php',
         'App\\Exports\\ServiciosExport' => __DIR__ . '/../..' . '/app/Exports/ServiciosExport.php',
         'App\\Exports\\TiposExport' => __DIR__ . '/../..' . '/app/Exports/TiposExport.php',
@@ -794,10 +762,7 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'App\\Exports\\municipiosExport' => __DIR__ . '/../..' . '/app/Exports/municipiosExport.php',
         'App\\Exports\\paisesExport' => __DIR__ . '/../..' . '/app/Exports/paisesExport.php',
         'App\\Exports\\profeciones_oficiosExport' => __DIR__ . '/../..' . '/app/Exports/profeciones_oficiosExport.php',
-<<<<<<< HEAD
-=======
         'App\\Forms\\Components\\Map' => __DIR__ . '/../..' . '/app/Forms/Components/Map.php',
->>>>>>> elvis
         'App\\Http\\Controllers\\AdminUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminUserController.php',
         'App\\Http\\Controllers\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
@@ -4608,8 +4573,6 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'League\\Config\\MutableConfigurationInterface' => __DIR__ . '/..' . '/league/config/src/MutableConfigurationInterface.php',
         'League\\Config\\ReadOnlyConfiguration' => __DIR__ . '/..' . '/league/config/src/ReadOnlyConfiguration.php',
         'League\\Config\\SchemaBuilderInterface' => __DIR__ . '/..' . '/league/config/src/SchemaBuilderInterface.php',
-<<<<<<< HEAD
-=======
         'League\\Csv\\AbstractCsv' => __DIR__ . '/..' . '/league/csv/src/AbstractCsv.php',
         'League\\Csv\\ByteSequence' => __DIR__ . '/..' . '/league/csv/src/ByteSequence.php',
         'League\\Csv\\CannotInsertRecord' => __DIR__ . '/..' . '/league/csv/src/CannotInsertRecord.php',
@@ -4635,7 +4598,6 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'League\\Csv\\UnavailableStream' => __DIR__ . '/..' . '/league/csv/src/UnavailableStream.php',
         'League\\Csv\\Writer' => __DIR__ . '/..' . '/league/csv/src/Writer.php',
         'League\\Csv\\XMLConverter' => __DIR__ . '/..' . '/league/csv/src/XMLConverter.php',
->>>>>>> elvis
         'League\\Flysystem\\CalculateChecksumFromStream' => __DIR__ . '/..' . '/league/flysystem/src/CalculateChecksumFromStream.php',
         'League\\Flysystem\\ChecksumAlgoIsNotSupported' => __DIR__ . '/..' . '/league/flysystem/src/ChecksumAlgoIsNotSupported.php',
         'League\\Flysystem\\ChecksumProvider' => __DIR__ . '/..' . '/league/flysystem/src/ChecksumProvider.php',
@@ -4701,8 +4663,6 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
-<<<<<<< HEAD
-=======
         'League\\Uri\\BaseUri' => __DIR__ . '/..' . '/league/uri/BaseUri.php',
         'League\\Uri\\Contracts\\AuthorityInterface' => __DIR__ . '/..' . '/league/uri-interfaces/Contracts/AuthorityInterface.php',
         'League\\Uri\\Contracts\\DataPathInterface' => __DIR__ . '/..' . '/league/uri-interfaces/Contracts/DataPathInterface.php',
@@ -4749,7 +4709,6 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'League\\Uri\\UriTemplate\\TemplateCanNotBeExpanded' => __DIR__ . '/..' . '/league/uri/UriTemplate/TemplateCanNotBeExpanded.php',
         'League\\Uri\\UriTemplate\\VarSpecifier' => __DIR__ . '/..' . '/league/uri/UriTemplate/VarSpecifier.php',
         'League\\Uri\\UriTemplate\\VariableBag' => __DIR__ . '/..' . '/league/uri/UriTemplate/VariableBag.php',
->>>>>>> elvis
         'Livewire\\Attribute' => __DIR__ . '/..' . '/livewire/livewire/src/Attribute.php',
         'Livewire\\Attributes\\Computed' => __DIR__ . '/..' . '/livewire/livewire/src/Attributes/Computed.php',
         'Livewire\\Attributes\\Isolate' => __DIR__ . '/..' . '/livewire/livewire/src/Attributes/Isolate.php',
@@ -8102,8 +8061,6 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'Spatie\\Backtrace\\CodeSnippets\\NullSnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/NullSnippetProvider.php',
         'Spatie\\Backtrace\\CodeSnippets\\SnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/SnippetProvider.php',
         'Spatie\\Backtrace\\Frame' => __DIR__ . '/..' . '/spatie/backtrace/src/Frame.php',
-<<<<<<< HEAD
-=======
         'Spatie\\Color\\CIELab' => __DIR__ . '/..' . '/spatie/color/src/CIELab.php',
         'Spatie\\Color\\Cmyk' => __DIR__ . '/..' . '/spatie/color/src/Cmyk.php',
         'Spatie\\Color\\Color' => __DIR__ . '/..' . '/spatie/color/src/Color.php',
@@ -8120,7 +8077,6 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'Spatie\\Color\\Rgba' => __DIR__ . '/..' . '/spatie/color/src/Rgba.php',
         'Spatie\\Color\\Validate' => __DIR__ . '/..' . '/spatie/color/src/Validate.php',
         'Spatie\\Color\\Xyz' => __DIR__ . '/..' . '/spatie/color/src/Xyz.php',
->>>>>>> elvis
         'Spatie\\ErrorSolutions\\Contracts\\BaseSolution' => __DIR__ . '/..' . '/spatie/error-solutions/src/Contracts/BaseSolution.php',
         'Spatie\\ErrorSolutions\\Contracts\\HasSolutionsForThrowable' => __DIR__ . '/..' . '/spatie/error-solutions/src/Contracts/HasSolutionsForThrowable.php',
         'Spatie\\ErrorSolutions\\Contracts\\ProvidesSolution' => __DIR__ . '/..' . '/spatie/error-solutions/src/Contracts/ProvidesSolution.php',
@@ -8248,11 +8204,8 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'Spatie\\Ignition\\Solutions\\SolutionTransformer' => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition/Solutions/SolutionTransformer.php',
         'Spatie\\Ignition\\Solutions\\SuggestCorrectVariableNameSolution' => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition/Solutions/SuggestCorrectVariableNameSolution.php',
         'Spatie\\Ignition\\Solutions\\SuggestImportSolution' => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition/Solutions/SuggestImportSolution.php',
-<<<<<<< HEAD
-=======
         'Spatie\\Invade\\Invader' => __DIR__ . '/..' . '/spatie/invade/src/Invader.php',
         'Spatie\\Invade\\StaticInvader' => __DIR__ . '/..' . '/spatie/invade/src/StaticInvader.php',
->>>>>>> elvis
         'Spatie\\LaravelIgnition\\ArgumentReducers\\CollectionArgumentReducer' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/ArgumentReducers/CollectionArgumentReducer.php',
         'Spatie\\LaravelIgnition\\ArgumentReducers\\ModelArgumentReducer' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/ArgumentReducers/ModelArgumentReducer.php',
         'Spatie\\LaravelIgnition\\Commands\\SolutionMakeCommand' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Commands/SolutionMakeCommand.php',
@@ -8332,12 +8285,9 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
         'Spatie\\LaravelIgnition\\Solutions\\SuggestUsingMariadbDatabaseSolution' => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition/Solutions/SuggestUsingMariadbDatabaseSolution.php',
         'Spatie\\LaravelIgnition\\Solutions\\SuggestUsingMysql8DatabaseSolution' => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition/Solutions/SuggestUsingMysql8DatabaseSolution.php',
         'Spatie\\LaravelIgnition\\Solutions\\UseDefaultValetDbCredentialsSolution' => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition/Solutions/UseDefaultValetDbCredentialsSolution.php',
-<<<<<<< HEAD
-=======
         'Spatie\\LaravelIgnition\\Support\\Composer\\Composer' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/Composer/Composer.php',
         'Spatie\\LaravelIgnition\\Support\\Composer\\ComposerClassMap' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/Composer/ComposerClassMap.php',
         'Spatie\\LaravelIgnition\\Support\\Composer\\FakeComposer' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/Composer/FakeComposer.php',
->>>>>>> elvis
         'Spatie\\LaravelIgnition\\Support\\FlareLogHandler' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/FlareLogHandler.php',
         'Spatie\\LaravelIgnition\\Support\\LaravelDocumentationLinkFinder' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/LaravelDocumentationLinkFinder.php',
         'Spatie\\LaravelIgnition\\Support\\LaravelVersion' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/LaravelVersion.php',
@@ -9467,17 +9417,10 @@ class ComposerStaticInitc9c614937349e47592a52cd25314a375
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-<<<<<<< HEAD
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5ce761181bdabdf57da9e166e5c034e5::$classMap;
-=======
             $loader->prefixLengthsPsr4 = ComposerStaticInitc9c614937349e47592a52cd25314a375::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitc9c614937349e47592a52cd25314a375::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitc9c614937349e47592a52cd25314a375::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitc9c614937349e47592a52cd25314a375::$classMap;
->>>>>>> elvis
 
         }, null, ClassLoader::class);
     }
