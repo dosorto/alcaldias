@@ -19,10 +19,7 @@ return array(
     'App\\Exports\\ContribuyenteExport' => $baseDir . '/app/Exports/ContribuyenteExport.php',
     'App\\Exports\\DepartamentosExport' => $baseDir . '/app/Exports/DepartamentosExport.php',
     'App\\Exports\\NivelesExport' => $baseDir . '/app/Exports/NivelesExport.php',
-<<<<<<< HEAD
-=======
     'App\\Exports\\PropiedadesExport' => $baseDir . '/app/Exports/PropiedadesExport.php',
->>>>>>> elvis
     'App\\Exports\\RolesExport' => $baseDir . '/app/Exports/RolesExport.php',
     'App\\Exports\\ServiciosExport' => $baseDir . '/app/Exports/ServiciosExport.php',
     'App\\Exports\\TiposExport' => $baseDir . '/app/Exports/TiposExport.php',
@@ -31,10 +28,7 @@ return array(
     'App\\Exports\\municipiosExport' => $baseDir . '/app/Exports/municipiosExport.php',
     'App\\Exports\\paisesExport' => $baseDir . '/app/Exports/paisesExport.php',
     'App\\Exports\\profeciones_oficiosExport' => $baseDir . '/app/Exports/profeciones_oficiosExport.php',
-<<<<<<< HEAD
-=======
     'App\\Forms\\Components\\Map' => $baseDir . '/app/Forms/Components/Map.php',
->>>>>>> elvis
     'App\\Http\\Controllers\\AdminUserController' => $baseDir . '/app/Http/Controllers/AdminUserController.php',
     'App\\Http\\Controllers\\ApiController' => $baseDir . '/app/Http/Controllers/ApiController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
@@ -138,10 +132,7 @@ return array(
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
-<<<<<<< HEAD
-=======
     'App\\Providers\\Filament\\AdminPanelProvider' => $baseDir . '/app/Providers/Filament/AdminPanelProvider.php',
->>>>>>> elvis
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\View\\Components\\NombreDelComponente' => $baseDir . '/app/View/Components/NombreDelComponente.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -555,6 +546,7 @@ return array(
     'Doctrine\\DBAL\\Platforms\\Keywords\\MariaDb102Keywords' => $vendorDir . '/doctrine/dbal/src/Platforms/Keywords/MariaDb102Keywords.php',
     'Doctrine\\DBAL\\Platforms\\Keywords\\MySQL57Keywords' => $vendorDir . '/doctrine/dbal/src/Platforms/Keywords/MySQL57Keywords.php',
     'Doctrine\\DBAL\\Platforms\\Keywords\\MySQL80Keywords' => $vendorDir . '/doctrine/dbal/src/Platforms/Keywords/MySQL80Keywords.php',
+    'Doctrine\\DBAL\\Platforms\\Keywords\\MySQL84Keywords' => $vendorDir . '/doctrine/dbal/src/Platforms/Keywords/MySQL84Keywords.php',
     'Doctrine\\DBAL\\Platforms\\Keywords\\MySQLKeywords' => $vendorDir . '/doctrine/dbal/src/Platforms/Keywords/MySQLKeywords.php',
     'Doctrine\\DBAL\\Platforms\\Keywords\\OracleKeywords' => $vendorDir . '/doctrine/dbal/src/Platforms/Keywords/OracleKeywords.php',
     'Doctrine\\DBAL\\Platforms\\Keywords\\PostgreSQL100Keywords' => $vendorDir . '/doctrine/dbal/src/Platforms/Keywords/PostgreSQL100Keywords.php',
@@ -565,12 +557,14 @@ return array(
     'Doctrine\\DBAL\\Platforms\\Keywords\\SQLServerKeywords' => $vendorDir . '/doctrine/dbal/src/Platforms/Keywords/SQLServerKeywords.php',
     'Doctrine\\DBAL\\Platforms\\Keywords\\SQLiteKeywords' => $vendorDir . '/doctrine/dbal/src/Platforms/Keywords/SQLiteKeywords.php',
     'Doctrine\\DBAL\\Platforms\\MariaDBPlatform' => $vendorDir . '/doctrine/dbal/src/Platforms/MariaDBPlatform.php',
+    'Doctrine\\DBAL\\Platforms\\MariaDb1010Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/MariaDb1010Platform.php',
     'Doctrine\\DBAL\\Platforms\\MariaDb1027Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/MariaDb1027Platform.php',
     'Doctrine\\DBAL\\Platforms\\MariaDb1043Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/MariaDb1043Platform.php',
     'Doctrine\\DBAL\\Platforms\\MariaDb1052Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/MariaDb1052Platform.php',
     'Doctrine\\DBAL\\Platforms\\MariaDb1060Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/MariaDb1060Platform.php',
     'Doctrine\\DBAL\\Platforms\\MySQL57Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/MySQL57Platform.php',
     'Doctrine\\DBAL\\Platforms\\MySQL80Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/MySQL80Platform.php',
+    'Doctrine\\DBAL\\Platforms\\MySQL84Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/MySQL84Platform.php',
     'Doctrine\\DBAL\\Platforms\\MySQLPlatform' => $vendorDir . '/doctrine/dbal/src/Platforms/MySQLPlatform.php',
     'Doctrine\\DBAL\\Platforms\\MySQL\\CollationMetadataProvider' => $vendorDir . '/doctrine/dbal/src/Platforms/MySQL/CollationMetadataProvider.php',
     'Doctrine\\DBAL\\Platforms\\MySQL\\CollationMetadataProvider\\CachingCollationMetadataProvider' => $vendorDir . '/doctrine/dbal/src/Platforms/MySQL/CollationMetadataProvider/CachingCollationMetadataProvider.php',
@@ -578,6 +572,7 @@ return array(
     'Doctrine\\DBAL\\Platforms\\MySQL\\Comparator' => $vendorDir . '/doctrine/dbal/src/Platforms/MySQL/Comparator.php',
     'Doctrine\\DBAL\\Platforms\\OraclePlatform' => $vendorDir . '/doctrine/dbal/src/Platforms/OraclePlatform.php',
     'Doctrine\\DBAL\\Platforms\\PostgreSQL100Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/PostgreSQL100Platform.php',
+    'Doctrine\\DBAL\\Platforms\\PostgreSQL120Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/PostgreSQL120Platform.php',
     'Doctrine\\DBAL\\Platforms\\PostgreSQL94Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/PostgreSQL94Platform.php',
     'Doctrine\\DBAL\\Platforms\\PostgreSQLPlatform' => $vendorDir . '/doctrine/dbal/src/Platforms/PostgreSQLPlatform.php',
     'Doctrine\\DBAL\\Platforms\\SQLServer2012Platform' => $vendorDir . '/doctrine/dbal/src/Platforms/SQLServer2012Platform.php',
@@ -3845,8 +3840,6 @@ return array(
     'League\\Config\\MutableConfigurationInterface' => $vendorDir . '/league/config/src/MutableConfigurationInterface.php',
     'League\\Config\\ReadOnlyConfiguration' => $vendorDir . '/league/config/src/ReadOnlyConfiguration.php',
     'League\\Config\\SchemaBuilderInterface' => $vendorDir . '/league/config/src/SchemaBuilderInterface.php',
-<<<<<<< HEAD
-=======
     'League\\Csv\\AbstractCsv' => $vendorDir . '/league/csv/src/AbstractCsv.php',
     'League\\Csv\\ByteSequence' => $vendorDir . '/league/csv/src/ByteSequence.php',
     'League\\Csv\\CannotInsertRecord' => $vendorDir . '/league/csv/src/CannotInsertRecord.php',
@@ -3872,7 +3865,6 @@ return array(
     'League\\Csv\\UnavailableStream' => $vendorDir . '/league/csv/src/UnavailableStream.php',
     'League\\Csv\\Writer' => $vendorDir . '/league/csv/src/Writer.php',
     'League\\Csv\\XMLConverter' => $vendorDir . '/league/csv/src/XMLConverter.php',
->>>>>>> elvis
     'League\\Flysystem\\CalculateChecksumFromStream' => $vendorDir . '/league/flysystem/src/CalculateChecksumFromStream.php',
     'League\\Flysystem\\ChecksumAlgoIsNotSupported' => $vendorDir . '/league/flysystem/src/ChecksumAlgoIsNotSupported.php',
     'League\\Flysystem\\ChecksumProvider' => $vendorDir . '/league/flysystem/src/ChecksumProvider.php',
@@ -3938,8 +3930,6 @@ return array(
     'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => $vendorDir . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
     'League\\MimeTypeDetection\\MimeTypeDetector' => $vendorDir . '/league/mime-type-detection/src/MimeTypeDetector.php',
     'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => $vendorDir . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
-<<<<<<< HEAD
-=======
     'League\\Uri\\BaseUri' => $vendorDir . '/league/uri/BaseUri.php',
     'League\\Uri\\Contracts\\AuthorityInterface' => $vendorDir . '/league/uri-interfaces/Contracts/AuthorityInterface.php',
     'League\\Uri\\Contracts\\DataPathInterface' => $vendorDir . '/league/uri-interfaces/Contracts/DataPathInterface.php',
@@ -3986,7 +3976,6 @@ return array(
     'League\\Uri\\UriTemplate\\TemplateCanNotBeExpanded' => $vendorDir . '/league/uri/UriTemplate/TemplateCanNotBeExpanded.php',
     'League\\Uri\\UriTemplate\\VarSpecifier' => $vendorDir . '/league/uri/UriTemplate/VarSpecifier.php',
     'League\\Uri\\UriTemplate\\VariableBag' => $vendorDir . '/league/uri/UriTemplate/VariableBag.php',
->>>>>>> elvis
     'Livewire\\Attribute' => $vendorDir . '/livewire/livewire/src/Attribute.php',
     'Livewire\\Attributes\\Computed' => $vendorDir . '/livewire/livewire/src/Attributes/Computed.php',
     'Livewire\\Attributes\\Isolate' => $vendorDir . '/livewire/livewire/src/Attributes/Isolate.php',
@@ -7339,8 +7328,6 @@ return array(
     'Spatie\\Backtrace\\CodeSnippets\\NullSnippetProvider' => $vendorDir . '/spatie/backtrace/src/CodeSnippets/NullSnippetProvider.php',
     'Spatie\\Backtrace\\CodeSnippets\\SnippetProvider' => $vendorDir . '/spatie/backtrace/src/CodeSnippets/SnippetProvider.php',
     'Spatie\\Backtrace\\Frame' => $vendorDir . '/spatie/backtrace/src/Frame.php',
-<<<<<<< HEAD
-=======
     'Spatie\\Color\\CIELab' => $vendorDir . '/spatie/color/src/CIELab.php',
     'Spatie\\Color\\Cmyk' => $vendorDir . '/spatie/color/src/Cmyk.php',
     'Spatie\\Color\\Color' => $vendorDir . '/spatie/color/src/Color.php',
@@ -7357,7 +7344,6 @@ return array(
     'Spatie\\Color\\Rgba' => $vendorDir . '/spatie/color/src/Rgba.php',
     'Spatie\\Color\\Validate' => $vendorDir . '/spatie/color/src/Validate.php',
     'Spatie\\Color\\Xyz' => $vendorDir . '/spatie/color/src/Xyz.php',
->>>>>>> elvis
     'Spatie\\ErrorSolutions\\Contracts\\BaseSolution' => $vendorDir . '/spatie/error-solutions/src/Contracts/BaseSolution.php',
     'Spatie\\ErrorSolutions\\Contracts\\HasSolutionsForThrowable' => $vendorDir . '/spatie/error-solutions/src/Contracts/HasSolutionsForThrowable.php',
     'Spatie\\ErrorSolutions\\Contracts\\ProvidesSolution' => $vendorDir . '/spatie/error-solutions/src/Contracts/ProvidesSolution.php',
@@ -7485,11 +7471,8 @@ return array(
     'Spatie\\Ignition\\Solutions\\SolutionTransformer' => $vendorDir . '/spatie/error-solutions/legacy/ignition/Solutions/SolutionTransformer.php',
     'Spatie\\Ignition\\Solutions\\SuggestCorrectVariableNameSolution' => $vendorDir . '/spatie/error-solutions/legacy/ignition/Solutions/SuggestCorrectVariableNameSolution.php',
     'Spatie\\Ignition\\Solutions\\SuggestImportSolution' => $vendorDir . '/spatie/error-solutions/legacy/ignition/Solutions/SuggestImportSolution.php',
-<<<<<<< HEAD
-=======
     'Spatie\\Invade\\Invader' => $vendorDir . '/spatie/invade/src/Invader.php',
     'Spatie\\Invade\\StaticInvader' => $vendorDir . '/spatie/invade/src/StaticInvader.php',
->>>>>>> elvis
     'Spatie\\LaravelIgnition\\ArgumentReducers\\CollectionArgumentReducer' => $vendorDir . '/spatie/laravel-ignition/src/ArgumentReducers/CollectionArgumentReducer.php',
     'Spatie\\LaravelIgnition\\ArgumentReducers\\ModelArgumentReducer' => $vendorDir . '/spatie/laravel-ignition/src/ArgumentReducers/ModelArgumentReducer.php',
     'Spatie\\LaravelIgnition\\Commands\\SolutionMakeCommand' => $vendorDir . '/spatie/laravel-ignition/src/Commands/SolutionMakeCommand.php',
@@ -7569,12 +7552,6 @@ return array(
     'Spatie\\LaravelIgnition\\Solutions\\SuggestUsingMariadbDatabaseSolution' => $vendorDir . '/spatie/error-solutions/legacy/laravel-ignition/Solutions/SuggestUsingMariadbDatabaseSolution.php',
     'Spatie\\LaravelIgnition\\Solutions\\SuggestUsingMysql8DatabaseSolution' => $vendorDir . '/spatie/error-solutions/legacy/laravel-ignition/Solutions/SuggestUsingMysql8DatabaseSolution.php',
     'Spatie\\LaravelIgnition\\Solutions\\UseDefaultValetDbCredentialsSolution' => $vendorDir . '/spatie/error-solutions/legacy/laravel-ignition/Solutions/UseDefaultValetDbCredentialsSolution.php',
-<<<<<<< HEAD
-=======
-    'Spatie\\LaravelIgnition\\Support\\Composer\\Composer' => $vendorDir . '/spatie/laravel-ignition/src/Support/Composer/Composer.php',
-    'Spatie\\LaravelIgnition\\Support\\Composer\\ComposerClassMap' => $vendorDir . '/spatie/laravel-ignition/src/Support/Composer/ComposerClassMap.php',
-    'Spatie\\LaravelIgnition\\Support\\Composer\\FakeComposer' => $vendorDir . '/spatie/laravel-ignition/src/Support/Composer/FakeComposer.php',
->>>>>>> elvis
     'Spatie\\LaravelIgnition\\Support\\FlareLogHandler' => $vendorDir . '/spatie/laravel-ignition/src/Support/FlareLogHandler.php',
     'Spatie\\LaravelIgnition\\Support\\LaravelDocumentationLinkFinder' => $vendorDir . '/spatie/laravel-ignition/src/Support/LaravelDocumentationLinkFinder.php',
     'Spatie\\LaravelIgnition\\Support\\LaravelVersion' => $vendorDir . '/spatie/laravel-ignition/src/Support/LaravelVersion.php',

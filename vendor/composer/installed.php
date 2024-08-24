@@ -3,11 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-<<<<<<< HEAD
-        'reference' => 'dcf8348b394bf82ef559efb7aa6322791598f89f',
-=======
-        'reference' => 'cbb357e66f33291f98720c6444d0ed486d41b91b',
->>>>>>> elvis
+        'reference' => 'c61da7c4020b04b5109744267ad40e7f054418da',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -108,9 +104,9 @@
             'dev_requirement' => false,
         ),
         'doctrine/dbal' => array(
-            'pretty_version' => '3.8.7',
-            'version' => '3.8.7.0',
-            'reference' => '2093d670ca17f634f3c095ec10a20687eccebd99',
+            'pretty_version' => '3.9.0',
+            'version' => '3.9.0.0',
+            'reference' => 'd8f68ea6cc00912e5313237130b8c8decf4d28c6',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
@@ -530,11 +526,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< HEAD
-            'reference' => 'dcf8348b394bf82ef559efb7aa6322791598f89f',
-=======
-            'reference' => 'cbb357e66f33291f98720c6444d0ed486d41b91b',
->>>>>>> elvis
+            'reference' => 'c61da7c4020b04b5109744267ad40e7f054418da',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -550,15 +542,9 @@
             'dev_requirement' => true,
         ),
         'laravel/prompts' => array(
-<<<<<<< HEAD
             'pretty_version' => 'v0.1.25',
             'version' => '0.1.25.0',
             'reference' => '7b4029a84c37cb2725fc7f011586e2997040bc95',
-=======
-            'pretty_version' => 'v0.1.24',
-            'version' => '0.1.24.0',
-            'reference' => '409b0b4305273472f3754826e68f4edbd0150149',
->>>>>>> elvis
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/prompts',
             'aliases' => array(),
@@ -610,15 +596,9 @@
             'dev_requirement' => false,
         ),
         'league/commonmark' => array(
-<<<<<<< HEAD
             'pretty_version' => '2.5.3',
             'version' => '2.5.3.0',
             'reference' => 'b650144166dfa7703e62a22e493b853b58d874b0',
-=======
-            'pretty_version' => '2.5.2',
-            'version' => '2.5.2.0',
-            'reference' => 'df09d5b6a4188f8f3c3ab2e43a109076a5eeb767',
->>>>>>> elvis
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/commonmark',
             'aliases' => array(),
@@ -688,15 +668,9 @@
             'dev_requirement' => false,
         ),
         'livewire/livewire' => array(
-<<<<<<< HEAD
             'pretty_version' => 'v3.5.6',
             'version' => '3.5.6.0',
             'reference' => '597a2808d8d3001cc3ed5ce89a6ebab00f83b80f',
-=======
-            'pretty_version' => 'v3.5.4',
-            'version' => '3.5.4.0',
-            'reference' => 'b158c6386a892efc6c5e4682e682829baac1f933',
->>>>>>> elvis
             'type' => 'library',
             'install_path' => __DIR__ . '/../livewire/livewire',
             'aliases' => array(),
@@ -880,15 +854,9 @@
             'dev_requirement' => false,
         ),
         'phpunit/php-code-coverage' => array(
-<<<<<<< HEAD
             'pretty_version' => '10.1.16',
             'version' => '10.1.16.0',
             'reference' => '7e308268858ed6baedc8704a304727d20bc07c77',
-=======
-            'pretty_version' => '10.1.15',
-            'version' => '10.1.15.0',
-            'reference' => '5da8b1728acd1e6ffdf2ff32ffbdfd04307f26ae',
->>>>>>> elvis
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/php-code-coverage',
             'aliases' => array(),
@@ -1050,8 +1018,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1264,8 +1232,6 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-<<<<<<< HEAD
-=======
         'spatie/color' => array(
             'pretty_version' => '1.5.3',
             'version' => '1.5.3.0',
@@ -1275,7 +1241,6 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
->>>>>>> elvis
         'spatie/error-solutions' => array(
             'pretty_version' => '1.1.1',
             'version' => '1.1.1.0',
